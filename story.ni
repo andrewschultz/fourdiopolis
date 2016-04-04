@@ -955,7 +955,7 @@ after reading a command:
 	let locom be the player's command in lower case;
 	if period-warn is false:
 		if locom matches the regular expression "\.":
-			say "You don't need to separate commands with periods. You may find out why in a bit. In the meantime, they may annoy the parser.";
+			say "You don't need to separate commands with periods. You [if score > 1]should've been noted you can munge directions together[else]may find out why in a bit[end if]. In the meantime, they may distract the parser.";
 			now period-warn is true;
 			wfak;
 	if locom matches the regular expression "^<ewnsudhijk \.>*$":
