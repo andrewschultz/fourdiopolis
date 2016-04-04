@@ -975,7 +975,7 @@ ignore-remaining-dirs is a truth state that varies.
 to dirparse (dirlump - indexed text):
 	if number of characters in dirlump > 2 and number of characters in your-tally > 0:
 		if debug-state is true:
-			say "[your-tally] and [number of characters in dirlump].";
+			say "DEBUG: [your-tally] and [number of characters in dirlump].";
 		say "You aren't starting from the center. Do you still wish to turbo ahead?";
 		if the player consents:
 			say "Ok.";
@@ -991,6 +991,7 @@ to dirparse (dirlump - indexed text):
 		say "You pick up the pace of your wandering, there, planning a few blocks ahead.";
 		now ever-fast is true;
 	now dirparsing is true;
+	now ignore-remaining-dirs is false;
 	now posschars is number of characters in your-tally + allchar;
 	repeat with charnum running from 1 to allchar:
 		unless ignore-remaining-dirs is true:
