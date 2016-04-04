@@ -176,8 +176,10 @@ to say outside-rand:
 	else if the remainder after dividing thiscount by 16 is 8:
 		say "A couple argues over the safest of six ways to walk to a new neighborhood 1 up 1 north 1 east";
 	else if the remainder after dividing thiscount by 32 is 16:
-		say "An idealistic youngun tries to plot how many trips it'd take to visit all of Fourdiopolis's main blocks. He uses up so much scratch paper, he's warned and shooed by a Waste Police droid";
-	if thiscount is 32:
+		say "In a fit of civic pride, citizens kvetch that Fourdiopolis will always be superior to Undergroundgrad, which may be the same size, but half of it doesn't COUNT";
+	else if the remainder after dividing thiscount by 64 is 32:
+		say "An idealistic youngun tries to plot how many trips it'd take to visit all of Fourdiopolis's main blocks. He uses up so much scratch paper, he's warned and shooed by a Waste Police droid[one of] (this is the last of the random nonsense)[or][stopping]";
+	if thiscount is 64:
 		now thiscount is 0;
 	
 instead of waiting:
@@ -388,6 +390,7 @@ after printing the locale description:
 					if scenery-found-yet is false:
 						bracket-say "this wasn't critical to the game, but it's just something neat to find. There are [number of rows in table of scenery - 1] more to find, but they're meant to be obscure. Congratulations on finding one, though!";
 						now scenery-found-yet is true;
+					now found entry is 1;
 	if your-tally is "hidden" or your-tally is "inside":
 		move hideout to outside-area;
 
@@ -619,7 +622,7 @@ to run-the-ending:
 	if lists-done is 4:
 		say "You've gotten all the supplies the rebels need! Now, for the final challenge: find fun stuff that will make a revolution worthwhile. There's--well, we don't know much about having fun, but we're sure other people do.";
 	else:
-		say "'But hey! You did such a good job this run. [score] of 20 is impressive. There's still a bit more long errands to do. We're--well, even shorter of competent people like you to find stuff. There's just [4 - lists-done in words] other big twenty-item tasks left to do, but--it'll be about the same challenge as what you already found.'";
+		say "'You did such a good job this run. [score] of 20 is impressive. But hey! There's still a bit more big task lists. We're--well, even shorter of competent people like you to find stuff. There's just [4 - lists-done in words] other big twenty-item tasks left to do, but--it'll be about the same challenge as what you already found.'";
 	end-with-undo;
 
 book what to find
@@ -913,7 +916,7 @@ to say msg:
 		continue the action;
 	repeat through table of end msgs:
 		if mytab entry is your-table:
-			say "[if score > 14][losemsg entry][else][winmsg entry][end if]";
+			say "[if score > 14][winmsg entry][else][losemsg entry][end if]";
 			continue the action;
 	let q be mids-solved;
 	if q is 3:
@@ -1029,13 +1032,17 @@ silly-row is a number that varies.
 
 note-bad is a truth state that varies.
 
+cycle-note is a truth state that varies.
+
 every turn (this is the silly stuff rule):
 	if show-silly is true:
 		if a random chance of 1 in 3 succeeds:
 			increment silly-row;
 			if silly-row > number of rows in table of silly randoms:
 				now silly-row is 1;
-				bracket-say "You've cycled through all the random text, if you were curious.";
+				if cycle-note is false:
+					bracket-say "You've cycled through all the random text, if you were curious.";
+					now cycle-note is true;
 			choose row silly-row in table of silly randoms;
 			say "[silliness entry][line break]";
 			if note-bad is false:
@@ -1583,14 +1590,14 @@ test 2w with "x/hijinks/c/hikes/c/issues/c/keen/c/kind/c/kinesis/c/nein/c/sensei
 test 2wx with "x/hijinks/cx/hikes/cx/issues/cx/keen/cx/kind/cx/kinesis/cx/nein/cx/sensei/cx/sines/cx/sinews/cx/sins/cx/sinus/cx/skew/cx/skies/cx/uhhuh/cx/undenied/cx/whenwewin/cx/whine/cx/wise/cx/wushu/cx/inside/cx"
 
 test 3win with "fo 3/desks/c/dishes/c/disused/c/hens/c/hides/c/juju/c/junk/c/kiwis/c/nines/c/nukes/c/sheds/c/skein/c/skunks/c/swine/c/undies/c/unhewn/c/unis/c/win/c/wines/c/wishes/c/hidden/c"
-
+c
 test 3w with "x/desks/c/dishes/c/disused/c/hens/c/hides/c/juju/c/junk/c/kiwis/c/nines/c/nukes/c/sheds/c/skein/c/skunks/c/swine/c/undies/c/unhewn/c/unis/c/win/c/wines/c/wishes/c/hidden/c"
 
 test 3wx with "x/desks/cx/dishes/cx/disused/cx/hens/cx/hides/cx/juju/cx/junk/cx/kiwis/cx/nines/cx/nukes/cx/sheds/cx/skein/cx/skunks/cx/swine/cx/undies/cx/unhewn/cx/unis/cx/win/cx/wines/cx/wishes/cx/hidden/cx"
 
-test 4win with "fo 4/denied/c/disses/c/djinn/c/dukes/c/hunks/c/huns/c/hussies/c/indies/c/inked/c/jedi/c/jejune/c/jeune/c/junkies/c/kids/c/kink/c/nein/c/sheikhs/c/sike/c/snide/c/swiss/c/inside/c"
+test 4win with "fo 4/denied/c/disses/c/djinn/c/dukes/c/hunks/c/huns/c/hussies/c/indies/c/inked/c/jedi/c/jejune/c/jeune/c/junkies/c/kids/c/kink/c/ninnies/c/sheikhs/c/sike/c/snide/c/swiss/c/inside/c"
 
-test 4w with "x/denied/c/disses/c/djinn/c/dukes/c/hunks/c/huns/c/hussies/c/indies/c/inked/c/jedi/c/jejune/c/jeune/c/junkies/c/kids/c/kink/c/nein/c/sheikhs/c/sike/c/snide/c/swiss/c/inside/c"
+test 4w with "x/denied/c/disses/c/djinn/c/dukes/c/hunks/c/huns/c/hussies/c/indies/c/inked/c/jedi/c/jejune/c/jeune/c/junkies/c/kids/c/kink/c/ninnies/c/sheikhs/c/sike/c/snide/c/swiss/c/inside/c"
 
 test 4wx with "x/denied/cx/disses/cx/djinn/cx/dukes/cx/hunks/cx/huns/cx/hussies/cx/indies/cx/inked/cx/jedi/cx/jejune/cx/jeune/cx/junkies/cx/kids/cx/kink/cx/nein/cx/sheikhs/cx/sike/cx/snide/cx/swiss/cx/inside/cx"
 
