@@ -161,8 +161,25 @@ to say r:
 
 book the room
 
-outside-area is a privately-named room. printed name of outside-area is "Sector [sec of ud][sec of ns][sec of ew]". "A nonlinear transporter is nearby. You could sneak in, if you're tired of walking."
+outside-area is a privately-named room. printed name of outside-area is "Sector [sec of ud][sec of ns][sec of ew]". "[outside-rand]."
 
+thiscount is a number that varies.
+
+to say outside-rand:
+	increment thiscount;
+	if the remainder after dividing thiscount by 2 is 1:
+		say "A nonlinear transporter is nearby. You could sneak in, if you're tired of walking";
+	else if the remainder after dividing thiscount by 4 is 2:
+		say "You've grown oblivious to the whooshing of transport tubes";
+	else if the remainder after dividing thiscount by 8 is 4:
+		say "Several young hooligans dare a prospective gang member to try to teleport outside the city bounds, unless he's CHICKEN";
+	else if the remainder after dividing thiscount by 16 is 8:
+		say "A couple argues over the safest of six ways to walk to a new neighborhood 1 up 1 north 1 east";
+	else if the remainder after dividing thiscount by 32 is 16:
+		say "An idealistic youngun tries to plot how many trips it'd take to visit all of Fourdiopolis's main blocks. He uses up so much scratch paper, he's warned and shooed by a Waste Police droid";
+	if thiscount is 32:
+		now thiscount is 0;
+	
 instead of waiting:
 	say "Loitering is a serious offense in Fourdiopolis. Officers often patrol for loiterers.";
 
@@ -354,6 +371,12 @@ to tally-and-place:
 				if location of what-drops entry is not outside-area:
 					move what-drops entry to outside-area;
 					continue the action;
+					
+after printing the locale description:
+	let A be indexed text;
+	now A is your-tally;
+	repeat through table of solvable tables:
+		sweep-up tabname entry;
 	repeat through table of scenery:
 		if A is tally entry in lower case:
 			if found entry is not 1:
@@ -363,10 +386,28 @@ to tally-and-place:
 				else:
 					say "[foundit entry][line break]";
 					if scenery-found-yet is false:
-						say "[bracket]NOTE: this wasn't critical to the game, but it's just something neat to find. There are [number of rows in table of scenery - 1] more to find, but they're meant to be obscure. Congratulations on finding one, though!";
+						bracket-say "this wasn't critical to the game, but it's just something neat to find. There are [number of rows in table of scenery - 1] more to find, but they're meant to be obscure. Congratulations on finding one, though!";
 						now scenery-found-yet is true;
 	if your-tally is "hidden" or your-tally is "inside":
 		move hideout to outside-area;
+
+to sweep-up (x - a table name):
+	if x is table of friends: [never look back]
+		continue the action;
+	if x is your-table: [don't clue something that dropped just now]
+		continue the action;
+	if your-table is table of just plain cool stuff and x is not table of last names: [don't clue any of the 3 previous in cool stuff mode]
+		continue the action;
+	choose row with tabname of x in table of solvable tables;
+	if tabsolv entry is true: [don't clue stuff already solved]
+		continue the action;
+	repeat through x:
+		if your-tally is tally entry in lower case:
+			if x is table of last names:
+				say "You feel very cold. Something unknown but oppressive lies nearby, but you don't have the means or skill to see it, yet.";
+				continue the action;
+			say "You feel like maybe you got a bit ahead of yourself, here, and maybe you should remember this place for a later time.";
+			continue the action;
 
 scenery-found-yet is a truth state that varies.
 
@@ -495,7 +536,7 @@ a surprisingly churchy looking place is a quasi-entry. description is "Even huma
 check entering ominous door:
 	say "Assisted suicide is more rigorous than in Threediopolis. A hundred years ago, the Death Panels there (not the healthcare kind, silly!) only gave punditly views on the how and why before you pegged out, but--the authorities realized nobody asked YOU! The person of the moment![paragraph break]You're given surveys...questionnaires...what would you do better? What do you think authorities would do better? No, no, you are just lashing out because you are suicidal.  No, those free striped lollipops are for employees, not clients. Perhaps a moment to reconsider? If you're not in a rush? Ah, yes, even the unsatisfied are satisfied in Fourdiopolis.[paragraph break]";
 	say "Erm, yeah. This isn't the best ending. Not at all. You may wish to UNDO.";
-	end the story;
+	end-with-undo;
 
 check going inside when a quasi-entry is visible:
 	try entering a random visible quasi-entry instead;
@@ -521,13 +562,13 @@ to run-the-ending:
 	if your-table is table of friends:
 		if score < 15:
 			say "'Only [score]? That simply won't do. We need someone who can do a bit more...' You're drummed out in disgrace. A month later, though, you're arrested at 2 AM as an associate of the potential rebels.";
-		end the story;
+		end-with-undo;
 		say "'Good job! That's [if score < 18]enough to be promoted to a general runner[else]even better than we hoped[end if]! There's...a few more task lists. We're short of people. Some get lost, and captured. Can you do a bit more?'";
 		bracket-say "You can RESTART and you'll have access to a new puzzle. You can also type UNDID to try this again. Or, if you lose your save file, I SEEK KEEN will jump over finding the friends.[paragraph break]But seriously, being able to get through this list is an accomplishment. Go take some time to feel good about yourself. Fourdiopolis is not an easy game!";
 		choose row 1 in table of accomplishments;
 		now solved entry is true;
 		write file of accomplishments from the table of accomplishments;
-		end the story;
+		end-with-undo;
 		continue the action;
 	if your-table is table of last names:
 		if score is 0:
@@ -536,7 +577,7 @@ to run-the-ending:
 			say "'A bit disappointing, but, well, they'll be exposed with time anyway.'";
 		else:
 			say "'A majority! Perhaps there is some hope that they can be scared to act before we have to.'[paragraph break]You ask if you can come along for the shenanigans, but they assure you your technical skills are far too valuable. You feel sort of ripped off, until you realize that means all-you-can-eat from the supplies you requisitioned earlier.";
-		end the story;
+		end-with-undo;
 		continue the action;
 	if your-table is table of just plain cool stuff:
 		if score < 15:
@@ -547,7 +588,7 @@ to run-the-ending:
 			choose row 5 in table of accomplishments;
 			now solved entry is true;
 			write file of accomplishments from the table of accomplishments;
-		end the story;
+		end-with-undo;
 		continue the action;
 	let lists-done be 0;
 	repeat through table of accomplishments:
@@ -555,7 +596,7 @@ to run-the-ending:
 			increment lists-done;
 	if score < 15:
 		say "Your overseers grumble. 'Well, maybe we'll get someone else to do the rest.'";
-		end the story;
+		end-with-undo;
 		continue the action;
 	debug-say "Completed [your-table].";
 	if your-table is table of education:
@@ -579,7 +620,7 @@ to run-the-ending:
 		say "You've gotten all the supplies the rebels need! Now, for the final challenge: find fun stuff that will make a revolution worthwhile. There's--well, we don't know much about having fun, but we're sure other people do.";
 	else:
 		say "'But hey! You did such a good job this run. [score] of 20 is impressive. There's still a bit more long errands to do. We're--well, even shorter of competent people like you to find stuff. There's just [4 - lists-done in words] other big twenty-item tasks left to do, but--it'll be about the same challenge as what you already found.'";
-	end the story;
+	end-with-undo;
 
 book what to find
 
@@ -655,7 +696,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "keen"	"motivation"	"You can never have too much motivation. Unless you spend too much time motivating yourself, you forget to do anything."	edutainment storefront	0
 "kind"	"decency"	"You learn not only how to be nice but how to fool people into thinking you're nice enough they better like you and if they're doubting that, they feel guilty. You'll only use the second in an emergency. You hope."	edutainment storefront	0
 "kinesis"	"mobility"	"You learn how to sneak around authorities even if you're not naturally nimble."	edutainment storefront	0
-"nein"	"foreign languages"	"You learn useful things to say in different languages: yes, no, please, and Dude, Whatever."	edutainment storefront	0
+"nein"	"foreign languages, or not"	"You learn useful things to say in different languages: yes, no, please, and Dude, Whatever."	edutainment storefront	0
 "sensei"	"Eastern wisdom"	"You put up with perhaps a bit more mumbo-jumbo terminology than you want, but the break from extreme capitalism, while heretical, is surprisingly soothing."	edutainment storefront	0
 "sines"	"advanced math lesson"	"You endure a very useful trigonometry lesson, you think. You remember which is sine and which is cosine, but now you've knocked out secant and cosecant."	tiny schoolhouse	0
 "sinews"	"proper physical health"	"You get a quick work-couse in physiology, necessary for protestors and operatives who need stamina."	edutainment storefront	0
@@ -699,7 +740,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "unhewn"	"rock to carve"	"You're not sure how it's going to be teleported back to headquarters--there's still a weight limit, though it's higher than it needs to be--or why it's here. But, you're in execution, not planning."	dusty warehouse	0
 "unis"	"clothes to have pride in"	"Man! These uniforms look spiffy. You're a bit worried they'd kind of expose the revolution, but--they're reversible into plain and boring! Woo!"	dusty warehouse	0
 "win"	"stupid pro-government buttons for cover"	"'So! Ready to whip inflation now?' The--the guy seems serious. You look horrified. 'Ah, good, just a test. If that didn't upset you, you might be one of the bad guys.'"	dusty warehouse	0
-"wines"	"alcohol"	"Oh man! Not just the freeze-dried stuff, but the really bubbly stuff!"	beaten-up store	0
+"wines"	"alcoholic beverages"	"Oh man! Not just the freeze-dried stuff, but the really bubbly stuff!"	beaten-up store	0
 "wishes"	"stuff to look forward to"	"You look down at your list. 'Yes,' you think to yourself. '[if score > 18]Celebrating with the people hidden inside[else]A few of these[end if] will be more fun to go through than this one.'"	surprisingly churchy looking place	0
 
 table of sup yay
@@ -728,7 +769,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "junkies"	"people hooked on caffeine NOT from overpriced coffee"	"Apparently there is a whole repository of places to get caffeine. All kinds of rainbow colored pop! And worse, Well, that certainly seems worth fighting for."	hovel	0
 "kids"	"useful idealists"	"Some kids aren't 'practical' enough to accept the reality of life in Fourdiopolis. Their views are refreshing."	tiny schoolhouse	0
 "kink"	"illicit pleasure joint"	"Oh dear! You're not sure what's going on here. You're not sure you want to look. But these people are pro-freedom, for sure. You gain a few recruits."	warehouse	0
-"nein"	"stubborn foreign resistance"	"You don't know much German, but you know enough...and you need as many ways to say no as possible."	hovel	0
+"ninnies"	"disparaged as stupid"	"Wow! You're impressed. Some people make a bad first impression because they don't seem as smart as they should...[i]but they have spent more time becoming smart than looking smart[r]. Wow!"	hovel	0
 "sheikhs"	"foreign aid"	"The geopolitical blah blah has people from foreign countries under the thumb of city-states like Fourdiopolis. They have power in their own country--but they're concerned emigrants to Fourdiopolis have been treated poorly."	hovel	0
 "sike"	"purveyors of annoying slang"	"All annoying slang eventually becomes cool again. And besides, it might annoy the right people, done right. You learn a bit from them."	hovel	0
 "snide"	"beyond confidence"	"These people aren't arrested for being snide but for being snide about the wrong things. No--no, they're being snide about the right things, right? You're pretty convinced by this. They're less obnoxious than government propaganda, and sometimes it's not enough to say 'It's not fair.'"	hovel	0
@@ -864,7 +905,35 @@ story-ended is a truth state that varies.
 
 to end-with-undo:
 	now story-ended is true;
-	end the story;
+	end the story saying "[msg]";
+
+to say msg:
+	if your-tally is "die":
+		say "Hope you enjoyed the silly death";
+		continue the action;
+	repeat through table of end msgs:
+		if mytab entry is your-table:
+			say "[if score > 14][losemsg entry][else][winmsg entry][end if]";
+			continue the action;
+	let q be mids-solved;
+	if q is 3:
+		say "On to the random stuff";
+		continue the action;
+	say "[q in words] down, [if score > 14]now only[else]still[end if] [3 - q in words] to go"
+
+to decide which number is mids-solved:
+	let retval be 0;
+	repeat with tr running from 2 to 4:
+		choose row tr in table of accomplishments;
+		if solved entry is true:
+			increment retval;
+	decide on retval.
+
+table of end msgs
+mytab	losemsg	winmsg
+table of friends	"Maybe next time"	"First task done"
+table of just plain cool stuff	"Close, but..."	"All over except the last round"
+table of last names	"Well, it was meant to be tough"	"Very impressive indeed"
 
 rule for deciding whether to allow undo:
 	if story-ended is true:
@@ -1062,17 +1131,25 @@ rule for supplying a missing noun when entering:
 		now the noun is a random visible quasi-entry;
 
 Rule for printing a parser error when the latest parser error is the I beg your pardon error:
-	if the score is 20:
-		say "No dawdling! Time to go back to the hideout. Where was it hidden inside, again?" instead;
-	say "You consider what to do next. Hmm, ";
-	let cur-row be 1;
+	let any-left be false;
 	repeat through your-table:
 		if found entry is 0:
-			if there is no descrip entry:
-				say "(needs descrip entry).";
-			else:
-				say "[descrip entry] at [sector-num of tally entry] seems as good as any.";
-			the rule succeeds;
+			now any-left is true;
+	if any-left is false:
+		say "No dawdling! Time to go back to the hideout. Where was it hidden inside, again?" instead;
+	say "You consider what to do next. Hmm, look for the shortest first: ";
+	let cur-length be 3;
+	while cur-length < 9:
+		repeat through your-table:
+			if number of characters in tally entry is cur-length:
+				if found entry is 0:
+					if there is no descrip entry:
+						say "(needs descrip entry).";
+					else:
+						say "[descrip entry] at [sector-num of tally entry] seems as good as any.";
+					the rule succeeds;
+		increment cur-length;
+	say "BUG. Nothing is left.";
 
 Rule for printing a parser error when the latest parser error is the not a verb i recognise error:
 	say "I didn't recognize that verb. You can type V for the verbs available. None should be too complex.";
@@ -1080,7 +1157,7 @@ Rule for printing a parser error when the latest parser error is the not a verb 
 chapter ring
 
 after printing the locale description:
-	if ns is 0 and ew is 0 and ud is 0 and number of characters in your-tally < 2:
+	if ns is 0 and ew is 0 and ud is 0 and number of characters in your-tally > 1:
 		say "You sense you're both at the center and not, at the same time.";
 	continue the action;
 
@@ -1238,6 +1315,7 @@ when play begins (this is the check accomplishments at start rule) :
 		read file of accomplishments into table of accomplishments;
 	else:
 		write file of accomplishments from the table of accomplishments;
+	port-solvable;
 	choose row 1 in table of accomplishments;
 	if solved entry is false:
 		if debug-state is true:
@@ -1263,6 +1341,13 @@ when play begins (this is the check accomplishments at start rule) :
 				say "[bold type]DEBUG: test 5win to get through.";
 		else:
 			midtable-choose;
+
+to port-solvable:
+	repeat with J running from 1 to 5:
+		choose row J in table of accomplishments;
+		let temp be solved entry;
+		choose row J in table of solvable tables;
+		now tabsolv entry is temp;
 
 to decide whether all-else-solved:
 	let Q be 2;

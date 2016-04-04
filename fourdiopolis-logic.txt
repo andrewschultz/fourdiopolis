@@ -345,7 +345,7 @@ Marginalized people
 DA4 (kinda far), CE3 (kinda far), E20 (kinda near), 2CA (kinda near), 500 (kinda near).
 322 (near), 1C5 (far), ED5 (kinda far), AC1 (kinda near), E01 (near).
 C5B (kinda far), A30 (kinda near), ABA (far), AE0 (near), 2EB (near).
-B03 (near), 4B5 (far), 0E1 (near), CB3 (kinda near), BE1 (kinda near).
+DB5(very far), 4B5 (far), 0E1 (near), CB3 (kinda near), BE1 (kinda near).
 
 Let's start with near. 322 = close to 222, and there's an up move. So UH(EW/NS/UD) ... DUUH is a silly possibility but WEUH also doesn't have much. HUNS turns out to be it.
 
@@ -355,14 +355,14 @@ AE0 also requires two jumps, but these are y-negative. I and K, with D and S. S(
 
 2EB needs three jumps. With only one, we'd get to 222 or 2BB, but that's too far away. We need the y coordinate to be -6 (it's 4x+2), and then the walking direction must be north. Three y-negative jumps mean a combination of K and I. 2 K's, 1 I, and starting with N gives NIKK, but K gives KINK.
 
-The foreign resistance is at B03. It has one jump, which must be I. That leaves 2N and E. NEIN is a foreign word.
+I'll take a detour to the very far DB5 here. This is because I replaced a duplicate (NEIN) with something else, but this--should make sense. If DB5 has 4 jumps, then the jump part is D04 (KKJH combo) leaving SSE and nonsense--it'd need to start SE to be alphabetical. Or DD8 (KKKH combo) is just too far away. So there are only 2 jumps. DD4 is the only two-jump combo that gets close, so that's 2 I's. Then you have 2 N's and an E. Now this could start with an S but SE(IINNN) and SI(EINNN) don't turn up anything. Also the plural is an indication there's an S--and there must be another N. The word needs to start with N to be alphabetical. N(EIINN)S and some futzing with NE(IINN)S gives nothing but NINNIES works out okay.
 
 Annoying slang has two jumps. 0E1 is close to 0D0, and then that's I and K, leaving S and E as directions. So it starts with S. SIKE.
 
 DA4 (kinda far), CE3 (kinda far), E20 (kinda near), 2CA (kinda near), 500 (kinda near).
 HUNS, 1C5 (far), ED5 (kinda far), AC1 (kinda near), JEDI.
 C5B (kinda far), A30 (kinda near), ABA (far), KIDS, KINK.
-NEIN, 4B5 (far), SIKE, CB3 (kinda near), BE1 (kinda near).
+NINNIES, 4B5 (far), SIKE, CB3 (kinda near), BE1 (kinda near).
 
 Kinda near next.
 
@@ -383,7 +383,7 @@ Finally BE1 could actually have three transporters. IKI is a possibility, leavin
 DA4 (kinda far), CE3 (kinda far), DJINN, DUKES, HUNKS.
 HUNS, 1C5 (far), ED5 (kinda far), INKED, JEDI.
 C5B (kinda far), JEUNE, ABA (far), KIDS, KINK.
-NEIN, 4B5 (far), SIKE, SNIDE, SWISS.
+NINNIES, 4B5 (far), SIKE, SNIDE, SWISS.
 
 Now the first two kinda-fars aren't too bad. They must start with D. So DA4 in 6 becomes CA4 in 5. If you hit 3 transporters you may get to BBB or BB6 but you'll need 2 moves to walk 4+ blocks. So, one transporter. I is it. DNEE is the rest of it. DDEEIN is DENIED.
 
@@ -392,7 +392,7 @@ The next one is also not too terrible. CE3 in 6 becomes BE3 in 5. BF2 is actuall
 DENIED, DISSES, DJINN, DUKES, HUNKS.
 HUNS, 1C5 (far), ED5 (kinda far), INKED, JEDI.
 C5B (kinda far), JEUNE, ABA (far), KIDS, KINK.
-NEIN, 4B5 (far), SIKE, SNIDE, SWISS.
+NINNIES, 4B5 (far), SIKE, SNIDE, SWISS.
 
 That's enough to report back and do more, but let's check the kinda-fars.
 
@@ -472,6 +472,48 @@ You're over fifteen now, but the rest can be guessed as well...they are more gen
 =======================================
 
 Advanced stuff
+
+=======================================
+
+Table for 4-jumps ... each destination has only one combination to get there.
+
+000 => hijk
+008 => hhkk
+00H => iijj
+044 => hhjk
+04D => hijj
+080 => hhjj
+0D4 => hikk
+0DD => iijk
+0H0 => iikk
+404 => hhik
+40D => hiij
+440 => hhij
+448 => hhhk
+484 => hhhj
+4D0 => hiik
+4DH => iiij
+4HD => iiik
+800 => hhii
+844 => hhhi
+888 => hhhh
+8DD => hiii
+8HH => iiii
+D04 => hjkk
+D0D => ijjk
+D40 => hjjk
+D4H => ijjj
+D8D => hjjj
+DD0 => ijkk
+DD8 => hkkk
+DH4 => ikkk
+H00 => jjkk
+H4D => jjjk
+H8H => jjjj
+HD4 => jkkk
+HH8 => kkkk
+
+===========================================
 
 Now it is a bit tricky to find out when two things might overlap. For three letters, there is only one possibility, well, mirrored. Fortunately, the letter lumping involved means that it's pretty easy to determine what works, for short words.
 
