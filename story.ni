@@ -854,8 +854,9 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "duh"	--	"Oh, man! You can't believe you missed THAT one. It's obvious now!"	--	0
 "ennui"	--	"Yyyyyawn. What's the point?"	--	0
 "heed"	--	"Some police give a particularly stern lecture to a citizen not fully obeying some minor law."	--	0
-"hehheh"	--	"[hehhuh]."	--	0
-"huhhuh"	--	"[hehhuh]."	--	0
+"heehee"	--	"You think of a silly pun that feels funnier than it has a right to be."	--	0
+"huhheh"	--	"[hehhuh]."	--	0
+"huhheh"	--	"[hehhuh]."	--	0
 "iknew"	--	"Someone covers for looking stupid by explaining they were just being really, really ironic."	--	0
 "inkiness"	--	"Everything's a bit cloudy, here."	--	0
 "keds"	--	"[snee]."	--	0
@@ -866,6 +867,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "seek"	--	"You spy someone else with a sheet similar to yours. You don't acknowledge them, though. Can't be too careful."	--	0
 "seine"	--	"You feel a flavor of Gay Paree."	--	0
 "shins"	--	"You grab an old ache for a moment."	--	0
+"shishe"	--	"You smell evidence people are--gasp--SMOKING. You remember health warnings that a whiff of the good smelling stuff is worse than the bad smelling stuff, and vice versa."	--	0
 "shun"	--	"You feel very, very alone. People are more than just giving you your space."	--	0
 "shush"	--	"'Oh, sure, you can THINK that, just don't SAY it, you know?'"	--	0
 "skidded"	--	"A goverment utility vehicle swerves and almost hits someone about to jaywalk. Funny how one is always around, unless you jaywalk REALLY assertively."	--	0
