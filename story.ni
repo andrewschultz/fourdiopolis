@@ -17,6 +17,8 @@ release along with a website.
 
 release along with an interpreter.
 
+release along with cover art.
+
 the release number is 1.
 
 section includes
@@ -169,14 +171,18 @@ to say outside-rand:
 	increment thiscount;
 	if the remainder after dividing thiscount by 2 is 1:
 		say "A nonlinear transporter is nearby. You could sneak in, if you're tired of walking";
-	else if the remainder after dividing thiscount by 4 is 2:
+	else if the remainder after dividing thiscount by 8 is 2:
 		say "You've grown oblivious to the whooshing of transport tubes";
 	else if the remainder after dividing thiscount by 8 is 4:
 		say "Several young hooligans dare a prospective gang member to try to teleport outside the city bounds, unless he's CHICKEN";
-	else if the remainder after dividing thiscount by 16 is 8:
+	else if the remainder after dividing thiscount by 8 is 6:
+		say "A worldly-wise eleven-year-old explains to a ten-year-old that if you jaywalk, do it in the MIDDLE of the street, because thinking BIG. Also, it'll be harder for police cruisers to pull you over";
+	else if the remainder after dividing thiscount by 32 is 8:
 		say "A couple argues over the safest of six ways to walk to a new neighborhood 1 up 1 north 1 east";
 	else if the remainder after dividing thiscount by 32 is 16:
 		say "In a fit of civic pride, citizens kvetch that Fourdiopolis will always be superior to Undergroundgrad, which may be the same size, but half of it doesn't COUNT";
+	else if the remainder after dividing thiscount by 32 is 24:
+		say "A distinguished-looking [if a random chance of 1 in 2 succeeds]wo[end if]man slips a street urchin 1000000 New Scrip for spraying particularly creative pro-government graffiti. The kid is grateful--food for a whole week! Or nutritious food for two days! Whichever";
 	else if the remainder after dividing thiscount by 64 is 32:
 		say "An idealistic youngun tries to plot how many trips it'd take to visit all of Fourdiopolis's main blocks. He uses up so much scratch paper, he's warned and shooed by a Waste Police droid[one of] (this is the last of the random nonsense)[or][stopping]";
 	if thiscount is 64:
@@ -235,13 +241,16 @@ before going (this is the don't waste my time with all those extra letters alrea
 
 check going south:
 	now your-tally is "[your-tally]s";
+	check-nearlies;
+	decrement ns;
 	if ns < -9:
 		say "[losted]";
 		reset-game instead;
-	decrement ns;
+	check-nearlies;
 		
 check going north:
 	now your-tally is "[your-tally]n";
+	check-nearlies;
 	increment ns;
 	if ns > 9:
 		say "[losted]";
@@ -249,13 +258,15 @@ check going north:
 
 check going west:
 	now your-tally is "[your-tally]w";
+	check-nearlies;
+	decrement ew;
 	if ew < -9:
 		say "[losted]";
 		reset-game instead;
-	decrement ew;
 
 check going east:
 	now your-tally is "[your-tally]e";
+	check-nearlies;
 	increment ew;
 	if ew > 9:
 		say "[losted]";
@@ -264,7 +275,8 @@ check going east:
 check going h:
 	now your-tally is "[your-tally]h";
 	if ew > 7 or ns > 7 or ud > 7:
-		say "The teleporter buzzes ominously. Apparently, you can't zap that way." instead;
+		say "[no-jump-for-you]." instead;
+	check-nearlies;
 	increase ew by 2;
 	increase ns by 2;
 	increase ud by 2;
@@ -276,7 +288,8 @@ check going h:
 check going i:
 	now your-tally is "[your-tally]i";
 	if ew > 7 or ns < -7 or ud < -7:
-		say "The teleporter buzzes ominously. Apparently, you can't zap that way." instead;
+		say "[no-jump-for-you]." instead;
+	check-nearlies;
 	increase ew by 2;
 	decrease ns by 2;
 	decrease ud by 2;
@@ -288,7 +301,8 @@ check going i:
 check going j:
 	now your-tally is "[your-tally]j";
 	if ew < -7 or ns > 7 or ud < -7:
-		say "The teleporter buzzes ominously. Apparently, you can't zap that way." instead;
+		say "[no-jump-for-you]." instead;
+	check-nearlies;
 	decrease ew by 2;
 	increase ns by 2;
 	decrease ud by 2;
@@ -300,7 +314,8 @@ check going j:
 check going k:
 	now your-tally is "[your-tally]k";
 	if ew < -7 or ns < -7 or ud > 7:
-		say "The teleporter buzzes ominously. Apparently, you can't zap that way." instead;
+		say "[no-jump-for-you]." instead;
+	check-nearlies;
 	decrease ew by 2;
 	decrease ns by 2;
 	increase ud by 2;
@@ -308,6 +323,9 @@ check going k:
 	if oops:
 		say "[losted]";
 		reset-game instead;
+
+to say no-jump-for-you:
+	say "The teleporter buzzes ominously--a warning that such a displacement might negatively affect the overall safety rating of Fourdiopolis teleporters. Or let you escape without proper documentation. Whichever";
 
 check going up:
 	if gone-up-or-down is false:
@@ -323,10 +341,10 @@ check going down:
 	if gone-up-or-down is false:
 		say "[up-down-cool].";
 	now your-tally is "[your-tally]d";
+	decrement ud;
 	if ud < -9:
 		say "[losted]";
 		reset-game instead;
-	decrement ud;
 
 gone-up-or-down is a truth state that varies.
 
@@ -467,6 +485,7 @@ to reset-game:
 	now all visible quasi-entries are off-stage; [probably not neccessary to put all the way up here but just in case]
 	let add-to be number of characters in your-tally;
 	now your-tally is "";
+	consider the plural-almost rule;
 	if teleported is false:
 		say "You remember hearing that anywhere worth getting to, you had to teleport to. And you didn't, this run.";
 		continue the action;
@@ -791,7 +810,7 @@ chapter end table
 
 table of just plain cool stuff [toj]
 tally (text)	descrip (text)	foundit (text)	what-drops	found
-"dunks"	"basketball show #1"	"Oh man! The old ten-foot rims are cheating a bit, but it's still fun to watch. You forget when dunking was outlawed on national television, or why."	gymnasium	0
+"dunks"	"basketball show #1"	"Oh man! The old ten-foot rims are cheating a bit, but it's still fun to watch. You forget when dunking was outlawed on national television, or why, or when Basketball Drones overtook Basketball Jones."	gymnasium	0
 "dusk"	"a beautiful sunset, or a close enough rendition"	"Oh wow! That's beautiful! You catch yourself thinking what range of RGB colors is in the sunset, before realizing you're missing the point."	climate-controlled building	0
 "hisses"	"snake exhibit"	"Well, not all snakes are poisonous, though the ones outside of cities are. Still, it's neat to see. For free. I mean, there are zoos and private forest preserves, but it'd be neat to have this."	fake barn	0
 "huskies"	"cool dogs"	"Pet ownership isn't really a thing any more. The planet is eating up resources fast enough!"	fake barn	0
@@ -849,9 +868,77 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "shins"	--	"You grab an old ache for a moment."	--	0
 "shun"	--	"You feel very, very alone. People are more than just giving you your space."	--	0
 "shush"	--	"'Oh, sure, you can THINK that, just don't SAY it, you know?'"	--	0
+"skidded"	--	"A goverment utility vehicle swerves and almost hits someone about to jaywalk. Funny how one is always around, unless you jaywalk REALLY assertively."	--	0
 "skunkweed"	--	"It smells bad here, like it should be illegal."	--	0
 "unkind"	--	"You worry someone's going to do something mean to you, but don't worry, they're only thinking about it. Especially with video cameras all around."	--	0
+"weenies"	--	"An old long-abandoned hot dog hut lies between two places of Serious Business. Your grandparents constantly babbled about the misspelled version from THEIR youth being so tasty, and--well--maybe the misspelling did make things tastier."	--	0
 "whew"	--	"You just barely escaped something, there! You don't know what, but it would've been pretty bad."	--	0
+"whisk"	--	"You trip on an odd cooking supply you don't know the name of. People don't have time for that, with so much virtual reality to experience these days, and machines do it all good enough."	--	0
+"whiskies"	--	"Wow! People seem to be having a rip roaring time, here[whisky-wine]. You don't have time for such carousing at the moment, but it boosts your spirits."	--	0
+
+to say whisky-wine:
+	if your-table is table of supplies:
+		choose row with tally of "whisky" in your-table;
+		say ". [if found entry is 0]You figure there may be something a bit more restrained at the end of your list--a different way to imbibe[else]you already got some wines, but whiskies should probably best wait to celebrate a successful revolution[end if]"
+
+chapter nearlies table
+
+to check-nearlies:
+	repeat through table of nearlies:
+		if tname entry is your-table and your-tally is tally entry:
+			now found entry is 1;
+
+to decide whether found-yet of (x - indexed text):
+	repeat through your-table:
+		if tally entry is x:
+			if found entry is 1, decide yes;
+			if found entry is 0, decide no;
+	decide no;
+
+this is the plural-almost rule:
+	repeat through table of nearlies:
+		if found entry is 1:
+			if found-yet of mult entry:
+				now found entry is 2;
+			else:
+				say "On your way back to the center, you wonder if you could've gone just a bit farther to find something. You felt like you were close.";
+				now found entry is 0;
+				the rule succeeds;
+	the rule succeeds;
+
+table of nearlies [ton]
+tally	mult	tname	found
+"dis"	"disses"	table of marginalized people	0
+"duke"	"dukes"	table of marginalized people	0
+"hunk"	"hunks"	table of marginalized people	0
+"indie"	"indies"	table of marginalized people	0
+"junkie"	"junkies"	table of marginalized people	0
+"kid"	"kids"	table of marginalized people	0
+"sheikh"	"sheikhs"	table of marginalized people	0
+"hijink"	"hijinks"	table of education	0
+"hike"	"hikes"	table of education	0
+"issue"	"issues"	table of education	0
+"sine"	"sines"	table of education	0
+"sin"	"sins"	table of education	0
+"desk"	"desks"	table of supplies	0
+"dish"	"dishes"	table of supplies	0
+"hen"	"hens"	table of supplies	0
+"kiwi"	"kiwis"	table of supplies	0
+"nuke"	"nukes"	table of supplies	0
+"shed"	"sheds"	table of supplies	0
+"skunk"	"skunks"	table of supplies	0
+"undie"	"undies"	table of supplies	0
+"wish"	"wishes"	table of supplies	0
+"dunk"	"dunks"	table of just plain cool stuff	0
+"hiss"	"hisses"	table of just plain cool stuff	0
+"husk"	"husks"	table of just plain cool stuff	0
+"kiss"	"kisses"	table of just plain cool stuff	0
+"skink"	"skinks"	table of just plain cool stuff	0
+"ski"	"skis"	table of just plain cool stuff	0
+"wink"	"winks"	table of just plain cool stuff	0
+"wine"	"wines"	table of supplies	0
+
+chapter final table
 
 table of last names [tol]
 tally (text)	descrip (text)	foundit (text)	what-drops	found
@@ -959,9 +1046,9 @@ after reading a command:
 			now period-warn is true;
 			wfak;
 	if locom matches the regular expression "^<ewnsudhijk \.>*$":
+		if number of quasi-entries in outside-area > 0 and the player's command matches "^in$":
+			continue the action;
 		if number of characters in locom > locom-chars:
-			if the player's command matches "^in$":
-				continue the action;
 			if the player's command matches "undid":
 				try undiding instead;
 			if the player's command matches "i seek keen":
@@ -1093,7 +1180,7 @@ carry out abouting:
 	say "But the idea and the itch were there. The only problem? It really seemed impossible at first. I didn't know what the directions would be, or how or why they were what they were. Unfortunately there was no way to make it as intuitive as Threediopolis, but once I figured you could have several slates of tasks, things began to open up. But unfortunately, anything I got was a list of 100 things to find, which is overload.[paragraph break]";
 	say "I don't strictly want to send out a throwaway game, but sometimes--you have to get your work out there somewhere to move on. And that's the case, here. I learned a lot about organizing stuff. And I'm grateful to Aaron Reed for allowing a Back Garden that allows me to write things like this that might not be home runs, but--they're there, and I want to clear them out somehow for something with more of a real story. So: heavy puzzle, light story, and yes, I should've started coding a lot earlier. It's the old 'I don't want to inflict this on my testers' when it'd be even worse on a larger scale to inflict it on judges.[paragraph break]";
 	say "So I'd like to encourage others who say 'gee, well, should I?' that, yes, you should. Whether it's too personal, not personal enough, too general or too specific--if you've had doubts for a couple months, you've done enough thinking. Get a draft out there, etc.[paragraph break]";
-	say "If you haven't played Threediopolis, there may be spoilers about more detailed discussion in another auxiliary meta-command called TECH.[paragraph break]";
+	say "People who helped with Fourdiopolis are in CREDITS. If you haven't played Threediopolis, there may be spoilers about more detailed discussion in another auxiliary meta-command called TECH.[paragraph break]";
 	say "Also, there will not be a Fivediopolis. No way, no how.";
 	the rule succeeds;
 
@@ -1106,9 +1193,9 @@ understand the command "credits" as something new.
 understand "credits" as creditsing.
 
 carry out creditsing:
-	say "I'd like to thank Aaron Reed for providing a space where I can put this game so it doesn't seem like trolling or torture. I was really conflicted about even putting this game out, because of its difficulty. The thing is--I [italic type]like[roman type] difficult stuff, though that's no excuse not to try to make it accessible to others.[paragraph break]";
+	say "I'd like to thank Aaron Reed for providing a space where I can put this game so it doesn't seem like trolling or torture and also for checking with entrants to allow for a bit of cleanup before the first release. I was really conflicted about even putting this game out, because of its difficulty. The thing is--I [italic type]like[roman type] difficult stuff, though that's no excuse not to try to make it accessible to others.[paragraph break]";
 	say "I'd like to thank my testers, for putting up with something so confusing in so little time. [bold type]Buster Hudson, Robin Johnson and Teaspoon[roman type]. They found--well, the details would embarrass me. Both technical and aesthetic. I'm very grateful to them.[paragraph break]";
-	say "And also, while it's not fair to list my Threediopolis testers by name so as to beef up my tester list...their thoughts and ideas helped me when I wrote up Fourdiopolis. I appreciate them.";
+	say "And also, while it's fishy to list my Threediopolis testers by name so as to beef up my tester list...their thoughts and ideas helped me when I wrote up Fourdiopolis. I appreciate them.[paragraph break]The font in the cover 'art' is Chlorinar.";
 	the rule succeeds;
 
 chapter teching
@@ -1327,7 +1414,7 @@ when play begins (this is the check accomplishments at start rule) :
 	choose row 1 in table of accomplishments;
 	if solved entry is false:
 		if debug-state is true:
-			say "[bold type]DEBUG: test 1win to get through.";
+			say "[bold type]DEBUG: test 1w to get through.";
 		set-your-table table of friends;
 		the rule succeeds;
 	else:
@@ -1337,7 +1424,7 @@ when play begins (this is the check accomplishments at start rule) :
 			if the player consents:
 				set-your-table table of last names;
 				if debug-state is true:
-					say "[bold type]DEBUG: test 6win to get through.";
+					say "[bold type]DEBUG: test 6w to get through.";
 				say "Ok. You have [number of rows in your-table] to find.";
 			else:
 				set-your-table table of just plain cool stuff;
@@ -1346,7 +1433,7 @@ when play begins (this is the check accomplishments at start rule) :
 		if all-else-solved:
 			set-your-table table of just plain cool stuff;
 			if debug-state is true:
-				say "[bold type]DEBUG: test 5win to get through.";
+				say "[bold type]DEBUG: test 5w to get through.";
 		else:
 			midtable-choose;
 
@@ -1412,7 +1499,7 @@ to midtable-choose:
 		let X be solved entry;
 	choose row Q in table of solvable tables;
 	if debug-state is true:
-		say "[bold type]DEBUG: [roman type][Q]: [tabname entry]. test [Q]win to get through.";
+		say "[bold type]DEBUG: [roman type][Q]: [tabname entry]. test [Q]w to get through.";
 	set-your-table tabname entry;
 
 volume change default verbs
@@ -1590,7 +1677,7 @@ test 2w with "x/hijinks/c/hikes/c/issues/c/keen/c/kind/c/kinesis/c/nein/c/sensei
 test 2wx with "x/hijinks/cx/hikes/cx/issues/cx/keen/cx/kind/cx/kinesis/cx/nein/cx/sensei/cx/sines/cx/sinews/cx/sins/cx/sinus/cx/skew/cx/skies/cx/uhhuh/cx/undenied/cx/whenwewin/cx/whine/cx/wise/cx/wushu/cx/inside/cx"
 
 test 3win with "fo 3/desks/c/dishes/c/disused/c/hens/c/hides/c/juju/c/junk/c/kiwis/c/nines/c/nukes/c/sheds/c/skein/c/skunks/c/swine/c/undies/c/unhewn/c/unis/c/win/c/wines/c/wishes/c/hidden/c"
-c
+
 test 3w with "x/desks/c/dishes/c/disused/c/hens/c/hides/c/juju/c/junk/c/kiwis/c/nines/c/nukes/c/sheds/c/skein/c/skunks/c/swine/c/undies/c/unhewn/c/unis/c/win/c/wines/c/wishes/c/hidden/c"
 
 test 3wx with "x/desks/cx/dishes/cx/disused/cx/hens/cx/hides/cx/juju/cx/junk/cx/kiwis/cx/nines/cx/nukes/cx/sheds/cx/skein/cx/skunks/cx/swine/cx/undies/cx/unhewn/cx/unis/cx/win/cx/wines/cx/wishes/cx/hidden/cx"

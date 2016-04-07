@@ -1,0 +1,11 @@
+In-comp update list for Fourdiopolis
+
+4/7/2016
+--added "play online" ability
+--added 4 new sceneries
+--added cover "art"
+--new random activities as you walk by
+--cleared up some edge case checking for going out of bounds
+--allowed for "almost" cuing if someone is suitably close (mostly for a specific spoiler case)
+--new text if you try to teleport out of Fourdiopolis
+--now "in" lets you enter as well as "c"
