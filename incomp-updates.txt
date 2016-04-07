@@ -2,7 +2,7 @@ In-comp update list for Fourdiopolis
 
 4/7/2016
 --added "play online" ability
---added 4 new sceneries
+--added 6 new sceneries and adjusted two that weren't actually reachable
 --added cover "art"
 --new random activities as you walk by
 --cleared up some edge case checking for going out of bounds

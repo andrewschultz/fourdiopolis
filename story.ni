@@ -903,7 +903,7 @@ this is the plural-almost rule:
 			if found-yet of mult entry:
 				now found entry is 2;
 			else:
-				say "On your way back to the center, you wonder if you could've gone just a bit farther to find something. You felt like you were close.";
+				say "On your way back to the center, you wonder if you could've gone just a bit farther to find something. Or things. You felt like you were close.";
 				now found entry is 0;
 				the rule succeeds;
 	the rule succeeds;
