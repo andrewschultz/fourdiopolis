@@ -1169,6 +1169,32 @@ carry out unkindnessing:
 	set-your-table table of last names;
 	the rule succeeds;
 
+chapter xyzzying
+
+xyzzying is an action out of world.
+
+understand the command "xyzzy" as something new.
+
+understand "xyzzy" as xyzzying.
+
+carry out xyzzying:
+	say "What a totally out-of-date joke![paragraph break]Of course, there's some argument over whether the [italic type]proper[roman type] modern joke is wxyzzyx or wxyzzy, but...yeah.";
+	the rule succeeds;
+
+chapter wxyzzying
+
+wxyzzying is an action out of world.
+
+understand the command "wxyzzy" as something new.
+understand the command "wxyzzyx" as something new.
+
+understand "wxyzzy" as wxyzzying.
+understand "wxyzzyx" as wxyzzying.
+
+carry out wxyzzying:
+	say "No, no, the other way works better. Or less badly. Whichever.";
+	the rule succeeds;
+
 chapter abouting
 
 abouting is an action out of world.
