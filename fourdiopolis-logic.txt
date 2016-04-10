@@ -41,13 +41,16 @@ This contains spoilers for Fourdiopolis. You may wish to play Threediopolis firs
 
 
 
+
+
+
 The puzzle here is that you have to find the word your path spells to reach a clue. For instance, to visit the DUDE you might need to go to A01. But each location requires you to enter a teleport to get there, because I already covered walking in Threediopolis.
 
 The new directions are H, I, J and K. But what do they mean?
 
-First, NSEWUD behave as before. Though there's a catch. Going east adds 1, north adds 10, and up adds 100. The reverse for west, south and down. But A is equivalent to -1, down to I being -9. This is where "Fourdiopolis is 90% bigger" comes from.
+NSEWUD behave as before. Though there's a catch. Going east adds 1, to the first digit north adds 1 to the second, and up adds 1 to the third. The reverse for west, south and down. But A is equivalent to -1, down to I being -9. This is where "90% more population density" in the introduction comes from. Fourdiopolis is actually 585.9% more populous than Threediopolis.
 
-Also, you are told that you have to use a transporter. So what do transporters do? They provide diagonal, nonreversible transport through the city.
+Also, you are told that you have to use a transporter to get to any location. So what do transporters do? They provide diagonal, nonreversible (or hard to reverse) transport through the city.
 
 Here is what each teleporter adds or subtracts from a digit, from left to right.
 
@@ -56,19 +59,36 @@ I = -2 -2 +2 (BB2)
 J = -2 +2 -2 (B2B)
 K = +2 -2 -2 (2BB)
 
-These are sort of based on the quaternions, or half of them. Note h+i+j+k=0, but really, you won't need to use that many of these letters. Note that any one transporter's net sum of all directions is 6 or -2. Focusing on the sum of all directions helps you narrow things down. You can note that one transporter's displacement(sum of X, Y and Z displacement) is 8x+2, two transporters sum to 8x+4, three to 8x+6, and four to 8x, where x is some integer. This is useful in determining if you want one or three transporters.
+These are sort of based on the quaternions, or half of them. Note h+i+j+k=0, but really, you'll rarely need to use that many of these letters. And here's where some mathematical parity elements come in. You sort of need to notice things. And we'll need to establish some turns.
 
-We'll refer to the distance-sum as (net units up) + (net units east) + (net units north).
+First, the distance-sum is (net units up) + (net units east) + (net units north). For example, AB1 has a distance-sum of -1 + -2 + 1 = -2. This tells us a lot.
 
-The first thing to notice is that you can always know whether you have an odd number of teleporters or an even number. This is due to a parity argument.
+A small detour: we can also see that a "very near" location such as the friend at CC2 probably requires a transporter, and if it is not I (BB2) then it is very close. Then it requires two more walks. So "very near" is 3. We can probably guess that near, kinda near, and so forth get one walking square away. So that should tell us the length of each trip. The game also warns you if you try to go 7 units in friends mode, and that's a clue you're going too far out and can keep it relatively simple.
 
-If we count A as -1, B as -2, etc., every physical square travelled switches the sum of coordinates from even to odd or vice versa. But a teleporter does not. So if you have seven moves to get somewhere, and it is on odd coordinates, you must hit an even number of teleporters. Since Fourdiopolis's locations are all past a teleporter, you must have hit at least two.
+Second, we know whether we need an even or odd number of teleports. Why is that? Let's assume we got somewhere with no teleporters. The distance-sum would be odd. But if we replace a walk with a teleport, the distance-sum is even. So...
 
-There's other arithmetic that makes things a lot easier.
+If the distance-sum is different parity from the length of the trip, we need an odd number of teleporters (1, 3, 5.) If it's the same, we need an even number (2, 4, 6, since we can't have 0. I hope the game clues that well enough. I can flake, there.)
 
-Note that if you take 2w+1 teleportals, you wind up at (4x+2, 4y+2, 4z+2). If you take 2x, (4x, 4y, 4z). This is big, but obviously, it may not be enough to decide between if you need one or three transporters.
+This is called a parity argument, and there's also another thing to consider. If each displacement is odd (1, 1, 1) then we know we have a vertical move, a horizontal move, and an up/down move, e.g. at least three non-teleport moves, because teleporters can't move from an odd offset to an even one. This doesn't come up much, but when it does, it's a handy shortcut.
 
-So let's list the possibilities for two portal trips.
+Third, we can see that where we go only with transporters is pretty well locked in.
+
+One move: (4x+2, 4y+2, 4z+2) and distance-sum is 6 mod 8.
+Two moves: (4x, 4y, 4z) and distance-sum is 4 mod 8. In fact, it must have 2 0's and either a D or 4, or it has (4,4,4) or 2 D's and a 4.
+Three moves: (4x+2, 4y+2, 4z+2) and distance-sum is 2 mod 8. There are a lot more possibilities here than with one move.
+Four moves: (4x, 4y, 4z) and distance-sum is 0 mod 8.
+
+This has the result that we can eliminate a lot of extensive transporter use--for instance, if something takes 6 steps and is at 422, then we can't use 4 teleporters. Because the 4 would place us at 4x, 4y, 4z, which would be 2 away from both 2's, and we'd need 4 steps. So if something looks "too far between transporters," often we can do the arithmetic and see that it is. Or we can see the directions we have to go, and we see that the letters are a clump of consonants.
+
+It isn't always deterministic, but for instance, 422 with 2 teleports and 6 walks could come from 400 + 2N + 2E or 444 + 2S + 2W. In the second case, it's all consonants, but in the first, we have HINNEE which is way more likely. (It doesn't make a word, but the concept is important here.)
+
+Or, remember 222 is one jump and adding or subtracting four switches from one jump to three jumps and back. There's also a lot of symmetry here. Note all combinations of 2FB, and so forth. So you can figure what teleporter-combination a walk is near.
+
+Or you can note that if you have a five-letter clue, for example, if the distance-sum is not 0-4 mod 8 it cannot take 3 jumps--as that'd put it at 2 mod 8, plus or minus two at maximum. (You can eliminate 5 jumps pretty easily, as that'd have to be all 4x+2. Plus there aren't any strictly HJIK words.)
+
+So there's a lot of big picture stuff you can do to find a letter, and then the rest should fall into place. Except for the long walks, but hopefully the clues are good enough after you've solved some other walks.
+
+For reference, let's list the possibilities for two portal trips.
 
 H+H = 444
 H+I = 004
@@ -103,16 +123,21 @@ JJK = B2F
 JKK = 2BF
 3 k's = 6FF (I wonder if I should've made -this- 666.)
 
-This looks tedious, and it's a pain to memorize, but the point is this. 666 and FFF both work--as do subtracting 4 from any 2 digits, or 8 from any one, down from 6. So you can pick off what three-transporter move is near a location you need to visit. You can also tell without too much struggle if a location is a one- or a three-teleportal by adding up the numbers. 2 mod 8 = 3 jumps, 6 = 2 jumps. Or, remember 222 is one jump and adding or subtracting four switches from one jump to three jumps and back. There's also a lot of symmetry here. Note all combinations of 2FB, and so forth.
+This looks tedious, and it's a pain to memorize, but it's more about the patterns. For three teleports, we can note 666 and FFF both work--as do subtracting 4 from any 2 digits, or 8 from any one, down from 6. So you can pick off what three-transporter move is near a location you need to visit.
 
 Note that four teleportals actually work out pretty nicely. They have to be some combination of the two-portal warps, and they can go
-000,008,00H,044,04D,080,0D4,0DD,0H0,404,40D,440,448,484,4D0,4DH,4HD,800,844,888,8DD,8HH,D04,D0D,D40,D4H,D8D,DD0,DD8,DH4,H00,H4D,H8H,HD4,HH8
+000,008,00H,044,04D,080,0D4,0DD,0H0,404,40D,440,448,484,4D0,4DH,4HD,800,844,888,8DD,8HH,D04,D0D,D40,D4H,D8D,DD0,DD8,DH4,H00,H4D,H8H,HD4,HH8.
 
-Again, lots of symmetry, and you can pretty much take 000 and add/subtract 4 from any two digits to move around.
+Again, memorization isn't such a good idea, but we can note there's an odd number of 4 mod 8. There's lots of symmetry, and you can pretty much take 000 and add/subtract 4 from any two digits to move around.
 
-A thing to note beyond the number-munging is, super near = 3 characters. You can find this by trying to use the teleporter too soon or too late. Then each less near direction is 4 away, five, and so forth. The game warns you if you try to go 7 units in friends mode, and that's a clue you're going too far out and can keep it relatively simple.
+The logic of Fourdiopolis is a bit trickier than Threediopolis, but there are a lot more potential hints. You can often say, well, that looks close to where this combination of teleporters would end up. So let's go from there.
 
-The logic of Fourdiopolis is a bit trickier than Threediopolis, but there are a lot more hints.
+=========================friends
+
+CA3, DB4, CA3, CB7, 0D1
+BB3, DF4, C2A, D21, DB2
+B2B, B2A, D00, A3A, 2AA
+0H0, 0G0, CC2, AD3, DB4
 
 So let's focus on super-near friends. The cross, iron friend is at 0D1. The directions sum to -5. Note that we must have two odd directions, because if we had one, the directions would sum to something even. That also means the third direction is east or west. But if it were west, then the two remaining directions would sum to -6. However, any one of HIJK sums directions to 2 or -6. Therefore we have an E with two other directions that go to 0, -4, 0. Those two must be I and K. So, we have six possibilities, but IKE is the best one.
 
@@ -201,14 +226,12 @@ UNDINI could be a last name, but nothing pops up. W***** leaves WINNIE, e.g. Kev
 
 Well, that may've been a bit exhausting for you, so I don't blame you for cutting things off here if you want to. But I wanted to try to give a feel for the puzzle solving, if you were lost. There are advanced strategies below, but I also wanted to deal with all the other areas. The friends are the least tricky, but they are still obviously nontrivial.
 
-=======================================
+==================================education
 
-Education
-
-BB2 (far), 2C3 (kinda near), AE3 (kinda far), 2A0 (near), AC0 (near).
-BG3 (far), B03 (near), BC4 (kinda far), BC3 (kinda near), BC2 (kinda far).
-BC2 (near), AC2 (kinda near), 2CB (near), 0F1 (kinda near), 866 (kinda near).
-C04 (very far), 023 (extra far), 014 (kinda near), BC2 (near), 411 (kinda near).
+BB2 (far), 2C3 (kinda near), AE3 (kinda far), 2A0 (near), AC0 (near)
+BG3 (far), B03 (near), BC4 (kinda far), BC3 (kinda near), BC2 (kinda far)
+BC2 (near), AC2 (kinda near), 2CB (near), 0F1 (kinda near), 866 (kinda near)
+C04 (very far), 023 (extra far), 014 (kinda near), BC2 (near), 411 (kinda near)
 
 Let's go with the near stuff first.
 
@@ -224,10 +247,10 @@ BC2 again we search for the most nearby place. We can't have 3 teleporters becau
 
 The other BC2 is SIEW but it needs to be after SKEW in the alphabet. SW(IE) doesn't work but W(EIS) gives WISE.
 
-BB2 (far), 2C3 (kinda near), AE3 (kinda far), KEEN, KIND.
-BG3 (far), NEIN, BC4 (kinda far), BC3 (kinda near), BC2 (kinda far).
-SINS, AC2 (kinda near), SKEW, 0F1 (kinda near), 866 (kinda near).
-C04 (very far), 023 (extra far), 014 (kinda near), WISE, 411 (kinda near).
+BB2 (far), 2C3 (kinda near), AE3 (kinda far), KEEN, KIND
+BG3 (far), NEIN, BC4 (kinda far), BC3 (kinda near), BC2 (kinda far)
+SINS, AC2 (kinda near), SKEW, 0F1 (kinda near), 866 (kinda near)
+C04 (very far), 023 (extra far), 014 (kinda near), WISE, 411 (kinda near)
 
 Okay. So let's tackle the kinda near items. 2C3 is next. But it's tricky. It needs 3 teleports because 2C3 is five units away from 222/2BB/B2B/BB2. That means we need to be at 2B2 after three teleports, and it leaves a S and E. How to get to 2B2? It is the opposite of J, and H+I+J+K=0, so HIK. This is a kind of tricky permutation, but HIKES turns up if you see the clue about nature.
 
@@ -245,10 +268,10 @@ AC2 between SINS and SKEW is close to BB2 and too far from 2B2/22B/B22. So it ha
 
 One more, and it must start with W. If it went through three teleports, it'd be at (22B) or (622) but that's not good enough. So there's one teleport, and the four remaining letters go to 412. Thus the teleport is H, and there are 2 U's and a S. WS*** won't make a word, but WU(HSU) gives WUSHU.
 
-BB2 (far), HIKES, AE3 (kinda far), KEEN, KIND.
-BG3 (far), NEIN, BC4 (kinda far), SINES, BC2 (kinda far).
-SINS, SINUS, SKEW, SKIES, UHHUH.
-C04 (very far), 023 (extra far), WHINE, WISE, WUSHU.
+BB2 (far), HIKES, AE3 (kinda far), KEEN, KIND
+BG3 (far), NEIN, BC4 (kinda far), SINES, BC2 (kinda far)
+SINS, SINUS, SKEW, SKIES, UHHUH
+C04 (very far), 023 (extra far), WHINE, WISE, WUSHU
 
 AE3 seems tricky. How do we get close? There is an odd number of teleportals we must hit, and we must go at least one of E/W, N/S and U/D. If we only hit one, it would have to be I, then we'd need E, 3S and U. That looks a bit garbled, so let's check out three. We could get to -2, -6, 2 with IIK and then we'd have U, N, E IIKUNE = nonsense. But--there's an indication what we find needs to be plural. IEUSSS = ISSUES.
 
@@ -258,10 +281,10 @@ It's true there's NESSIE but that's a bit of a stretch. NI(ESSE) also gives noth
 
 BC2 (kinda far) must start SIN and from there you can see you don't need any teleporters--there's a S and two contrary directions. NS makes too many consonants, SIN(UDS) gives nothing, but there's SINEWS.
 
-BB2 (far), HIKES, ISSUES, KEEN, KIND.
-BG3 (far), NEIN, SENSEI, SINES, SINEWS.
-SINS, SINUS, SKEW, SKIES, UHHUH.
-C04 (very far), 023 (extra far), WHINE, WISE, WUSHU.
+BB2 (far), HIKES, ISSUES, KEEN, KIND
+BG3 (far), NEIN, SENSEI, SINES, SINEWS
+SINS, SINUS, SKEW, SKIES, UHHUH
+C04 (very far), 023 (extra far), WHINE, WISE, WUSHU
 
 Now this will get you the 15 you need for commendation, but if you'd like to do more, great! The others require a bit more intuition and comfort with vocabulary. So I'll give an overview. Note that far = 7 steps, very far = 8, extra far = 9..
 
@@ -275,10 +298,12 @@ Well, that was sort of an education in itself.
 
 Let's move on to supplies!
 
-1DA (kinda near), AB5 (kinda far), CD3 (far), 223 (near), AA5 (kinda near).
-B4D (near), 11D (near), BG1 (kinda near), BA3 (kinda near), 3BA (kinda near).
-103 (kinda near), 0D1 (kinda near), 5ED (kinda far), BB2 (kinda near), BB3 (kinda far).
-342 (kinda far), AB2 (near), BA1 (very near), BB2 (kinda near), 0B4 (kinda far).
+============================supplies
+
+1DA (kinda near), AB5 (kinda far), CD3 (far), 223 (near), AA5 (kinda near)
+B4D (near), 11D (near), BG1 (kinda near), BA3 (kinda near), 3BA (kinda near)
+103 (kinda near), 0D1 (kinda near), 5ED (kinda far), BB2 (kinda near), BB3 (kinda far)
+342 (kinda far), AB2 (near), BA1 (very near), BB2 (kinda near), 0B4 (kinda far)
 
 First, we pick off the very near item. BA1 has movement in the X and Y axes, and it's closest to BB2, or I. That leaves a W and N, or WIN. This is a reference to "WHIP INFLATION NOW" buttons from the 70s.
 
@@ -290,10 +315,10 @@ B4D has an even number of teleporters. If it had 4, you'd wind up at 4x, 4x, 4x.
 
 AB2 is the final near one. It has an odd number of teleports and its coordinate sum is 7 mod 8, so again, 3 teleporters would get you to 2 mod 8 with 1 move to go. So you need to go I, and U, and you have two other directions that conflict. U(IEW)/W(IEU) = nothing. UIDU = nothing. Well, there's UUID but that's a bit technical! So UINS = UNIS, short for uniforms.
 
-1DA (kinda near), AB5 (kinda far), CD3 (far), HENS, AA5 (kinda near).
-JUJU, JUNK, BG1 (kinda near), BA3 (kinda near), 3BA (kinda near).
-103 (kinda near), 0D1 (kinda near), 5ED (kinda far), BB2 (kinda near), BB3 (kinda far).
-342 (kinda far), UNIS, WIN, BB2 (kinda near), 0B4 (kinda far).
+1DA (kinda near), AB5 (kinda far), CD3 (far), HENS, AA5 (kinda near)
+JUJU, JUNK, BG1 (kinda near), BA3 (kinda near), 3BA (kinda near)
+103 (kinda near), 0D1 (kinda near), 5ED (kinda far), BB2 (kinda near), BB3 (kinda far)
+342 (kinda far), UNIS, WIN, BB2 (kinda near), 0B4 (kinda far)
 
 Let's go kinda-near now, with 5 letters. 1DA: odd number of teleporters. 4 mod 8. If there were 3 teleporters, the y-coordinate is a problem. We'd be at B or F and then need to move NN or SS, but then we'd have no time for UD EW. So, there is one teleporter. It must go to 2BB from the center. Otherwise we must walk 3U and 2N at least. So, we have a K, which can't be first. And we also have DSSE. E(DSSK) clumps consonants, but D(EKSS) makes DESKS.
 
@@ -314,10 +339,10 @@ BB2 must have one transporter, and it has 4 directions canceling each other out.
 
 The next BB2 must similarly have one I transporter AND start with W. So it must have an E. W(EI)(UD/EW/NS) and EW can be discounted. W(EIDU) needs to be WIU(DE) to be alphabetical, and WU(EID) is hopeless. So, WEINS becomes WI(SNE) so consonants don't clog. WINES.
 
-DESKS, AB5 (kinda far), CD3 (far), HENS, AA5 HIDES.
-JUJU, JUNK, KIWIS, NINES, NUKES.
-SHEDS, SKEIN, 5ED (kinda far), SWINE, BB3 (kinda far).
-342 (kinda far), UNIS, WIN, WINES, 0B4 (kinda far).
+DESKS, AB5 (kinda far), CD3 (far), HENS, HIDES
+JUJU, JUNK, KIWIS, NINES, NUKES
+SHEDS, SKEIN, 5ED (kinda far), SWINE, BB3 (kinda far)
+342 (kinda far), UNIS, WIN, WINES, 0B4 (kinda far)
 
 Okay! We'll need to pick off a kinda far one, here, to get to 15, but I don't think it is that bad.
 
@@ -333,19 +358,19 @@ BB3 is an interesting one. It's super close to I, and if there are three telepor
 
 That also makes 342 easier, as it must start with UN. Leaving 232 for 4 moves. In that case, one is H. There is an N. UNNH(NS) has too many vowels, UN(NHUD) doesn't make anything, but UN(NHEW) is between UNDIES and UNIS and UNE* clogs consonants, but UNHEWN works.
 
-DESKS, DISHES, CD3 (far), HENS, AA5 HIDES.
-JUJU, JUNK, KIWIS, NINES, NUKES.
-SHEDS, SKEIN, SKUNKS, SWINE, UNDIES.
-UNHEWN, UNIS, WIN, WINES, WISHES.
+DESKS, DISHES, CD3 (far), HENS, HIDES
+JUJU, JUNK, KIWIS, NINES, NUKES
+SHEDS, SKEIN, SKUNKS, SWINE, UNDIES
+UNHEWN, UNIS, WIN, WINES, WISHES
 
 The last one is a bit tricker and probably needs to rely on the definition a bit. A good synonym for abandoned is DISUSED.
 
-Marginalized people
+==========================marginalized people
 
-DA4 (kinda far), CE3 (kinda far), E20 (kinda near), 2CA (kinda near), 500 (kinda near).
-322 (near), 1C5 (far), ED5 (kinda far), AC1 (kinda near), E01 (near).
-C5B (kinda far), A30 (kinda near), ABA (far), AE0 (near), 2EB (near).
-DB5(very far), 4B5 (far), 0E1 (near), CB3 (kinda near), BE1 (kinda near).
+DA4 (kinda far), CE3 (kinda far), E20 (kinda near), 2CA (kinda near), 500 (kinda near)
+322 (near), 1C5 (far), ED5 (kinda far), AC1 (kinda near), E01 (near)
+C5B (kinda far), A30 (kinda near), ABA (far), AE0 (near), 2EB (near)
+DB5(very far), 4B5 (far), 0E1 (near), CB3 (kinda near), BE1 (kinda near)
 
 Let's start with near. 322 = close to 222, and there's an up move. So UH(EW/NS/UD) ... DUUH is a silly possibility but WEUH also doesn't have much. HUNS turns out to be it.
 
@@ -359,10 +384,10 @@ I'll take a detour to the very far DB5 here. This is because I replaced a duplic
 
 Annoying slang has two jumps. 0E1 is close to 0D0, and then that's I and K, leaving S and E as directions. So it starts with S. SIKE.
 
-DA4 (kinda far), CE3 (kinda far), E20 (kinda near), 2CA (kinda near), 500 (kinda near).
-HUNS, 1C5 (far), ED5 (kinda far), AC1 (kinda near), JEDI.
-C5B (kinda far), A30 (kinda near), ABA (far), KIDS, KINK.
-NINNIES, 4B5 (far), SIKE, CB3 (kinda near), BE1 (kinda near).
+DA4 (kinda far), CE3 (kinda far), E20 (kinda near), 2CA (kinda near), 500 (kinda near)
+HUNS, 1C5 (far), ED5 (kinda far), AC1 (kinda near), JEDI
+C5B (kinda far), A30 (kinda near), ABA (far), KIDS, KINK
+NINNIES, 4B5 (far), SIKE, CB3 (kinda near), BE1 (kinda near)
 
 Kinda near next.
 
@@ -380,19 +405,19 @@ CB3 is next. Again, an even number of walk moves, but if we have three teleporte
 
 Finally BE1 could actually have three transporters. IKI is a possibility, leaving W and N. But there's no word, there. Fortunately, the one-transporter method works well. It needs to be I, then SWSS is left, and that turns out to be SWISS.
 
-DA4 (kinda far), CE3 (kinda far), DJINN, DUKES, HUNKS.
-HUNS, 1C5 (far), ED5 (kinda far), INKED, JEDI.
-C5B (kinda far), JEUNE, ABA (far), KIDS, KINK.
-NINNIES, 4B5 (far), SIKE, SNIDE, SWISS.
+DA4 (kinda far), CE3 (kinda far), DJINN, DUKES, HUNKS
+HUNS, 1C5 (far), ED5 (kinda far), INKED, JEDI
+C5B (kinda far), JEUNE, ABA (far), KIDS, KINK
+NINNIES, 4B5 (far), SIKE, SNIDE, SWISS
 
 Now the first two kinda-fars aren't too bad. They must start with D. So DA4 in 6 becomes CA4 in 5. If you hit 3 transporters you may get to BBB or BB6 but you'll need 2 moves to walk 4+ blocks. So, one transporter. I is it. DNEE is the rest of it. DDEEIN is DENIED.
 
 The next one is also not too terrible. CE3 in 6 becomes BE3 in 5. BF2 is actually a possibility for the three jumps. KII, with NE, so DENKII -- well, not quite. But you can also do things in one jump, which must be I. DEISSS is DISSES.
 
-DENIED, DISSES, DJINN, DUKES, HUNKS.
-HUNS, 1C5 (far), ED5 (kinda far), INKED, JEDI.
-C5B (kinda far), JEUNE, ABA (far), KIDS, KINK.
-NINNIES, 4B5 (far), SIKE, SNIDE, SWISS.
+DENIED, DISSES, DJINN, DUKES, HUNKS
+HUNS, 1C5 (far), ED5 (kinda far), INKED, JEDI
+C5B (kinda far), JEUNE, ABA (far), KIDS, KINK
+NINNIES, 4B5 (far), SIKE, SNIDE, SWISS
 
 That's enough to report back and do more, but let's check the kinda-fars.
 
@@ -400,26 +425,28 @@ ED5 would have to start with HU if it started with H, but then you'd need to get
 
 C5B starts JE---- and that reduces to A3A in 4 moves. Which requires a J, U, E and N. JEJUNE.
 
-DENIED, DISSES, DJINN, DUKES, HUNKS.
-HUNS, 1C5 (far), INDIES, INKED, JEDI.
-JEJUNE, JEUNE, ABA (far), KIDS, KINK.
-NEIN, 4B5 (far), SIKE, SNIDE, SWISS.
+DENIED, DISSES, DJINN, DUKES, HUNKS
+HUNS, 1C5 (far), INDIES, INKED, JEDI
+JEJUNE, JEUNE, ABA (far), KIDS, KINK
+NINNIES, 4B5 (far), SIKE, SNIDE, SWISS
 
 The "far" should hopefully be inferrable from the clues. They are plural, so HUSSIES and JUNKIES and SHEIKHS.
 
-That's all for the educational! Now for the fun stuff.
+That's all for the three randomly chosen areas! Now for the stuff that was actually, well, pretty random.
 
-2BB (kinda near), 2CB (near), 0C5 (kinda far), 3D3 (far), 5B0 (kinda near).
-B02 (very near), 0G1 (kinda far), 1CA (very far), 426 (kinda far), BC7 (extra far).
-2GB (kinda far), 0F0 (near), 3BB (near), 105 (very far), 0B3 (kinda near).
-B01 (kinda far), 1A0 (far), 223 (near), BA6 (very far), 0DA (kinda near).
+======================just plain cool stuff
+
+2BB (kinda near), 2CB (near), 0C5 (kinda far), 3D3 (far), 5B0 (kinda near)
+B02 (very near), 0G1 (kinda far), 1CA (very far), 426 (kinda far), BC7 (extra far)
+2GB (kinda far), 0F0 (near), 3BB (near), 105 (very far), 0B3 (kinda near)
+B01 (kinda far), 1A0 (far), 223 (near), BA6 (very far), 0DA (kinda near)
 
 B02 is a tap-in. It's close to BB2, with 2 N's, and that makes an INN.
 
-2BB (kinda near), 2CB (near), 0C5 (kinda far), 3D3 (far), 5B0 (kinda near).
-INN, 0G1 (kinda far), 1CA (very far), 426 (kinda far), BC7 (extra far).
-2GB (kinda far), 0F0 (near), 3BB (near), 105 (very far), 0B3 (kinda near).
-B01 (kinda far), 1A0 (far), 223 (near), BA6 (very far), 0DA (kinda near).
+2BB (kinda near), 2CB (near), 0C5 (kinda far), 3D3 (far), 5B0 (kinda near)
+INN, 0G1 (kinda far), 1CA (very far), 426 (kinda far), BC7 (extra far)
+2GB (kinda far), 0F0 (near), 3BB (near), 105 (very far), 0B3 (kinda near)
+B01 (kinda far), 1A0 (far), 223 (near), BA6 (very far), 0DA (kinda near)
 
 2CB is probably guessable, but it needs, logically, one teleportal, which is K. Then you must go S. You need a letter below I to start, so ESKW is a possibility, but DSKU gives DUSK.
 
@@ -429,10 +456,10 @@ B01 (kinda far), 1A0 (far), 223 (near), BA6 (very far), 0DA (kinda near).
 
 223 is near H. It also has an E. None of these are alphabetically after S. So we need UDEH or WEEH. WHEE is the right word.
 
-2BB (kinda near), DUSK, 0C5 (kinda far), 3D3 (far), 5B0 (kinda near).
-INN, 0G1 (kinda far), 1CA (very far), 426 (kinda far), BC7 (extra far).
-2GB (kinda far), SKIS, SUNK, 105 (very far), 0B3 (kinda near).
-B01 (kinda far), 1A0 (far), WHEE, BA6 (very far), 0DA (kinda near).
+2BB (kinda near), DUSK, 0C5 (kinda far), 3D3 (far), 5B0 (kinda near)
+INN, 0G1 (kinda far), 1CA (very far), 426 (kinda far), BC7 (extra far)
+2GB (kinda far), SKIS, SUNK, 105 (very far), 0B3 (kinda near)
+B01 (kinda far), 1A0 (far), WHEE, BA6 (very far), 0DA (kinda near)
 
 All right! Now 2BB starts with D, which is a big help. It has an even number of walks, and it's near the K transporter. If it had 3 transporters, well, the end coordinate sum would be 0-4 mod 8. So there's only K. And D and U. D(UK)(UD) doesn't work, D(UK)(EW) gives nothing, but DUNKS is it.
 
@@ -442,10 +469,10 @@ All right! Now 2BB starts with D, which is a big help. It has an even number of 
 
 0DA must start with W. That's a nice break. It leaves 0DB for four moves. As before, Y=-4 and Z=0 with two jumps and that means I and K are the only choices. W(IK)(EW/NS/UD) and NS gives WINKS.
 
-DUNKS, DUSK, 0C5 (kinda far), 3D3 (far), HUSKS.
-INN, 0G1 (kinda far), 1CA (very far), 426 (kinda far), BC7 (extra far).
-2GB (kinda far), SKIS, SUNK, 105 (very far), SWISH.
-B01 (kinda far), 1A0 (far), WHEE, BA6 (very far), WINKS.
+DUNKS, DUSK, 0C5 (kinda far), 3D3 (far), HUSKS
+INN, 0G1 (kinda far), 1CA (very far), 426 (kinda far), BC7 (extra far)
+2GB (kinda far), SKIS, SUNK, 105 (very far), SWISH
+B01 (kinda far), 1A0 (far), WHEE, BA6 (very far), WINKS
 
 Silliness at 426 is, well, not too silly. It has an even number of transporters. 4 would put you at 4x 4x 4x, so...there must be two. And both must be X-positive. HH means SSEE, If one is Z-negative then you have 4 squares to walk to get to 400, in addition to 2 for X, so that's out. So what can we do with EESSHH? Throw our hands up and say SHEESH.
 
@@ -455,23 +482,129 @@ B01 is also worth looking at. It has either 1 or 3 teleporters--5 is not possibl
 
 Hopefully the animal sounds are not too bad to guess, so I'm going to cut the logic lesson a bit short. HISSES and WHINNIES..
 
-DUNKS, DUSK, HISSES, 3D3 (far), HUSKS.
-INN, KISSES, 1CA (very far), SHEESH, BC7 (extra far).
-2GB (kinda far), SKIS, SUNK, 105 (very far), SWISH.
-UNWIND, 1A0 (far), WHEE, WHINNIES, WINKS.
+DUNKS, DUSK, HISSES, 3D3 (far), HUSKS
+INN, KISSES, 1CA (very far), SHEESH, BC7 (extra far)
+2GB (kinda far), SKIS, SUNK, 105 (very far), SWISH
+UNWIND, 1A0 (far), WHEE, WHINNIES, WINKS
 
 You may be able to guess the animals, too. 3D3 is wedged between HI and HU. HIS* seems awkward, but HUSKIES may fall out. Similarly, SKINKS are there.
 
-DUNKS, DUSK, HISSES, HUSKIES, HUSKS.
-INN, KISSES, 1CA (very far), SHEESH, BC7 (extra far).
-SKINKS, SKIS, SUNK, 105 (very far), SWISH.
-UNWIND, 1A0 (far), WHEE, WHINNIES, WINKS.
+DUNKS, DUSK, HISSES, HUSKIES, HUSKS
+INN, KISSES, 1CA (very far), SHEESH, BC7 (extra far)
+SKINKS, SKIS, SUNK, 105 (very far), SWISH
+UNWIND, 1A0 (far), WHEE, WHINNIES, WINKS
 
 You're over fifteen now, but the rest can be guessed as well...they are more general synonyms than clues to find. NEWSDESK, SHININESS, SUNSHINE, WEEKEND.
 
+==========================last names
+
+The last names are tricky, and thus, they can't really be guessed.
+
+B00 (far), A14 (near), CE2 (far), IE6 (extra far), 1BA (kinda near)
+DB3 (kinda far), BA3 (kinda near), 2CA (kinda near), 412 (kinda near), 203 (near)
+005 (kinda near), 217 (kinda near), 312 (very near), 1A5 (far), DE8 (kinda near)
+BAA (far), B30 (kinda far), 2A1 (kinda near), 2C1 (kinda near), 2AA (far)
+510 (near), BA4 (kinda far), 224 (kinda near), 233 (kinda near), 004 (near)
+0F0 (near), 2CA (kinda near), BD2 (kinda near), B14 (far), DI3 (WAY far)
+
+As before we start with the very near. 312 is first. That's H, with a south and up. HSU. This gives us a bit of a wedge to determine the first letter for the next last names. Not much, but enough in some cases.
+
+B00 (far), A14 (near), CE2 (far), IE6 (extra far), 1BA (kinda near)
+DB3 (kinda far), BA3 (kinda near), 2CA (kinda near), 412 (kinda near), 203 (near)
+005 (kinda near), 217 (kinda near), HSU, 1A5 (far), DE8 (kinda near)
+BAA (far), B30 (kinda far), 2A1 (kinda near), 2C1 (kinda near), 2AA (far)
+510 (near), BA4 (kinda far), 224 (kinda near), 233 (kinda near), 004 (near)
+0F0 (near), 2CA (kinda near), BD2 (kinda near), B14 (far), DI3 (WAY far)
+
+A14 (Vietnamese) is next. It has an even distance-sum, so there's two teleporters. (Four would make all digits even.) It need to get near 004, so that's HI, and then there's a D and a N. Now H(DNI) might be HIND, but that's not Vietnamese. D is the only other viable first letter, and DINH is it.
+
+203 has an odd distance-sum, and there's only one teleporter--three would make the y-coordinate inaccessible with one walk. So, HSSE. It's between Dinh and Hsu, but ESSH doesn't lead to much. HESS is a pretty common German name, though.
+
+Let's try 510 next. It's got an even distance-sum, so, two teleporters. It's close to 400, U and N. So HK. Another German name. KUHN fits the bill. There are a lot of possibilities here, but HUNK is an actual word, and U* might fit too many names near the end of the alphabet, so I'd guess K is a reasonable guess to start with.
+
+I'm going to skip ahead to 0F0 because it's less ambiguous to figure. It has even teleporters and must have I and K for teleporters and 2 S's. It must start with S to be alphabetical. SISK.
+
+004 is another with even teleporters. If there were four, it'd be 000 or 008, so...it has H and I and two opposing directions. But which ones? Well, the first letter must be past K. So we can have S (NHI) or N (HIS) or U (HID) or W (HIE). U and W aren't alphabetical, so that cuts things down a lot. In fact, SIHN/SINH can't work and SNIH isn't alphabetical. Of the N* and S*, SHIN works.
+
+B00 (far), DINH, CE2 (far), IE6 (extra far), 1BA (kinda near)
+DB3 (kinda far), BA3 (kinda near), 2CA (kinda near), 412 (kinda near), HESS
+005 (kinda near), 217 (kinda near), HSU, 1A5 (far), DE8 (kinda near)
+BAA (far), B30 (kinda far), 2A1 (kinda near), 2C1 (kinda near), 2AA (far)
+KUHN, BA4 (kinda far), 224 (kinda near), 233 (kinda near), SHIN
+SISK, 2CA (kinda near), BD2 (kinda near), B14 (far), DI3 (WAY far)
+
+It's a bit clearer now, but we have some tricky ones ahead. 1BA is the first, and the nationality may help a bit with the guesswork. If it had 3 teleporters, it'd have to go to 2BB (2 mod 4) but 2BB is only accessible with one. So, it has one teleporter. That could be either 2BB or BB2 at first glance, but BB2 would require 6 walks. So it's 2BB. You have a K. And a D and an E. There are some possibilities. DEK(NS), DEK(DU) and DEK(EW). DEKEW would need to start with E to be alphabetical and not clump. ED(KEW) or EK(WED) or EW(KED) turn up nothing. DE(KNS) would need to start DE not to clumb, but that doesn't work alphabetically. So DDEKU. EKUDD etc. doesn't quite work but DUDEK does.
+
+We're going to jump ahead to 2CA. It is close to 2BB, so that's a K, and it has an E and an S and two opposing directions. NS would force ENSSK, a mess of consonants, while UD gives DESKU. DUKES has been done, though it's a possibility, and E(KSUD) doesn't do much either. So EEWKS may work. WEEKS is too far ahead in the alphabet, but ESKEW turns out okay.
+
+That leaves BA3 as kinda near. It's close to BB2, so there's an I. Also a N and E. Now we have to see what it starts with. If D, then D(UIEN) must be past DUDEK in the alphabet, leaving DU(IEN) which gives nothing. So E(IN)(??) is kind of tricky. EINEW and EINUD don't do much but EINNS can become ENNIS.
+
+So what's between ESKEW and HESS? Something with a K and H in it at 412, to get close to 400. Then a N and E and E. HENKE is it.
+
+217 looks like a bit of an aberration, so let's go there. Three teleports need to get to 226, then a S and E. So HHIES. It's a Chinese name, and it's between HESS and HSU. HE(IHS) is not alphabetical, and HI(ESH) gives nothing. But...HSIEH works.
+
+Next is 005 with an H and an I and an E in it. It's between HESS and HSIEH, which helps cut things down. UD would need to be HEUID/HEUDI, which doesn't work, EW would need HI(EEW) wor HEW(EI) which also doesn't work, so HEI(NS) can become HINES.
+
+Now DE8 kinda near is way out there. It has an absolute displacement of 17, and if we only had 2 teleporters, that'd get us to 15. So it has 4 teleporters, and they must be H I I I, with a S. It must start with an I, then (IISH) and ISHII is what we want.
+
+2A1 is between ISHII and KUHN. It requires an odd number of transporters, and it's close to 2B2. So HIK is a possibility, with N and W. But that's too many consonants. So we need to try for just one transporter. 2BB and 222 are both close enough. But 222 = HWSSS, or no consonants. So, 2BB + EEEN would need to start with K, making KEENE not too bad to see.
+
+2C1 is then about the same thing. HIKSW is a logical possibility but there's no last name (WHISK is scenery, though,) and 222 is 6 steps away. So 2BB it is. With S and E. KEESE is the next one.
+
+224 is next up. It's got odd teleporters, and 222 is close, as is 226. 226 is HHI and WW, too many consonants. 222 means HEE and two other letters. Only N and S are between K and S inclusive, so we have NEESH or SEEHN. SHEEN it is. ("Winning" was Charlie Sheen's mantra.)
+
+From this 233 is pretty forced, with an S to start and an H. That leaves NNE. SHENN.
+
+2CA must similarly have a K. It must have one jump, too--2B2 and such are too far away to walk after three jumps. So it has an E and a S and a K and two opposing directions. If they are UD, then SU(DEK) and SK(DEU) and other combinations give nothing. U(DESK) is a bit trickier to go through, but nothing's there. SN, then SKENS or SNEKS don't quite pan out. EW, SEEKW isn't alphabetical, but we can start with W, which gives WE so consonants don't clog, and WEEKS.
+
+This makes BD2 start with W by force, which is a big help. It means we have a 4-letter jump to BD3, and that's not bad at all to grasp. I is the jump letter, and SSE are the others. WI(SSE) turns up nothing, and WS* clogs, but WE(ISS) is, well, WEISS.
+
+B00 (far), DINH, CE2 (far), IE6 (extra far), DUDEK
+DB3 (kinda far), ENNIS, ESKEW, HENKE, HESS
+HINES, HSIEH, HSU, 1A5 (far), ISHII
+BAA (far), B30 (kinda far), KEENE, KEESE, 2AA (far)
+KUHN, BA4 (kinda far), SHEEN, SHENN, SHIN
+SISK, WEEKS, WEISS, B14 (far), DI3 (WAY far)
+
+At this point it gets rather tricky and plain logic isn't enough. The Scandinavian name, you may guess, ends in -sen. Or you can note that 3 jumps can get you to BB6, which is HII, with WWN, and nothing feels Scandinavian, so there's just one jump and it's BB2 (or I) as otherwise you'd have too long a walk. If it starts with S, then SE (I) (ENN) is a possibility, but nothing stands out. However, (EIN) (SEN) gives NIESEN.
+
+Similarly B30 is not too bad. It's near B22, which would give HIJ and WWN, which clogs. So it needs only one jump, and that would have to be J. BB2 is 7 away, and 222 is too. That J must also be the first letter, so things are alphabetical. Again the SEN prefix may clue you in to JENSEN.
+
+B00 (far), DINH, CE2 (far), IE6 (extra far), DUDEK
+DB3 (kinda far), ENNIS, ESKEW, HENKE, HESS
+HINES, HSIEH, HSU, 1A5 (far), ISHII
+BAA (far), JENSEN, KEENE, KEESE, 2AA (far)
+KUHN, NIESEN, SHEEN, SHENN, SHIN
+SISK, WEEKS, WEISS, B14 (far), DI3 (WAY far)
+
+B00 must start DE or DI. DI means we have -2 2 1 in 5 moves, which would mean DIDDNNE. So DE and A0A. A0A is close to B2B, or J, and the others are too far to walk. That leaves ESSU. DE(ESSUJ) and after some twiddling, DEJESUS is the fit.
+
+DB3, if it starts with DU, becomes DB3 in 4 turns--so you'd need an I, and an E, and DD. DU(DDEI) doesn't give much. So it starts with E. You need DB2 in 5 moves. FB2 is a possible teleport destination, but EIIJUU is bizarre indeed. So you probably want one teleport, and that is BB2 for I. EI(DD)(mix). This is where I handwave a bit and say EIDDUD and EIDDEW can't really start with EI or EE, and ED (DUID) or (IDEW) can be checked. E (DDSNI) is different though as it gives EDDINS. EI would clump, and EN (IDDS) gives nothing.
+
+CE2 must start with D. If it then has a U, we have CE2 in 5. Actually, BE2 in 4, since it must start DUD. That leaves BB2 (I) and 3 S's and DUDSISS is pronounceable but not a last name. So, DI and 0C0 in 5 moves. Here, DISSS(EW/NS/UD) looks a bit suspicious, as EW means DIS(SEWS) or DIW(SESS) and UD meand DIU(SSSD) or DIS(SSUD) and NS would clog. So...we look for jumps. 0D0 is IK, and that leaves DI(IK)(S) and two opposing directions. DINKINS is the last name.
+
+BAA is a tricky one. If it starts with I, then you need to get to 011 in 6 moves. This is a bit of a headache. Maybe we can do better starting with J, when there has to be an E, too. That leaves 0C0 in 5 moves. So JESSS(NS/UD/WE) is possible but we'd need to start with N, S, D or E to keep alphabetical--and that doesn't turn up much. So we need another jump pair, which would be KI, and a S. JEKIS(UD/EW/NS) and the DISRUPTOR clue may be JENKINS.
+
+1A5 must start with H or I. If it starts with I, then we have possibilities. If it starts with H, though, it's probably HU. HW would be Chinese, maybe. That leaves BC3 in 5 moves. BB2 is close, so that's an I, and S and E are remaining. HU(ISE) and going through the possibilities, you may see HUSSEIN.
+
+2AA must start with K. That leaves 011 for 6 characters. HIJK with NE may give KEJHNIK but that sounds a bit too Slavic. So there are no jumps. Something like IK is possible but then there's SSSE and that's a bit much. I'm going to cheat a bit here and say, well, KN is how it starts, and then you need a vowel, and KNE isn't really Scandinavian, so it's KNU. D and E must be there along with opposing letters, and that becomes KNUDSEN.
+
+B14 is just B15 with a W in front of it. The thing is? We've seen this before, with HIDDEN. So the logic above applies. We go to d04 or 004--and d04 is 4 jumps, so that leaves a long walk. Then DDEN is left. WHIDDEN.
+
+DEJESUS, DINH, DINKINS, IE6 (extra far), DUDEK
+EDDINS, ENNIS, ESKEW, HENKE, HESS
+HINES, HSIEH, HSU, HUSSEIN, ISHII
+JENKINS, JENSEN, KEENE, KEESE, KNUDSEN
+KUHN, NIESEN, SHEEN, SHENN, SHIN
+SISK, WEEKS, WEISS, WHIDDEN, DI3 (WAY far)
+
+The last two are decidedly nontrivial, and logic alone won't take them out. IE6 starts with DI and ends with IE, and that leaves DA1 in 5 moves. I plus W N D D is the only way to get there--and DINWIDDIE is the answer.
+
+DI3, well, a Polish suffix is SKI, so that leaves DD4 for W------SKI if we make an educated guess. DD4 in 6 teleports could be IIIJHK, but good luck with that. WU-----SKI also requires ED4 in 5 turns, but that'd require you to get to BB2 or such and then walk the rest of the way. There are a few possibilities, but I won't tinker too much. The answer is WISNIEWSKI, and...well, that last lousy point is meant to be tough.
+
 =======================================
 
-Advanced stuff
+Reference
 
 =======================================
 
@@ -533,4 +666,4 @@ You can also notice that anything under five letters is fixed. Any combination o
 
 This should help you clear out the basics, which--well, they're not THAT basic. The rest is trickier, since there may be overlap. That's how to solve Fourdiopolis in a nutshell. There are a lot of interesting parity arguments that might not be initially interesting unless you really really like math or math puzzles, but I do, and I hope you do, too.
 
-I don't think I can wring Fivediopolis from anything, and I have to admit I don't want to.
+I don't think I can wring Fivediopolis from anything here, and I have to admit I don't want to. This logic document was hard enough as-is.

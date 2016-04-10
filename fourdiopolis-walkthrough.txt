@@ -1,4 +1,4 @@
-The game is made up of 6 lists you need to work through.
+The game is made up of 6 lists you need to work through. You don't need to work through completely, just 15 of the 20 items.
 
 First, you see your friends.
 
@@ -6,9 +6,9 @@ Then, you get a random assignment. Supplies, disgruntled people or education.
 
 Once you complete all three, you unlock the cool stuff.
 
-Once you unlock the cool stuff, you have the option to go after last names, which is meant to be very hard indeed.
+Once you unlock the cool stuff, you have the option to go after last names, which is meant to be very hard indeed. There's no winning or losing here.
 
-Before spoiling everything, my advice is: try to knock off the small stuff first. See how the teleporters displace you.
+Before spoiling everything, my advice is: try to knock off the small stuff first. See how the teleporters displace you. And also, if you want to solve things, it's best to knock off the near stuff first.
 
 
 
@@ -97,7 +97,7 @@ c
 winnie
 c
 inside
-c"
+c
 
 Here is stuff to learn about, in alphabetical order.
 
@@ -142,7 +142,7 @@ c
 wushu
 c
 inside
-c"
+c
 
 Here is the list of supplies.
 
@@ -185,7 +185,7 @@ c
 wines
 c
 wishes
-c"
+c
 
 Here is the list of disgruntled and marginalized people.
 
@@ -230,7 +230,7 @@ c
 swiss
 c
 inside
-c"
+c
 
 Here is the list of cool stuff.
 
@@ -275,7 +275,7 @@ c
 winks
 c
 hidden
-c"
+c
 
 Here is the list of last names.
 

@@ -191,6 +191,30 @@ to say outside-rand:
 instead of waiting:
 	say "Loitering is a serious offense in Fourdiopolis. Officers often patrol for loiterers.";
 
+to say u-a:
+	say "No need to attract undue attention"
+
+instead of jumping:
+	say "[u-a].";
+
+instead of waving:
+	say "[u-a].";
+
+instead of sleeping:
+	say "There's laws against that.";
+
+instead of swearing obscenely:
+	say "The old swear words have a certain charm, even though a language commission established new previously nonsensical words as more neurologically effective."
+
+instead of swearing mildly:
+	say "The government approves of such restraint in frustration."
+
+instead of kissing:
+	say "This isn't a romance game."
+
+instead of burning:
+	say "[u-a].";
+
 instead of attacking:
 	say "Violence? In this surveilled day and age? Never!"
 
@@ -239,6 +263,10 @@ before going (this is the don't waste my time with all those extra letters alrea
 	if the player's command matches the text "down", case insensitively:
 		dirsmack instead;
 
+to see-if-left (t - a truth state):
+	if number of quasi-entries in outside-area > 0:
+		say "As you [if t is true]walk[else]blip[end if] away, you reflect you can always find [if hideout is in outside-area]the hideout[else]that place[end if] later, if you want.";
+
 check going south:
 	now your-tally is "[your-tally]s";
 	check-nearlies;
@@ -247,7 +275,8 @@ check going south:
 		say "[losted]";
 		reset-game instead;
 	check-nearlies;
-		
+	see-if-left true;
+
 check going north:
 	now your-tally is "[your-tally]n";
 	check-nearlies;
@@ -255,6 +284,8 @@ check going north:
 	if ns > 9:
 		say "[losted]";
 		reset-game instead;
+	check-nearlies;
+	see-if-left true;
 
 check going west:
 	now your-tally is "[your-tally]w";
@@ -263,6 +294,8 @@ check going west:
 	if ew < -9:
 		say "[losted]";
 		reset-game instead;
+	check-nearlies;
+	see-if-left true;
 
 check going east:
 	now your-tally is "[your-tally]e";
@@ -271,6 +304,8 @@ check going east:
 	if ew > 9:
 		say "[losted]";
 		reset-game instead;
+	check-nearlies;
+	see-if-left true;
 
 check going h:
 	now your-tally is "[your-tally]h";
@@ -284,6 +319,8 @@ check going h:
 	if oops:
 		say "[losted]";
 		reset-game instead;
+	check-nearlies;
+	see-if-left false;
 
 check going i:
 	now your-tally is "[your-tally]i";
@@ -297,6 +334,8 @@ check going i:
 	if oops:
 		say "[losted]";
 		reset-game instead;
+	check-nearlies;
+	see-if-left false;
 
 check going j:
 	now your-tally is "[your-tally]j";
@@ -310,6 +349,8 @@ check going j:
 	if oops:
 		say "[losted]";
 		reset-game instead;
+	check-nearlies;
+	see-if-left false;
 
 check going k:
 	now your-tally is "[your-tally]k";
@@ -323,6 +364,8 @@ check going k:
 	if oops:
 		say "[losted]";
 		reset-game instead;
+	check-nearlies;
+	see-if-left false;
 
 to say no-jump-for-you:
 	say "The teleporter buzzes ominously--a warning that such a displacement might negatively affect the overall safety rating of Fourdiopolis teleporters. Or let you escape without proper documentation. Whichever";
@@ -336,6 +379,8 @@ check going up:
 	if ud > 9:
 		say "[losted]";
 		reset-game instead;
+	check-nearlies;
+	see-if-left true;
 
 check going down:
 	if gone-up-or-down is false:
@@ -345,6 +390,8 @@ check going down:
 	if ud < -9:
 		say "[losted]";
 		reset-game instead;
+	check-nearlies;
+	see-if-left true;
 
 gone-up-or-down is a truth state that varies.
 
@@ -410,7 +457,9 @@ after printing the locale description:
 						now scenery-found-yet is true;
 					now found entry is 1;
 	if your-tally is "hidden" or your-tally is "inside":
-		move hideout to outside-area;
+		if hideout is not in outside-area:
+			move hideout to outside-area;
+			say "[one of]All right! You think you see it! The hideout where your [if your-table is not table of friends]latest jaunt[else]whole task[end if] started![or]The hideout, again. A bit easier to recognize this time.[stopping]";
 
 to sweep-up (x - a table name):
 	if x is table of friends: [never look back]
@@ -498,16 +547,6 @@ to reset-game:
 			say "Hmm. If you're having trouble finding things, you may wish to start with stuff that's near first, instead of what's first on your list.";
 	if add-to > 7:
 		now add-to is 7;
-[	if door to ed is visible:
-		now door to ed is off-stage;
-	move player to outside-area;
-	if hint-block is false and just-found is false:
-		consider the try-a-hint rule;
-		if the rule succeeded:
-			if hint-ever-block is false:
-				now hint-ever-block is true;
-				say "[line break][italic type][bracket]NOTE: you can toggle hints like this by typing hh.[close bracket][roman type][line break]";
-	now just-found is false;]
  
 book beginning
 
@@ -515,7 +554,7 @@ book entries
 
 a quasi-entry is a kind of thing.
 
-the hideout is a quasi-entry. "Hey! It's that hideout you stumbled on! Well, one of the two!". description is "Yup, you recognize it now."
+the hideout is a quasi-entry. "[one of]Hey! It's that hideout you stumbled on! Well, one of the two![or]The hideout where you got your tasks from is nearby.[stopping]". description is "Yup, you recognize it now. You just need to look carefully--but not too carefully so others get curious."
 
 the otherwise unremarkable hovel is a quasi-entry. description is "It's a bit too calculatedly unremarkable. I mean, most hovels have some special feature, but this has nothing."
 
@@ -571,7 +610,7 @@ check entering a quasi-entry:
 			else:
 				say "BUG I forgot to say something clever here.";
 			now found entry is 1;
-			say "You head back to the center of Fourdiopolis, feeling more confident.";
+			say "You head back to the center of Fourdiopolis, feeling more confident."; [?? random text]
 			increment the score;
 			check-silly-comments;
 			reset-game;
@@ -852,6 +891,7 @@ table of scenery [tosc]
 tally (text)	descrip (text)	foundit (text)	what-drops	found
 "die"	"sacrifice yourself"	"Assisted suicide is more rigorous than in Threediopolis. The Death Panels there (not the healthcare kind) give punditary views before you pegged out, but here, you have surveys...quesstionnaires...what would you do better? What do you think authorities would do better? No, no, you are just lashing out because you are suicidal. Ah, yes, even the unsatisfied are satisfied in Fourdiopolis."	ominous door	0
 "duh"	--	"Oh, man! You can't believe you missed THAT one. It's obvious now!"	--	0
+"ehhs"	--	"People keep asking fellow conversers to repeat themselves, here."	--	0
 "ennui"	--	"Yyyyyawn. What's the point?"	--	0
 "heed"	--	"Some police give a particularly stern lecture to a citizen not fully obeying some minor law."	--	0
 "heehee"	--	"You think of a silly pun that feels funnier than it has a right to be."	--	0
@@ -865,7 +905,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "knees"	--	"You grab an old ache for a moment."	--	0
 "nike"	--	"[snee]."	--	0
 "seek"	--	"You spy someone else with a sheet similar to yours. You don't acknowledge them, though. Can't be too careful."	--	0
-"seine"	--	"You feel a flavor of Gay Paree."	--	0
+"seine"	--	"You feel a hackneyed flavor of, and longing for, Gay Paree."	--	0
 "shins"	--	"You grab an old ache for a moment."	--	0
 "shishe"	--	"You smell evidence people are--gasp--SMOKING. You remember health warnings that a whiff of the good smelling stuff is worse than the bad smelling stuff, and vice versa."	--	0
 "shun"	--	"You feel very, very alone. People are more than just giving you your space."	--	0
@@ -946,11 +986,11 @@ table of last names [tol]
 tally (text)	descrip (text)	foundit (text)	what-drops	found
 "dejesus"	"Spanish"	"[mark-away]."	suspiciously ordinary door	0
 "dinh"	"Vietnamese"	"[mark-away]."	suspiciously ordinary door	0
-"dinkins"	"None"	"[mark-away]."	suspiciously ordinary door	0
-"dinwiddie"	"None"	"[mark-away]."	suspiciously ordinary door	0
+"dinkins"	"New York"	"[mark-away]."	suspiciously ordinary door	0
+"dinwiddie"	"Scottish"	"[mark-away]."	suspiciously ordinary door	0
 "dudek"	"Polish"	"[mark-away]."	suspiciously ordinary door	0
 "eddins"	"None"	"[mark-away]."	suspiciously ordinary door	0
-"ennis"	"None"	"[mark-away]."	suspiciously ordinary door	0
+"ennis"	"Not their 1st name"	"[mark-away]."	suspiciously ordinary door	0
 "eskew"	"None"	"[mark-away]."	suspiciously ordinary door	0
 "henke"	"None"	"[mark-away]."	suspiciously ordinary door	0
 "hess"	"German"	"[mark-away]."	suspiciously ordinary door	0
@@ -959,7 +999,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "hsu"	"Chinese"	"[mark-away]."	suspiciously ordinary door	0
 "hussein"	"Arabic"	"[mark-away]."	suspiciously ordinary door	0
 "ishii"	"Japanese"	"[mark-away]."	suspiciously ordinary door	0
-"jenkins"	"None"	"[mark-away]."	suspiciously ordinary door	0
+"jenkins"	"DISRUPTOR"	"[mark-away]."	suspiciously ordinary door	0
 "jensen"	"Swedish"	"[mark-away]."	suspiciously ordinary door	0
 "keene"	"None"	"[mark-away]."	suspiciously ordinary door	0
 "keese"	"None"	"[mark-away]."	suspiciously ordinary door	0
@@ -968,12 +1008,12 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "niesen"	"Scandinavian"	"[mark-away]."	suspiciously ordinary door	0
 "sheen"	"WINNING"	"[mark-away]."	suspiciously ordinary door	0
 "shenn"	"None"	"[mark-away]."	suspiciously ordinary door	0
-"shin"	"None"	"[mark-away]."	suspiciously ordinary door	0
+"shin"	"Korean"	"[mark-away]."	suspiciously ordinary door	0
 "sisk"	"None"	"[mark-away]."	suspiciously ordinary door	0
-"weeks"	"None"	"[mark-away]."	suspiciously ordinary door	0
+"weeks"	"takes their time"	"[mark-away]."	suspiciously ordinary door	0
 "weiss"	"German"	"[mark-away]."	suspiciously ordinary door	0
-"whidden"	"English"	"[mark-away]."	suspiciously ordinary door	0
-"wisniewski"	"Polish"	"[mark-away]."	suspiciously ordinary door	0
+"whidden"	"almost too close"	"[mark-away]."	suspiciously ordinary door	0
+"wisniewski"	"Polish"	"As you make your mark, you feel a shudder of Loathing at Wisniewski also being The Man."	suspiciously ordinary door	0
 
 to say mark-away:
 	say "You leave a mark on the door and slip a brochure under. You're surprised it's not more secure, but on the other hand, people get suspicious of security others have that they don't. So maybe it's the best way to fool the people for so long"
@@ -1297,7 +1337,7 @@ carry out ring:
 		say "You only just left the center. You're a little worried that if you use the transporters TOO frequently, you might get tracked somehow." instead;
 	if number of characters in your-tally is 2:
 		say "Maybe explore another block before hitting the transporters." instead;
-	if number of visible quasi-entries > 0:
+	if number of visible quasi-entries > 0 and hideout is not in outside-area:
 		say "You sure? There's a place you might wish to check.";
 		if the player consents:
 			say "You jump in the transporter, looking back for a brief moment.";
@@ -1552,7 +1592,7 @@ instead of saying no:
 	say "Not much to say no to[rhet]."
 	
 to say rhet:
-	say "--rhetorical questions are for narrative purposes, and yes/no questions will be specifically prompted that way"
+	say "[one of]--rhetorical questions are for narrative purposes, and yes/no questions will be specifically prompted that way[or][stopping]"
 
 check requesting the score:
 	say "So far, you've found [the score] of the [number of rows in your-table] locations you needed to[one of]. Note that X may be a better way to keep track of overall progress[or][stopping].";

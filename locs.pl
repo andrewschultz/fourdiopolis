@@ -4,6 +4,8 @@
 #
 #no command line needed
 
+if (@ARGV[0]) { processLine(@ARGV[0]); }
+
 open(A, "story.ni") || die ("Need fourdiopolis source.");
 
 while ($a = <A>)
@@ -19,7 +21,9 @@ sub processLine
   my $x = 0;
   my $y = 0;
   my $z = 0;
+  my $printRes = 0;
   chomp($a);
+  if ($a !~ /\"/) { $printRes = 1; }
   $a =~ s/^\"//g;
   $a =~ s/\".*//g;
   @b = split(//, $a);
@@ -40,5 +44,11 @@ sub processLine
       print "$a out of bounds at letter $count, location $x $y $z, table $myTable, line $line.\n";
     }
   }
-  
+  if ($printRes) { print "$a => " . ltr($z) . ltr($y) . ltr($x) . "\n"; }  
+}
+
+sub ltr
+{
+  if ($_[0] >= 0) { return $_[0]; }
+  return chr(64-$_[0]);
 }

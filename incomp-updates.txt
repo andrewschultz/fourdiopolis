@@ -9,3 +9,10 @@ In-comp update list for Fourdiopolis
 --allowed for "almost" cuing if someone is suitably close (mostly for a specific spoiler case)
 --new text if you try to teleport out of Fourdiopolis
 --now "in" lets you enter as well as "c"
+
+4/9/2016
+--added new scenery, total up to 28
+--logic document now discusses last names and puts main concepts earlier
+--response to XYZZY
+--response to default verbs
+--changed some final-puzzle clues
