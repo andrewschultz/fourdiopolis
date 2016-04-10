@@ -15,4 +15,7 @@ In-comp update list for Fourdiopolis
 --logic document now discusses last names and puts main concepts earlier
 --response to XYZZY
 --response to default verbs
---changed some final-puzzle clues
+--changed some final-puzzle clues to be more specific
+--fixed bug where hideout was in the area but not acknowledged as there unless you looked again
+--checked "almost" cuing after going up and down, as well as the other directions (small bug)
+--acknowledge if player leaves a place-to-visit behind
