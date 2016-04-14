@@ -19,3 +19,8 @@ In-comp update list for Fourdiopolis
 --fixed bug where hideout was in the area but not acknowledged as there unless you looked again
 --checked "almost" cuing after going up and down, as well as the other directions (small bug)
 --acknowledge if player leaves a place-to-visit behind
+
+4/??/2016
+--added WXYZZY(X) tweak in case the player repeats, or not
+--added semi-random back-to-center text
+--under the hood stuff for testing commands

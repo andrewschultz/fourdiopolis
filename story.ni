@@ -46,9 +46,9 @@ to debug-say (x - text):
 		say "[bold type]DEBUG:[roman type] [x][line break]";
 
 to show-accomp:
-	let count be 0;
 	if debug-state is false:
 		continue the action;
+	let count be 0;
 	repeat through table of accomplishments:
 		increment count;
 		say "[count]: [solved entry][line break]";
@@ -610,7 +610,7 @@ check entering a quasi-entry:
 			else:
 				say "BUG I forgot to say something clever here.";
 			now found entry is 1;
-			say "You head back to the center of Fourdiopolis, feeling more confident."; [?? random text]
+			say "You head back to the center of Fourdiopolis, feeling [if score is 0]confident you're off to a good start[else if score is 5]in the groove[else if score is 10]well on your way[else if score is 15]you've done enough, and not just the bare minimum[else][rand-yay][end if]."
 			increment the score;
 			check-silly-comments;
 			reset-game;
@@ -618,6 +618,9 @@ check entering a quasi-entry:
 	if hideout is visible:
 		run-the-ending instead;
 	say "Oops, should've found something." instead;
+
+to say rand-yay:
+	say "[one of]especially clever about that one[or]like maybe you can see a missing location you couldn't figure before[or]confident, but not cocky[or]focused, sensible, and logical--but not TOO much[or]happy to know the city's full of secrets[or]like you'd like to tell someone about that, but you'd probably get in trouble[in random order]"
 
 to run-the-ending:
 	if your-table is table of friends:
@@ -1223,16 +1226,30 @@ carry out xyzzying:
 
 chapter wxyzzying
 
+xyzzy-let is a number that varies.
+
 wxyzzying is an action out of world.
+wxyzzyxing is an action out of world.
 
 understand the command "wxyzzy" as something new.
 understand the command "wxyzzyx" as something new.
 
 understand "wxyzzy" as wxyzzying.
-understand "wxyzzyx" as wxyzzying.
+understand "wxyzzyx" as wxyzzyxing.
+
+to x-let (xnum - a number):
+	if xyzzy-let is xnum:
+		say "No, that still doesn't sound right.";
+	else:
+		say "No, no, the other way works better. Or less badly. Whichever.";
+	now xyzzy-let is xnum;
 
 carry out wxyzzying:
-	say "No, no, the other way works better. Or less badly. Whichever.";
+	x-let 6;
+	the rule succeeds;
+
+carry out wxyzzying:
+	x-let 7;
 	the rule succeeds;
 
 chapter abouting
@@ -1619,6 +1636,7 @@ when play begins:
 
 chapter foing
 
+[ * this forces you to read table # (X). 1=friends 2=education 3=supplies 4=marginalized 5=fun 6=last names. Negative values clear the table of accomplishments. ]
 foing is an action applying to one number.
 
 foxing is an action applying to nothing.
@@ -1633,20 +1651,28 @@ carry out foxing:
 understand "fo [number]" as foing.
 
 carry out foing:
-	if number understood < 0 or number understood > 6:
-		say "1-6 please." instead;
+	if number understood < -6 or number understood > 6:
+		say "1-6 please. 1=friends 2=education 3=supplies 4=marginalized 5=fun 6=last names. Or negative, to clear the table." instead;
+	if number understood < 0:
+		now whichtable is 0 - number understood;
+		repeat through table of accomplishments:
+			now solved entry is true;
+	else:
+		now whichtable is number understood;
 	if number understood is 0:
 		say "Choosing friends.";
 		set-your-table the table of friends;
 	else:
-		choose row number understood in table of solvable tables;
+		choose row whichtable in table of solvable tables;
 		set-your-table tabname entry;
 	repeat through your-table:
 		now found entry is 0;
 	say "Your new table is [your-table]. You may wish to X to see the list again. Also, all 'found' entries are cleared.";
 	the rule succeeds;
 
-chapter foing
+chapter fiing
+
+[ * this fixes the number of things solved from 1 to 20 ]
 
 fiing is an action applying to one number.
 
@@ -1658,8 +1684,8 @@ understand "fi [number]" as fiing.
 
 carry out fiing:
 	let count be 0;
-	if number understood < 1 or number understood > 20:
-		say "1-20 please." instead;
+	if number understood < 0 or number understood > 20:
+		say "1-[number of rows in your-table] please." instead;
 	repeat through your-table:
 		increment count;
 		if count > number understood:
@@ -1704,6 +1730,8 @@ a thing can be abstract. a thing is usually not abstract.
 
 chapter cxing
 
+[ * this is a small stub to examine the task list, then enter. It was used for walkthrough testing because it was slightly tricky to change /c/ to /x/c/. ]
+
 cxing is an action applying to nothing.
 
 understand the command "cx" as something new.
@@ -1720,6 +1748,8 @@ carry out cxing:
 
 chapter saing
 
+[ * this shows accomplishments e.g. which tables you've solved]
+
 saing is an action out of world.
 
 understand the command "sa" as something new.
@@ -1731,6 +1761,8 @@ carry out saing:
 	the rule succeeds;
 
 chapter auto tests
+
+[ * The tests basically consist of plowing through one of the win sheets. FO 1 means to force paper #1. ]
 
 test 1win with "fo 1/dennis/c/eddie/c/enid/c/heidi/c/ike/c/ines/c/isis/c/jed/c/jenni/c/jessie/c/jud/c/jude/c/judi/c/june/c/ken/c/kiki/c/nikki/c/sid/c/susie/c/winnie/c/inside/c"
 

@@ -1,4 +1,6 @@
-open(A, "story.ni") || die ("No story.ni");
+open(A, "c:/games/inform/fourdiopolis.inform/Source/story.ni") || open(A, "story.ni") || die ("No story.ni");
+
+use POSIX;
 
 $blammo = 0;
 
@@ -59,6 +61,8 @@ sub setTable
   close(B);
 }
 
+print "TEST RESULTS:fourdiopolis-walkthrough,$blammo,$success,\n";
+
 if ($blammo == 0) { print "ALL HEADERS PROCESSED CORRECTLY!\n"; }
 else
 {
@@ -110,11 +114,16 @@ sub verify
 {
   my @cs = split(/,/, $currentSummary);
   
+  my $lineErrr = 0;
   for (0..$#cs)
   {
     my $temp = lc(@cs[$_]);
 	my $q = myloc(@locs[$_]);
-	if (($temp eq @locs[$_]) || ($temp eq $q)) { next; } else { print "Mismatch: $temp != $q and $temp != @locs[$_].\n"; $blammo++; $thisRound++; }
+	if (($temp eq @locs[$_]) || ($temp eq $q)) { next; } else { print "Mismatch: $temp != $q and $temp != @locs[$_].\n"; $blammo++; $thisRound++; $lineErr = 1; }
+  }
+  if (!$lineErr)
+  {
+    $success++; #print "$currentSummary ok\n";
   }
   my $index = substr($_[0], 0, 1);
   my $printedYet = 0;
