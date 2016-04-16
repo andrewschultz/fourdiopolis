@@ -61,7 +61,7 @@ sub setTable
   close(B);
 }
 
-print "TEST RESULTS:fourdiopolis-walkthrough,$blammo,$success,\n";
+print "TEST RESULTS:fourdiopolis-walkthrough,0,$blammo,$success,\n";
 
 if ($blammo == 0) { print "ALL HEADERS PROCESSED CORRECTLY!\n"; }
 else
