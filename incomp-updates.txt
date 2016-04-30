@@ -20,7 +20,15 @@ In-comp update list for Fourdiopolis
 --checked "almost" cuing after going up and down, as well as the other directions (small bug)
 --acknowledge if player leaves a place-to-visit behind
 
-4/??/2016
+4/29/2016
 --added WXYZZY(X) tweak in case the player repeats, or not
 --added semi-random back-to-center text
 --under the hood stuff for testing commands
+--added screen reader support
+--every 64th look gave a blank. Now something shows up. Also, more random occurrences in general.
+--silly responses for waiting
+--added scenery
+--fixed line breaks
+--warning on I command is now more accurate
+--IN now is smarter
+--player now gains confidence to teleport to center earlier with a few points under their belt

@@ -9,7 +9,7 @@ the story description is "Threediopolis with Teleporters and Such"
 
 the story headline is "Threediopolis: Chug Chug Next Verse"
 
-Procedural rule: ignore the print final score rule. 
+Procedural rule: ignore the print final score rule.
 
 volume starting stuff
 
@@ -28,6 +28,10 @@ include basic screen effects by Emily Short.
 Include (- Switches z; -) after "ICL Commands" in "Output.i6t".
 
 chapter stubs
+
+to say 2da:
+	unless screen-read is true:
+		say "--";
 
 to set-your-table (myt - a table name):
 	now your-table is myt;
@@ -120,7 +124,7 @@ carry out examining the task list:
 	repeat through your-table:
 		increment Q2;
 		if the remainder after dividing Q2 by 5 is 1:
-			say "--";
+			say "[2da]";
 		if found entry is 1:
 			say "[bold type][if your-table is table of friends][tally entry in title case][else if your-table is table of last names][tally entry in upper case][else][tally entry][end if][roman type]";
 		else:
@@ -169,27 +173,33 @@ thiscount is a number that varies.
 
 to say outside-rand:
 	increment thiscount;
-	if the remainder after dividing thiscount by 2 is 1:
-		say "A nonlinear transporter is nearby. You could sneak in, if you're tired of walking";
-	else if the remainder after dividing thiscount by 8 is 2:
-		say "You've grown oblivious to the whooshing of transport tubes";
-	else if the remainder after dividing thiscount by 8 is 4:
-		say "Several young hooligans dare a prospective gang member to try to teleport outside the city bounds, unless he's CHICKEN";
-	else if the remainder after dividing thiscount by 8 is 6:
-		say "A worldly-wise eleven-year-old explains to a ten-year-old that if you jaywalk, do it in the MIDDLE of the street, because thinking BIG. Also, it'll be harder for police cruisers to pull you over";
-	else if the remainder after dividing thiscount by 32 is 8:
-		say "A couple argues over the safest of six ways to walk to a new neighborhood 1 up 1 north 1 east";
-	else if the remainder after dividing thiscount by 32 is 16:
-		say "In a fit of civic pride, citizens kvetch that Fourdiopolis will always be superior to Undergroundgrad, which may be the same size, but half of it doesn't COUNT";
-	else if the remainder after dividing thiscount by 32 is 24:
-		say "A distinguished-looking [if a random chance of 1 in 2 succeeds]wo[end if]man slips a street urchin 1000000 New Scrip for spraying particularly creative pro-government graffiti. The kid is grateful--food for a whole week! Or nutritious food for two days! Whichever";
-	else if the remainder after dividing thiscount by 64 is 32:
-		say "An idealistic youngun tries to plot how many trips it'd take to visit all of Fourdiopolis's main blocks. He uses up so much scratch paper, he's warned and shooed by a Waste Police droid[one of] (this is the last of the random nonsense)[or][stopping]";
-	if thiscount is 64:
+	if thiscount is 128:
 		now thiscount is 0;
-	
+	repeat through table of randies:
+		if the remainder after dividing thiscount by denom entry is num entry:
+			say "[babble entry]";
+			continue the action;
+	say "This particular area is remarkable for how unremarkable it is. It shouldn't be, and you sense the city algorithms to balance overall interestingness and flavor are out of whack, but it is"
+
+[the table of randies below can be formatted as follows. Number, with denominators. Then the next number is X * num, the next denominator num, then 2*num, etc. Leave the num=denom for outside-rand.]
+
+table of randies
+denom	num	babble
+2	1	"A nonlinear transporter is nearby. You could sneak in, if you're tired of walking"
+8	2	"In a fit of civic pride, citizens kvetch that Fourdiopolis will always be superior to Undergroundgrad, which may be the same size, but half of it doesn't COUNT"
+8	4	"Several young hooligans dare a prospective gang member to try to teleport outside the city bounds, unless he's CHICKEN"
+8	6	"A worldly-wise eleven-year-old explains to a ten-year-old that if you jaywalk, do it in the MIDDLE of the street, because thinking BIG. Also, it'll be harder for police cruisers to pull you over"
+32	8	"A couple argues over the safest of six ways to walk to a new neighborhood 1 up 1 north 1 east"
+32	16	"You've grown oblivious to the whooshing of transport tubes, and one day you'll grow oblivious to your obliviousness"
+32	24	"A distinguished-looking [if a random chance of 1 in 2 succeeds]wo[end if]man slips a street urchin 1000000 New Scrip for spraying particularly creative pro-government graffiti. The kid is grateful--food for a whole week! Or nutritious food for two days! Whichever"
+192	32	"An idealistic youngun tries to plot how many trips it'd take to visit all of Fourdiopolis's main blocks. He uses up so much scratch paper, he's warned and shooed by a Waste Police droid"
+192	64	"A fellow pedestrian is fined for having a cracked phone-screen. He is apparently a repeat offender who hasn't gotten it cleared for a whole month"
+192	96	"A robo-dog zips between your legs with quantum-calculated precision. Apparently organic pets are worse. But you haven't seen many"
+192	128	"Someone claiming to have been to Spaceneedleston says sure, it's posh, but it's not PRACTICAL or full of REAL PROGRESS like Fourdiopolis"
+192	160	"You walk past a cheery pizza vendor droid. Well, it's cheery until someone tries for a prank order. Or even a weird subversive one like half canadian bacon with Pineapple, half artichoke with pesto, and light on the cheese--there are algorithms to check that and alert police[one of] (this is the last of the random nonsense)[or][stopping]"
+
 instead of waiting:
-	say "Loitering is a serious offense in Fourdiopolis. Officers often patrol for loiterers.";
+	say "Loitering is a serious offense in Fourdiopolis. Officers often patrol for them. Often undercover. Which creates confusion, which makes loitering an even more serious offense.";
 
 to say u-a:
 	say "No need to attract undue attention"
@@ -224,7 +234,7 @@ check entering transporter:
 	say "Try going h, i, j or k, instead." instead;
 
 check examining the transporter for the first time:
-	say "You review the literature on the transporter about the three approved teleport directions: h, i, j and k, and something about quaternions, and something else about how you can't have people passing each other in opposite directions in a teleportal field, or BAM. It's all pretty standard stuff."
+	say "You review the literature on the transporter about the three approved teleport directions: h, i, j and k, and something about quaternions, and something else about how you can't have people passing each other in opposite directions in a teleportal field, or BAM. It's all pretty standard stuff, and if people can't understand it, they look knowledgeable nodding their heads about it."
 
 check entering transporter:
 	say "You can just try to go the various directions: h, i, j, or k."
@@ -242,7 +252,7 @@ to say sec of (q - a number):
 book going
 
 instead of exiting:
-	say "Out? Of Fourdiopolis? You don't have proper documentation.";
+	say "Out? Of Fourdiopolis? You don't have proper documentation. And you can't get it. Well, not in this game.";
 
 to dirsmack:
 	say "In these efficient days, people find using more than one letter for a direction too flowery.[line break]";
@@ -266,6 +276,14 @@ before going (this is the don't waste my time with all those extra letters alrea
 to see-if-left (t - a truth state):
 	if number of quasi-entries in outside-area > 0:
 		say "As you [if t is true]walk[else]blip[end if] away, you reflect you can always find [if hideout is in outside-area]the hideout[else]that place[end if] later, if you want.";
+
+check going inside:
+	if number of visible quasi-entries > 0:
+		try cing instead;
+	if word number 1 in the player's command is "in":
+		if score >= 2:
+			dirparse "in" instead;
+	say "You don't see anywhere to go in." instead;
 
 check going south:
 	now your-tally is "[your-tally]s";
@@ -438,7 +456,7 @@ to tally-and-place:
 				if location of what-drops entry is not outside-area:
 					move what-drops entry to outside-area;
 					continue the action;
-					
+
 after printing the locale description:
 	let A be indexed text;
 	now A is your-tally;
@@ -498,7 +516,7 @@ outside-area is k of outside-area.
 
 instead of diaging:
 	say "You can't cut through buildings on your own. Even with teleporters being all the rage. Well, apparently you could cut through some lobbies years ago, but surveillance and keycard-doors have taken care of that.";
-	
+
 book directions
 
 giing is an action applying to nothing.
@@ -515,14 +533,18 @@ i is a direction. the opposite of i is h.
 j is a direction. the opposite of j is k.
 k is a direction. the opposite of k is j.
 
-check going i for the first time:
-	bracket-say "just to check, I is a direction, not the command to take inventory. Since you only have one item, X will suffice.";
+i-warn is a truth state that varies.
+
+check going i when i-warn is false:
+	if dirparsing is false:
+		bracket-say "just to check, I is a direction, not the command to take inventory. Since you only have one item, X will suffice.";
+		now i-warn is true;
 
 to bracket-say (tx - text):
 	say "[italic type][bracket]NOTE: [tx][close bracket][r][line break]";
 
 chapter adjust the
- 
+
 book whatever
 
 teleported is a truth state that varies.
@@ -547,7 +569,7 @@ to reset-game:
 			say "Hmm. If you're having trouble finding things, you may wish to start with stuff that's near first, instead of what's first on your list.";
 	if add-to > 7:
 		now add-to is 7;
- 
+
 book beginning
 
 book entries
@@ -610,7 +632,7 @@ check entering a quasi-entry:
 			else:
 				say "BUG I forgot to say something clever here.";
 			now found entry is 1;
-			say "You head back to the center of Fourdiopolis, feeling [if score is 0]confident you're off to a good start[else if score is 5]in the groove[else if score is 10]well on your way[else if score is 15]you've done enough, and not just the bare minimum[else][rand-yay][end if].";
+			say "[line break]You head back to the center of Fourdiopolis, feeling [if score is 0]confident you're off to a good start[else if score is 5]in the groove[else if score is 10]well on your way[else if score is 15]you've done enough, and not just the bare minimum[else][rand-yay][end if].";
 			increment the score;
 			check-silly-comments;
 			reset-game;
@@ -655,8 +677,10 @@ to run-the-ending:
 		end-with-undo;
 		continue the action;
 	let lists-done be 0;
+	let table-count be 0;
 	repeat through table of accomplishments:
-		if solved entry is true:
+		increment table-count;
+		if table-count <= 5 and solved entry is true:
 			increment lists-done;
 	if score < 15:
 		say "Your overseers grumble. 'Well, maybe we'll get someone else to do the rest.'";
@@ -711,9 +735,9 @@ chapter friends
 
 table of friends [tof]
 tally (text)	descrip (text)	foundit (text)	what-drops	found
-"dennis"	"friend"	"He begins telling you about his wonderful friend Jonathan and Jonathan's lovely future wife Elizabeth before getting serious and scared and asking if Christopher has been by yet."	front door	0
+"dennis"	"can skip or jump"	"He begins telling you about his wonderful friend Jonathan and Jonathan's lovely future wife Elizabeth before getting serious and scared and asking if Christopher has been by yet."	front door	0
 "eddie"	"crazy friend"	"He stashes some absurdly low-priced appliances into a closet before running out."	front door	0
-"enid"	"friend of five"	"She looks up from writing a book with a bunch of kids running around on the cover."	front door	0
+"enid"	"friend of five"	"Enid listens as she makes proofreading marks on a book with a bunch of kids running around on the cover."	front door	0
 "heidi"	"Swiss friend"	"Thankfully, you hear no yodeling as the door opens."	front door	0
 "ike"	"cross, iron friend"	"'I'm ready to take down the sprawling military-industrial complex,' Ike says."	front door	0
 "ines"	"Spanish friend"	"She [says-hi]."	front door	0
@@ -727,8 +751,8 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "june"	"all-seasons friend"	"She springs into action on hearing why you're hear."	front door	0
 "ken"	"solves number puzzles halfway"	"He [says-hi]."	front door	0
 "kiki"	"friend who can deliver us"	"She gives a bit too sugary speech on how you can do anything you can put your mind to, but it's better than the opposite."	front door	0
-"nikki"	"friend"	"She [says-hi]."	front door	0
-"sid"	"friend last name L"	"'I'm no Rodrigo Diaz, but [']ell, I'm good enough.'"	front door	0
+"nikki"	"loud friend 6"	"She [says-hi]."	front door	0
+"sid"	"not a vicious seizer"	""	front door	0
 "susie"	"friend with weird boyfriend"	"'No, they DON'T need a transmogrifier!' Susie booms to someone you can't see. 'Not even one that works!'"	front door	0
 "winnie"	"doesn't miss Ke*in"	"Talking with Winnie you feel nostalgia and remember some growing pains."	front door	0
 
@@ -913,6 +937,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "shishe"	--	"You smell evidence people are--gasp--SMOKING. You remember health warnings that a whiff of the good smelling stuff is worse than the bad smelling stuff, and vice versa."	--	0
 "shun"	--	"You feel very, very alone. People are more than just giving you your space."	--	0
 "shush"	--	"'Oh, sure, you can THINK that, just don't SAY it, you know?'"	--	0
+"sides"	--	"You feel cornered in here. You're not sure why."	--	0
 "skidded"	--	"A goverment utility vehicle swerves and almost hits someone about to jaywalk. Funny how one is always around, unless you jaywalk REALLY assertively."	--	0
 "skunkweed"	--	"It smells bad here, like it should be illegal."	--	0
 "unkind"	--	"You worry someone's going to do something mean to you, but don't worry, they're only thinking about it. Especially with video cameras all around."	--	0
@@ -1023,7 +1048,7 @@ to say mark-away:
 
 table of name yay
 count	comment
-1	"The first councilor."
+1	"Well, you are in for it, now. Even doing this once gives some risk."
 3	"You haven't been caught, yet. It's still nervy."
 6	"Rebelling is almost becoming boring."
 10	"You look at the names you have left, and you wonder if focusing on (or not focusing on) ethnic names Says Something About You. Well, it says you're a third of the way there."
@@ -1074,7 +1099,7 @@ rule for deciding whether to allow undo:
 	if story-ended is true:
 		allow undo;
 	else:
-		say "You can't really quite reverse how and where you walked, or when you teleported. But don't worry, if you get killed somehow, you will be able to undo.";
+		say "You can't really quite reverse how and where you walked, or when you teleported. But don't worry, if you get killed somehow, you will be able to undo. And you can always go back to the center and retrace your steps.";
 		deny undo;
 
 volume commands
@@ -1090,7 +1115,11 @@ after reading a command:
 			say "You don't need to separate commands with periods. You [if score > 1]should've been noted you can munge directions together[else]may find out why in a bit[end if]. In the meantime, they may distract the parser.";
 			now period-warn is true;
 			wfak;
+	now not-parseable-yet is false;
 	if locom matches the regular expression "^<ewnsudhijk \.>*$":
+		now not-parseable-yet is true;
+		if debug-state is true:
+			say "DEBUG: [locom] [number of characters in locom] vs [locom-chars].";
 		if number of quasi-entries in outside-area > 0 and the player's command matches "^in$":
 			continue the action;
 		if number of characters in locom > locom-chars:
@@ -1098,6 +1127,8 @@ after reading a command:
 				try undiding instead;
 			if the player's command matches "i seek keen":
 				try keenseeking instead;
+			if locom is "in":
+				continue the action;
 			dirparse locom;
 			reject the player's command;
 	let w1 be word number 1 in locom;
@@ -1184,7 +1215,7 @@ every turn (this is the silly stuff rule):
 			if note-bad is false:
 				bracket-say "You can turn this random text off with T. You don't need to interact with citizens on the street in any way.";
 				now note-bad is true;
-		
+
 table of silly randoms
 silliness
 "Gang leaders argue whether a disobedient underling should be smacked up or down."
@@ -1335,8 +1366,10 @@ Rule for printing a parser error when the latest parser error is the I beg your 
 		increment cur-length;
 	say "BUG. Nothing is left.";
 
+not-parseable-yet is a truth state that varies.
+
 Rule for printing a parser error when the latest parser error is the not a verb i recognise error:
-	say "I didn't recognize that verb. You can type V for the verbs available. None should be too complex.";
+	say "I didn't recognize that verb[if not-parseable-yet is true]. Well, not yet[end if]. You can type V for the verbs available. None should be too complex.";
 
 chapter ring
 
@@ -1354,10 +1387,13 @@ understand "r" as ring.
 carry out ring:
 	if number of characters in your-tally is 0:
 		say "You're already at the center, and you haven't wandered since the last time you took a transporter." instead;
-	if number of characters in your-tally is 1:
-		say "You only just left the center. You're a little worried that if you use the transporters TOO frequently, you might get tracked somehow." instead;
-	if number of characters in your-tally is 2:
-		say "Maybe explore another block before hitting the transporters." instead;
+	if score < 2:
+		if number of characters in your-tally is 1:
+			say "You only just left the center. You're a little worried that if you use the transporters TOO frequently, you might get tracked somehow. Maybe with a bit more experience and confidence, you can sneak back quickly." instead;
+		if number of characters in your-tally is 2:
+			say "Maybe explore another block before hitting the transporters--you're not quite experienced or confident enough to do so yet. Using the transporters too frequently raises red flags." instead;
+	if number of characters in your-tally < 3:
+		say "You do a small random shuffle before taking a teleporter back to the center, just to throw off the city's data tracking complex. Not too random, though. You don't want to get picked up on suspicion of intoxication." instead;
 	if number of visible quasi-entries > 0 and hideout is not in outside-area:
 		say "You sure? There's a place you might wish to check.";
 		if the player consents:
@@ -1401,11 +1437,11 @@ understand "v" as ving.
 
 carry out ving:
 	say "You can go in any direction, north, south, east or west, or up or down. You can abbreviate them. In addition, you have a device that lets you use transporters at will. They can send you in direction h, i, j, and k.";
-	say "If you think you've found something significant, you can type C, for check. That is shorthand for entering, etc.";
-	say "R restarts your journey in sector 000 with a clear mind.";
-	say "B gives brief room descriptions, which you probably want as they don't vary much.";
-	say "X examines your list of tasks.";
-	say "Meta-commands include ABOUT and CREDITS.";
+	say "[2da]If you think you've found something significant, you can type [b]C[r], for check. That is shorthand for entering, etc.";
+	say "[2da][b]R[r] restarts your journey in sector 000 with a clear mind.";
+	say "[2da][b]B[r] gives brief room descriptions, which you probably want as they don't vary much.";
+	say "[2da][b]X[r] examines your list of tasks.";
+	say "[2da]Meta-commands include ABOUT and CREDITS.";
 	if debug-state is true:
 		say "Here are commands for testers:[line break]";
 		say "You can also type FO (1-6) to force one list of things to do. 1 = friends, 5 = fun stuff, 6 = the bad guys. It's recommended you restart before doing this. Also, you should start with 1, then try one of 2-4, and that is more than enough to help me.";
@@ -1425,7 +1461,7 @@ carry out keenseeking:
 		say "You already found the revolution's friends." instead;
 	choose row 1 in table of accomplishments;
 	now solved entry is true;
-	midtable-choose;	
+	midtable-choose;
 	the rule succeeds;
 
 chapter undiding
@@ -1471,12 +1507,18 @@ part main stuff
 when play begins (this is the set the status line rule):
 	set-your-table table of friends;
 	now your-tally is "";
-	now right hand status line is "[score]/[if your-table is table of last names]30[else]20[end if]";
+	now right hand status line is "[score]/[number of rows in your-table]";
 	now ns is 0;
 	now ew is 0;
 	now ud is 0;
-	
+
+screen-read is a truth state that varies.
+
 when play begins (this is the narrativity rule):
+	if debug-state is false:
+		say "Fourdiopolis has some screen reader support. Do you wish to use it?";
+		if the player consents:
+			now screen-read is true;
 	say "Threediopolis was quite a structural and engineering experiment, but it's so last century. There are more people than ever in the world! They need to be packed in further! And Fourdiopolis allows 90% more population density per square feet of land! Land it hasn't sunk into yet!";
 	wfak;
 	say "It's mostly due to the teleporters. They are the key thing. Even foot traffic is too crowded these days! But teleporters can't just go in a standard direction. That'd--interfere. The ley lines or whatever would still go through people walking. They've been calibrated for maximum traffic decrease, and stuff. And they're still kind of expensive to use too much. The common people just aren't happy enough with vertical transporters being free for so long.";
@@ -1507,6 +1549,7 @@ when play begins (this is the check accomplishments at start rule) :
 		set-your-table table of friends;
 		the rule succeeds;
 	else:
+		now locom-chars is 1;
 		choose row 5 in table of accomplishments;
 		if solved entry is true:
 			say "There is only one thing left to do. You must find the shadow councillors--you only have their addresses--and place the mark of the rebellion on their doors. Do you dare risk the intellectual turmoil therein?";
@@ -1564,7 +1607,7 @@ to comment-mine (j - a table name):
 			if there is no comment entry:
 				say "BUG there should be a comment entry!";
 			else:
-				say "[comment entry][line break]";
+				say "[line break][comment entry][line break]";
 
 table of accomplishments
 solved
@@ -1611,12 +1654,12 @@ instead of saying yes:
 
 instead of saying no:
 	say "Not much to say no to[rhet]."
-	
+
 to say rhet:
 	say "[one of]--rhetorical questions are for narrative purposes, and yes/no questions will be specifically prompted that way[or][stopping]"
 
 check requesting the score:
-	say "So far, you've found [the score] of the [number of rows in your-table] locations you needed to[one of]. Note that X may be a better way to keep track of overall progress[or][stopping].";
+	say "So far, you've found [the score] of the [number of rows in your-table] locations you needed to[one of]. Note that X, or the status line, may be a better way to keep track of overall progress[or][stopping].";
 	if scenery-found > 0:
 		say "You've also found [scenery-found] of [number of rows in table of scenery] miscellaneous bits of scenery.";
 	the rule succeeds;
@@ -1636,22 +1679,22 @@ Include (-
 	while (true) {
 		! Save the start of the buffer, in case "oops" needs to restore it
 		for (i=0 : i<64 : i++) oops_workspace->i = a_buffer->i;
-	
+
 		! In case of an array entry corruption that shouldn't happen, but would be
 		! disastrous if it did:
 		#Ifdef TARGET_ZCODE;
 		a_buffer->0 = INPUT_BUFFER_LEN;
 		a_table->0 = 15;  ! Allow to split input into this many words
 		#Endif; ! TARGET_
-	
+
 		! Print the prompt, and read in the words and dictionary addresses
 		PrintPrompt();
 		DrawStatusLine();
 		KeyboardPrimitive(a_buffer, a_table);
-	
+
 		! Set nw to the number of words
 		#Ifdef TARGET_ZCODE; nw = a_table->1; #Ifnot; nw = a_table-->0; #Endif;
-	
+
 		! If the line was blank, get a fresh line
 		if (nw == 0) {
 			@push etype; etype = BLANKLINE_PE;
@@ -1662,13 +1705,13 @@ Include (-
 			@pull etype;
 			continue;
 		}
-	
+
 		! Unless the opening word was OOPS, return
 		! Conveniently, a_table-->1 is the first word on both the Z-machine and Glulx
-	
+
 		w = a_table-->1;
 		! Undo handling
-	
+
 		if ((w == UNDO1__WD or UNDO3__WD) && (nw==1)) {
 			Perform_Undo();
 			continue;
@@ -1796,6 +1839,10 @@ to tab-check (tn - a table name):
 
 to d (t - text):
 	if debug-state is true:
+		say "[bold type]DEBUG:[roman type] [t][line break]";
+
+to dn (t - text):
+	if debug-state is true:
 		say "[bold type]DEBUG:[roman type] [t]";
 
 a thing can be abstract. a thing is usually not abstract.
@@ -1862,12 +1909,12 @@ test 4wx with "x/denied/cx/disses/cx/djinn/cx/dukes/cx/hunks/cx/huns/cx/hussies/
 
 test 5win with "fo 5/dunks/c/dusk/c/hisses/c/huskies/c/husks/c/inn/c/kisses/c/newsdesk/c/sheesh/c/shininess/c/skinks/c/skis/c/sunk/c/sunshine/c/swish/c/unwind/c/weekend/c/whee/c/whinnies/c/winks/c/hidden/c"
 
-test 5w with "x/dunks/c/dusk/c/hisses/c/huskies/c/husks/c/inn/c/kisses/c/newsdesk/c/sheesh/c/shininess/c/skinks/c/skis/c/sunk/c/sunshine/c/swish/c/unwind/c/weekend/c/whee/c/whinnies/c/winks/c/hidden/x"
+test 5w with "x/dunks/c/dusk/c/hisses/c/huskies/c/husks/c/inn/c/kisses/c/newsdesk/c/sheesh/c/shininess/c/skinks/c/skis/c/sunk/c/sunshine/c/swish/c/unwind/c/weekend/c/whee/c/whinnies/c/winks/c/hidden/c"
 
 test 5wx with "x/dunks/cx/dusk/cx/hisses/cx/huskies/cx/husks/cx/inn/cx/kisses/cx/newsdesk/cx/sheesh/cx/shininess/cx/skinks/cx/skis/cx/sunk/cx/sunshine/cx/swish/cx/unwind/cx/weekend/cx/whee/cx/whinnies/cx/winks/cx/hidden/cx"
 
 test 6win with "fo 6/dejesus/c/dinh/c/dinkins/c/dinwiddie/c/dudek/c/eddins/c/ennis/c/eskew/c/henke/c/hess/c/hines/c/hsieh/c/hsu/c/hussein/c/ishii/c/jenkins/c/jensen/c/keene/c/keese/c/knudsen/c/kuhn/c/niesen/c/sheen/c/shenn/c/shin/c/sisk/c/weeks/c/weiss/c/whidden/c/wisniewski/c/inside/c"
 
-test 6w with "x/dejesus/c/dinh/c/dinkins/c/dinwiddie/c/dudek/c/eddins/c/ennis/c/eskew/c/henke/c/hess/c/hines/c/hsieh/c/hsu/c/hussein/c/ishii/c/jenkins/c/jensen/c/keene/c/keese/c/knudsen/c/kuhn/c/niesen/c/sheen/c/shenn/c/shin/c/sisk/c/weeks/c/weiss/c/whidden/c/wisniewski/c/inside/x"
+test 6w with "x/dejesus/c/dinh/c/dinkins/c/dinwiddie/c/dudek/c/eddins/c/ennis/c/eskew/c/henke/c/hess/c/hines/c/hsieh/c/hsu/c/hussein/c/ishii/c/jenkins/c/jensen/c/keene/c/keese/c/knudsen/c/kuhn/c/niesen/c/sheen/c/shenn/c/shin/c/sisk/c/weeks/c/weiss/c/whidden/c/wisniewski/c/inside/c"
 
 test 6wx with "x/dejesus/cx/dinh/cx/dinkins/cx/dinwiddie/cx/dudek/cx/eddins/cx/ennis/cx/eskew/cx/henke/cx/hess/cx/hines/cx/hsieh/cx/hsu/cx/hussein/cx/ishii/cx/jenkins/cx/jensen/cx/keene/cx/keese/cx/knudsen/cx/kuhn/cx/niesen/cx/sheen/cx/shenn/cx/shin/cx/sisk/cx/weeks/cx/weiss/cx/whidden/cx/wisniewski/cx/inside/cx"
