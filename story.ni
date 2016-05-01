@@ -101,18 +101,21 @@ to say farness of (x - indexed text):
 	choose row q in table of far blab;
 	say "[dist entry]";
 
+to say bug-near:
+	say "You do a small random shuffle before taking a teleporter back to the center, just to throw off the city's data tracking complex. Not too random, though. You don't want to get picked up on suspicion of intoxication"
+
 table of far blab
-dist
-"buggily near"
-"buggily near"
-"very near"
-"near"
-"kinda near"
-"kinda far"
-"far"
-"very far"
-"extra far"
-"WAY far"
+dist	returny
+"buggily near"	"[bug-near]."
+"buggily near"	"[bug-near]."
+"very near"	"Your journey this time was very short, but no point wandering if it's off to a bad start."
+"near"	"A short journey, but maybe you discovered something to do. Or not-do."
+"kinda near"	"A kind of short journey, good for exercise and sightseeing."
+"kinda far"	"A kind of long journey this time." 
+"far"	"A long journey. You're glad you're in shape so you can walk this much. Or maybe you've walked so much and you're now in shape. That's the sort of thing you think about during long walks."
+"very far"	"It's been a very long walk indeed."
+"extra far"	"This walk has been extra long. You sense the further you went, the less likely you were to find something."
+"WAY far"	"Man! That was a marathon, but you zapped back to the center before you got too tired."
 
 hidden-inside is a truth state that varies.
 
@@ -167,36 +170,14 @@ to say r:
 
 book the room
 
-outside-area is a privately-named room. printed name of outside-area is "Sector [sec of ud][sec of ns][sec of ew]". "[outside-rand]."
-
-thiscount is a number that varies.
+outside-area is a privately-named room. printed name of outside-area is "Sector [sec of ud][sec of ns][sec of ew]". "[outside-rand]"
 
 to say outside-rand:
-	increment thiscount;
-	if thiscount is 128:
-		now thiscount is 0;
-	repeat through table of randies:
-		if the remainder after dividing thiscount by denom entry is num entry:
-			say "[babble entry]";
-			continue the action;
-	say "This particular area is remarkable for how unremarkable it is. It shouldn't be, and you sense the city algorithms to balance overall interestingness and flavor are out of whack, but it is"
+	if a random chance of 2 in 5 succeeds:
+		say "Teleporters, transport tubes, walkways. So ubiquitous, so similar, yet different.[no line break]";
+	else:
+		say "[one of]You feel as if you both should and shouldn't know this area[or]There's a [one of]smaller[or]larger[at random] than usual crowd by the [one of]teleports[or]vertical tubes[at random] here. Well, it can't always be constant[or]The sidewalks go from too crowded to too empty to unremarkable[or]You think you see someone from a few blocks ago, coming the opposite way again, but you can't just go up and ASK them[in random order].[no line break]";
 
-[the table of randies below can be formatted as follows. Number, with denominators. Then the next number is X * num, the next denominator num, then 2*num, etc. Leave the num=denom for outside-rand.]
-
-table of randies
-denom	num	babble
-2	1	"A nonlinear transporter is nearby. You could sneak in, if you're tired of walking"
-8	2	"In a fit of civic pride, citizens kvetch that Fourdiopolis will always be superior to Undergroundgrad, which may be the same size, but half of it doesn't COUNT"
-8	4	"Several young hooligans dare a prospective gang member to try to teleport outside the city bounds, unless he's CHICKEN"
-8	6	"A worldly-wise eleven-year-old explains to a ten-year-old that if you jaywalk, do it in the MIDDLE of the street, because thinking BIG. Also, it'll be harder for police cruisers to pull you over"
-32	8	"A couple argues over the safest of six ways to walk to a new neighborhood 1 up 1 north 1 east"
-32	16	"You've grown oblivious to the whooshing of transport tubes, and one day you'll grow oblivious to your obliviousness"
-32	24	"A distinguished-looking [if a random chance of 1 in 2 succeeds]wo[end if]man slips a street urchin 1000000 New Scrip for spraying particularly creative pro-government graffiti. The kid is grateful--food for a whole week! Or nutritious food for two days! Whichever"
-192	32	"An idealistic youngun tries to plot how many trips it'd take to visit all of Fourdiopolis's main blocks. He uses up so much scratch paper, he's warned and shooed by a Waste Police droid"
-192	64	"A fellow pedestrian is fined for having a cracked phone-screen. He is apparently a repeat offender who hasn't gotten it cleared for a whole month"
-192	96	"A robo-dog zips between your legs with quantum-calculated precision. Apparently organic pets are worse. But you haven't seen many"
-192	128	"Someone claiming to have been to Spaceneedleston says sure, it's posh, but it's not PRACTICAL or full of REAL PROGRESS like Fourdiopolis"
-192	160	"You walk past a cheery pizza vendor droid. Well, it's cheery until someone tries for a prank order. Or even a weird subversive one like half canadian bacon with Pineapple, half artichoke with pesto, and light on the cheese--there are algorithms to check that and alert police[one of] (this is the last of the random nonsense)[or][stopping]"
 
 instead of waiting:
 	say "Loitering is a serious offense in Fourdiopolis. Officers often patrol for them. Often undercover. Which creates confusion, which makes loitering an even more serious offense.";
@@ -738,7 +719,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "dennis"	"can skip or jump"	"He begins telling you about his wonderful friend Jonathan and Jonathan's lovely future wife Elizabeth before getting serious and scared and asking if Christopher has been by yet."	front door	0
 "eddie"	"crazy friend"	"He stashes some absurdly low-priced appliances into a closet before running out."	front door	0
 "enid"	"friend of five"	"Enid listens as she makes proofreading marks on a book with a bunch of kids running around on the cover."	front door	0
-"heidi"	"Swiss friend"	"Thankfully, you hear no yodeling as the door opens."	front door	0
+"heidi"	"Alpine friend"	"Thankfully, you hear no yodeling as the door opens."	front door	0
 "ike"	"cross, iron friend"	"'I'm ready to take down the sprawling military-industrial complex,' Ike says."	front door	0
 "ines"	"Spanish friend"	"She [says-hi]."	front door	0
 "isis"	"friend from Egypt"	"She [says-hi]."	front door	0
@@ -917,20 +898,27 @@ to say hehhuh:
 table of scenery [tosc]
 tally (text)	descrip (text)	foundit (text)	what-drops	found
 "die"	"sacrifice yourself"	"Assisted suicide is more rigorous than in Threediopolis. The Death Panels there (not the healthcare kind) give punditary views before you pegged out, but here, you have surveys...quesstionnaires...what would you do better? What do you think authorities would do better? No, no, you are just lashing out because you are suicidal. Ah, yes, even the unsatisfied are satisfied in Fourdiopolis."	ominous door	0
+"dindin"	--	"You feel hungry."	--	0
+"dink"	--	"You're hit by a very very soft nerf ball that runs away. Hmm."	--	0
 "duh"	--	"Oh, man! You can't believe you missed THAT one. It's obvious now!"	--	0
+"dui"	--	"A robot-police runs by and grabs a breath-sample from the air in front of you. 'Proceed,' it says. Hmm.'"	--	0
 "ehhs"	--	"People keep asking fellow conversers to repeat themselves, here."	--	0
 "ennui"	--	"Yyyyyawn. What's the point?"	--	0
 "heed"	--	"Some police give a particularly stern lecture to a citizen not fully obeying some minor law."	--	0
 "heehee"	--	"You think of a silly pun that feels funnier than it has a right to be."	--	0
+"henwen"	--	"You thought you heard a talking pig just now."	--	0
 "huhheh"	--	"[hehhuh]."	--	0
 "huhheh"	--	"[hehhuh]."	--	0
 "iknew"	--	"Someone covers for looking stupid by explaining they were just being really, really ironic."	--	0
 "inkiness"	--	"Everything's a bit cloudy, here."	--	0
+"jesus"	--	"Someone spouting an annoying proof that religions shouldn't exist then asks you to join the personality cult of a smart person dead for a hundred years, who wasn't nice, but they understood algorithms of how to make others nicer. You brush them away."	--	0
 "keds"	--	"[snee]."	--	0
 "kike"	"an unacceptable slur"	"An unacceptable slur is heard. It's ancient and rare, but none the less offensive. You feel half ashamed coming this way, knowing what you know, and what you might hear."	--	0 [and yes, the author wants to make it clear this is unacceptable. But i didn't want someone stumbling accidentally and saying, well, why no comment on this]
 "kkk"	"bad bad people"	"Everyone around here just really, really sucks at life. What else can I say?"	--	0 [super extra double for this but here there's an opportunity to laugh at people a bit I hope]
 "knees"	--	"You grab an old ache for a moment."	--	0
+"kuskunn"	--	"You see an image of a demon trapped in a bubble, by a candle slowly burning."	--	0	[allusion to Magic Candle and Dreax]
 "nike"	--	"[snee]."	--	0
+"nissin"	--	"You step on something. It looks like a chunk of dried noodles. You feel hungry for food you'll regret later."	--	0
 "seek"	--	"You spy someone else with a sheet similar to yours. You don't acknowledge them, though. Can't be too careful."	--	0
 "seine"	--	"You feel a hackneyed flavor of, and longing for, Gay Paree."	--	0
 "shins"	--	"You grab an old ache for a moment."	--	0
@@ -938,13 +926,29 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "shun"	--	"You feel very, very alone. People are more than just giving you your space."	--	0
 "shush"	--	"'Oh, sure, you can THINK that, just don't SAY it, you know?'"	--	0
 "sides"	--	"You feel cornered in here. You're not sure why."	--	0
+"sissies"	--	"Some self-made tough guys still feel a need to gang up on people weaker than they are. The pain's all over at once that way, amirite?"	--	0
 "skidded"	--	"A goverment utility vehicle swerves and almost hits someone about to jaywalk. Funny how one is always around, unless you jaywalk REALLY assertively."	--	0
 "skunkweed"	--	"It smells bad here, like it should be illegal."	--	0
+"uhhs"	--	"Conversation feels a bit slower and dumber than usual for Fourdiopolis, for a second here."	--	0
+"undid"	--	"You feel regret for what you've done and regret for that regret. You waste a bit of time fretting over how you've wasted a bit of time no matter which feeling is right."	--	0
 "unkind"	--	"You worry someone's going to do something mean to you, but don't worry, they're only thinking about it. Especially with video cameras all around."	--	0
+"uuid"	--	"You are suddenly unable to get the hexadecimal number [b][uuid][r] out of your head!"	--	0
 "weenies"	--	"An old long-abandoned hot dog hut lies between two places of Serious Business. Your grandparents constantly babbled about the misspelled version from THEIR youth being so tasty, and--well--maybe the misspelling did make things tastier."	--	0
 "whew"	--	"You just barely escaped something, there! You don't know what, but it would've been pretty bad."	--	0
 "whisk"	--	"You trip on an odd cooking supply you don't know the name of. People don't have time for that, with so much virtual reality to experience these days, and machines do it all good enough."	--	0
 "whiskies"	--	"Wow! People seem to be having a rip roaring time, here[whisky-wine]. You don't have time for such carousing at the moment, but it boosts your spirits."	--	0
+"wineskins"	--	"Everything retro is fashionable again, and drinking wine from animal skins was before when retro was a thing, so--that big rich people's gathering in the park is extra nice."	--	0
+
+to say uuid:
+	(- RAW(); -)
+
+Include (-
+
+[ RAW ix;
+	for (ix=8: ix <= UUID_ARRAY->0 - 2: ix++) print (char) UUID_ARRAY->ix;
+];
+
+-).
 
 to say whisky-wine:
 	if your-table is table of supplies:
@@ -1003,6 +1007,7 @@ tally	mult	tname	found
 "hiss"	"hisses"	table of just plain cool stuff	0
 "husk"	"husks"	table of just plain cool stuff	0
 "kiss"	"kisses"	table of just plain cool stuff	0
+"shine"	"shininess"	table of just plain cool stuff	0
 "skink"	"skinks"	table of just plain cool stuff	0
 "ski"	"skis"	table of just plain cool stuff	0
 "wink"	"winks"	table of just plain cool stuff	0
@@ -1030,11 +1035,11 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "jenkins"	"DISRUPTOR"	"[mark-away]."	suspiciously ordinary door	0
 "jensen"	"Swedish"	"[mark-away]."	suspiciously ordinary door	0
 "keene"	"None"	"[mark-away]."	suspiciously ordinary door	0
-"keese"	"None"	"[mark-away]."	suspiciously ordinary door	0
+"keese"	"None"	"Oh, wait, look. There's a weird pixelated bird on the door! As you make your mark, you reflect on the people keeping Fourdiopolis in the past under the guise of sticking with basics."	suspiciously ordinary door	0
 "knudsen"	"Danish"	"[mark-away]."	suspiciously ordinary door	0
 "kuhn"	"German"	"[mark-away]."	suspiciously ordinary door	0
 "niesen"	"Scandinavian"	"[mark-away]."	suspiciously ordinary door	0
-"sheen"	"WINNING"	"[mark-away]."	suspiciously ordinary door	0
+"sheen"	"WINNING"	"As much as you distrust politicians who talk about winning, the alternative is...worse? This guy was particularly outrageous, you remember now. Entertaining, but outrageous."	suspiciously ordinary door	0
 "shenn"	"None"	"[mark-away]."	suspiciously ordinary door	0
 "shin"	"Korean"	"[mark-away]."	suspiciously ordinary door	0
 "sisk"	"None"	"[mark-away]."	suspiciously ordinary door	0
@@ -1203,7 +1208,7 @@ cycle-note is a truth state that varies.
 
 every turn (this is the silly stuff rule):
 	if show-silly is true:
-		if a random chance of 1 in 3 succeeds:
+		if a random chance of 1 in 2 succeeds:
 			increment silly-row;
 			if silly-row > number of rows in table of silly randoms:
 				now silly-row is 1;
@@ -1218,6 +1223,34 @@ every turn (this is the silly stuff rule):
 
 table of silly randoms
 silliness
+"Two people discuss the logistics of visiting every sector of Fourdiopolis before they die."
+"A passer-by asks if you're willing to hear a one-minute lecture on how society represses you. You decline, even, or especially, after they say they've condensed it with practice."
+"An older man tries to skip across the street with a pedestrian warning photographed, but the flash-cameras catch him blocking traffic. A younger kid who started earlier makes it."
+"Even pedestrians babble about gas prices these days. Surely they didn't always, when there was only one type of gas, not ten."
+"Two activists get into a fight over whether the city should continually pump in instrumental music or heavy metal music on the streets."
+"A kid shows off his trophy for three-dimensional bowling."
+"A malcontent grumbles that OF COURSE h and the other transporter directions should go 180 degrees the opposite of how they do."
+"You see a police siren flash by, but you can't hear anything. Must be at a high pitch only teens can hear. You remember the last time you could. You miss it."
+"Someone is ticketed for a broken Reality-Enhancing helmet. Those things are dangerous if they get too inaccurate."
+"A cop warns a kid about transporter joyriding in an HIJK loop. Because kids who say they'll try just one wind up going for all 24 possible combinations. That costs the taxpayer!"
+"A mini-marathon thunders by. They all have those magnetic bibs that transporters can detect, so, no cheating."
+"An old man recounts the day when all the two-letter country URL codes got used up."
+"A passer-by hawks cemetery real estate. There's some open within five miles of the city, but not for long."
+"Some crank cites shaky proof that overusing transporters makes you shorter. Another chimes in that it can make you taller, and it just depends which directions you go."
+"In a fit of civic pride, citizens kvetch that Fourdiopolis will always be superior to Undergroundgrad, which may be the same size, but half of it doesn't COUNT."
+"Several young hooligans dare a prospective gang member to try to teleport outside the city bounds, unless he's CHICKEN."
+"A worldly-wise eleven-year-old explains to a ten-year-old that if you jaywalk, do it in the MIDDLE of the street, because thinking BIG. Also, it'll be harder for police cruisers to pull you over."
+"A couple argues over the safest of six ways to walk to a new neighborhood 1 up 1 north 1 east."
+"You've grown oblivious to the whooshing of transport tubes, and one day you'll grow oblivious to your obliviousness."
+"A distinguished-looking [if a random chance of 1 in 2 succeeds]wo[end if]man slips a street urchin 1000000 New Scrip for spraying particularly creative pro-government graffiti. The kid is grateful--food for a whole week! Or nutritious food for two days! Whichever."
+"An idealistic youngun tries to plot how many trips it'd take to visit all of Fourdiopolis's main blocks. He uses up so much scratch paper, he's warned and shooed by a Waste Police droid."
+"A fellow pedestrian is fined for having a cracked phone-screen. He is apparently a repeat offender who hasn't gotten it cleared for a whole month."
+"A robo-dog zips between your legs with quantum-calculated precision. Apparently organic pets are worse. But you haven't seen many."
+"Someone claiming to have been to Spaceneedleston says sure, it's posh, but it's not PRACTICAL or full of REAL PROGRESS like Fourdiopolis."
+"People ahead of you discuss the politics of urban versus rural gerrymandering and qualifications for moving from half an effective vote to three-quarters, or a full vote."
+"A cop allows a kid reading an approved book to sit and loiter--if he isn't blocking foot-traffic TOO much."
+"An argument erupts between members of the Nerd and Jock political parties, and when someone tries to mediate, he's panned for pretending he has and knows it all."
+"You walk past a cheery pizza vendor droid. Well, it's cheery until someone tries for a prank order. Or even a weird subversive one like half canadian bacon with Pineapple, half artichoke with pesto, and light on the cheese--there are algorithms to check that and alert police."
 "Gang leaders argue whether a disobedient underling should be smacked up or down."
 "A political debate over whether payoffs to gangs or governments works better ensues."
 "One kid tries to impress others with a story of a poor sap who got teleported into rock, another with a story of someone teleported five hundred feet above solid ground, and another tries to impress them with proof it'd never happen."
@@ -1314,7 +1347,7 @@ understand "credits" as creditsing.
 
 carry out creditsing:
 	say "I'd like to thank Aaron Reed for providing a space where I can put this game so it doesn't seem like trolling or torture and also for checking with entrants to allow for a bit of cleanup before the first release. I was really conflicted about even putting this game out, because of its difficulty. The thing is--I [italic type]like[roman type] difficult stuff, though that's no excuse not to try to make it accessible to others.[paragraph break]";
-	say "I'd like to thank my testers, for putting up with something so confusing in so little time. [bold type]Buster Hudson, Robin Johnson and Teaspoon[roman type]. They found--well, the details would embarrass me. Both technical and aesthetic. I'm very grateful to them.[paragraph break]";
+	say "I'd like to thank my testers, for putting up with something so confusing in so little time. [bold type]Buster Hudson, Robin Johnson and Teaspoon[roman type]. They found--well, the details would embarrass me. Both technical and aesthetic. I'm very grateful to them.[paragraph break]Also, Wade Clarke mentioned some things in-comp.[paragraph break]";
 	say "And also, while it's fishy to list my Threediopolis testers by name so as to beef up my tester list...their thoughts and ideas helped me when I wrote up Fourdiopolis. I appreciate them.[paragraph break]The font in the cover 'art' is Chlorinar.";
 	the rule succeeds;
 
@@ -1385,15 +1418,19 @@ understand the command "r" as something new.
 understand "r" as ring.
 
 carry out ring:
-	if number of characters in your-tally is 0:
+	let ncy be number of characters in your-tally;
+	if ncy is 0:
 		say "You're already at the center, and you haven't wandered since the last time you took a transporter." instead;
 	if score < 2:
-		if number of characters in your-tally is 1:
+		if ncy is 1:
 			say "You only just left the center. You're a little worried that if you use the transporters TOO frequently, you might get tracked somehow. Maybe with a bit more experience and confidence, you can sneak back quickly." instead;
-		if number of characters in your-tally is 2:
+		if ncy is 2:
 			say "Maybe explore another block before hitting the transporters--you're not quite experienced or confident enough to do so yet. Using the transporters too frequently raises red flags." instead;
-	if number of characters in your-tally < 3:
-		say "You do a small random shuffle before taking a teleporter back to the center, just to throw off the city's data tracking complex. Not too random, though. You don't want to get picked up on suspicion of intoxication." instead;
+	if ncy > number of rows in table of far blab:
+		say "Wow. Enough walking. Back to the center. Funny how the zap back rejuvenates you.";
+	else:
+		choose row ncy in table of far blab;
+		say "[returny entry][paragraph break]";
 	if number of visible quasi-entries > 0 and hideout is not in outside-area:
 		say "You sure? There's a place you might wish to check.";
 		if the player consents:
@@ -1403,7 +1440,7 @@ carry out ring:
 		else:
 			say "OK. You may wish to type C here.";
 		the rule succeeds;
-	say "You take one of the public teleporters back to the center. You don't need a special key. They're about the only thing free these days. The government, in a small sop to civil liberties, doesn't even track how many time a person uses it. Small things.";
+	say "[one of]You take one of the public teleporters back to the center. You don't need a special key. They're about the only thing free these days. The government, in a small sop to civil liberties, doesn't even track how many time a person uses it. Small things[or]Back to 000, again[stopping].";
 	if ns is 0 and ew is 0 and ud is 0:
 		say "Hm. Weird. It feels like you didn't go anywhere, and at the same time, you did.";
 	reset-game;
@@ -1515,6 +1552,7 @@ when play begins (this is the set the status line rule):
 screen-read is a truth state that varies.
 
 when play begins (this is the narrativity rule):
+	sort the table of silly randoms in random order;
 	if debug-state is false:
 		say "Fourdiopolis has some screen reader support. Do you wish to use it?";
 		if the player consents:
@@ -1809,6 +1847,36 @@ carry out fiing:
 			now found entry is 1;
 	say "First [number understood] entries are 1, last are 0. X to make sure.";
 	the rule succeeds;
+
+volume amusing the player
+
+rule for amusing a victorious player:
+	say "Have you tried:[line break]";
+	let hide-ever be false;
+	repeat through table of silly jokes:
+		let hide-this be false;
+		if there is a need-solved entry:
+			unless need-solved entry is game-done:
+				now hide-this is true;
+				now hide-ever is true;
+		if hide-this is false:
+			say "[2da][need-solved entry][line break]";
+	if hide-ever is true:
+		say "You still can solve more and unlock other amusing things to do.";
+
+to decide whether (n - a number) is game-done:
+	if n < 1, decide no;
+	if n > number of rows in table of accomplishments, decide yes;
+	choose row n in table of accomplishments;
+	if solved entry is true, decide yes;
+	decide no;
+
+table of silly jokes
+funny-try	need-solved
+"to DIE?"	1
+"waiting?"
+"XYZZY? And the follow-up?"
+"A scenery location at 6FF?"
 
 volume testing - not for release
 
