@@ -111,7 +111,7 @@ dist	returny
 "very near"	"Your journey this time was very short, but no point wandering if it's off to a bad start."
 "near"	"A short journey, but maybe you discovered something to do. Or not-do."
 "kinda near"	"A kind of short journey, good for exercise and sightseeing."
-"kinda far"	"A kind of long journey this time." 
+"kinda far"	"A kind of long journey this time."
 "far"	"A long journey. You're glad you're in shape so you can walk this much. Or maybe you've walked so much and you're now in shape. That's the sort of thing you think about during long walks."
 "very far"	"It's been a very long walk indeed."
 "extra far"	"This walk has been extra long. You sense the further you went, the less likely you were to find something."
@@ -192,7 +192,7 @@ instead of waving:
 	say "[u-a].";
 
 instead of sleeping:
-	say "There's laws against that.";
+	say "There's laws against that. Well, there are no laws against sleeping, but sleeping in possession of valuables encourages criminals. Sleeping without them is vagrancy.";
 
 instead of swearing obscenely:
 	say "The old swear words have a certain charm, even though a language commission established new previously nonsensical words as more neurologically effective."
@@ -892,8 +892,8 @@ chapter misc table
 to say snee:
 	say "You feel a sudden stupid desire to buy overpriced sneakers. Maybe at Payless. But everyone shops at PayWayLess these days"
 
-to say hehhuh:
-	say "Some laughter at a reasonably articulated point with an obvious wrong interpretation"
+to say bnb:
+	say "Two fellows in a park, sitting on a couch, commenting stupidly at music videos on an old-school television. What is society coming to? Hah, you said..."
 
 table of scenery [tosc]
 tally (text)	descrip (text)	foundit (text)	what-drops	found
@@ -907,8 +907,8 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "heed"	--	"Some police give a particularly stern lecture to a citizen not fully obeying some minor law."	--	0
 "heehee"	--	"You think of a silly pun that feels funnier than it has a right to be."	--	0
 "henwen"	--	"You thought you heard a talking pig just now."	--	0
-"huhheh"	--	"[hehhuh]."	--	0
-"huhheh"	--	"[hehhuh]."	--	0
+"huhheh"	--	"[bnb]"	--	0
+"huhheh"	--	"[bnb]."	--	0
 "iknew"	--	"Someone covers for looking stupid by explaining they were just being really, really ironic."	--	0
 "inkiness"	--	"Everything's a bit cloudy, here."	--	0
 "jesus"	--	"Someone spouting an annoying proof that religions shouldn't exist then asks you to join the personality cult of a smart person dead for a hundred years, who wasn't nice, but they understood algorithms of how to make others nicer. You brush them away."	--	0
@@ -1232,6 +1232,7 @@ silliness
 "A malcontent grumbles that OF COURSE h and the other transporter directions should go 180 degrees the opposite of how they do."
 "You see a police siren flash by, but you can't hear anything. Must be at a high pitch only teens can hear. You remember the last time you could. You miss it."
 "Someone is ticketed for a broken Reality-Enhancing helmet. Those things are dangerous if they get too inaccurate."
+"Two gothy looking kids compare their nonconformist permits and wonder how more normal kids scored more flexible ones."
 "A cop warns a kid about transporter joyriding in an HIJK loop. Because kids who say they'll try just one wind up going for all 24 possible combinations. That costs the taxpayer!"
 "A mini-marathon thunders by. They all have those magnetic bibs that transporters can detect, so, no cheating."
 "An old man recounts the day when all the two-letter country URL codes got used up."
@@ -1875,7 +1876,8 @@ table of silly jokes
 funny-try	need-solved
 "to DIE?"	1
 "waiting?"
-"XYZZY? And the follow-up?"
+"XYZZY? And the follow-up(s)?"
+"sleeping?"
 "A scenery location at 6FF?"
 
 volume testing - not for release
