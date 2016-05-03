@@ -32,3 +32,11 @@ In-comp update list for Fourdiopolis
 --warning on I command is now more accurate
 --IN now is smarter
 --player now gains confidence to teleport to center earlier with a few points under their belt
+
+5/3/2016
+--HEADERS now with the F (full view) command. Yeah, I was running out of letters.
+--an obviously female name is no longer "He." Oops. Also fixed some clues.
+--fixed room abbreviations.
+--added 4 scenery.
+--if you just missed it tells you how you missed.
+--A is now the command to list ACTIONS. V is reserved for verbose, B for brief.
