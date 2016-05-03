@@ -173,6 +173,8 @@ book the room
 outside-area is a privately-named room. printed name of outside-area is "Sector [sec of ud][sec of ns][sec of ew]". "[outside-rand]"
 
 to say outside-rand:
+	unless set to unabbreviated room descriptions:
+		continue the action;
 	if a random chance of 2 in 5 succeeds:
 		say "Teleporters, transport tubes, walkways. So ubiquitous, so similar, yet different.[no line break]";
 	else:
@@ -724,12 +726,12 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "ines"	"Spanish friend"	"She [says-hi]."	front door	0
 "isis"	"friend from Egypt"	"She [says-hi]."	front door	0
 "jed"	"friend"	"He [says-hi]."	front door	0
-"jenni"	"friend who says why not"	"He [says-hi]."	front door	0
+"jenni"	"friend who says why not"	"She [says-hi]."	front door	0
 "jessie"	"has desirable girl/guy"	"[either-gender]."	front door	0
 "jud"	"hey, a friend, almost"	"He [says-hi]."	front door	0
 "jude"	"hey, a friend"	"He says 'Oh, I was trying to make a sad song better, but never mind."	front door	0
 "judi"	"hey, a friend's female twin"	"She [says-hi]."	front door	0
-"june"	"all-seasons friend"	"She springs into action on hearing why you're hear."	front door	0
+"june"	"fair-weather friend"	"She springs into action on hearing why you're hear."	front door	0
 "ken"	"solves number puzzles halfway"	"He [says-hi]."	front door	0
 "kiki"	"friend who can deliver us"	"She gives a bit too sugary speech on how you can do anything you can put your mind to, but it's better than the opposite."	front door	0
 "nikki"	"loud friend 6"	"She [says-hi]."	front door	0
@@ -794,14 +796,14 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "desks"	"boring office stuff"	"Well, we all need desks. Desks just aren't exciting. Maybe they can fold up, or have weird shapes, or even have cool drawers. But they're never exciting. At least they're ergonomic and space-efficient these days."	dusty warehouse	0
 "dishes"	"something to eat on"	"Wow! All kinds of dishes! They're all biodegradable, too. They're a bit ugly, but you can't have everything. In a pinch, they can also be broken and thrown as weapons. Not very good weapons, but better than nothing."	beaten-up store	0
 "disused"	"abandoned place to hide and plot"	"Shadow groups can always use a good disused place. Until it gets too dis-dis-used."	abandoned shed	0
-"hens"	"chicken farms"	"Well, organic farms are always good. You'll need lots of food."	fake barn	0
+"hens"	"egg farms"	"Well, organic farms are always good. You'll need lots of food."	fake barn	0
 "hides"	"warm weather clothing"	"Actually, most weather is warmer than it was years ago, but humans['] bodies adapted to be faster and leaner, so they need warm clothes well above freezing now."	upscale store	0
 "juju"	"occult help (or can't-hurt)"	"Juju may not be effective, but it brings people together, and it feels fun. Especially because you get to slap a drum around a bit, and stab a doll representing the Mayor-Overlord."	dusty warehouse	0
 "junk"	"not their treasure"	"You find all kinds of cool junk here. Some was being saved for the right customer--someone who could make anything out of junk. Like people back at headquarters."	beaten-up store	0
 "kiwis"	"fruit"	"Oh, hey! It's the genetically modified kind where you don't have to pit the ends out! With edible stickers! Well, everything has edible stickers, but you're a sticker connoiseur."	grocery store	0
 "nines"	"super swank clothes"	"Of course, none of the rebels would own any of this for themselves. But it's still fun to have the chance to wear stuff like this, once. You notice a tag: please shower immediately before and after wearing."	upscale store	0
 "nukes"	"only if we're desperate or MAD"	"Fortunately, you can't just trip over a nuke and set it off. But unfortunately, every good subversive organization has to have one, even the nonviolent ones. Especially the nonviolents!"	abandoned shed	0
-"sheds"	"storage"	"A fellow named Arthur makes a purchase ahead of you and get far too excited he has three now, so people can stop laughing at him."	abandoned shed	0
+"sheds"	"storage"	"A fellow named Arthur makes a purchase ahead of you and gets far too excited he has three now, so people can stop laughing at him."	abandoned shed	0
 "skein"	"more yarn than we'll ever need"	"All types and colors of yarn here--synthetic, real, thick, thin."	upscale store	0
 "skunks"	"stink bomb raw materials"	"Organic chemists have still not found anything as offensive yet harmless as a skunk scent. Someone proved the near-impossibility of that back in 2150, but people still try."	fake barn	0
 "swine"	"porcine stuff"	"It doesn't smell too good in here, and you've never been able to reconcile that with just how good bacon smells. Or you remember bacon smells. Which is even better than bacon bits!"	fake barn	0
@@ -897,6 +899,7 @@ to say bnb:
 
 table of scenery [tosc]
 tally (text)	descrip (text)	foundit (text)	what-drops	found
+"didi"	"Urkel"	"A fellow with oversized glasses and suspenders runs into you, shrugs his shoulders, snort-laughs and then runs away."	--	0	
 "die"	"sacrifice yourself"	"Assisted suicide is more rigorous than in Threediopolis. The Death Panels there (not the healthcare kind) give punditary views before you pegged out, but here, you have surveys...quesstionnaires...what would you do better? What do you think authorities would do better? No, no, you are just lashing out because you are suicidal. Ah, yes, even the unsatisfied are satisfied in Fourdiopolis."	ominous door	0
 "dindin"	--	"You feel hungry."	--	0
 "dink"	--	"You're hit by a very very soft nerf ball that runs away. Hmm."	--	0
@@ -906,7 +909,8 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "ennui"	--	"Yyyyyawn. What's the point?"	--	0
 "heed"	--	"Some police give a particularly stern lecture to a citizen not fully obeying some minor law."	--	0
 "heehee"	--	"You think of a silly pun that feels funnier than it has a right to be."	--	0
-"henwen"	--	"You thought you heard a talking pig just now."	--	0
+"henwen"	"Prydain Chronicles"	"You thought you heard a talking pig just now."	--	0
+"hues"	--	"The local color is particularly vibrant in this neighborhood."	--	0
 "huhheh"	--	"[bnb]"	--	0
 "huhheh"	--	"[bnb]."	--	0
 "iknew"	--	"Someone covers for looking stupid by explaining they were just being really, really ironic."	--	0
@@ -916,7 +920,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "kike"	"an unacceptable slur"	"An unacceptable slur is heard. It's ancient and rare, but none the less offensive. You feel half ashamed coming this way, knowing what you know, and what you might hear."	--	0 [and yes, the author wants to make it clear this is unacceptable. But i didn't want someone stumbling accidentally and saying, well, why no comment on this]
 "kkk"	"bad bad people"	"Everyone around here just really, really sucks at life. What else can I say?"	--	0 [super extra double for this but here there's an opportunity to laugh at people a bit I hope]
 "knees"	--	"You grab an old ache for a moment."	--	0
-"kuskunn"	--	"You see an image of a demon trapped in a bubble, by a candle slowly burning."	--	0	[allusion to Magic Candle and Dreax]
+"kuskunn"	"Magic Candle"	"You see an image of a demon trapped in a bubble, by a candle slowly burning."	--	0
 "nike"	--	"[snee]."	--	0
 "nissin"	--	"You step on something. It looks like a chunk of dried noodles. You feel hungry for food you'll regret later."	--	0
 "seek"	--	"You spy someone else with a sheet similar to yours. You don't acknowledge them, though. Can't be too careful."	--	0
@@ -975,43 +979,44 @@ this is the plural-almost rule:
 			if found-yet of mult entry:
 				now found entry is 2;
 			else:
-				say "On your way back to the center, you wonder if you could've gone just a bit farther to find something. Or things. You felt like you were close.";
+				say "On your way back to the center, you wonder if you could've gone [if missage entry is 1]a bit farther[else if missage entry is 2]a small way along[else if missage entry is 3]a good bit ahead[else]down a small detour[end if] to find something. Or things. You felt like you were close.";
 				now found entry is 0;
 				the rule succeeds;
 	the rule succeeds;
 
 table of nearlies [ton]
-tally	mult	tname	found
-"dis"	"disses"	table of marginalized people	0
-"duke"	"dukes"	table of marginalized people	0
-"hunk"	"hunks"	table of marginalized people	0
-"indie"	"indies"	table of marginalized people	0
-"junkie"	"junkies"	table of marginalized people	0
-"kid"	"kids"	table of marginalized people	0
-"sheikh"	"sheikhs"	table of marginalized people	0
-"hijink"	"hijinks"	table of education	0
-"hike"	"hikes"	table of education	0
-"issue"	"issues"	table of education	0
-"sine"	"sines"	table of education	0
-"sin"	"sins"	table of education	0
-"desk"	"desks"	table of supplies	0
-"dish"	"dishes"	table of supplies	0
-"hen"	"hens"	table of supplies	0
-"kiwi"	"kiwis"	table of supplies	0
-"nuke"	"nukes"	table of supplies	0
-"shed"	"sheds"	table of supplies	0
-"skunk"	"skunks"	table of supplies	0
-"undie"	"undies"	table of supplies	0
-"wish"	"wishes"	table of supplies	0
-"dunk"	"dunks"	table of just plain cool stuff	0
-"hiss"	"hisses"	table of just plain cool stuff	0
-"husk"	"husks"	table of just plain cool stuff	0
-"kiss"	"kisses"	table of just plain cool stuff	0
-"shine"	"shininess"	table of just plain cool stuff	0
-"skink"	"skinks"	table of just plain cool stuff	0
-"ski"	"skis"	table of just plain cool stuff	0
-"wink"	"winks"	table of just plain cool stuff	0
-"wine"	"wines"	table of supplies	0
+tally	mult	tname	found	missage
+"jesse"	"jessie"	table of friends	0	4
+"dis"	"disses"	table of marginalized people	0	3
+"duke"	"dukes"	table of marginalized people	0	1
+"hunk"	"hunks"	table of marginalized people	0	1
+"indie"	"indies"	table of marginalized people	0	1
+"junkie"	"junkies"	table of marginalized people	0	1
+"kid"	"kids"	table of marginalized people	0	1
+"sheikh"	"sheikhs"	table of marginalized people	0	1
+"hijink"	"hijinks"	table of education	0	1
+"hike"	"hikes"	table of education	0	1
+"issue"	"issues"	table of education	0	1
+"sine"	"sines"	table of education	0	1
+"sin"	"sins"	table of education	0	1
+"desk"	"desks"	table of supplies	0	1
+"dish"	"dishes"	table of supplies	0	2
+"hen"	"hens"	table of supplies	0	1
+"kiwi"	"kiwis"	table of supplies	0	1
+"nuke"	"nukes"	table of supplies	0	1
+"shed"	"sheds"	table of supplies	0	1
+"skunk"	"skunks"	table of supplies	0	1
+"undie"	"undies"	table of supplies	0	1
+"wish"	"wishes"	table of supplies	0	2
+"dunk"	"dunks"	table of just plain cool stuff	0	1
+"hiss"	"hisses"	table of just plain cool stuff	0	2
+"husk"	"husks"	table of just plain cool stuff	0	1
+"kiss"	"kisses"	table of just plain cool stuff	0	2
+"shine"	"shininess"	table of just plain cool stuff	0	3
+"skink"	"skinks"	table of just plain cool stuff	0	1
+"ski"	"skis"	table of just plain cool stuff	0	1
+"wink"	"winks"	table of just plain cool stuff	0	1
+"wine"	"wines"	table of supplies	0	1
 
 chapter final table
 
@@ -1082,7 +1087,7 @@ to say msg:
 			continue the action;
 	let q be mids-solved;
 	if q is 3:
-		say "On to the random stuff";
+		say "From the randomized...to the random";
 		continue the action;
 	say "[q in words] down, [if score > 14]now only[else]still[end if] [3 - q in words] to go"
 
@@ -1380,6 +1385,9 @@ rule for supplying a missing noun when entering:
 		now the noun is a random visible quasi-entry;
 
 Rule for printing a parser error when the latest parser error is the I beg your pardon error:
+	if number of quasi-entries in outside-area is 1:
+		say "Your eyes wander... hey! You can totally enter the [random visible quasi-entry], if you'd like.";
+		the rule succeeds;
 	let any-left be false;
 	repeat through your-table:
 		if found entry is 0:
@@ -1403,7 +1411,7 @@ Rule for printing a parser error when the latest parser error is the I beg your 
 not-parseable-yet is a truth state that varies.
 
 Rule for printing a parser error when the latest parser error is the not a verb i recognise error:
-	say "I didn't recognize that verb[if not-parseable-yet is true]. Well, not yet[end if]. You can type V for the verbs available. None should be too complex.";
+	say "I didn't recognize that verb[if not-parseable-yet is true]. Well, not yet[end if]. You can type A for the actions available. None should be too complex.";
 
 chapter ring
 
@@ -1461,29 +1469,50 @@ carry out cing:
 	try entering a random visible quasi-entry;
 	the rule succeeds;
 
-chapter ving
+chapter aing
 
-ving is an action out of world.
+understand "v" as preferring unabbreviated room descriptions.
 
-understand the command "v" as something new.
-understand the command "verb" as something new.
-understand the command "verbs" as something new.
+aing is an action out of world.
 
-understand "verb" as ving.
-understand "verbs" as ving.
-understand "v" as ving.
+understand the command "a" as something new.
 
-carry out ving:
+understand "a" as aing.
+
+carry out aing:
 	say "You can go in any direction, north, south, east or west, or up or down. You can abbreviate them. In addition, you have a device that lets you use transporters at will. They can send you in direction h, i, j, and k.";
 	say "[2da]If you think you've found something significant, you can type [b]C[r], for check. That is shorthand for entering, etc.";
 	say "[2da][b]R[r] restarts your journey in sector 000 with a clear mind.";
-	say "[2da][b]B[r] gives brief room descriptions, which you probably want as they don't vary much.";
+	say "[2da][b]F[r] toggles the header with the list of remaining tasks.";
+	say "[2da][b]B[r] gives brief room descriptions, which you may eventually want, as the random descriptions eventually loop. [b]V[r] expands them.";
 	say "[2da][b]X[r] examines your list of tasks.";
+	say "[2da][b]T[r] toggles silly random events that don't affect the game.";
 	say "[2da]Meta-commands include ABOUT and CREDITS.";
 	if debug-state is true:
 		say "Here are commands for testers:[line break]";
 		say "You can also type FO (1-6) to force one list of things to do. 1 = friends, 5 = fun stuff, 6 = the bad guys. It's recommended you restart before doing this. Also, you should start with 1, then try one of 2-4, and that is more than enough to help me.";
 		say "FI is an additional test command. FI 1 'solves' the first entry but makes the other 19 unsolved. FI 16 takes the first 16, leaving the last 4 unsolved. And so forth. So, FI (1-20) if you want to tinker.";
+	the rule succeeds;
+
+chapter fing
+
+fing is an action out of world.
+
+understand the command "f" as something new.
+
+understand "f" as fing.
+
+full-view is a truth state that varies.
+
+To decide what number is screenh:
+	(- VM_ScreenHeight() -);
+
+carry out fing:
+	if full-view is false:
+		if screenh < 25 or screen width < 90:
+			say "You need a 90x25 character window to make this work. It's currently [screen width] x [screenh]." instead;
+	now full-view is whether or not full-view is false;
+	say "Now header view is [if full-view is true]on[else]off[end if].";
 	the rule succeeds;
 
 chapter keenseeking
@@ -1532,6 +1561,60 @@ carry out undiding:
 	repeat through your-table:
 		now found entry is 0;
 	the rule succeeds;
+
+volume status line
+
+rule for constructing the status line when full-view is false:
+	rejig the status line to 1 rows;
+	center "Sector [sec of ud][sec of ns][sec of ew]: [score]/[number of rows in your-table]" at row 1;
+	the rule succeeds;
+
+need-to-deepen is a truth state that varies.
+
+last-lines is a number that varies. last-lines is usually 15.
+
+rule for constructing the status line when full-view is true:
+	deepen the status line to last-lines rows;
+	let total-lines be 2;
+	say "Sector [sec of ud][sec of ns][sec of ew]: [score]/[number of rows in your-table] ([last-lines])[line break]--";
+	let hpos be 2;
+	let tab-row be 0;
+	repeat through your-table:
+		increment tab-row;
+		let cur-length be 0;
+		if found entry is 0:
+			now cur-length is 5 + number of characters in descrip entry;
+			unless the remainder after dividing tab-row by 5 is 0:
+				increase cur-length by 2;
+			if cur-length + hpos > screen width:
+				say "[line break]  ";
+				increment total-lines;
+				now hpos is 2;
+			say "[descrip entry]([sector-num of tally entry])";
+			now hpos is hpos + cur-length;
+		else:
+			now cur-length is number of characters in tally entry;
+			unless the remainder after dividing tab-row by 5 is 0:
+				increase cur-length by 2;
+			if cur-length + hpos > screen width:
+				say "[line break]  ";
+				increment total-lines;
+				now hpos is 2;
+			say "[tally entry in upper case]";
+			now hpos is hpos + cur-length;
+		if the remainder after dividing tab-row by 5 is 0:
+			if tab-row is not number of rows in your-table:
+				say "[line break]--";
+				increment total-lines;
+				now hpos is 2;
+		else:
+			say ", "; [NOTE: this will go off-screen if you are at width - 1 or width]
+	rejig the status line to total-lines rows;
+	now last-lines is total-lines;
+	the rule succeeds;
+
+to rejig the status line to (depth - a number) rows:
+	(- VM_StatusLineHeight({depth}); -);
 
 volume when play begins
 
