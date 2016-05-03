@@ -101,6 +101,11 @@ to say farness of (x - indexed text):
 	choose row q in table of far blab;
 	say "[dist entry]";
 
+to decide which number is farchar of (x - a number):
+	choose row x in table of far blab;
+	let Y be number of characters in dist entry;
+	decide on Y.
+
 to say bug-near:
 	say "You do a small random shuffle before taking a teleporter back to the center, just to throw off the city's data tracking complex. Not too random, though. You don't want to get picked up on suspicion of intoxication"
 
@@ -617,6 +622,7 @@ check entering a quasi-entry:
 			now found entry is 1;
 			say "[line break]You head back to the center of Fourdiopolis, feeling [if score is 0]confident you're off to a good start[else if score is 5]in the groove[else if score is 10]well on your way[else if score is 15]you've done enough, and not just the bare minimum[else][rand-yay][end if].";
 			increment the score;
+[			now should-rejig is true;]
 			check-silly-comments;
 			reset-game;
 			do nothing instead;
@@ -899,7 +905,7 @@ to say bnb:
 
 table of scenery [tosc]
 tally (text)	descrip (text)	foundit (text)	what-drops	found
-"didi"	"Urkel"	"A fellow with oversized glasses and suspenders runs into you, shrugs his shoulders, snort-laughs and then runs away."	--	0	
+"didi"	"Urkel"	"A fellow with oversized glasses and suspenders runs into you, shrugs his shoulders, snort-laughs and then runs away."	--	0
 "die"	"sacrifice yourself"	"Assisted suicide is more rigorous than in Threediopolis. The Death Panels there (not the healthcare kind) give punditary views before you pegged out, but here, you have surveys...quesstionnaires...what would you do better? What do you think authorities would do better? No, no, you are just lashing out because you are suicidal. Ah, yes, even the unsatisfied are satisfied in Fourdiopolis."	ominous door	0
 "dindin"	--	"You feel hungry."	--	0
 "dink"	--	"You're hit by a very very soft nerf ball that runs away. Hmm."	--	0
@@ -1244,7 +1250,7 @@ silliness
 "A passer-by hawks cemetery real estate. There's some open within five miles of the city, but not for long."
 "Some crank cites shaky proof that overusing transporters makes you shorter. Another chimes in that it can make you taller, and it just depends which directions you go."
 "In a fit of civic pride, citizens kvetch that Fourdiopolis will always be superior to Undergroundgrad, which may be the same size, but half of it doesn't COUNT."
-"Several young hooligans dare a prospective gang member to try to teleport outside the city bounds, unless he's CHICKEN."
+"Several young hooligans dare a prospective gang member to try to teleport outside the city bounds, unless he's CHICKEN. Cheeeep, cheep, cheep, cheep!"
 "A worldly-wise eleven-year-old explains to a ten-year-old that if you jaywalk, do it in the MIDDLE of the street, because thinking BIG. Also, it'll be harder for police cruisers to pull you over."
 "A couple argues over the safest of six ways to walk to a new neighborhood 1 up 1 north 1 east."
 "You've grown oblivious to the whooshing of transport tubes, and one day you'll grow oblivious to your obliviousness."
@@ -1511,6 +1517,8 @@ carry out fing:
 	if full-view is false:
 		if screenh < 25 or screen width < 90:
 			say "You need a 90x25 character window to make this work. It's currently [screen width] x [screenh]." instead;
+	else:
+		now should-rejig is true;
 	now full-view is whether or not full-view is false;
 	say "Now header view is [if full-view is true]on[else]off[end if].";
 	the rule succeeds;
@@ -1573,24 +1581,31 @@ need-to-deepen is a truth state that varies.
 
 last-lines is a number that varies. last-lines is usually 15.
 
+should-rejig is a truth state that varies. should-rejig is usually true.
+
 rule for constructing the status line when full-view is true:
 	deepen the status line to last-lines rows;
 	let total-lines be 2;
-	say "Sector [sec of ud][sec of ns][sec of ew]: [score]/[number of rows in your-table] ([last-lines])[line break]--";
+	center "Sector [sec of ud][sec of ns][sec of ew]: [score]/[number of rows in your-table]" at row 1;
+[	if should-rejig is false:
+		the rule succeeds;
+	now should-rejig is false;]
+	move the cursor to 2;
+	say "--";
 	let hpos be 2;
 	let tab-row be 0;
 	repeat through your-table:
 		increment tab-row;
 		let cur-length be 0;
 		if found entry is 0:
-			now cur-length is 5 + number of characters in descrip entry;
+			now cur-length is 6 + number of characters in descrip entry + farchar of number of characters in tally entry;
 			unless the remainder after dividing tab-row by 5 is 0:
 				increase cur-length by 2;
 			if cur-length + hpos > screen width:
 				say "[line break]  ";
 				increment total-lines;
 				now hpos is 2;
-			say "[descrip entry]([sector-num of tally entry])";
+			say "[descrip entry]([sector-num of tally entry]/[farness of tally entry])";
 			now hpos is hpos + cur-length;
 		else:
 			now cur-length is number of characters in tally entry;
