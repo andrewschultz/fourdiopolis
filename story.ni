@@ -1585,11 +1585,12 @@ should-rejig is a truth state that varies. should-rejig is usually true.
 
 rule for constructing the status line when full-view is true:
 	deepen the status line to last-lines rows;
-	let total-lines be 2;
-	center "Sector [sec of ud][sec of ns][sec of ew]: [score]/[number of rows in your-table]" at row 1;
-[	if should-rejig is false:
+[	center "([last-lines]) Sector [sec of ud][sec of ns][sec of ew]: [score]/[number of rows in your-table]" at row 1;]
+	center "THE BIG GAME" at row 1;
+	if should-rejig is false:
 		the rule succeeds;
-	now should-rejig is false;]
+	now should-rejig is false;
+	let total-lines be 2;
 	move the cursor to 2;
 	say "--";
 	let hpos be 2;
@@ -1666,7 +1667,7 @@ when play begins (this is the narrativity rule):
 	wfak;
 	say "And you have gotten social demerits and such. You claimed you didn't mean to do whatever, and the authorities said it's worse that way, what if you mean to one day?";
 	say "It's not going to be like that. It can't be like that. The authorities covered those loopholes. But somehow...you stumbled onto a bunch of nonconformists. They were surprised you found them, then they realized you weren't a government agent, and you didn't even like the government. They gave you a key to the teleporters. And a task list. Of stuff to find. To help them overthrow the government. It's up to you, to find unusual things and people not stamped out yet.";
-	say "[bold type]NOTE: to see commands for Fourdiopolis, type VERBS or VERB, or V for short.[roman type][paragraph break]";
+	say "[bold type]NOTE: to see commands for Fourdiopolis, type A (short for ACTIONS).[roman type][paragraph break]";
 	wfak;
 
 chapter saved accomplishments
