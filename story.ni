@@ -1585,11 +1585,10 @@ should-rejig is a truth state that varies. should-rejig is usually true.
 
 rule for constructing the status line when full-view is true:
 	deepen the status line to last-lines rows;
-[	center "([last-lines]) Sector [sec of ud][sec of ns][sec of ew]: [score]/[number of rows in your-table]" at row 1;]
-	center "THE BIG GAME" at row 1;
-	if should-rejig is false:
+	center "Sector [sec of ud][sec of ns][sec of ew]: [score]/[number of rows in your-table]" at row 1;
+	[if should-rejig is false:
 		the rule succeeds;
-	now should-rejig is false;
+	now should-rejig is false;]
 	let total-lines be 2;
 	move the cursor to 2;
 	say "--";
