@@ -27,6 +27,37 @@ include basic screen effects by Emily Short.
 
 Include (- Switches z; -) after "ICL Commands" in "Output.i6t".
 
+section status line redraw modifier
+
+Include (-
+[ DrawStatusLine width posb;
+	@push say__p; @push say__pc;
+	BeginActivity(CONSTRUCTING_STATUS_LINE_ACT);
+	VM_MoveCursorInStatusLine(1, 1);
+	if (statuswin_current) {
+		width = VM_ScreenWidth(); posb = width-15;
+		spaces width;
+		ClearParagraphing();
+		if (ForActivity(CONSTRUCTING_STATUS_LINE_ACT) == false) {
+			VM_MoveCursorInStatusLine(1, 2);
+			switch(metaclass(left_hand_status_line)) {
+				String: print (string) left_hand_status_line;
+				Routine: left_hand_status_line();
+			}
+			VM_MoveCursorInStatusLine(1, posb);
+			switch(metaclass(right_hand_status_line)) {
+				String: print (string) right_hand_status_line;
+				Routine: right_hand_status_line();
+			}
+		}
+		VM_MoveCursorInStatusLine(1, 1); VM_MainWindow();
+	}
+	ClearParagraphing();
+	EndActivity(CONSTRUCTING_STATUS_LINE_ACT);
+	@pull say__pc; @pull say__p;
+];
+-) before "Printing.i6t".
+
 chapter stubs
 
 to say 2da:
@@ -263,6 +294,9 @@ before going (this is the don't waste my time with all those extra letters alrea
 
 to see-if-left (t - a truth state):
 	if number of quasi-entries in outside-area > 0:
+		if quick-mode is true:
+			say "You're vaguely worried you missed something, but you have somewhere to be. You think. You hope.";
+			continue the action;
 		say "As you [if t is true]walk[else]blip[end if] away, you reflect you can always find [if hideout is in outside-area]the hideout[else]that place[end if] later, if you want.";
 
 check going inside:
@@ -524,7 +558,7 @@ k is a direction. the opposite of k is j.
 i-warn is a truth state that varies.
 
 check going i when i-warn is false:
-	if dirparsing is false:
+	if word number 1 in the player's command is "i":
 		bracket-say "just to check, I is a direction, not the command to take inventory. Since you only have one item, X will suffice.";
 		now i-warn is true;
 
@@ -622,7 +656,7 @@ check entering a quasi-entry:
 			now found entry is 1;
 			say "[line break]You head back to the center of Fourdiopolis, feeling [if score is 0]confident you're off to a good start[else if score is 5]in the groove[else if score is 10]well on your way[else if score is 15]you've done enough, and not just the bare minimum[else][rand-yay][end if].";
 			increment the score;
-[			now should-rejig is true;]
+			now should-rejig is true;
 			check-silly-comments;
 			reset-game;
 			do nothing instead;
@@ -969,8 +1003,11 @@ chapter nearlies table
 
 to check-nearlies:
 	repeat through table of nearlies:
-		if tname entry is your-table and your-tally is tally entry:
-			now found entry is 1;
+		if tname entry is your-table:
+			if your-tally is tally entry:
+				now found entry is 1;
+			if your-tally is mult entry:
+				now found entry is 0;
 
 to decide whether found-yet of (x - indexed text):
 	repeat through your-table:
@@ -1152,6 +1189,13 @@ after reading a command:
 		say "That would actually make getting around in Fourdiopolis more complex. Because you can't really move from there to here, again, or not that way[if score < 3 and your-table is table of friends]. You'll understand once you find a few things--it'd just allow all kinds of extra crazy [italic type]guesses[roman type][else]. Most of the fun stuff would begin with G, though EGGS and DUNG would be left, which is not so fun[end if]. Using one-word directions should be quick enough.";
 		reject the player's command;
 
+check looking (this is the if command says L rule) :
+	if the player's command matches the regular expression "^(l|look)\b":
+		say "You look around, hoping for some weird fifth direction to look for something significant. You don't find it.";
+	if dirparsing is true and quick-mode is true:
+		say "[bold type]Speeding by sector [sec of ud][sec of ns][sec of ew][roman type][line break]";
+		the rule succeeds;
+
 ever-fast is a truth state that varies.
 
 dirparsing is a truth state that varies.
@@ -1203,6 +1247,8 @@ to dirparse (dirlump - indexed text):
 				try going k;
 			if character number charnum in dirlump is ".":
 				bracket-say "ignoring period.";
+			if charnum is allchar - 1:
+				now dirparsing is false;
 	now ignore-remaining-dirs is false;
 	now dirparsing is false;
 	now posschars is 0;
@@ -1475,6 +1521,21 @@ carry out cing:
 	try entering a random visible quasi-entry;
 	the rule succeeds;
 
+chapter qing
+
+qing is an action applying to nothing.
+
+understand the command "q" as something new.
+
+understand "q" as qing.
+
+quick-mode is a truth state that varies.
+
+carry out qing:
+	now quick-mode is whether or not quick-mode is false;
+	say "Now quick mode is [if quick-mode is true]on[else]off[end if].";
+	the rule succeeds;
+
 chapter aing
 
 understand "v" as preferring unabbreviated room descriptions.
@@ -1493,6 +1554,7 @@ carry out aing:
 	say "[2da][b]B[r] gives brief room descriptions, which you may eventually want, as the random descriptions eventually loop. [b]V[r] expands them.";
 	say "[2da][b]X[r] examines your list of tasks.";
 	say "[2da][b]T[r] toggles silly random events that don't affect the game.";
+	say "[2da][b]Q[r] toggles quick mode when you run around Fourdiopolis (ignores random events until you arrive at your destination).";
 	say "[2da]Meta-commands include ABOUT and CREDITS.";
 	if debug-state is true:
 		say "Here are commands for testers:[line break]";
@@ -1583,12 +1645,13 @@ last-lines is a number that varies. last-lines is usually 15.
 
 should-rejig is a truth state that varies. should-rejig is usually true.
 
-rule for constructing the status line when full-view is true:
+rule for constructing the status line when full-view is true and should-rejig is false:
+	center "Sector [sec of ud][sec of ns][sec of ew]: [score]/[number of rows in your-table]" at row 1;
+
+rule for constructing the status line when full-view is true and should-rejig is true:
 	deepen the status line to last-lines rows;
 	center "Sector [sec of ud][sec of ns][sec of ew]: [score]/[number of rows in your-table]" at row 1;
-	[if should-rejig is false:
-		the rule succeeds;
-	now should-rejig is false;]
+	now should-rejig is false;
 	let total-lines be 2;
 	move the cursor to 2;
 	say "--";
@@ -1666,7 +1729,7 @@ when play begins (this is the narrativity rule):
 	wfak;
 	say "And you have gotten social demerits and such. You claimed you didn't mean to do whatever, and the authorities said it's worse that way, what if you mean to one day?";
 	say "It's not going to be like that. It can't be like that. The authorities covered those loopholes. But somehow...you stumbled onto a bunch of nonconformists. They were surprised you found them, then they realized you weren't a government agent, and you didn't even like the government. They gave you a key to the teleporters. And a task list. Of stuff to find. To help them overthrow the government. It's up to you, to find unusual things and people not stamped out yet.";
-	say "[bold type]NOTE: to see commands for Fourdiopolis, type A (short for ACTIONS).[roman type][paragraph break]";
+	say "[bold type]NOTE: to see commands for Fourdiopolis, type VERBS or VERB, or V for short.[roman type][paragraph break]";
 	wfak;
 
 chapter saved accomplishments

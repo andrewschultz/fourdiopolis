@@ -1,7 +1,5 @@
 open(A, "c:/games/inform/fourdiopolis.inform/Source/story.ni") || open(A, "story.ni") || die ("No story.ni");
 
-use POSIX;
-
 $blammo = 0;
 
 open(A, "fourdiopolis-logic.txt");
