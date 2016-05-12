@@ -40,3 +40,8 @@ In-comp update list for Fourdiopolis
 --added 4 scenery.
 --if you just missed it tells you how you missed.
 --A is now the command to list ACTIONS. V is reserved for verbose, B for brief.
+
+5/10/2016
+--Q lets you quick-move through the places you jump by
+--bugfix for table of nearly. If you visited the "almost" location, the real location, and didn't enter the real, it still clued as if you missed the real
+--logic document touchup
