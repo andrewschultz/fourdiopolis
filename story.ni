@@ -1298,6 +1298,7 @@ silliness
 "A passer-by asks if you're willing to hear a one-minute lecture on how society represses you. You decline, even, or especially, after they say they've condensed it with practice."
 "An older man tries to skip across the street with a pedestrian warning photographed, but the flash-cameras catch him blocking traffic. A younger kid who started earlier makes it."
 "Even pedestrians babble about gas prices these days. Surely they didn't always, when there was only one type of gas, not ten."
+"You try to focus on the less annoying of two conversations about voting for the lesser of two evils."
 "Two activists get into a fight over whether the city should continually pump in instrumental music or heavy metal music on the streets."
 "A kid shows off his trophy for three-dimensional bowling."
 "A malcontent grumbles that OF COURSE h and the other transporter directions should go 180 degrees the opposite of how they do."
