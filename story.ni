@@ -763,19 +763,19 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "enid"	"friend of five"	"Enid listens as she makes proofreading marks on a book with a bunch of kids running around on the cover."	front door	0
 "heidi"	"Alpine friend"	"Thankfully, you hear no yodeling as the door opens."	front door	0
 "ike"	"cross, iron friend"	"'I'm ready to take down the sprawling military-industrial complex,' Ike says."	front door	0
-"ines"	"Spanish friend"	"She [says-hi]."	front door	0
-"isis"	"friend from Egypt"	"She [says-hi]."	front door	0
-"jed"	"friend"	"He [says-hi]."	front door	0
-"jenni"	"friend who says why not"	"She [says-hi]."	front door	0
+"ines"	"Spanish friend"	"It's [your-tally in title case]! She [says-hi]."	front door	0
+"isis"	"friend from Egypt"	"It's [your-tally in title case]! She [says-hi]."	front door	0
+"jed"	"friend"	"It's [your-tally in title case]! He [says-hi]."	front door	0
+"jenni"	"friend who says why not"	"It's [your-tally in title case]! She [says-hi]."	front door	0
 "jessie"	"has desirable girl/guy"	"[either-gender]."	front door	0
-"jud"	"hey, a friend, almost"	"He [says-hi]."	front door	0
-"jude"	"hey, a friend"	"He says 'Oh, I was trying to make a sad song better, but never mind."	front door	0
-"judi"	"hey, a friend's female twin"	"She [says-hi]."	front door	0
-"june"	"fair-weather friend"	"She springs into action on hearing why you're hear."	front door	0
-"ken"	"solves number puzzles halfway"	"He [says-hi]."	front door	0
+"jud"	"hey, a friend, almost"	"It's [your-tally in title case]! He [says-hi]."	front door	0
+"jude"	"hey, a friend"	"He says 'Oh, I was trying to make a sad song better, but never mind.'"	front door	0
+"judi"	"hey, a friend's female twin"	"It's [your-tally in title case]! She [says-hi]."	front door	0
+"june"	"fair-weather friend"	"She springs into action on hearing why you're here."	front door	0
+"ken"	"solves number puzzles halfway"	"It's [your-tally in title case]! He [says-hi]."	front door	0
 "kiki"	"friend who can deliver us"	"She gives a bit too sugary speech on how you can do anything you can put your mind to, but it's better than the opposite."	front door	0
-"nikki"	"loud friend 6"	"She [says-hi]."	front door	0
-"sid"	"not a vicious seizer"	""	front door	0
+"nikki"	"loud friend 6"	"It's [your-tally in title case]! She [says-hi]."	front door	0
+"sid"	"not a vicious seizer"	"'In, Sid? [']E IS!' he roars."	front door	0
 "susie"	"friend with weird boyfriend"	"'No, they DON'T need a transmogrifier!' Susie booms to someone you can't see. 'Not even one that works!'"	front door	0
 "winnie"	"doesn't miss Ke*in"	"Talking with Winnie you feel nostalgia and remember some growing pains."	front door	0
 
@@ -848,7 +848,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "skunks"	"stink bomb raw materials"	"Organic chemists have still not found anything as offensive yet harmless as a skunk scent. Someone proved the near-impossibility of that back in 2150, but people still try."	fake barn	0
 "swine"	"porcine stuff"	"It doesn't smell too good in here, and you've never been able to reconcile that with just how good bacon smells. Or you remember bacon smells. Which is even better than bacon bits!"	fake barn	0
 "undies"	"unseeable wearables"	"All sizes of underwear! All clean! The underwear is recycled from holey socks, and the holey underwear will be recycled back into socks. The circle of life!"	beaten-up store	0
-"unhewn"	"rock to carve"	"You're not sure how it's going to be teleported back to headquarters--there's still a weight limit, though it's higher than it needs to be--or why it's here. But, you're in execution, not planning."	dusty warehouse	0
+"unhewn"	"rock to carve"	"You're not sure how the big dolmen or menhir or whatever i's going to be teleported back to headquarters--there's still a weight limit, though it's higher than it needs to be--or why it's here. But, you're in execution, not planning."	dusty warehouse	0
 "unis"	"clothes to have pride in"	"Man! These uniforms look spiffy. You're a bit worried they'd kind of expose the revolution, but--they're reversible into plain and boring! Woo!"	dusty warehouse	0
 "win"	"stupid pro-government buttons for cover"	"'So! Ready to whip inflation now?' The--the guy seems serious. You look horrified. 'Ah, good, just a test. If that didn't upset you, you might be one of the bad guys.'"	dusty warehouse	0
 "wines"	"alcoholic beverages"	"Oh man! Not just the freeze-dried stuff, but the really bubbly stuff!"	beaten-up store	0
@@ -878,9 +878,9 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "jejune"	"political pranksters"	"You run into people who want to commit political pranks in support of being able to commit more political pranks. It's sure better than power for power's sake."	hovel	0
 "jeune"	"young idealistic foreigners"	"Kids from another land talk about all the stuff they don't have to beg for. You almost feel guilty wanting it, too."	tiny schoolhouse	0
 "junkies"	"people hooked on caffeine NOT from overpriced coffee"	"Apparently there is a whole repository of places to get caffeine. All kinds of rainbow colored pop! And worse, Well, that certainly seems worth fighting for."	hovel	0
-"kids"	"useful idealists"	"Some kids aren't 'practical' enough to accept the reality of life in Fourdiopolis. Their views are refreshing."	tiny schoolhouse	0
+"kids"	"useful idealists"	"Some kids aren't 'practical' enough to accept the reality of life in Fourdiopolis. Their views are refreshing. They remind you of questions you had and thought you, or society, answered or dismissed. And if not all the questions are worth asking, there are a lot of really big ones."	tiny schoolhouse	0
 "kink"	"illicit pleasure joint"	"Oh dear! You're not sure what's going on here. You're not sure you want to look. But these people are pro-freedom, for sure. You gain a few recruits."	warehouse	0
-"ninnies"	"disparaged as stupid"	"Wow! You're impressed. Some people make a bad first impression because they don't seem as smart as they should...[i]but they have spent more time becoming smart than looking smart[r]. Wow!"	hovel	0
+"ninnies"	"disparaged as stupid"	"Wow! You're impressed. Some people make a bad first impression because they don't seem as smart as they should...[italic type]but they have spent more time becoming smart than looking smart[r]. Wow!"	hovel	0
 "sheikhs"	"foreign aid"	"The geopolitical blah blah has people from foreign countries under the thumb of city-states like Fourdiopolis. They have power in their own country--but they're concerned emigrants to Fourdiopolis have been treated poorly."	hovel	0
 "sike"	"purveyors of annoying slang"	"All annoying slang eventually becomes cool again. And besides, it might annoy the right people, done right. You learn a bit from them."	hovel	0
 "snide"	"beyond confidence"	"These people aren't arrested for being snide but for being snide about the wrong things. No--no, they're being snide about the right things, right? You're pretty convinced by this. They're less obnoxious than government propaganda, and sometimes it's not enough to say 'It's not fair.'"	hovel	0
@@ -955,12 +955,13 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "hehhuh"	--	"[bnb]"	--	0
 "henwen"	"Prydain Chronicles"	"You thought you heard a talking pig just now."	--	0
 "hues"	--	"The local color is particularly vibrant in this neighborhood."	--	0
-"huhheh"	--	"[bnb]."	--	0
-"hush"	--	"'Unusually quiet here.'"	--	0
+"huhheh"	--	"[bnb]"	--	0
+"hush"	--	"Unusually quiet here."	--	0
 "iknew"	--	"Someone covers for looking stupid by explaining they were just being really, really ironic."	--	0
 "inkiness"	--	"Everything's a bit cloudy, here."	--	0
 "jesus"	--	"Someone spouting an annoying proof that religions shouldn't exist then asks you to join the personality cult of a smart person dead for a hundred years, who wasn't nice, but they understood algorithms of how to make others nicer. You brush them away."	--	0
 "keds"	--	"[snee]."	--	0
+"kidniki"	--	"You temporarily feel on guard against the possibility of radical ninjas."	--	0
 "kidskin"	--	"You walk by an exotic leather store."	--	0
 "kike"	"an unacceptable slur"	"Some kids call another kid a name. They try to convince him he can't be that made if he doesn't know what it means, or if it's a really old insult before it's over. You want to step in and help the poor kid but you don't know how."	--	0
 "kkk"	"bad bad people"	"Everyone around here just really, really sucks at life. What else can I say?"	--	0 [super extra double for this but here there's an opportunity to laugh at people a bit I hope]
@@ -1301,9 +1302,12 @@ silliness
 "You try to focus on the less annoying of two conversations about voting for the lesser of two evils."
 "Two activists get into a fight over whether the city should continually pump in instrumental music or heavy metal music on the streets."
 "A kid shows off his trophy for three-dimensional bowling."
+"Some kids voice can't believe their team with the now-extinct mascot lost to the expansion team with the long-extinct mascot."
 "A malcontent grumbles that OF COURSE h and the other transporter directions should go 180 degrees the opposite of how they do."
 "You see a police siren flash by, but you can't hear anything. Must be at a high pitch only teens can hear. You remember the last time you could. You miss it."
 "Someone is ticketed for a broken Reality-Enhancing helmet. Those things are dangerous if they get too inaccurate."
+"A smart-alecky kid remarks how people who can't visualize a hypercube don't deserve to use the transporters."
+"An intense political argument! But both sides make up and agree that they're at least more interesting than the people they're fighting for. Oops. For whom they're fighting."
 "Two gothy looking kids compare their nonconformist permits and wonder how more normal kids scored more flexible ones."
 "A cop warns a kid about transporter joyriding in an HIJK loop. Because kids who say they'll try just one wind up going for all 24 possible combinations. That costs the taxpayer!"
 "A mini-marathon thunders by. They all have those magnetic bibs that transporters can detect, so, no cheating."
@@ -1320,7 +1324,7 @@ silliness
 "A fellow pedestrian is fined for having a cracked phone-screen. He is apparently a repeat offender who hasn't gotten it cleared for a whole month."
 "A robo-dog zips between your legs with quantum-calculated precision. Apparently organic pets are worse. But you haven't seen many."
 "Someone claiming to have been to Spaceneedleston says sure, it's posh, but it's not PRACTICAL or full of REAL PROGRESS like Fourdiopolis."
-"People ahead of you discuss the politics of urban versus rural gerrymandering and qualifications for moving from half an effective vote to three-quarters, or a full vote."
+"People ahead of you discuss the politics of urban versus rural gerrymandering and qualifications for moving from half an effective vote to three-quarters, or even a full vote."
 "A cop allows a kid reading an approved book to sit and loiter--if he isn't blocking foot-traffic TOO much."
 "An argument erupts between members of the Nerd and Jock political parties, and when someone tries to mediate, he's panned for pretending he has and knows it all."
 "You walk past a cheery pizza vendor droid. Well, it's cheery until someone tries for a prank order. Or even a weird subversive one like half canadian bacon with Pineapple, half artichoke with pesto, and light on the cheese--there are algorithms to check that and alert police."
@@ -1766,17 +1770,17 @@ when play begins (this is the check accomplishments at start rule) :
 	else:
 		now locom-chars is 1;
 		choose row 5 in table of accomplishments;
-		if solved entry is true:
+		if solved entry is true and debug-state is false:
 			say "There is only one thing left to do. You must find the shadow councillors--you only have their addresses--and place the mark of the rebellion on their doors. Do you dare risk the intellectual turmoil therein?";
 			if the player consents:
 				set-your-table table of last names;
-				if debug-state is true:
-					say "[bold type]DEBUG: test 6w to get through.";
 				say "Ok. You have [number of rows in your-table] to find.";
 			else:
 				set-your-table table of just plain cool stuff;
 				say "Ok. You will get to try the cool stuff again.";
 			the rule succeeds;
+		else if debug-state is true:
+			say "[bold type]DEBUG: test 6w to get through the final bit. Erase fourdiop.glkdata to clear everything.[roman type]";
 		if all-else-solved:
 			set-your-table table of just plain cool stuff;
 			if debug-state is true:

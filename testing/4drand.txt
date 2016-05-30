@@ -1,0 +1,208 @@
+fo 1
+dennis|his wonderful friend Jonathan and Jonathan's lovely future wife Elizabeth
+eddie|He stashes some absurdly low-priced appliances into a closet
+enid|a book with a bunch of kids running around
+heidi|Thankfully, you hear no yodeling as the door opens.
+ike|I'm ready to take down the sprawling military-industrial complex
+ines|/^She
+isis|/^She
+jed|/^He
+jenni|/^She
+jessie|You're vaguely surprised the respondent is
+jud|/^He
+jude|/^\"Oh, I was trying to make a sad song better, but never mind
+judi|/^She
+june|She springs into action on hearing why you're here.
+ken|/^He
+kiki|She gives a bit too sugary speech on how you can do anything you can put your mind to, but it's better than the opposite.
+nikki|/^She
+sid|In, Sid? Ee, YES!' he roars
+susie|No, they DON'T need a transmogrifier!
+winnie|Talking with Winnie you feel nostalgia and remember some growing pains.
+
+fo 2
+hijinks|You learn tricks to make political rallies and flash mobs work with a minimum of arrests.
+hikes|You get a brief virtual reality sample of the unlivable wilds beyond the cities.
+issues|You learn not only the important issues but the details--and even how to skewer people who go too far into details.
+keen|You can never have too much motivation. Unless you spend too much time motivating yourself, you forget to do anything.
+kind|You learn not only how to be nice but how to fool people into thinking you're nice enough they better like you and if they're doubting that, they feel guilty. You'll only use the second in an emergency. You hope.
+kinesis|You learn how to sneak around authorities even if you're not naturally nimble.
+nein|You learn useful things to say in different languages: yes, no, please, and Dude, Whatever.
+sensei|You put up with perhaps a bit more mumbo-jumbo terminology than you want, but the break from extreme capitalism, while heretical, is surprisingly soothing.
+sines|You endure a very useful trigonometry lesson, you think. You remember which is sine and which is cosine, but now you've knocked out secant and cosecant.
+sinews|You get a quick work-couse in physiology, necessary for protestors and operatives who need stamina.
+sins|You get a lecture on things you didn't even know were wrong with Fourdiopolis. It's short on charisma, but that's somewhere else.
+sinus|You ace the course on breathing techniques and get a 10% off coupon for snoring surgery. Wait, you know you missed that one question...are you being suckered, here? Surgery's expensive!
+skew|You learn several ways to embarrass people into a corner even when you don't need to. Because if you don't first, they will.
+skies|Ah! The sky! You don't get to see much of it. Only 1/19 of Fourdiopolis residents do. Well, less, because the people at the top have big sprawling mansions. Still, it's a source of inspiration.
+uhhuh|You learn about tone of voice and gestures, and how different words that sound the same aren't.
+undenied|You're stuck watching heroic dramatic clips from ancient sports like American football (too violent) and un-American football (too scoreless). They're more inspiring than you'd have guessed!
+whenwewin|You learn the optimum amount of planning in advance so you're actually confident, but not overconfident. You're confident you understand, but not too confident.
+whine|You learn the best subtleties in voice inflection when working on, err, with individuals, small crowds, or large crowds. It seems so obvious now!
+wise|You learn not only generalities to make you feel clever but generalities to make you seem clever to others! Oh boy!
+wushu|You hear some blather about martial arts, not a sport, or some game that requires no mental commitment.
+
+
+fo 3
+desks|Well, we all need desks. Desks just aren't exciting. Maybe they can fold up, or have weird shapes, or even have cool drawers. But they're never exciting. At least they're ergonomic and space-efficient these days.
+dishes|Wow! All kinds of dishes! They're all biodegradable, too. They're a bit ugly, but you can't have everything. In a pinch, they can also be broken and thrown as weapons. Not very good weapons, but better than nothing.
+disused|Shadow groups can always use a good disused place. Until it gets too dis-dis-used.
+hens|Well, organic farms are always good. You'll need lots of food.
+hides|Actually, most weather is warmer than it was years ago, but humans' bodies adapted to be faster and leaner, so they need warm clothes well above freezing now.
+juju|Juju may not be effective, but it brings people together, and it feels fun. Especially because you get to slap a drum around a bit, and stab a doll representing the Mayor-Overlord.
+junk|You find all kinds of cool junk here. Some was being saved for the right customer--someone who could make anything out of junk. Like people back at headquarters.
+kiwis|Oh, hey! It's the genetically modified kind where you don't have to pit the ends out! With edible stickers! Well, everything has edible stickers, but you're a sticker connoiseur.
+nines|Of course, none of the rebels would own any of this for themselves. But it's still fun to have the chance to wear stuff like this, once. You notice a tag: please shower immediately before and after wearing.
+nukes|Fortunately, you can't just trip over a nuke and set it off. But unfortunately, every good subversive organization has to have one, even the nonviolent ones. Especially the nonviolents!
+sheds|A fellow named Arthur makes a purchase ahead of you and gets far too excited he has three now, so people can stop laughing at him.
+skein|All types and colors of yarn here--synthetic, real, thick, thin.
+skunks|Organic chemists have still not found anything as offensive yet harmless as a skunk scent. Someone proved the near-impossibility of that back in 2150, but people still try.
+swine|It doesn't smell too good in here, and you've never been able to reconcile that with just how good bacon smells. Or you remember bacon smells. Which is even better than bacon bits!
+undies|All sizes of underwear! All clean! The underwear is recycled from holey socks, and the holey underwear will be recycled back into socks. The circle of life!
+unhewn|You're not sure how the big dolmen or menhir or whatever i's going to be teleported back to headquarters--there's still a weight limit, though it's higher than it needs to be--or why it's here. But, you're in execution, not planning.
+unis|Man! These uniforms look spiffy. You're a bit worried they'd kind of expose the revolution, but--they're reversible into plain and boring! Woo!
+win|"So! Ready to whip inflation now?" The--the guy seems serious. You look horrified. "Ah, good, just a test. If that didn't upset you, you might be one of the bad guys."
+wines|Oh man! Not just the freeze-dried stuff, but the really bubbly stuff!
+wishes|You look down at your list.
+
+
+fo 4
+denied|There are always disgruntled people to bring to a cause.
+disses|Many people here applaud you for getting them to join the fight to freely insult the powerful as well as the poor -- even if you might not be able to formulate an insult yourself.
+djinn|You--you don't really believe in magic. But still, that smoky looking bottle has got to help someone. You just hope whoever uses it is up on their wishing theory and doesn't get rooked.
+dukes|Hoo-wee! You learn some good lessons about loving your oppressive neighbors, knowing it could be worse, but not fearing what could be worse. You don't know about owning an orange vehicle.
+hunks|If you're muscular and don't have a physical job and aren't in the army, Fourdiopolis frowns on that. Sure, it's not illegal...but...
+huns|You need some people who have, sadly, been pigeonholed for their ancestry. They know others have it worse, but still... 
+hussies|Oh, sure, men get boxed in for talking back. It just still seems to happen more frequently to women. And these women would like to change that.
+indies|You persuade the people here that their art will get more exposure with the Fourdiopolis power structure down. But don't worry, you won't become totally mainstream!
+inked|Tattoos are illegal now unless they're government-enforced. Okay, if you manage to hide them certain places...but some people have had enough.
+jedi|You learn some cool mind tricks and some awesome classic movie trivia. It's sad that people can't enjoy their own favorite movies.
+jejune|You run into people who want to commit political pranks in support of being able to commit more political pranks. It's sure better than power for power's sake.
+jeune|Kids from another land talk about all the stuff they don't have to beg for. You almost feel guilty wanting it, too.
+junkies|Apparently there is a whole repository of places to get caffeine. All kinds of rainbow colored pop! And worse, Well, that certainly seems worth fighting for.
+kids|Some kids aren't "practical" enough to accept the reality of life in Fourdiopolis. Their views are refreshing. They remind you of questions you had and thought you, or society, answered or dismissed.
+kink|Oh dear! You're not sure what's going on here. You're not sure you want to look. But these people are pro-freedom, for sure. You gain a few recruits.
+ninnies|Wow! You're impressed. Some people make a bad first impression because they don't seem as smart as they should...but they have spent more time becoming smart than looking smart. Wow!
+sheikhs|The geopolitical blah blah has people from foreign countries under the thumb of city-states like Fourdiopolis. They have power in their own country--but they're concerned emigrants to Fourdiopolis have been treated poorly.
+sike|All annoying slang eventually becomes cool again. And besides, it might annoy the right people, done right. You learn a bit from them.
+snide|These people aren't arrested for being snide but for being snide about the wrong things. No--no, they're being snide about the right things, right? You're pretty convinced by this. They're less obnoxious than government propaganda, and sometimes it's not enough to say "It's not fair."
+swiss|Fourdiopolis officials have played the game of "oh, even neutral people can see we're right..." but here are some neutral people who feel differently!
+
+
+fo 5
+dunks|Oh man! The old ten-foot rims are cheating a bit, but it's still fun to watch. You forget when dunking was outlawed on national television, or why, or when Basketball Drones overtook Basketball Jones.
+dusk|Oh wow! That's beautiful! You catch yourself thinking what range of RGB colors is in the sunset, before realizing you're missing the point.
+hisses|Well, not all snakes are poisonous, though the ones outside of cities are. Still, it's neat to see. For free. I mean, there are zoos and private forest preserves, but it'd be neat to have this.
+huskies|Pet ownership isn't really a thing any more. The planet is eating up resources fast enough!
+husks|So many recipes and things to do with corn are secret now. Or you are arrested if the government catches you without paying a recycling tax. You've seen a lot before, but it's good to see people doing so almost out in the open.
+inn|There are plenty of cheap places to eat if you finish your food within five minutes, but you enjoy just sitting and...oops, other people are waiting. It's been a half-hour.
+kisses|You don't have time for this, but it's nice to see people not being charged for a cuddle or whatever.
+newsdesk|It's fun to laugh at the old stuff. Even though, really, the new stuff is just the old stuff packaged up better. It's hard to remember, though, with how flashy it is.
+sheesh|Even nonsense has been formulated as optionally enjoyable these days. And it's hard to break from that formula, or break from the formula to break from the formula. You just let it all out here. And you feel you helped others do so, too, somehow.
+shininess|Life is dingy, except for commercials. It's nice to see something shiny that doesn't make you feel indebted.
+skinks|Apparently there are going to be new species in the wild by 2400. You don't have that long, even with increased life expectancy. Fortunately, enough weird ones are still left.
+skis|You spend fifteen minutes in a weird tumbling machine with little white flakes coming down on you. They'll be back in ten years, people say, once the anti-global warming measures come back. But some skeptics worry the temperature will keep dropping, and that's not good.
+sunk|Such splendor, despite a song playing in the background that makes you cringe.
+sunshine|There are lucky places on the sides and edges of Fourdiopolis where you can get sun. Maybe you can sneak back to the center from a teleport, or teleport out to get there. But it's risky! Here, well, the miracles of optics let you get real sunlight without the UV rays.
+swish|Here, unathletic people drain twenty three-pointers in a row, or a hundred free-throws, and laugh about how their favorite players can't to the same.
+unwind|Oh my goodness! A chair that leans back? And it's comfy and ergonomic? And just anyone can sit in it? And they don't have to do hard thinking work? Why? Just because? Well, okay...
+weekend|You imagine having two whole days of getting paid without doing anything--per week! Not that you have two whole days, now. You only remember being fined for not taking vacation because maybe you were trying to guilt trip your employers. But it seems a bit less awful now.
+whee|Hyperspace technology allows roller coasters to fit in a very small space indeed.
+whinnies|The horses look a bit sad, as if they'd like somewhere to run. But they nuzzle you and all that. What if there were places they could walk around more? Places everyone could still see them?
+winks|Of course there are mating rituals, but there's a certain amount of rigor in them. You get looekd at funny if you break too many rules. But here, a wink needs no excuses. It's not just about romantic stuff, either.
+
+
+fo sc
+dejeune|You sure could use a lunch break right now!
+deke|You wonder if you faked yourself out going this way.
+didi|A fellow with oversized glasses and suspenders runs into you, shrugs his shoulders, snort-laughs and then runs away.
+die|Assisted suicide is more rigorous than in Threediopolis. The Death Panels there (not the healthcare kind) give punditary views before you pegged out, but here, you have surveys...quesstionnaires...what would you do better? What do you think authorities would do better? No, no, you are just lashing out because you are suicidal. Ah, yes, even the unsatisfied are satisfied in Fourdiopolis.
+dike|In this blocked-off area, people talk about the city water supply.
+dindin|You feel hungry.
+dink|You're hit by a very very soft nerf ball that runs away. Hmm.
+duh|Oh, man! You can't believe you missed THAT one. It's obvious now!
+dui|A robot-police runs by and grabs a breath-sample from the air in front of you. "Proceed," it says. Hmm.
+ehhs|People keep asking fellow conversers to repeat themselves, here.
+ennui|Yyyyyawn. What's the point?
+heed|Some police give a particularly stern lecture to a citizen not fully obeying some minor law.
+heehee|You think of a silly pun that feels funnier than it has a right to be.
+hehhuh|Two fellows in a park, sitting on a couch, commenting stupidly at music videos on an old-school television. What is society coming to? Hah, you said...
+henwen|You thought you heard a talking pig just now.
+hues|The local color is particularly vibrant in this neighborhood.
+huhheh|Two fellows in a park, sitting on a couch, commenting stupidly at music videos on an old-school television. What is society coming to? Hah, you said...
+hush|Unusually quiet here.
+iknew|Someone covers for looking stupid by explaining they were just being really, really ironic.
+inkiness|Everything's a bit cloudy, here.
+jesus|Someone spouting an annoying proof that religions shouldn't exist then asks you to join the personality cult of a smart person dead for a hundred years, who wasn't nice, but they understood algorithms of how to make others nicer. You brush them away.
+keds|You feel a sudden stupid desire to buy overpriced sneakers. Maybe at Payless. But everyone shops at PayWayLess these days.
+kidniki|You temporarily feel on guard against the possibility of radical ninjas.
+kidskin|You walk by an exotic leather store.
+kike|Some kids call another kid a name. They try to convince him he can't be that made if he doesn't know what it means, or if it's a really old insult before it's over. You want to step in and help the poor kid but you don't know how.
+kkk|Everyone around here just really, really sucks at life. What else can I say?
+knees|You grab an old ache for a moment.
+kuskunn|You see an image of a demon trapped in a bubble, by a candle slowly burning.
+nike|You feel a sudden stupid desire to buy overpriced sneakers. Maybe at Payless. But everyone shops at PayWayLess these days.
+nisei|You walk past shops with Japanese signs.
+nissin|You step on something. It looks like a chunk of dried noodles. You feel hungry for food you'll regret later.
+nudies|You see, and quickly ignore, some disturbing fliers on the ground.
+nuhuh|A trivial argument nearby quickly turns emotional.
+seediness|This area doesn't feel too posh. You don't know why, but it doesn't.
+seek|You spy someone else with a sheet similar to yours. You don't acknowledge them, though. Can't be too careful.
+seine|You feel a hackneyed flavor of, and longing for, Gay Paree.
+shinju|Hm, looks like a play, in the park. Not quite Romeo and Juliet, but seemes like it just ended the same way.
+shins|You grab an old ache for a moment.
+shishe|You smell evidence people are--gasp--SMOKING. You remember health warnings that a whiff of the good smelling stuff is worse than the bad smelling stuff, and vice versa.
+shun|You feel very, very alone. People are more than just giving you your space.
+shush|'Oh, sure, you can THINK that, just don't SAY it, you know?'
+sides|You feel cornered in here. You're not sure why.
+sissies|Some self-made tough guys still feel a need to gang up on people weaker than they are. The pain's all over at once that way, amirite?
+skidded|A goverment utility vehicle swerves and almost hits someone about to jaywalk. Funny how one is always around, unless you jaywalk REALLY assertively.
+skinniness|You are momentarily bombarded with ads for diet plans.
+skunkweed|It smells bad here, like it should be illegal.
+uhhs|Conversation feels a bit slower and dumber than usual for Fourdiopolis, for a second here.
+undid|You feel regret for what you've done and regret for that regret. You waste a bit of time fretting over how you've wasted a bit of time no matter which feeling is right.
+unkind|You worry someone's going to do something mean to you, but don't worry, they're only thinking about it. Especially with video cameras all around.
+unkissed|You hear a teen sob about their lack of romantic luck.
+uuid|You are suddenly unable to get the hexadecimal number
+weenies|An old long-abandoned hot dog hut lies between two places of Serious Business. Your grandparents constantly babbled about the misspelled version from THEIR youth being so tasty, and--well--maybe the misspelling did make things tastier.
+whew|You just barely escaped something, there! You don't know what, but it would've been pretty bad.
+whisk|You trip on an odd cooking supply you don't know the name of. People don't have time for that, with so much virtual reality to experience these days, and machines do it all good enough.
+whiskies|Wow! People seem to be having a rip roaring time, here[whisky-wine]. You don't have time for such carousing at the moment, but it boosts your spirits.
+wind|You're almost blown off your feet for a second. Air currents in Fourdiopolis are weird--there's no PROOF the government controls them, but...
+winded|You take a break to catch your breath.
+wineskins|Everything retro is fashionable again, and drinking wine from animal skins was before when retro was a thing, so--that big rich people's gathering in the park is extra nice.
+
+
+fo 6
+dejesus|You leave a mark on the door and slip a brochure under.
+dinh|You leave a mark on the door and slip a brochure under.
+dinkins|You leave a mark on the door and slip a brochure under.
+dinwiddie|You leave a mark on the door and slip a brochure under.
+dudek|You leave a mark on the door and slip a brochure under.
+eddins|You leave a mark on the door and slip a brochure under.
+ennis|You leave a mark on the door and slip a brochure under.
+eskew|You leave a mark on the door and slip a brochure under.
+henke|You leave a mark on the door and slip a brochure under.
+hess|You leave a mark on the door and slip a brochure under.
+hines|You leave a mark on the door and slip a brochure under.
+hsieh|You leave a mark on the door and slip a brochure under.
+hsu|You leave a mark on the door and slip a brochure under.
+hussein|You leave a mark on the door and slip a brochure under.
+ishii|You leave a mark on the door and slip a brochure under.
+jenkins|You leave a mark on the door and slip a brochure under.
+jensen|You leave a mark on the door and slip a brochure under.
+keene|You leave a mark on the door and slip a brochure under.
+keese|Oh, wait, look. There's a weird pixelated bird on the door! As you make your mark, you reflect on the people keeping Fourdiopolis in the past under the guise of sticking with basics.
+knudsen|You leave a mark on the door and slip a brochure under.
+kuhn|You leave a mark on the door and slip a brochure under.
+niesen|You leave a mark on the door and slip a brochure under.
+sheen|As much as you distrust politicians who talk about winning, the alternative is...worse? This guy was particularly outrageous, you remember now. Entertaining, but outrageous.
+shenn|You leave a mark on the door and slip a brochure under.
+shin|You leave a mark on the door and slip a brochure under.
+sisk|You leave a mark on the door and slip a brochure under.
+weeks|You leave a mark on the door and slip a brochure under.
+weiss|You leave a mark on the door and slip a brochure under.
+whidden|You leave a mark on the door and slip a brochure under.
+wisniewski|As you make your mark, you feel a shudder of Loathing at Wisniewski also being The Man.
+
+
