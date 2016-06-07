@@ -478,6 +478,12 @@ to tally-and-place:
 				if location of what-drops entry is not outside-area:
 					move what-drops entry to outside-area;
 					continue the action;
+	repeat through table of scenery:
+		if A is tally entry in lower case:
+			if there is a what-drops entry:
+				now found entry is 1;
+				move what-drops entry to outside-area;
+				continue the action;
 
 after printing the locale description:
 	let A be indexed text;
@@ -488,9 +494,9 @@ after printing the locale description:
 		if A is tally entry in lower case:
 			if found entry is not 1:
 				increment scenery-found;
-				if there is a what-drops entry:
-					move what-drops entry to outside-area;
-				else:
+				unless there is a what-drops entry:
+					if debug-state is true:
+						say "Scenery debug check!";
 					say "[foundit entry][line break]";
 					if scenery-found-yet is false:
 						bracket-say "this wasn't critical to the game, but it's just something neat to find. There are [number of rows in table of scenery - 1] more to find, but they're meant to be obscure. Congratulations on finding one, though!";
@@ -639,7 +645,7 @@ the thing called a cozy place with a neon sign is a quasi-entry. description is 
 a surprisingly churchy looking place is a quasi-entry. description is "Even humanism is under suspicion. Of course, nobody's a god, but all the same, you'd hate to be wrong about wasting time caring about one with so much real world stuff going on. Besides, if God were active at all, he'd have destroyed the world well before Fourdiopolis set things right."
 
 check entering ominous door:
-	say "Assisted suicide is more rigorous than in Threediopolis. A hundred years ago, the Death Panels there (not the healthcare kind, silly!) only gave punditly views on the how and why before you pegged out, but--the authorities realized nobody asked YOU! The person of the moment![paragraph break]You're given surveys...questionnaires...what would you do better? What do you think authorities would do better? No, no, you are just lashing out because you are suicidal.  No, those free striped lollipops are for employees, not clients. Perhaps a moment to reconsider? If you're not in a rush? Ah, yes, even the unsatisfied are satisfied in Fourdiopolis.[paragraph break]";
+	say "Assisted suicide is more rigorous than in Threediopolis. A hundred years ago, the Death Panels there (not the healthcare kind, silly!) only gave punditly views on the how and why before you pegged out, but--the authorities realized nobody asked YOU! The person of the moment![paragraph break]You're given surveys...questionnaires...what would you do better? What do you think authorities would do better? No, no, you are just lashing out because you are suicidal.  No, those free striped lollipops are for employees, not clients. You had plenty of time for a last meal before you walked in! Perhaps a moment to reconsider your one complaint here? If you're not in a rush? Ah, yes, even the unsatisfied are satisfied in Fourdiopolis.[paragraph break]";
 	say "Erm, yeah. This isn't the best ending. Not at all. You may wish to UNDO.";
 	end-with-undo;
 
@@ -1317,7 +1323,7 @@ silliness
 "In a fit of civic pride, citizens kvetch that Fourdiopolis will always be superior to Undergroundgrad, which may be the same size, but half of it doesn't COUNT."
 "Several young hooligans dare a prospective gang member to try to teleport outside the city bounds, unless he's CHICKEN. Cheeeep, cheep, cheep, cheep!"
 "A worldly-wise eleven-year-old explains to a ten-year-old that if you jaywalk, do it in the MIDDLE of the street, because thinking BIG. Also, it'll be harder for police cruisers to pull you over."
-"A couple argues over the safest of six ways to walk to a new neighborhood 1 up 1 north 1 east."
+"A couple argues over the safest of six ways to walk to a new neighborhood 1 [rd of up] 1 [rd of north] 1 [rd of east]."
 "You've grown oblivious to the whooshing of transport tubes, and one day you'll grow oblivious to your obliviousness."
 "A distinguished-looking [if a random chance of 1 in 2 succeeds]wo[end if]man slips a street urchin 1000000 New Scrip for spraying particularly creative pro-government graffiti. The kid is grateful--food for a whole week! Or nutritious food for two days! Whichever."
 "An idealistic youngun tries to plot how many trips it'd take to visit all of Fourdiopolis's main blocks. He uses up so much scratch paper, he's warned and shooed by a Waste Police droid."
@@ -1332,6 +1338,12 @@ silliness
 "A political debate over whether payoffs to gangs or governments works better ensues."
 "One kid tries to impress others with a story of a poor sap who got teleported into rock, another with a story of someone teleported five hundred feet above solid ground, and another tries to impress them with proof it'd never happen."
 "You hear the swishing of sewage flow overhead."
+
+to say rd of (myd - a direction):
+	if a random chance of 1 in 2 succeeds:
+		say "[myd]";
+	else:
+		say "[opposite of myd]";
 
 volume meta-verbs
 

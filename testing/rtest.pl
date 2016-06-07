@@ -6,6 +6,8 @@ use List::Util 'shuffle';
 $digit = 4;
 $inter = "/home/andrew/prt/glulxe";
 
+$special{"die"} = "p";
+
 $trackScenery = 1;
 
 if (@ARGV[0] == 3)
@@ -49,7 +51,12 @@ while ($a = <A>)
       print B join("\n\n", @sa); print B "\n\n"; next;
     }
     chomp($a);
-    if ($scenery)
+	if ($special{$a})
+	{
+    $a =~ s/\|/\n/g;
+	$a .= "\n> $special{$a}";
+	}
+    elsif ($scenery)
     {
     $a =~ s/\|/\n/g;
     $a .= "\n> r";
