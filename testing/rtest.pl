@@ -1,35 +1,80 @@
 #rtest.pl
 #makes a random file for running tests on
+#reads in rtest.txt
 
 use List::Util 'shuffle';
 
-$digit = 4;
-$inter = "/home/andrew/prt/glulxe";
-
-$special{"die"} = "p";
-
-$trackScenery = 1;
-
-if (@ARGV[0] == 3)
-{
-  $digit = 3;
-  $inter = "/home/andrew/prt/dumbfrotz";
-}
-
 $outFile = "c:\\games\\inform\\prt\\$digit" . "drandtest.txt";
 
-open(A, $digit . "drand.txt");
+$inFile = "rtest.txt";
 
-open (B, ">$outFile");
+if (! -f $inFile)
+{
+  if (-f "rtest4.txt") { $inFile = "rtest4.txt"; }
+  elsif (-f "rtest3.txt") { $inFile = "rtest3.txt"; }
+}
 
-print B "# 4drand test\n";
-print B "# Run with regtest.pl at http://eblong.com/zarf/plotex/regtest.html\n";
-print B "\n\n** game: /home/andrew/prt/debug-fourdiopolis.ulx\n";
-print B "** interpreter: $inter\n\n\n";
+while ($count <= $#ARGV)
+{
+  $a = @ARGV[$count];
+  $b = @ARGV[$count+1];
+  
+  for ($a)
+  {
+    /^-3$/ && do { $inFile = "rtest3.txt"; $count++; next; };
+    /^-4$/ && do { $inFile = "rtest4.txt"; $count++; next; };
+	/^[0-9]/ && do { $iterations = $a; $count++; next; };
+	/^-?i/ && do { $iterations = $b; $count+=2; next; };
+	usage();
+  }
+}
 
+open(A, "$inFile") || die ("Can't open $inFile.\n");
 
 while ($a = <A>)
 {
+  if ($a =~ /^prefix:/i) { chomp($a); $prefix = $a; $prefix =~ s/^prefix://gi; last; }
+}
+
+if (!$prefix) { print "$inFile must have prefix:"; exit; }
+
+if ($iterations)
+{
+  for $count (1..$iterations) { writeTestFile($count); }
+} else { writeTestFile(""); }
+
+sub writeTestFile
+{
+
+open(A, "$inFile");
+
+if (!$_[0]) { $outFile = "reg-$prefix-rand.txt"; } else { $outFile = "reg-$prefix-$_[0]-rand.txt"; }
+
+open (B, ">$outFile");
+
+print B "## file name: $outFile\n";
+
+$cmd = "p";
+
+while ($a = <A>)
+{
+    chomp($a);
+  if ($a =~ /^prefix/i) { next; }
+  if ($a =~ /^(\*\*|##)/) { print B "$a\n"; next; }
+  if ($a =~ /^cmd:/i) { $a =~ s/^cmd://gi; $cmd = $a; next; }
+  if ($a eq "\\") { print B "\n"; next; }
+
+  if ($a =~ /^3-r/)
+  {
+    print B "* search-test-regular\n\n";
+    $harvestRandoms = 1; @sortArray = (); next;
+  }
+  if ($a =~ /^3-s/)
+  {
+    print B "* search-test-scenery\n\n> see new seens\n\n";
+    $harvestRandoms = 1; @sortArray = (); next;
+  }
+  #fourdiopolis, force a certain scenario
   if ($a =~ /^fo /)
   {
     $x = $a; $x =~ s/^fo //g; chomp($x);
@@ -41,6 +86,7 @@ while ($a = <A>)
   {
     if ($a !~ /[a-z]/)
     {
+	  #print "Sorting " . ($#sortArray + 1) . " elements.\n";
       @sa = shuffle(@sortArray); $harvestRandoms = 0;
       if (($trackScenery) && ($scenery))
       {
@@ -50,21 +96,8 @@ while ($a = <A>)
       $scenery = 0;
       print B join("\n\n", @sa); print B "\n\n"; next;
     }
-    chomp($a);
-	if ($special{$a})
-	{
-    $a =~ s/\|/\n/g;
-	$a .= "\n> $special{$a}";
-	}
-    elsif ($scenery)
-    {
-    $a =~ s/\|/\n/g;
-    $a .= "\n> r";
-    }
-    else
-    {
-    $a =~ s/\|/\n> c\n/g;
-    }
+    $a =~ s/\|/\n> $cmd\n/g;
+	$a =~ s/\\/\n/g;
     push(@sortArray, "> $a");
   }
 }
@@ -72,4 +105,6 @@ while ($a = <A>)
 close(A);
 close(B);
 
-`$outFile`;
+print "Created $outFile\n";
+
+}

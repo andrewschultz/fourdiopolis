@@ -1,3 +1,9 @@
+## randomized text file for fourdiopolis
+** game: /home/andrew/prt/debug-fourdiopolis.ulx
+** interpreter: /home/andrew/prt/glulxe -q
+
+prefix:4d
+
 fo 1
 dennis|his wonderful friend Jonathan and Jonathan's lovely future wife Elizabeth
 eddie|He stashes some absurdly low-priced appliances into a closet
