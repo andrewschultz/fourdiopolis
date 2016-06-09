@@ -19,7 +19,7 @@ release along with an interpreter.
 
 release along with cover art.
 
-the release number is 1.
+the release number is 2.
 
 section includes
 
@@ -496,7 +496,7 @@ after printing the locale description:
 				increment scenery-found;
 				unless there is a what-drops entry:
 					if debug-state is true:
-						say "Scenery debug check!";
+						say "DEBUG: Scenery debug check!";
 					say "[foundit entry][line break]";
 					if scenery-found-yet is false:
 						bracket-say "this wasn't critical to the game, but it's just something neat to find. There are [number of rows in table of scenery - 1] more to find, but they're meant to be obscure. Congratulations on finding one, though!";
@@ -645,7 +645,7 @@ the thing called a cozy place with a neon sign is a quasi-entry. description is 
 a surprisingly churchy looking place is a quasi-entry. description is "Even humanism is under suspicion. Of course, nobody's a god, but all the same, you'd hate to be wrong about wasting time caring about one with so much real world stuff going on. Besides, if God were active at all, he'd have destroyed the world well before Fourdiopolis set things right."
 
 check entering ominous door:
-	say "Assisted suicide is more rigorous than in Threediopolis. A hundred years ago, the Death Panels there (not the healthcare kind, silly!) only gave punditly views on the how and why before you pegged out, but--the authorities realized nobody asked YOU! The person of the moment![paragraph break]You're given surveys...questionnaires...what would you do better? What do you think authorities would do better? No, no, you are just lashing out because you are suicidal.  No, those free striped lollipops are for employees, not clients. You had plenty of time for a last meal before you walked in! Perhaps a moment to reconsider your one complaint here? If you're not in a rush? Ah, yes, even the unsatisfied are satisfied in Fourdiopolis.[paragraph break]";
+	say "Assisted suicide is more rigorous and refined here and now than with Threediopolis's pilot program. A hundred years ago, the Death Panels there (not the healthcare kind, silly!) only gave punditly views on the how and why before you pegged out, but--the authorities realized nobody asked YOU! The person of the moment![paragraph break]You're given surveys...questionnaires...what would you do better? What do you think authorities would do better? No, no, you are just lashing out because you are suicidal.  No, those free striped lollipops are for employees, not clients. You had plenty of time for a last meal before you walked in! Perhaps a moment to reconsider your one complaint here? If you're not in a rush? Ah, yes, you are not the first. Realizing others appreciate Fourdiopolis more than you could, and leaving more of its resources to them. Ah, yes, even the unsatisfied are satisfied in Fourdiopolis![paragraph break]";
 	say "Erm, yeah. This isn't the best ending. Not at all. You may wish to UNDO.";
 	end-with-undo;
 
@@ -679,7 +679,7 @@ to run-the-ending:
 			say "'Only [score]? That simply won't do. We need someone who can do a bit more...' You're drummed out in disgrace. A month later, though, you're arrested at 2 AM as an associate of the potential rebels.";
 		end-with-undo;
 		say "'Good job! That's [if score < 18]enough to be promoted to a general runner[else]even better than we hoped[end if]! There's...a few more task lists. We're short of people. Some get lost, and captured. Can you do a bit more?'";
-		bracket-say "You can RESTART and you'll have access to a new puzzle. You can also type UNDID to try this again. Or, if you lose your save file, I SEEK KEEN will jump over finding the friends.[paragraph break]But seriously, being able to get through this list is an accomplishment. Go take some time to feel good about yourself. Fourdiopolis is not an easy game!";
+		bracket-say "You can RESTART and you'll have access to a new puzzle. There are five more--three chosen in random order, then a 'final' one, then an extra-difficult one. You can also type I DID I UNDID to reset your accomplishments and try this again. Or, if you lose your save file, I SEEK KEEN will jump over finding the friends.[paragraph break]But even if this was more than enough for you, getting through this list is an accomplishment. Go take some time to feel good about yourself. Fourdiopolis is not an easy game!";
 		choose row 1 in table of accomplishments;
 		now solved entry is true;
 		write file of accomplishments from the table of accomplishments;
@@ -998,7 +998,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "uuid"	--	"You are suddenly unable to get the hexadecimal number [b][uuid][r] out of your head!"	--	0
 "weenies"	--	"An old long-abandoned hot dog hut lies between two places of Serious Business. Your grandparents constantly babbled about the misspelled version from THEIR youth being so tasty, and--well--maybe the misspelling did make things tastier."	--	0
 "whew"	--	"You just barely escaped something, there! You don't know what, but it would've been pretty bad."	--	0
-"whisk"	--	"You trip on an odd cooking supply you don't know the name of. People don't have time for that, with so much virtual reality to experience these days, and machines do it all good enough."	--	0
+"whisk"	--	"You trip on an odd cooking doohickey you forget the name of. People don't have time for making their own meals, with so much virtual reality to experience these days, and machines do it all well enough."	--	0
 "whiskies"	--	"Wow! People seem to be having a rip roaring time, here[whisky-wine]. You don't have time for such carousing at the moment, but it boosts your spirits."	--	0
 "wind"	--	"You're almost blown off your feet for a second. Air currents in Fourdiopolis are weird--there's no PROOF the government controls them, but..."	--	0
 "winded"	--	"You take a break to catch your breath."	--	0
@@ -1197,7 +1197,7 @@ after reading a command:
 		if number of quasi-entries in outside-area > 0 and the player's command matches "^in$":
 			continue the action;
 		if number of characters in locom > locom-chars:
-			if the player's command matches "undid":
+			if the player's command matches "i did i undid":
 				try undiding instead;
 			if the player's command matches "i seek keen":
 				try keenseeking instead;
@@ -1523,7 +1523,7 @@ carry out ring:
 	else:
 		choose row ncy in table of far blab;
 		say "[returny entry][paragraph break]";
-	if number of visible quasi-entries > 0 and hideout is not in outside-area:
+	if number of visible quasi-entries > 0 and hideout is not in outside-area and ominous door is not in outside-area:
 		say "You sure? There's a place you might wish to check.";
 		if the player consents:
 			say "You jump in the transporter, looking back for a brief moment.";
@@ -1586,6 +1586,8 @@ carry out aing:
 	say "[2da][b]X[r] examines your list of tasks.";
 	say "[2da][b]T[r] toggles silly random events that don't affect the game.";
 	say "[2da][b]Q[r] toggles quick mode when you run around Fourdiopolis (ignores random events until you arrive at your destination).";
+	if your-table is not table of friends:
+		say "[2da][b]I DID I UNDID will kick you back to [if your-table is table of last names or your-table is table of just plain cool stuff]the pod of three random task lists[else]finding friends[end if].";
 	say "[2da]Meta-commands include ABOUT and CREDITS.";
 	if debug-state is true:
 		say "Here are commands for testers:[line break]";
@@ -1626,7 +1628,7 @@ understand "i seek keen" as keenseeking.
 
 carry out keenseeking:
 	if your-table is not table of friends:
-		say "You already found the revolution's friends." instead;
+		say "You already found the revolution's friends, so there's no way to skip forward any more[if your-table is not table of last names] besides editing the save file, fourdiop, or fourdiop.glkdata, and setting variables to 1 (done) or 0 (not) as you want[end if]." instead;
 	choose row 1 in table of accomplishments;
 	now solved entry is true;
 	midtable-choose;
@@ -1636,15 +1638,15 @@ chapter undiding
 
 undiding is an action applying to nothing.
 
-understand the command "undid" as something new.
+understand the command "i did i undid" as something new.
 
-understand "undid" as undiding.
+understand "i did i undid" as undiding.
 
 carry out undiding:
 	let count be 0;
 	if your-table is table of friends:
-		say "Nothing to undo." instead;
-	if your-table is table of just plain cool stuff or your-table is table of last names:
+		say "You're already at the first task set, finding friends, so you can't go back any farther." instead;
+	if your-table is table of just plain cool stuff or your-table is table of last names: [reset to only having table of friends solved]
 		now count is 0;
 		repeat through table of accomplishments:
 			increment count;
@@ -1655,12 +1657,13 @@ carry out undiding:
 		midtable-choose;
 		repeat through your-table:
 			now found entry is 0;
-		the rule succeeds;
-	repeat through your-table:
-		now found entry is 0;
-	set-your-table table of friends;
-	repeat through your-table:
-		now found entry is 0;
+	else:
+		set-your-table table of friends;
+	say "Now you are back to searching for [if your-table is table of friends]friends[else]one of the three random sets of tasks[end if]. Your task list is full. Note that the game will not save this reverted status unless you win a scenario. If you really want to delete things, find the file fourdiop (or fourdiop.glkdata) and either delete it or set all the 1-values to 0.";
+	if number of characters in your-tally > 1:
+		say "Oh, I also teleported you back to the center.";
+		now teleported is true; [this is a small hack to quash the "you should have teleported" warning]
+		reset-game;
 	the rule succeeds;
 
 volume status line

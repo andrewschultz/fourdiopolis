@@ -4,27 +4,33 @@
 
 prefix:4d
 
+cmd:c
+
 fo 1
 dennis|his wonderful friend Jonathan and Jonathan's lovely future wife Elizabeth
 eddie|He stashes some absurdly low-priced appliances into a closet
 enid|a book with a bunch of kids running around
 heidi|Thankfully, you hear no yodeling as the door opens.
 ike|I'm ready to take down the sprawling military-industrial complex
-ines|/^She
-isis|/^She
-jed|/^He
-jenni|/^She
+ines|/^It's Ines!
+isis|/^It's Isis!
+jed|/^It's Jed!
+jenni|/^It's Jenni!
 jessie|You're vaguely surprised the respondent is
-jud|/^He
+jud|/^It's Jud!
 jude|/^\"Oh, I was trying to make a sad song better, but never mind
-judi|/^She
+judi|/^It's Judi!
 june|She springs into action on hearing why you're here.
-ken|/^He
+ken|/^It's Ken!
 kiki|She gives a bit too sugary speech on how you can do anything you can put your mind to, but it's better than the opposite.
-nikki|/^She
-sid|In, Sid? Ee, YES!' he roars
+nikki|/^It's Nikki!
+sid|"In, Sid? 'E IS!" he roars
 susie|No, they DON'T need a transmogrifier!
 winnie|Talking with Winnie you feel nostalgia and remember some growing pains.
+
+> inside
+> c
+There's...a few more task lists. We're short of people.
 
 fo 2
 hijinks|You learn tricks to make political rallies and flash mobs work with a minimum of arrests.
@@ -48,6 +54,9 @@ whine|You learn the best subtleties in voice inflection when working on, err, wi
 wise|You learn not only generalities to make you feel clever but generalities to make you seem clever to others! Oh boy!
 wushu|You hear some blather about martial arts, not a sport, or some game that requires no mental commitment.
 
+> hidden
+> c
+Completed
 
 fo 3
 desks|Well, we all need desks. Desks just aren't exciting. Maybe they can fold up, or have weird shapes, or even have cool drawers. But they're never exciting. At least they're ergonomic and space-efficient these days.
@@ -71,6 +80,9 @@ win|"So! Ready to whip inflation now?" The--the guy seems serious. You look horr
 wines|Oh man! Not just the freeze-dried stuff, but the really bubbly stuff!
 wishes|You look down at your list.
 
+> hidden
+> c
+Completed
 
 fo 4
 denied|There are always disgruntled people to bring to a cause.
@@ -94,6 +106,9 @@ sike|All annoying slang eventually becomes cool again. And besides, it might ann
 snide|These people aren't arrested for being snide but for being snide about the wrong things. No--no, they're being snide about the right things, right? You're pretty convinced by this. They're less obnoxious than government propaganda, and sometimes it's not enough to say "It's not fair."
 swiss|Fourdiopolis officials have played the game of "oh, even neutral people can see we're right..." but here are some neutral people who feel differently!
 
+> hidden
+> c
+Completed
 
 fo 5
 dunks|Oh man! The old ten-foot rims are cheating a bit, but it's still fun to watch. You forget when dunking was outlawed on national television, or why, or when Basketball Drones overtook Basketball Jones.
@@ -117,12 +132,53 @@ whee|Hyperspace technology allows roller coasters to fit in a very small space i
 whinnies|The horses look a bit sad, as if they'd like somewhere to run. But they nuzzle you and all that. What if there were places they could walk around more? Places everyone could still see them?
 winks|Of course there are mating rituals, but there's a certain amount of rigor in them. You get looekd at funny if you break too many rules. But here, a wink needs no excuses. It's not just about romantic stuff, either.
 
+> inside
+> c
+Wow! That's a lot of cool hidden stuff we need more of!
+
+fo 6
+dejesus|You leave a mark on the door and slip a brochure under.
+dinh|You leave a mark on the door and slip a brochure under.
+dinkins|You leave a mark on the door and slip a brochure under.
+dinwiddie|You leave a mark on the door and slip a brochure under.
+dudek|You leave a mark on the door and slip a brochure under.
+eddins|You leave a mark on the door and slip a brochure under.
+ennis|You leave a mark on the door and slip a brochure under.
+eskew|You leave a mark on the door and slip a brochure under.
+henke|You leave a mark on the door and slip a brochure under.
+hess|You leave a mark on the door and slip a brochure under.
+hines|You leave a mark on the door and slip a brochure under.
+hsieh|You leave a mark on the door and slip a brochure under.
+hsu|You leave a mark on the door and slip a brochure under.
+hussein|You leave a mark on the door and slip a brochure under.
+ishii|You leave a mark on the door and slip a brochure under.
+jenkins|You leave a mark on the door and slip a brochure under.
+jensen|You leave a mark on the door and slip a brochure under.
+keene|You leave a mark on the door and slip a brochure under.
+keese|Oh, wait, look. There's a weird pixelated bird on the door! As you make your mark, you reflect on the people keeping Fourdiopolis in the past under the guise of sticking with basics.
+knudsen|You leave a mark on the door and slip a brochure under.
+kuhn|You leave a mark on the door and slip a brochure under.
+niesen|You leave a mark on the door and slip a brochure under.
+sheen|As much as you distrust politicians who talk about winning, the alternative is...worse? This guy was particularly outrageous, you remember now. Entertaining, but outrageous.
+shenn|You leave a mark on the door and slip a brochure under.
+shin|You leave a mark on the door and slip a brochure under.
+sisk|You leave a mark on the door and slip a brochure under.
+weeks|You leave a mark on the door and slip a brochure under.
+weiss|You leave a mark on the door and slip a brochure under.
+whidden|You leave a mark on the door and slip a brochure under.
+wisniewski|As you make your mark, you feel a shudder of Loathing at Wisniewski also being The Man.
+
+> inside
+> c
+A majority! Perhaps there is some hope that they can be scared to act before we have to.
+
+cmd:r
 
 fo sc
 dejeune|You sure could use a lunch break right now!
 deke|You wonder if you faked yourself out going this way.
 didi|A fellow with oversized glasses and suspenders runs into you, shrugs his shoulders, snort-laughs and then runs away.
-die|Assisted suicide is more rigorous than in Threediopolis. The Death Panels there (not the healthcare kind) give punditary views before you pegged out, but here, you have surveys...quesstionnaires...what would you do better? What do you think authorities would do better? No, no, you are just lashing out because you are suicidal. Ah, yes, even the unsatisfied are satisfied in Fourdiopolis.
+die|> c|Assisted suicide is more rigorous and refined here and now than with Threediopolis's pilot program.|Ah, yes, even the unsatisfied are satisfied in Fourdiopolis!|> undo
 dike|In this blocked-off area, people talk about the city water supply.
 dindin|You feel hungry.
 dink|You're hit by a very very soft nerf ball that runs away. Hmm.
@@ -159,7 +215,7 @@ shinju|Hm, looks like a play, in the park. Not quite Romeo and Juliet, but seeme
 shins|You grab an old ache for a moment.
 shishe|You smell evidence people are--gasp--SMOKING. You remember health warnings that a whiff of the good smelling stuff is worse than the bad smelling stuff, and vice versa.
 shun|You feel very, very alone. People are more than just giving you your space.
-shush|'Oh, sure, you can THINK that, just don't SAY it, you know?'
+shush|"Oh, sure, you can THINK that, just don't SAY it, you know?"
 sides|You feel cornered in here. You're not sure why.
 sissies|Some self-made tough guys still feel a need to gang up on people weaker than they are. The pain's all over at once that way, amirite?
 skidded|A goverment utility vehicle swerves and almost hits someone about to jaywalk. Funny how one is always around, unless you jaywalk REALLY assertively.
@@ -172,43 +228,7 @@ unkissed|You hear a teen sob about their lack of romantic luck.
 uuid|You are suddenly unable to get the hexadecimal number
 weenies|An old long-abandoned hot dog hut lies between two places of Serious Business. Your grandparents constantly babbled about the misspelled version from THEIR youth being so tasty, and--well--maybe the misspelling did make things tastier.
 whew|You just barely escaped something, there! You don't know what, but it would've been pretty bad.
-whisk|You trip on an odd cooking supply you don't know the name of. People don't have time for that, with so much virtual reality to experience these days, and machines do it all good enough.
-whiskies|Wow! People seem to be having a rip roaring time, here[whisky-wine]. You don't have time for such carousing at the moment, but it boosts your spirits.
-wind|You're almost blown off your feet for a second. Air currents in Fourdiopolis are weird--there's no PROOF the government controls them, but...
-winded|You take a break to catch your breath.
+whiskies|You trip on an odd cooking doohickey you forget the name of. People don't have time for making their own meals, with so much virtual reality to experience these days, and machines do it all well enough.|Wow! People seem to be having a rip roaring time, here
+winded|You're almost blown off your feet for a second. Air currents in Fourdiopolis are weird--there's no PROOF the government controls them, but...|You take a break to catch your breath.
 wineskins|Everything retro is fashionable again, and drinking wine from animal skins was before when retro was a thing, so--that big rich people's gathering in the park is extra nice.
-
-
-fo 6
-dejesus|You leave a mark on the door and slip a brochure under.
-dinh|You leave a mark on the door and slip a brochure under.
-dinkins|You leave a mark on the door and slip a brochure under.
-dinwiddie|You leave a mark on the door and slip a brochure under.
-dudek|You leave a mark on the door and slip a brochure under.
-eddins|You leave a mark on the door and slip a brochure under.
-ennis|You leave a mark on the door and slip a brochure under.
-eskew|You leave a mark on the door and slip a brochure under.
-henke|You leave a mark on the door and slip a brochure under.
-hess|You leave a mark on the door and slip a brochure under.
-hines|You leave a mark on the door and slip a brochure under.
-hsieh|You leave a mark on the door and slip a brochure under.
-hsu|You leave a mark on the door and slip a brochure under.
-hussein|You leave a mark on the door and slip a brochure under.
-ishii|You leave a mark on the door and slip a brochure under.
-jenkins|You leave a mark on the door and slip a brochure under.
-jensen|You leave a mark on the door and slip a brochure under.
-keene|You leave a mark on the door and slip a brochure under.
-keese|Oh, wait, look. There's a weird pixelated bird on the door! As you make your mark, you reflect on the people keeping Fourdiopolis in the past under the guise of sticking with basics.
-knudsen|You leave a mark on the door and slip a brochure under.
-kuhn|You leave a mark on the door and slip a brochure under.
-niesen|You leave a mark on the door and slip a brochure under.
-sheen|As much as you distrust politicians who talk about winning, the alternative is...worse? This guy was particularly outrageous, you remember now. Entertaining, but outrageous.
-shenn|You leave a mark on the door and slip a brochure under.
-shin|You leave a mark on the door and slip a brochure under.
-sisk|You leave a mark on the door and slip a brochure under.
-weeks|You leave a mark on the door and slip a brochure under.
-weiss|You leave a mark on the door and slip a brochure under.
-whidden|You leave a mark on the door and slip a brochure under.
-wisniewski|As you make your mark, you feel a shudder of Loathing at Wisniewski also being The Man.
-
 
