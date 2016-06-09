@@ -18,6 +18,7 @@ my $trackScenery = 0;
 my $showZeros = 1;
 my $eraseRand = 0;
 my $eraseRandOut = 0;
+my $eraseAfter = 0;
 
 if (! -f $inFile)
 {
@@ -39,9 +40,12 @@ while ($count <= $#ARGV)
   
   for ($a)
   {
-    /^-3$/ && do { $inFile = "rtest3.txt"; $count++; next; };
-    /^-4$/ && do { $inFile = "rtest4.txt"; $count++; next; };
+    /^-3(d?)$/ && do { $inFile = "rtest3.txt"; $count++; next; };
+    /^-4(d?)$/ && do { $inFile = "rtest4.txt"; $count++; next; };
+    /^-4(d?)s$/ && do { $inFile = "rtest4s.txt"; $count++; next; };
+	/^-p$/ && do { $inFile = "rtest$b.txt"; $count += 2; next; };
 	/^[0-9]/ && do { $iterations = $a; $count++; next; };
+	/^-?ea/ && do { $eraseAfter = 1; $count++; next; };
 	/^-?ca/ && do { $eraseRandOut = $eraseRand = 1; $count++; next; };
 	/^-?co/ && do { $eraseRandOut = 1; $count++; next; };
 	/^-?c/ && do { $eraseRand = 1; $count++; next; };
@@ -50,7 +54,7 @@ while ($count <= $#ARGV)
 	/^-?t/ && do { $trackScenery = 1; $count++; next; };
 	/^-?h/ && do { $showZeros = 0; $count++; next; };
 	/^-?z/ && do { $showZeros = 1; $count++; next; };
-	/^-?i/ && do { $iterations = $b; $count+=2; next; };
+	/^-?i/ && do { $iterations = $b; $count += 2; next; };
 	usage();
   }
 }
@@ -80,10 +84,10 @@ if (($eraseRandOut) && (getcwd() eq "c:\\games\\inform\\prt"))
   $eraseRandOut = 0;
 }
 
-if ($eraseRand) { print "Clearing local\n"; unlink<reg-$prefix-*rand.txt>; }
+if ($eraseRand) { print "Clearing local directory of $prefix-*\n"; unlink<reg-$prefix-*rand.txt>; }
 if ($eraseRandOut)
 {
-  print "Clearing local\n"; unlink<"c:/games/inform/prt/reg-$prefix-*rand.txt">;
+  print "Clearing regression test directory of $prefix-*\n"; unlink<"c:/games/inform/prt/reg-$prefix-*rand.txt">;
 }
 
 if ($iterations)
@@ -98,6 +102,12 @@ if ($copyOver)
 {
   print "Copying reg-$prefix-* to prt directory.\n";
   `copy reg-$prefix-* c:\\games\\inform\\prt`;
+}
+
+if (($eraseAfter) && (getcwd() ne "c:\\games\\inform\\prt"))
+{
+  print "Deleting reg-$prefix-*rand.txt created.\n";
+  unlink<reg-$prefix-*rand.txt>;
 }
 
 sub writeTestFile
@@ -159,6 +169,7 @@ while ($a = <A>)
     {
 	  #print "Sorting " . ($#sortArray + 1) . " elements.\n";
       my @sa = shuffle(@sortArray); $harvestRandoms = 0;
+	  my $idx = 0;
 	  for my $shuf (@sa)
 	  {
         for my $pre (sort keys %equiv)
@@ -166,6 +177,14 @@ while ($a = <A>)
 	      if ($shuf =~ /^> $pre/)
 	      { $shuf =~ s/\n/\n$equiv{$pre}\n/; delete $equiv{$pre}; }
 	    }
+		if (($idx == $#sa) && ($shuf =~ /> suss[^u]/))
+		{
+		  print "Suspicious guy came last in $_[0].\n";
+		  #print "Before: $shuf\n";
+		  $shuf =~ s/> 6/> p/; $shuf =~ s/He looks.*//g;
+		  #print "After: $shuf\n";
+		} # this is so the suspicious guy coming last doesn't foil you
+		$idx++;
 	  }
       if (($trackScenery) && ($scenery))
       {
@@ -219,6 +238,13 @@ USAGE FOR OPOTST.PL
 000 or -i 000 specifies number of iterations
 -h or -z decides whether to hide or show zeros (1 or 001, default is to show them)
 -y or -n decides whether to copy over (default is y unless you are in games\\inform\\prt)
+-ea erases after
+
+Usages:
+ni 4d
+opotst.pl -4s 20 -ea
+opotst.pl -4d 20 -ea
+
 EOT
 exit;
 

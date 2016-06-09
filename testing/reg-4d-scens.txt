@@ -1,0 +1,326 @@
+## file name: reg-4d-scens.txt
+## randomized text file for fourdiopolis scenario twiddling
+** game: /home/andrew/prt/debug-fourdiopolis.ulx
+** interpreter: /home/andrew/prt/glulxe -q
+
+* invalid WFs
+
+#test this first even though it's a bit artificial
+
+> wf 2
+That's not a valid
+
+> wf 4
+That's not a valid
+
+> wf 6
+That's not a valid
+
+> wf 8
+That's not a valid
+
+> wf 10
+That's not a valid
+
+> wf 12
+That's not a valid
+
+> wf 14
+That's not a valid
+
+> wf 16
+That's not a valid
+
+> wf 17
+That's not a valid
+
+> wf 18
+That's not a valid
+
+> wf 19
+That's not a valid
+
+> wf 20
+That's not a valid
+
+> wf 21
+That's not a valid
+
+> wf 22
+That's not a valid
+
+> wf 23
+That's not a valid
+
+> wf 24
+That's not a valid
+
+> wf 25
+That's not a valid
+
+> wf 26
+That's not a valid
+
+> wf 27
+That's not a valid
+
+> wf 28
+That's not a valid
+
+> wf 29
+That's not a valid
+
+> wf 30
+That's not a valid
+
+* wf-0-test
+
+> wf 0
+table of friends
+
+> wf 0
+table of friends
+
+> i did i undid
+You're already at the first task set
+
+> i seek keen
+/DEBUG: [234]: table of
+
+> i seek keen
+You already found the revolution's friends
+
+> i did i undid
+Now you are back to searching for friends
+
+* wf-1-test
+
+>wf 1
+/DEBUG: [234]: table of
+
+>wf 1
+/DEBUG: [234]: table of
+
+>wf 1
+/DEBUG: [234]: table of
+
+>wf 1
+/DEBUG: [234]: table of
+
+>wf 1
+/DEBUG: [234]: table of
+
+>wf 1
+/DEBUG: [234]: table of
+
+> i seek keen
+You already found the revolution's friends
+
+* wf-3-test
+
+>wf 3
+/DEBUG: [34]: table of
+
+>wf 3
+/DEBUG: [34]: table of
+
+>wf 3
+/DEBUG: [34]: table of
+
+>wf 3
+/DEBUG: [34]: table of
+
+>wf 3
+/DEBUG: [34]: table of
+
+> i seek keen
+You already found the revolution's friends
+
+>i did i undid
+Now you are back to searching for friends
+
+>i did i undid
+You're already at the first
+
+* wf-5-test
+
+>wf 5
+/DEBUG: [24]: table of
+
+>wf 5
+/DEBUG: [24]: table of
+
+>wf 5
+/DEBUG: [24]: table of
+
+>wf 5
+/DEBUG: [24]: table of
+
+>wf 5
+/DEBUG: [24]: table of
+
+> i seek keen
+You already found the revolution's friends
+
+>i did i undid
+Now you are back to searching for friends
+
+>i did i undid
+You're already at the first
+
+* wf-7-test
+
+>wf 7
+/DEBUG: [4]: table of
+
+>wf 7
+/DEBUG: [4]: table of
+
+>wf 7
+/DEBUG: [4]: table of
+
+>wf 7
+/DEBUG: [4]: table of
+
+>wf 7
+/DEBUG: [4]: table of
+
+> i seek keen
+You already found the revolution's friends
+
+>i did i undid
+Now you are back to searching for friends
+
+>i did i undid
+You're already at the first
+
+* wf-9-test
+
+>wf 9
+/DEBUG: [23]: table of
+
+>wf 9
+/DEBUG: [23]: table of
+
+>wf 9
+/DEBUG: [23]: table of
+
+>wf 9
+/DEBUG: [23]: table of
+
+>wf 9
+/DEBUG: [23]: table of
+
+> i seek keen
+You already found the revolution's friends
+
+>i did i undid
+Now you are back to searching for friends
+
+>i did i undid
+You're already at the first
+
+* wf-11-test
+
+>wf 11
+/DEBUG: [3]: table of
+
+>wf 11
+/DEBUG: [3]: table of
+
+>wf 11
+/DEBUG: [3]: table of
+
+>wf 11
+/DEBUG: [3]: table of
+
+>wf 11
+/DEBUG: [3]: table of
+
+> i seek keen
+You already found the revolution's friends
+
+>i did i undid
+Now you are back to searching for friends
+
+>i did i undid
+You're already at the first
+
+* wf-13-test
+
+>wf 13
+/DEBUG: [2]: table of
+
+>wf 13
+/DEBUG: [2]: table of
+
+>wf 13
+/DEBUG: [2]: table of
+
+>wf 13
+/DEBUG: [2]: table of
+
+>wf 13
+/DEBUG: [2]: table of
+
+> i seek keen
+You already found the revolution's friends
+
+>i did i undid
+Now you are back to searching for friends
+
+>i did i undid
+You're already at the first
+
+* wf-15-test
+
+>wf 15
+table is table of just plain cool stuff
+
+>wf 15
+table is table of just plain cool stuff
+
+>wf 15
+table is table of just plain cool stuff
+
+>wf 15
+table is table of just plain cool stuff
+
+>wf 15
+table is table of just plain cool stuff
+
+> i seek keen
+You already found the revolution's friends
+
+>i did i undid
+Now you are back to searching for one of the three
+
+>i did i undid
+Now you are back to searching for friends
+
+>i did i undid
+You're already at the first task set
+
+* wf-31-test
+
+>wf 31
+Current table is table of last names
+
+>x
+Vietnamese
+
+>i seek keen
+You already found
+
+>i did i undid
+the random cool stuff
+
+>i did i undid
+Now you are back to searching for one of the three
+
+>i did i undid
+Now you are back to searching for friends
+
+>i did i undid
+You're already at the first task set
+

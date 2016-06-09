@@ -1,0 +1,160 @@
+## file name: reg-4d-misc.txt
+## randomized text file for fourdiopolis scenario twiddling
+** game: /home/andrew/prt/debug-fourdiopolis.ulx
+** interpreter: /home/andrew/prt/glulxe -q
+
+* meta-commands
+
+>wf 0
+
+>a
+you can type C, for check
+!will kick you back to
+
+>wf 1
+>a
+will kick you back to finding friends
+
+>wf 15
+>a
+will kick you back to the pod
+
+>wf 31
+>a
+will kick you back to the cool stuff tasks
+
+>z
+Loitering is a serious offense
+
+>about
+Also, there will not be a Fivediopolis.
+
+>credits
+I'd like to thank my testers
+
+>tech
+Kata and Ana
+
+>l
+weird fifth
+
+>xyzzy
+What a totally out-of-date joke!
+
+>wxyzzy
+No, no, the other way works better. Or less badly. Whichever.
+
+>wxyzzy
+No, that still doesn't sound right.
+
+>wxyzzyx
+No, no, the other way works better. Or less badly. Whichever.
+
+>wxyzzyx
+No, that still doesn't sound right.
+
+>score
+So far, you've found
+Note that X, or the status line,
+
+#too far east
+>i
+just to check, I is a direction
+
+>i
+DD4
+
+>i
+FF6
+
+>i
+HH8
+
+>i
+The teleporter buzzes ominously
+
+>e
+HH9
+countryside beyond
+
+>e
+You're 
+#test this first even though it's a bit artificial
+
+#too far up
+>h
+>h
+>h
+>h
+>u
+the sun above
+
+>u
+ozone layer
+Back at Sector 000
+
+#too far north
+>h
+>h
+>h
+>h
+>n
+>n
+anti-suicide
+
+#too far down
+
+>i
+>i
+>i
+>i
+>d
+>d
+digging beneath Fourdiopolis
+
+#too far west
+>j
+>j
+>j
+>j
+>w
+countryside
+>w
+anti-suicide
+
+#too far south
+>i
+>i
+>i
+>i
+>s
+countryside
+>s
+anti-suicide
+
+>n
+>s
+>n
+>s
+>r
+had to teleport to
+Hm. Weird.
+
+>n
+>s
+>n
+>s
+>r
+!Hm. Weird.
+
+>senwsenwsenw
+You've been wandering for too long
+cancelling the rest
+back you go to the center
+Back at Sector 000
+
+>senwsenwsen
+You've been wandering for too long
+!cancelling the rest
+back you go to the center
+Back at Sector 000

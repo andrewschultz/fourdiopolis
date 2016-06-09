@@ -1,10 +1,5 @@
 "Fourdiopolis" by Andrew Schultz
 
-[b15 or ed5]
-["keen seekin"]
-["die"	"a place to prank"	"You walk in and you die."	ominous door	0]
-["undid"	"lets you go search for friends again"]
-
 the story description is "Threediopolis with Teleporters and Such"
 
 the story headline is "Threediopolis: Chug Chug Next Verse"
@@ -187,10 +182,17 @@ carry out examining the task list:
 	the rule succeeds;
 
 to say losted:
-	say "You're lost. You have strayed beyond the city bounds. A border droid takes your ID and whisks you back to the center[if posschars > number of characters in your-tally], and you decide to cancel the rest of your walking plans[end if].";
+	if ud > 9:
+		say "[line break]A security droid whizzes behind you--you might get too much sun if you go any higher, and the ozone layer isn't healed yet! ";
+	else if ud < -9:
+		say "[line break]A small alarm goes off. Law-abiding citizens don't need to be digging beneath Fourdiopolis. Or even looking like they are. A security droid taps you on your left shoulder, and when you turn around, you realize it was on your right. [one of]Snea-kee[or]Fooled again[stopping]! ";
+	else:
+		say "[line break]An anti-suicide droid pulls you back as you walk close to what you realize is the edge of Fourdiopolis. It reminds you there are cleaner ways to do that, if you know where to look. ";
+	say "You're whisked back to the center [if posschars > number of characters in your-tally], and with this interruption, you decide to cancel the rest of your walking plans[end if].";
 	if bounds-warn is false:
-		say "You look at your list, and many of the locations are relatively close to the center. Maybe you don't need to venture near the edges that much.";
+		say "[line break]You look at your list, and many of the locations are relatively close to the center. Maybe you don't need to venture near the edges that much.";
 		now bounds-warn is true;
+	say "[line break][b]Back at Sector 000[r][line break]";
 	now ignore-remaining-dirs is true;
 
 chapter stubs
@@ -212,10 +214,17 @@ to say outside-rand:
 	unless set to unabbreviated room descriptions:
 		continue the action;
 	if a random chance of 2 in 5 succeeds:
-		say "Teleporters, transport tubes, walkways. So ubiquitous, so similar, yet different.[no line break]";
+		say "Teleporters, transport tubes, walkways. So ubiquitous, so similar, yet different[edge-check].[no line break]";
 	else:
-		say "[one of]You feel as if you both should and shouldn't know this area[or]There's a [one of]smaller[or]larger[at random] than usual crowd by the [one of]teleports[or]vertical tubes[at random] here. Well, it can't always be constant[or]The sidewalks go from too crowded to too empty to unremarkable[or]You think you see someone from a few blocks ago, coming the opposite way again, but you can't just go up and ASK them[in random order].[no line break]";
+		say "[one of]You feel as if you both should and shouldn't know this area[or]There's a [one of]smaller[or]larger[at random] than usual crowd by the [one of]teleports[or]vertical tubes[at random] here. Well, it can't always be constant[or]The sidewalks go from too crowded to too empty to unremarkable[or]You think you see someone from a few blocks ago, coming the opposite way again, but you can't just go up and ASK them[in random order][edge-check].[no line break]";
 
+to say edge-check:
+	if ud is 9:
+		say ". You can see the sun above. No upward-tubes or buildings block your view";
+	else if ew is 9 or ns is 9 or ew is -9 or ns is -9:
+		say ". You can see the countryside beyond the Fourdiopolis limits here";
+	else if ud is -9:
+		say ". You don't see any tubes down here";
 
 instead of waiting:
 	say "Loitering is a serious offense in Fourdiopolis. Officers often patrol for them. Often undercover. Which creates confusion, which makes loitering an even more serious offense.";
@@ -455,7 +464,7 @@ hint-oppo is a truth state that varies.
 
 check going:
 	if number of characters in your-tally > 10:
-		say "You've been wandering for too long. You get tired, and you figure it's probably best to start over with a clean look on things. You push the button on your teleporter device[if posschars > 11], cancelling the rest of your planned journey[end if], and [if ew is 0 and ns is 0 and ud is 0]everything looks a bit different[else]back you go to the center[end if].";
+		say "You've been wandering for too long. You get tired, and you figure it's probably best to start over with a clean look on things. You push the button on your teleporter device[if posschars > 11], cancelling the rest of your planned journey[end if], and [if ew is 0 and ns is 0 and ud is 0]everything looks a bit different[else]back you go to the center[end if].[paragraph break][b]Back at Sector 000[r][line break]";
 		now ignore-remaining-dirs is true;
 		reset-game instead;
 	tally-and-place;
@@ -695,11 +704,13 @@ to run-the-ending:
 		end-with-undo;
 		continue the action;
 	if your-table is table of just plain cool stuff:
-		if score < 15:
+		if score < 5:
+			say "'You know, the substance over style shtick can only be pulled off if you HAVE a certain amount of style. You weren't helping much, here.'";
+		else if score < 15:
 			say "'Well, maybe we can like make Fourdiopolis cooler AFTER the revolution.'";
 		else:
 			say "'Wow! That's a lot of cool hidden stuff we need more of! That's what we stand for, and what we'll give to the people! Or at least try to! They'll love us! There's just one more thing--we can strike terror into the hearts of the shadow councillors that help run this city. Their names are closely protected--but we know the sectors they live in, and you're just the person to find their cleverly unmarked houses.'";
-			say "Congratulations! You've unlocked a final FINAL puzzle. You can search out UNKINDNESS on restart.";
+			say "Congratulations! You've unlocked a final FINAL puzzle. You will be prompted to see if you'd like to go for it on restart. It's thirty, not twenty, and it's meant to be difficult can search out.[paragraph break]There's also a hidden command you can use at any time: type UNKINDNESS to get to the final bit.";
 			choose row 5 in table of accomplishments;
 			now solved entry is true;
 			write file of accomplishments from the table of accomplishments;
@@ -1173,7 +1184,7 @@ rule for deciding whether to allow undo:
 	if story-ended is true:
 		allow undo;
 	else:
-		say "You can't really quite reverse how and where you walked, or when you teleported. But don't worry, if you get killed somehow, you will be able to undo. And you can always go back to the center and retrace your steps.";
+		say "You can't really quite reverse how and where you walked, or when you teleported[one of]. Worse, Fourdiopolis is no closer to time travel than Threediopolis, but it's a lot closer to proving time travel's impossible[or][stopping].[paragraph break]But don't worry, if you get killed somehow, you will be able to undo. And you can always zap back to the center and retrace your steps.";
 		deny undo;
 
 volume commands
@@ -1192,8 +1203,8 @@ after reading a command:
 	now not-parseable-yet is false;
 	if locom matches the regular expression "^<ewnsudhijk \.>*$":
 		now not-parseable-yet is true;
-		if debug-state is true:
-			say "DEBUG: [locom] [number of characters in locom] vs [locom-chars].";
+[		if debug-state is true:
+			say "DEBUG: [locom] [number of characters in locom] vs [locom-chars].";]
 		if number of quasi-entries in outside-area > 0 and the player's command matches "^in$":
 			continue the action;
 		if number of characters in locom > locom-chars:
@@ -1284,7 +1295,12 @@ note-bad is a truth state that varies.
 
 cycle-note is a truth state that varies.
 
+skip-silly-this-turn is a truth state that varies.
+
 every turn (this is the silly stuff rule):
+	if skip-silly-this-turn is true:
+		now skip-silly-this-turn is false;
+		the rule succeeds;
 	if show-silly is true:
 		if a random chance of 1 in 2 succeeds:
 			increment silly-row;
@@ -1405,7 +1421,7 @@ carry out wxyzzying:
 	x-let 6;
 	the rule succeeds;
 
-carry out wxyzzying:
+carry out wxyzzyxing:
 	x-let 7;
 	the rule succeeds;
 
@@ -1435,9 +1451,10 @@ understand the command "credits" as something new.
 understand "credits" as creditsing.
 
 carry out creditsing:
-	say "I'd like to thank Aaron Reed for providing a space where I can put this game so it doesn't seem like trolling or torture and also for checking with entrants to allow for a bit of cleanup before the first release. I was really conflicted about even putting this game out, because of its difficulty. The thing is--I [italic type]like[roman type] difficult stuff, though that's no excuse not to try to make it accessible to others.[paragraph break]";
-	say "I'd like to thank my testers, for putting up with something so confusing in so little time. [bold type]Buster Hudson, Robin Johnson and Teaspoon[roman type]. They found--well, the details would embarrass me. Both technical and aesthetic. I'm very grateful to them.[paragraph break]Also, Wade Clarke mentioned some things in-comp.[paragraph break]";
-	say "And also, while it's fishy to list my Threediopolis testers by name so as to beef up my tester list...their thoughts and ideas helped me when I wrote up Fourdiopolis. I appreciate them.[paragraph break]The font in the cover 'art' is Chlorinar.";
+	say "I'd like to thank Aaron Reed for providing a space where I can put this game so it doesn't seem like trolling or torture and also for checking with entrants to allow for a bit of cleanup before the first release. I was really conflicted about even putting this game out, because of its difficulty. The thing is--I [italic type]like[roman type] difficult stuff, though that's no excuse not to try to make it accessible to others. In fact, my goal is to make stuff that may seem difficult be a bit more accessible.[paragraph break]";
+	say "I'd like to thank my testers, for putting up with something so confusing in so little time. [bold type]Buster Hudson, Robin Johnson and Teaspoon[roman type]. They found--well, the details would embarrass me. Both technical and aesthetic. I'm very grateful to them.[paragraph break]Also, Wade Clarke mentioned some neat things in-comp. It's not the first game of mine he's helped.[paragraph break]";
+	say "And while I didn't have any personal contact with Zarf over this game, his Python regular-expression tester let me automate a lot of testing for the post-comp version.[paragraph break]";
+	say "And finally, while it's fishy to list my Threediopolis testers by name so as to beef up my tester list...their thoughts and ideas helped me when I wrote up Fourdiopolis. I appreciate them.[paragraph break]The font in the cover 'art' is Chlorinar.";
 	the rule succeeds;
 
 chapter teching
@@ -1449,10 +1466,10 @@ understand the command "tech" as something new.
 understand "tech" as teching.
 
 carry out teching:
-	say "Well, at first, I considered Kata and Ana, and maybe In and Out, or From and To. But I didn't know how that would capture diagonal movements, or make things different. So I wrote a bunch of PERL scripts with:[paragraph break][italic type]type english-words | grep [bracket]nsewudvxyz[close bracket] | grep [bracket]vxyz[close bracket]--or any four letters.";
-	say "Eventually I figured how I wanted things to work--and I realized that jumping 2 of each in any direction would give the player some space. Not only that, the player would have a parity problem to figure if you needed an even or odd number of teleporter jumps. The only thing remaining was what the letters should be.";
-	say "Then I remembered about cross products from calculus or physics or whatever. I, j, k. Rare enough they wouldn't create TOO many extra letters. So--the final one was h or l. I chose h, because I liked the names and numbers better. Plus L stood for look.";
-	say "But it wasn't a full game until I figured how to break down the lists into serviceable sizes. You'd start with friends, because that helps you get an idea, then you'd move to supplies.";
+	say "Well, at first, I considered Kata and Ana, and maybe In and Out, or From and To. But I didn't know how that would capture diagonal movements, or make things different. So I wrote a bunch of PERL scripts with:[paragraph break][italic type]type english-words | grep [bracket]nsewudvxyz[close bracket] | grep [bracket]vxyz[close bracket][roman type]--or any four letters.";
+	say "[line break]Eventually I figured how I wanted things to work--and I realized that jumping 2 of each in any direction would give the player some space. Not only that, the player would have a parity problem to figure if you needed an even or odd number of teleporter jumps. The only thing remaining was what the letters should be.";
+	say "[line break]Then I remembered about cross products from calculus or physics or whatever. I, j, k. Rare enough they wouldn't create TOO many extra letters. So--the final one was h or l. I chose h, because I liked the names and numbers better. Plus L stood for look.";
+	say "[line break]But it wasn't a full game until I figured how to break down the lists into serviceable sizes. You'd start with friends, because that helps you get an idea, then you'd move to supplies.";
 	the rule succeeds;
 
 volume errors/parser
@@ -1509,6 +1526,10 @@ understand the command "r" as something new.
 
 understand "r" as ring.
 
+r-yet is a truth state that varies.
+
+in-place-yet is a truth state that varies.
+
 carry out ring:
 	let ncy be number of characters in your-tally;
 	if ncy is 0:
@@ -1532,9 +1553,13 @@ carry out ring:
 		else:
 			say "OK. You may wish to type C here.";
 		the rule succeeds;
-	say "[one of]You take one of the public teleporters back to the center. You don't need a special key. They're about the only thing free these days. The government, in a small sop to civil liberties, doesn't even track how many time a person uses it. Small things[or]Back to 000, again[stopping].";
-	if ns is 0 and ew is 0 and ud is 0:
-		say "Hm. Weird. It feels like you didn't go anywhere, and at the same time, you did.";
+	if r-yet is false:
+		now r-yet is true;
+		say "You take one of the public teleporters back to the center. You don't need a special key. They're about the only thing free these days. The government, in a small sop to civil liberties, doesn't even track how many time a person uses it. Small things.[line break]";
+	say "[b]Back at Sector 000[r][line break]";
+	if ns is 0 and ew is 0 and ud is 0 and in-place-yet is false:
+		now in-place-yet is true;
+		say "Hm. Weird. It feels like you didn't go anywhere, and at the same time, you did.[line break]";
 	reset-game;
 	the rule succeeds;
 
@@ -1587,8 +1612,8 @@ carry out aing:
 	say "[2da][b]T[r] toggles silly random events that don't affect the game.";
 	say "[2da][b]Q[r] toggles quick mode when you run around Fourdiopolis (ignores random events until you arrive at your destination).";
 	if your-table is not table of friends:
-		say "[2da][b]I DID I UNDID will kick you back to [if your-table is table of last names or your-table is table of just plain cool stuff]the pod of three random task lists[else]finding friends[end if].";
-	say "[2da]Meta-commands include ABOUT and CREDITS.";
+		say "[2da][b]I DID I UNDID[r] will kick you back to [if your-table is table of last names]the cool stuff tasks[else if your-table is table of just plain cool stuff]the pod of three random task lists[else]finding friends[end if].";
+	say "[2da]Meta-commands include [b]ABOUT[r] and [b]CREDITS[r].";
 	if debug-state is true:
 		say "Here are commands for testers:[line break]";
 		say "You can also type FO (1-6) to force one list of things to do. 1 = friends, 5 = fun stuff, 6 = the bad guys. It's recommended you restart before doing this. Also, you should start with 1, then try one of 2-4, and that is more than enough to help me.";
@@ -1646,7 +1671,7 @@ carry out undiding:
 	let count be 0;
 	if your-table is table of friends:
 		say "You're already at the first task set, finding friends, so you can't go back any farther." instead;
-	if your-table is table of just plain cool stuff or your-table is table of last names: [reset to only having table of friends solved]
+	if your-table is table of just plain cool stuff: [reset to only having table of friends solved]
 		now count is 0;
 		repeat through table of accomplishments:
 			increment count;
@@ -1655,16 +1680,26 @@ carry out undiding:
 			else:
 				now solved entry is false;
 		midtable-choose;
-		repeat through your-table:
-			now found entry is 0;
+		say "Now you are back to searching for one of the three random sets of tasks[scen-twaddle][extra-twiddle].";
+	else if your-table is table of last names:
+		choose row 5 in table of accomplishments;
+		now solved entry is false;
+		set-your-table table of just plain cool stuff;
+		say "Now you're back to the last official task, the random cool stuff[scen-twaddle][extra-twiddle].";
 	else:
 		set-your-table table of friends;
-	say "Now you are back to searching for [if your-table is table of friends]friends[else]one of the three random sets of tasks[end if]. Your task list is full. Note that the game will not save this reverted status unless you win a scenario. If you really want to delete things, find the file fourdiop (or fourdiop.glkdata) and either delete it or set all the 1-values to 0.";
-	if number of characters in your-tally > 1:
-		say "Oh, I also teleported you back to the center.";
+		say "Now you are back to searching for friends, with no tasks done[scen-twaddle].";
+	if number of characters in your-tally > 0:
+		say "[line break]Oh, I also teleported you back to the center.";
 		now teleported is true; [this is a small hack to quash the "you should have teleported" warning]
 		reset-game;
 	the rule succeeds;
+
+to say scen-twaddle:
+	say ", with no tasks done. Note that the game will not save this reverted status unless you win a scenario"
+
+to say extra-twiddle:
+	say ". If you really want to twiddle things, find the file fourdiop (or fourdiop.glkdata) and either delete it or set all the 1-values to 0. You can also re-set them to 1. You've gotten this far--you definitely deserve to know this small cheat"
 
 volume status line
 
@@ -1794,12 +1829,14 @@ when play begins (this is the check accomplishments at start rule) :
 				set-your-table table of just plain cool stuff;
 				say "Ok. You will get to try the cool stuff again.";
 			the rule succeeds;
+		else if solved entry is true and debug-state is true:
+			say "You've got all 5 areas solved, so to get to the 6th, type FO 6 then TEST 6W. You'll need to test the yes/no question manually.";
 		else if debug-state is true:
-			say "[bold type]DEBUG: test 6w to get through the final bit. Erase fourdiop.glkdata to clear everything.[roman type]";
+			say "[bold type]DEBUG: test 5w to get through the final bit. Erase fourdiop.glkdata to clear everything, or use WF to change the data file.[roman type][line break]";
 		if all-else-solved:
 			set-your-table table of just plain cool stuff;
 			if debug-state is true:
-				say "[bold type]DEBUG: test 5w to get through.";
+				say "[bold type]DEBUG: test 5w to get through.[roman type][line break]";
 		else:
 			midtable-choose;
 
@@ -1856,16 +1893,17 @@ to midtable-choose:
 		set-your-table table of just plain cool stuff;
 		the rule succeeds;
 	let Q be a random number between 2 and 4;
+	let Q2 be a random number between 1 and 2;
 	let X be true;
 	while X is true:
-		increment Q;
+		increase Q by Q2;
 		if Q > 4:
-			now Q is 2;
+			now Q is Q - 3;
 		choose row Q in table of accomplishments;
 		let X be solved entry;
 	choose row Q in table of solvable tables;
 	if debug-state is true:
-		say "[bold type]DEBUG: [roman type][Q]: [tabname entry]. test [Q]w to get through.";
+		say "[bold type]DEBUG: [Q]: [tabname entry]. test [Q]w to get through.[roman type][line break]";
 	set-your-table tabname entry;
 
 volume change default verbs
@@ -2111,6 +2149,86 @@ to dn (t - text):
 		say "[bold type]DEBUG:[roman type] [t]";
 
 a thing can be abstract. a thing is usually not abstract.
+
+chapter wfing
+
+[* this writes specific true/false items to a file & changes the game as randomly as you'd expect]
+
+wf0ing is an action applying to nothing.
+
+wfing is an action applying to one number.
+
+understand the command "wf" as something new.
+
+understand "wf" as wf0ing.
+
+carry out wf0ing:
+	try wfing -1;
+	the rule succeeds;
+
+understand "wf [number]" as wfing.
+
+carry out wfing:
+	if number understood is wrongo:
+		say "That's not a valid number to write to the save file. 0, odd #s from 1 to 15 inclusive, and 31 work. Type -1 for full explanations." instead;
+	now skip-silly-this-turn is true;
+	if number understood is -4:
+		let bin-num be old-binary;
+		if bin-num < 1 or bin-num > 14 or bin-num is wrongo:
+			say "You need to have friends solved and not all the middle tables." instead;
+		midtable-choose;
+		the rule succeeds;
+	if number understood is -3:
+		say "Current table: [your-table]." instead;
+	if number understood is -2:
+		repeat through table of accomplishments:
+			say "[solved entry].";
+		the rule succeeds;
+	if number understood is -1:
+		say "0=clear all,31=solve all[line break]1=solve friends only. 2=solve education 4=solve supplies 8=solve marginalized.[paragraph break]Misc values: -1 gives use, -2 shows solved entries, -3 shows current table." instead;
+	say "NOTE: this writes to the file. The previous number was [old-binary], if you wish to undo things.";
+	let num-to-div be number understood;
+	let count be 0;
+	repeat through table of accomplishments:
+		increment count;
+		if the remainder after dividing num-to-div by 2 is 1:
+			now solved entry is true;
+		else:
+			now solved entry is false;
+		say "Row [count] is [solved entry] now.";
+		now num-to-div is num-to-div / 2;
+	write file of accomplishments from the table of accomplishments;
+	if number understood is 0:
+		set-your-table table of friends;
+	else if number understood is 15:
+		set-your-table table of just plain cool stuff;
+	else if number understood is 31:
+		set-your-table table of last names;
+	else:
+		midtable-choose;
+	say "Current table is [your-table], and it has been reset.";
+	if number of characters in your-tally > 0:
+		say "[line break]Oh, I also teleported you back to the center.";
+		now teleported is true; [this is a small hack to quash the "you should have teleported" warning]
+		reset-game;
+	the rule succeeds.
+
+to decide whether (n - a number) is wrongo:
+	if the remainder after dividing n by 2 is 1:
+		if n < 16:
+			decide no;
+	if n is -1 or n is -2 or n is -3 or n is -4, decide no;
+	if n is 0 or n is 31, decide no;
+	decide yes;
+
+to decide which number is old-binary:
+	let additive be 1;
+	let total-sum be 0;
+	repeat through table of accomplishments:
+		if solved entry is true:
+			increase total-sum by additive;
+		now additive is additive * 2;
+	decide on total-sum;
 
 chapter cxing
 
