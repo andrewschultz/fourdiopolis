@@ -1300,7 +1300,7 @@ after reading a command:
 				do nothing;
 			else if locom is "in":
 				do nothing;
-			else if the player's command matches the regular expression "^i undid (edu|junk|news)":
+			else if the player's command matches the regular expression "^i (did|undid) (edu|junk|news)":
 				do nothing;
 			else:
 				dirparse locom;
@@ -1803,7 +1803,6 @@ to say scen-twaddle:
 to say extra-twiddle:
 	say ". If you really want to twiddle things, find the file fourdiop (or fourdiop.glkdata) and either delete it or set all the 1-values to 0. You can also re-set them to 1. You've gotten this far--you definitely deserve to know this small cheat"
 
-
 section undomiding
 
 undomiding is an action applying to one number
@@ -1839,7 +1838,7 @@ to say table-by-num of (num - a number):
 to say cur-midtable:
 	say "[if your-table is table of education]education[else if your-table is table of supplies]supply finding[else]ally finding";
 
-chapter i undid edu-ing
+section i undid edu-ing
 
 undideduing is an action out of world.
 
@@ -1851,7 +1850,7 @@ carry out undideduing:
 	try undomiding 2;
 	the rule succeeds;
 
-chapter i undid junk-ing
+section i undid junk-ing
 
 undidjunking is an action out of world.
 
@@ -1873,6 +1872,75 @@ understand "i undid news" as undidnewsing.
 
 carry out undidnewsing:
 	try undomiding 4;
+	the rule succeeds;
+
+section domiding
+
+domiding is an action applying to one number.
+
+carry out domiding:
+	if number understood > 4 or number understood < 2:
+		say "Oops, this should never happen, but there's a bug in the I UNDID code. Email me at [email] if you can, to let me know [number understood] got passed." instead;
+	if old-binary is 0:
+		say "You need to get past the friends task-list to try this." instead;
+	if old-binary is 15 or old-binary is 31:
+		say "You're already clear of the three middle scenarios." instead;
+	choose row number understood in table of accomplishments;
+	if solved entry is true:
+		say "The [table-by-num of number understood] task set is already unsolved." instead;
+	now solved entry is true;
+	let said-yet be false;
+	if on-this-table of number understood:
+		now said-yet is true;
+		say "Magically, you realize you already completed this task list and you can move ahead.[if old-binary is 15][line break]";
+		if old-binary is not 15:
+			midtable-choose;
+			say "Now you're on the [table-by-num of number understood].";
+	if old-binary is 15:
+		say "Switching you to the table of cool stuff.";
+		now your-table is table of just plain cool stuff;
+	else:
+		if said-yet is false:
+			say "Solving the [table-by-num of number understood] task list, for later.";
+	say "If you didn't mean to do this, you can UNDO.";
+	now big-jump is true;
+	the rule succeeds;
+
+
+section i did edu-ing
+
+dideduing is an action out of world.
+
+understand the command "i did edu" as something new.
+
+understand "i did edu" as dideduing.
+
+carry out dideduing:
+	try domiding 2;
+	the rule succeeds;
+
+section i did junk-ing
+
+didjunking is an action out of world.
+
+understand the command "i did junk" as something new.
+
+understand "i did junk" as didjunking.
+
+carry out didjunking:
+	try domiding 3;
+	the rule succeeds;
+
+section i did news-ing
+
+didnewsing is an action out of world.
+
+understand the command "i did news" as something new.
+
+understand "i did news" as didnewsing.
+
+carry out didnewsing:
+	try domiding 4;
 	the rule succeeds;
 
 volume status line
@@ -2003,6 +2071,10 @@ when play begins (this is the check accomplishments at start rule) :
 		read file of accomplishments into table of accomplishments;
 	else:
 		write file of accomplishments from the table of accomplishments;
+	if old-binary is wrongo:
+		say "Oops! Something happened, and the save file appears to be corrupted. I'm resetting everything, though if you know the semi-secret commands, you can get back to where you were.";
+		repeat through table of accomplishments:
+			now solved entry is false;
 	port-solvable;
 	choose row 1 in table of accomplishments;
 	if solved entry is false:
