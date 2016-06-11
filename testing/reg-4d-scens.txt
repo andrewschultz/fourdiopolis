@@ -3,30 +3,102 @@
 ** game: /home/andrew/prt/debug-fourdiopolis.ulx
 ** interpreter: /home/andrew/prt/glulxe -q
 
-* undid-news-testing
+*did-edu-testing
 
 >wf 0
->i undid news
+>i did edu
+You need to get past the friends task-list to try this.
+
+>wf 3
+>i did edu
+The education task set is already solved.
+
+>wf 15
+>i did edu
+You're already clear of the three middle scenarios.
+
+>wf 13
+>i did edu
+Magically, you realize you already completed this task list and you can move ahead.
+Switching you to the table of cool stuff.
+
+>wf 1
+>fo 4
+>i did edu
+Solving the education task list, for later.
+
+*did-junk-testing
+
+>wf 0
+>i did junk
+You need to get past the friends task-list to try this.
+
+>wf 5
+>i did junk
+The supply finding task set is already solved.
+
+>wf 15
+>i did junk
+You're already clear of the three middle scenarios.
+
+>wf 11
+>i did junk
+Magically, you realize you already completed this task list and you can move ahead.
+Switching you to the table of cool stuff.
+
+>wf 1
+>fo 2
+>i did junk
+Solving the supply finding task list, for later.
+
+*did-news-testing
+
+>wf 0
+>i did news
+You need to get past the friends task-list to try this.
+
+>wf 9
+>i did news
+The ally finding task set is already solved.
+
+>wf 15
+>i did news
+You're already clear of the three middle scenarios.
+
+>wf 7
+>i did news
+Magically, you realize you already completed this task list and you can move ahead.
+Switching you to the table of cool stuff.
+
+>wf 1
+>fo 3
+>i did news
+Solving the ally finding task list, for later.
+
+* undid-edu-testing
+
+>wf 0
+>i undid edu
 You don't have any of the three middle scenarios solved, so trying to reset them won't do much.
 
 >wf 1
->i undid news
+>i undid edu
 You don't have any of the three middle scenarios solved, so trying to reset them won't do much
 
 >wf 15
->i undid news
-Unsolving the ally finding task set and making it the current one.
+>i undid edu
+Unsolving the education task set and making it the current one.
 
->wf 9
->i undid news
-Reverting the ally finding task set to unsolved.
->i undid news
+>wf 3
+>i undid edu
+Reverting the education task set to unsolved.
+>i undid edu
 You don't have any of the three middle scenarios solved, so trying to reset them won't do much.
 
->wf 7
->i undid edu
+>wf 13
 >i undid junk
 >i undid news
+>i undid edu
 especially since
 
 * undid-junk-testing
@@ -55,30 +127,30 @@ You don't have any of the three middle scenarios solved, so trying to reset them
 >i undid junk
 especially since
 
-* undid-edu-testing
+* undid-news-testing
 
 >wf 0
->i undid edu
+>i undid news
 You don't have any of the three middle scenarios solved, so trying to reset them won't do much.
 
 >wf 1
->i undid edu
+>i undid news
 You don't have any of the three middle scenarios solved, so trying to reset them won't do much
 
 >wf 15
->i undid edu
-Unsolving the education task set and making it the current one.
+>i undid news
+Unsolving the ally finding task set and making it the current one.
 
->wf 3
->i undid edu
-Reverting the education task set to unsolved.
->i undid edu
+>wf 9
+>i undid news
+Reverting the ally finding task set to unsolved.
+>i undid news
 You don't have any of the three middle scenarios solved, so trying to reset them won't do much.
 
->wf 13
+>wf 7
+>i undid edu
 >i undid junk
 >i undid news
->i undid edu
 especially since
 
 * keenseek-testing

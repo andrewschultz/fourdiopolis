@@ -1887,7 +1887,7 @@ carry out domiding:
 		say "You're already clear of the three middle scenarios." instead;
 	choose row number understood in table of accomplishments;
 	if solved entry is true:
-		say "The [table-by-num of number understood] task set is already unsolved." instead;
+		say "The [table-by-num of number understood] task set is already solved." instead;
 	now solved entry is true;
 	let said-yet be false;
 	if on-this-table of number understood:
@@ -1895,7 +1895,7 @@ carry out domiding:
 		say "Magically, you realize you already completed this task list and you can move ahead.[if old-binary is 15][line break]";
 		if old-binary is not 15:
 			midtable-choose;
-			say "Now you're on the [table-by-num of number understood].";
+			say "Now you're on the [table-by-num of number understood] task set.";
 	if old-binary is 15:
 		say "Switching you to the table of cool stuff.";
 		now your-table is table of just plain cool stuff;

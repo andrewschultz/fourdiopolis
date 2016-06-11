@@ -3,3 +3,9 @@ Fourdiopolis release 2 has a lot of bug fixes and enhancements. The core game is
 I was able to use Zarf's script to do stability testing, which was a big help, and it also turned up--and left me freer to look into--small bugs and inconsistencies in the narrative, which I was able to fix.
 
 --the game now detects how you run out of bounds for a more suitable error message.
+--the commands to go forward and backward through the game (clearing one tast list or resetting it) have been sharpened. They are also all UNDOable.
+----you can now specifically solve or un-solve each of the three random middle scenarios
+--game state corruption is also detected if you edit the GLKDATA file wrong.
+--the final scenario is now tilted a bit differently towards the shadow leaders
+--66 pieces of scenery, up from 43
+--A(ction) command now reveals TECH, which was guess-the-verb in the Spring Thing version
