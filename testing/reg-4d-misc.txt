@@ -8,7 +8,7 @@
 >wf 0
 
 >a
-you can type C, for check
+C is short for check
 !will kick you back to
 
 >wf 1

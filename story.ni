@@ -1,5 +1,7 @@
 "Fourdiopolis" by Andrew Schultz
 
+[Note to self: 2=education, 3=supplies, 4=marginalized people]
+
 the story description is "Threediopolis with Teleporters and Such"
 
 the story headline is "Threediopolis: Chug Chug Next Verse"
@@ -510,7 +512,8 @@ after printing the locale description:
 					if scenery-found-yet is false:
 						bracket-say "this wasn't critical to the game, but it's just something neat to find. There are [number of rows in table of scenery - 1] more to find, but they're meant to be obscure. Congratulations on finding one, though!";
 						now scenery-found-yet is true;
-					now found entry is 1;
+					if found entry is 0: [-1 for ISEEKKEEN is a bit of a hack but yeah]
+						now found entry is 1;
 	if your-tally is "hidden" or your-tally is "inside":
 		if hideout is not in outside-area:
 			move hideout to outside-area;
@@ -619,7 +622,9 @@ the otherwise unremarkable hovel is a quasi-entry. description is "It's a bit to
 
 the edutainment storefront is a quasi-entry. "You recognize an edutainment storefront by the brain hologram.". description is "You can't tell what's inside. Perhaps you should (C)heck."
 
-the suspiciously ordinary door is a quasi-entry. description is "The wind blows by the door with a nothing-to-see-here whistle."
+the suspiciously ordinary door is a quasi-entry. description is "The wind blows by the door with a nothing-to-see-here whistle.". "[one of]Is it? Isn't it? Yes...no...it's an entry to a shadow campaign headquarters! Not that campaigns ever fail, for those who want to be elected.A suspiciously ordinary door leads in.[or]It's a bit easier to recognize the shadow campaign headquarters now.[or]Another suspiciously ordinary door. You wonder how you never recognized this sort of thing before.[stopping]"
+
+understand "hq/headquarters" and "shadow/-- campaign/-- headquarters/hq" as suspiciously ordinary door.
 
 the generic door that needs replacing is a quasi-entry. description is "Boy! It's generic all right! Generic enough you can just (C)heck to enter."
 
@@ -684,32 +689,49 @@ to say rand-yay:
 
 to run-the-ending:
 	if your-table is table of friends:
+		if score < 5:
+			say "'[if score is 0]None at all[else]Only [score in words][end if]? That simply won't do. We need someone who can do a bit more... well, have a nice life.' But you don't. A month later, though, you're arrested at 2 AM as an associate of the potential rebels. You wonder if they reported you, for doing so relatively little for them.";
+			now story-ended is true;
+			end the story saying "Well, you can always undo and retry";
+			the rule succeeds;
 		if score < 15:
-			say "'Only [score]? That simply won't do. We need someone who can do a bit more...' You're drummed out in disgrace. A month later, though, you're arrested at 2 AM as an associate of the potential rebels.";
-		end-with-undo;
-		say "'Good job! That's [if score < 18]enough to be promoted to a general runner[else]even better than we hoped[end if]! There's...a few more task lists. We're short of people. Some get lost, and captured. Can you do a bit more?'";
+			say "'Well, not too bad, but not quite good enough.' You go on your way, and every month or so, you walk by where you thought the hideout was, but you can never quite find it.";
+			now story-ended is true;
+			end the story saying "Find [15 - score in words] more and open a new puzzle";
+			the rule succeeds;
+		say "'Good job! That's [if score < 18]enough to be promoted to a general runner[else if score is 20]perfect[else]even better than we hoped[end if]! There's...a few more task lists. We're short of people. Some get lost, and captured. Can you do a bit more?'";
 		bracket-say "You can RESTART and you'll have access to a new puzzle. There are five more--three chosen in random order, then a 'final' one, then an extra-difficult one. You can also type I DID I UNDID to reset your accomplishments and try this again. Or, if you lose your save file, I SEEK KEEN will jump over finding the friends.[paragraph break]But even if this was more than enough for you, getting through this list is an accomplishment. Go take some time to feel good about yourself. Fourdiopolis is not an easy game!";
 		choose row 1 in table of accomplishments;
 		now solved entry is true;
 		write file of accomplishments from the table of accomplishments;
 		end-with-undo;
 		continue the action;
-	if your-table is table of last names:
+	else if your-table is table of last names:
 		if score is 0:
 			say "'Boo! Fink.' they chide you. But they know that with all the supplies ready, they don't need fearmongering anyway. Power to the people, well, hopefully.";
+		else if score  < 7:
+			say "'Well, it's a start. These people are hard to get at. But...we have enough momentum anyway. We hope.'";
 		else if score < 15:
-			say "'A bit disappointing, but, well, they'll be exposed with time anyway.'";
+			say "'A bit disappointing, but, well, they'll be exposed with time anyway. Maybe those who haven't gotten anything yet will be scared in their own way.'";
+		else if score < 21:
+			say "'A majority! [if score is 15]Well, if we round up. [end if]Perhaps there is some hope that they can be scared to act before we have to. Hm, we might anyway. It'll be fun.'";
+		else if score < 26:
+			say "'Wow! We could hardly have hoped for more!'";
+		else if score < 30:
+			say "'Impressive indeed! We're glad you're not on THEIR side. We'd have gotten a lot more threats now than we already have.'";
 		else:
-			say "'A majority! Perhaps there is some hope that they can be scared to act before we have to.'[paragraph break]You ask if you can come along for the shenanigans, but they assure you your technical skills are far too valuable. You feel sort of ripped off, until you realize that means all-you-can-eat from the supplies you requisitioned earlier.";
+			say "'All of them? You're almost scaring us. Don't worry. Almost.'";
+		if score > 14:
+			say "[paragraph break]You ask if you can come along for the uprisings, but they assure you your technical skills are far too valuable. You feel sort of ripped off, until you realize that means all-you-can-eat from the supplies you requisitioned earlier.";
 		end-with-undo;
 		continue the action;
-	if your-table is table of just plain cool stuff:
-		if score < 5:
-			say "'You know, the substance over style shtick can only be pulled off if you HAVE a certain amount of style. You weren't helping much, here.'";
+	else if your-table is table of just plain cool stuff:
+		if score < 10:
+			say "'You know, the substance over style shtick can only be pulled off if you HAVE a certain amount of style. Hey, we don't like it either, but that's the real world. Well, maybe the facts will be good enough, if we yell loud enough.'";
 		else if score < 15:
-			say "'Well, maybe we can like make Fourdiopolis cooler AFTER the revolution.'";
+			say "'Hm, well, that'll make Fourdiopolis cool enough for now. Maybe we can like do the rest AFTER the revolution. Guess we have to be practical.'";
 		else:
-			say "'Wow! That's a lot of cool hidden stuff we need more of! That's what we stand for, and what we'll give to the people! Or at least try to! They'll love us! There's just one more thing--we can strike terror into the hearts of the shadow councillors that help run this city. Their names are closely protected--but we know the sectors they live in, and you're just the person to find their cleverly unmarked houses.'";
+			say "'Wow! That's a lot of cool hidden stuff we need more of[if score > 18]! Too much, if that were possible[end if]! That's what we stand for, and what we'll give to the people! Or at least try to! They'll love us! There's just one more thing--we can strike terror into the hearts of the shadow councillors that help run this city. Their names are closely protected--but we know the sectors they live in, and you're just the person to find their shadow campaign headquarters.'";
 			say "Congratulations! You've unlocked a final FINAL puzzle. You will be prompted to see if you'd like to go for it on restart. It's thirty, not twenty, and it's meant to be difficult can search out.[paragraph break]There's also a hidden command you can use at any time: type UNKINDNESS to get to the final bit.";
 			choose row 5 in table of accomplishments;
 			now solved entry is true;
@@ -722,9 +744,17 @@ to run-the-ending:
 		increment table-count;
 		if table-count <= 5 and solved entry is true:
 			increment lists-done;
+	if score is 0:
+		say "Murmurs of dismay come back as people, including some of the friends you had a particularly tough time rescuing, are upset you weren't able to do anything[despite-good]. Harsh!";
+	else if score < 5:
+		say "A few people pat you on the back and say you at least brought people together, which is the most important thing. The compliments only go so far. You wish you could've done a bit more[despite-good].";
+	else if score < 10:
+		say "'Ambivalent whispering all around. Pretty good, they guess. But people have to be at the top of their game to inspire true change. Well, you got friends together, which is the important thing[if old-binary > 1], and a bit more, besides. But it's not easy getting lost the right way[end if].";
+	else if score < 15:
+		say "Someone important-looking says 'Well, it'll do. Good job. But it wasn't a really ELITE run. Maybe find a few more things. Still, you deserve a break.'";
 	if score < 15:
-		say "Your overseers grumble. 'Well, maybe we'll get someone else to do the rest.'";
-		end-with-undo;
+		now story-ended is true;
+		end the story saying "[if score > 9]Just[else]Find[end if] [15 - score in words] [if score > 0]more [end if]to open a new puzzle";
 		continue the action;
 	debug-say "Completed [your-table].";
 	if your-table is table of education:
@@ -747,8 +777,20 @@ to run-the-ending:
 	if lists-done is 4:
 		say "You've gotten all the supplies the rebels need! Now, for the final challenge: find fun stuff that will make a revolution worthwhile. There's--well, we don't know much about having fun, but we're sure other people do.";
 	else:
-		say "'You did such a good job this run. [score] of 20 is impressive. But hey! There's still a bit more big task lists. We're--well, even shorter of competent people like you to find stuff. There's just [4 - lists-done in words] other big twenty-item tasks left to do, but--it'll be about the same challenge as what you already found.'";
+		say "'You did [if score is 20]a perfect job[else]such a good job. [score in words] of 20 is impressive[end if]! But hey! There's still a bit more. We're--well, even shorter of competent people like you to find stuff. There's just [4 - lists-done in words] other big twenty-item task[if 4 - lists-done > 1]s[end if] left to do, but--it'll be about the same challenge as what you already found.'";
+	bracket-say "if you wish to undo this specific task set, you can type I UNDID [spec-undo]. This will be in the A command, if you forget.";
 	end-with-undo;
+
+to say spec-undo:
+	if your-table is table of marginalized people:
+		say "DUDES";
+	else if your-table is table of supplies:
+		say "JUNK";
+	else:
+		say "EDU";
+
+to say despite-good:
+	say "[if old-binary > 1] despite your good work elsewhere[end if]"
 
 book what to find
 
@@ -954,6 +996,35 @@ to say snee:
 to say bnb:
 	say "Two fellows in a park, sitting on a couch, commenting stupidly at music videos on an old-school television. What is society coming to? Hah, you said..."
 
+to say worry-undo of (tn - a table name):
+	let j be 2;
+	if tn is table of supplies:
+		now j is 3;
+	else if tn is table of marginalized people:
+		now j is 4;
+	say "You feel a sudden fear your ";
+	if tn is your-table:
+		say "current";
+	else:
+		choose row j in table of accomplishments;
+		say "[if solved entry is true]past[else]future[end if]";
+	say " wrangling may be all for nought and can be wiped out just like that, as if you're part of some big silly game you only understand on the surface.";
+
+to say seek-track:
+	let ln be a list of indexed text;
+	repeat through table of scenery:
+		if found entry is 0:
+			add "[tally entry in upper case]" to ln;
+	if number of entries in ln is 0:
+		say "There's no weird stuff to track down"; [technically not true. DIE is always there, but I just didn't want to futz with the code. The stuff that's not listed is hidden in the AMUSING section, anyway.]
+		continue the action;
+	say "You [one of]find a weird written directory. It's well-hidden enough, you might be able to come back and see it[or]find more odd hints and places to go[or]go to the well again, and it's still not dry[stopping]. ";
+	sort ln in random order;
+	if number of entries in ln < 5:
+		say "There must not be much left. ";
+	truncate ln to 5 entries;
+	say "You read: [ln]";
+	
 table of scenery [tosc]
 tally (text)	descrip (text)	foundit (text)	what-drops	found
 "dejeune"	--	"You sure could use a lunch break right now!"	--	0
@@ -965,6 +1036,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "dink"	--	"You're hit by a very very soft nerf ball that runs away. Hmm."	--	0
 "duh"	--	"Oh, man! You can't believe you missed THAT one. It's obvious now!"	--	0
 "dui"	--	"A robot-police runs by and grabs a breath-sample from the air in front of you. 'Proceed,' it says. Hmm.'"	--	0
+"eek"	--	"Someone tells a scary story for effect and, well, gets the effect they want."	--	0
 "ehhs"	--	"People keep asking fellow conversers to repeat themselves, here."	--	0
 "ennui"	--	"Yyyyyawn. What's the point?"	--	0
 "heed"	--	"Some police give a particularly stern lecture to a citizen not fully obeying some minor law."	--	0
@@ -974,9 +1046,15 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "hues"	--	"The local color is particularly vibrant in this neighborhood."	--	0
 "huhheh"	--	"[bnb]"	--	0
 "hush"	--	"Unusually quiet here."	--	0
+"ides"	--	"An organized march nearby leaves you feeling wary."	--	0
 "iknew"	--	"Someone covers for looking stupid by explaining they were just being really, really ironic."	--	0
 "inkiness"	--	"Everything's a bit cloudy, here."	--	0
+"iseekkeen"	--	"[seek-track]."	--	-1
+"iundidedu"	--	"[worry-undo of table of education]."	--	-1
+"iundidjunk"	--	"[worry-undo of table of supplies]."	--	-1
+"iundidnews"	--	"[worry-undo of table of marginalized people]."	--	-1
 "jesus"	--	"Someone spouting an annoying proof that religions shouldn't exist then asks you to join the personality cult of a smart person dead for a hundred years, who wasn't nice, but they understood algorithms of how to make others nicer. You brush them away."	--	0
+"juke"	--	"Someone walking towards you tries to get out of your way, and you do the same. But you both pick the same way to go, several times. Awkward!"	--	0
 "keds"	--	"[snee]."	--	0
 "kidniki"	--	"You temporarily feel on guard against the possibility of radical ninjas."	--	0
 "kidskin"	--	"You walk by an exotic leather store."	--	0
@@ -1009,6 +1087,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "uuid"	--	"You are suddenly unable to get the hexadecimal number [b][uuid][r] out of your head!"	--	0
 "weenies"	--	"An old long-abandoned hot dog hut lies between two places of Serious Business. Your grandparents constantly babbled about the misspelled version from THEIR youth being so tasty, and--well--maybe the misspelling did make things tastier."	--	0
 "whew"	--	"You just barely escaped something, there! You don't know what, but it would've been pretty bad."	--	0
+"whininess"	--	"You can zone out one complaint or two, but when it's all around, it's like it's contagious and you just won't put up with it! Really, some people! It's just not fair! You'd never...oops."	--	0
 "whisk"	--	"You trip on an odd cooking doohickey you forget the name of. People don't have time for making their own meals, with so much virtual reality to experience these days, and machines do it all well enough."	--	0
 "whiskies"	--	"Wow! People seem to be having a rip roaring time, here[whisky-wine]. You don't have time for such carousing at the moment, but it boosts your spirits."	--	0
 "wind"	--	"You're almost blown off your feet for a second. Air currents in Fourdiopolis are weird--there's no PROOF the government controls them, but..."	--	0
@@ -1148,6 +1227,8 @@ include conditional undo by Jesse McGrew.
 
 story-ended is a truth state that varies.
 
+big-jump is a truth state that varies.
+
 to end-with-undo:
 	now story-ended is true;
 	end the story saying "[msg]";
@@ -1164,7 +1245,12 @@ to say msg:
 	if q is 3:
 		say "From the randomized...to the random";
 		continue the action;
-	say "[q in words] down, [if score > 14]now only[else]still[end if] [3 - q in words] to go"
+	say "[tc of q] down, [if score > 14]now only[else]still[end if] [3 - q in words] to go"
+	
+to say tc of (num - a number):
+	let z be indexed text;
+	now z is "[num in words]";
+	say "[z in title case]";
 
 to decide which number is mids-solved:
 	let retval be 0;
@@ -1177,11 +1263,11 @@ to decide which number is mids-solved:
 table of end msgs
 mytab	losemsg	winmsg
 table of friends	"Maybe next time"	"First task done"
-table of just plain cool stuff	"Close, but..."	"All over except the last round"
+table of just plain cool stuff	"[if score < 10]Still a way to go[else]Close, but...[end if]"	"All over except the last round"
 table of last names	"Well, it was meant to be tough"	"Very impressive indeed"
 
 rule for deciding whether to allow undo:
-	if story-ended is true:
+	if story-ended is true or big-jump is true:
 		allow undo;
 	else:
 		say "You can't really quite reverse how and where you walked, or when you teleported[one of]. Worse, Fourdiopolis is no closer to time travel than Threediopolis, but it's a lot closer to proving time travel's impossible[or][stopping].[paragraph break]But don't worry, if you get killed somehow, you will be able to undo. And you can always zap back to the center and retrace your steps.";
@@ -1209,13 +1295,16 @@ after reading a command:
 			continue the action;
 		if number of characters in locom > locom-chars:
 			if the player's command matches "i did i undid":
-				try undiding instead;
-			if the player's command matches "i seek keen":
-				try keenseeking instead;
-			if locom is "in":
-				continue the action;
-			dirparse locom;
-			reject the player's command;
+				do nothing;
+			else if the player's command matches "i seek keen":
+				do nothing;
+			else if locom is "in":
+				do nothing;
+			else if the player's command matches the regular expression "^i undid (edu|junk|news)":
+				do nothing;
+			else:
+				dirparse locom;
+				reject the player's command;
 	let w1 be word number 1 in locom;
 	if the w1 is "g" or w1 is "again":
 		say "That would actually make getting around in Fourdiopolis more complex. Because you can't really move from there to here, again, or not that way[if score < 3 and your-table is table of friends]. You'll understand once you find a few things--it'd just allow all kinds of extra crazy [italic type]guesses[roman type][else]. Most of the fun stuff would begin with G, though EGGS and DUNG would be left, which is not so fun[end if]. Using one-word directions should be quick enough.";
@@ -1555,7 +1644,7 @@ carry out ring:
 		the rule succeeds;
 	if r-yet is false:
 		now r-yet is true;
-		say "You take one of the public teleporters back to the center. You don't need a special key. They're about the only thing free these days. The government, in a small sop to civil liberties, doesn't even track how many time a person uses it. Small things.[line break]";
+		say "You take one of the public teleporters back to the center. You don't need a special key. They're about the only thing free these days. The government, in a small sop to civil liberties, doesn't even track how many times a person uses it. Small things.[paragraph break]";
 	say "[b]Back at Sector 000[r][line break]";
 	if ns is 0 and ew is 0 and ud is 0 and in-place-yet is false:
 		now in-place-yet is true;
@@ -1604,20 +1693,30 @@ understand "a" as aing.
 
 carry out aing:
 	say "You can go in any direction, north, south, east or west, or up or down. You can abbreviate them. In addition, you have a device that lets you use transporters at will. They can send you in direction h, i, j, and k.";
-	say "[2da]If you think you've found something significant, you can type [b]C[r], for check. That is shorthand for entering, etc.";
+	say "[2da][b]C[r] is short for check, to enter any building you may have found.";
 	say "[2da][b]R[r] restarts your journey in sector 000 with a clear mind.";
 	say "[2da][b]F[r] toggles the header with the list of remaining tasks.";
 	say "[2da][b]B[r] gives brief room descriptions, which you may eventually want, as the random descriptions eventually loop. [b]V[r] expands them.";
 	say "[2da][b]X[r] examines your list of tasks.";
 	say "[2da][b]T[r] toggles silly random events that don't affect the game.";
 	say "[2da][b]Q[r] toggles quick mode when you run around Fourdiopolis (ignores random events until you arrive at your destination).";
+	say "[2da]Meta-commands (information on the game's development) include [b]ABOUT[r], [b]CREDITS[r] and [b]TECH[r].";
 	if your-table is not table of friends:
 		say "[2da][b]I DID I UNDID[r] will kick you back to [if your-table is table of last names]the cool stuff tasks[else if your-table is table of just plain cool stuff]the pod of three random task lists[else]finding friends[end if].";
-	say "[2da]Meta-commands include [b]ABOUT[r] and [b]CREDITS[r].";
-	if debug-state is true:
-		say "Here are commands for testers:[line break]";
-		say "You can also type FO (1-6) to force one list of things to do. 1 = friends, 5 = fun stuff, 6 = the bad guys. It's recommended you restart before doing this. Also, you should start with 1, then try one of 2-4, and that is more than enough to help me.";
-		say "FI is an additional test command. FI 1 'solves' the first entry but makes the other 19 unsolved. FI 16 takes the first 16, leaving the last 4 unsolved. And so forth. So, FI (1-20) if you want to tinker.";
+		if your-table is not table of last names:
+			choose row 2 in table of accomplishments;
+			if solved entry is true:
+				say "[2da][b]I UNDID EDU[r] will un-do the education task set.";
+			choose row 3 in table of accomplishments;
+			if solved entry is true:
+				say "[2da][b]I UNDID JUNK[r] will un-do the supplies task set.";
+			choose row 4 in table of accomplishments;
+			if solved entry is true:
+				say "[2da][b]I UNDID NEWS[r] will un-do the marginalized people task set.";
+	if beta-state is true:
+		say "Beta-testing commands:[line break]";
+		say "[b]FO (1-6)[r] to force one list of things to do. 1 = friends, 2 = education, 3 = supplies, 4 = marginalized people, 5 = fun stuff, 6 = the bad guys. It's recommended you restart before doing this.";
+		say "[b]FI[r] is an additional test command. FI 1 'solves' the first entry but makes the other 19 unsolved. FI 16 takes the first 16, leaving the last 4 unsolved. And so forth. So, FI (1-20) if you want to tinker.";
 	the rule succeeds;
 
 chapter fing
@@ -1657,6 +1756,8 @@ carry out keenseeking:
 	choose row 1 in table of accomplishments;
 	now solved entry is true;
 	midtable-choose;
+	say "You're now in the [cur-midtable] task set. You may undo, if you want.";
+	now big-jump is true;
 	the rule succeeds;
 
 chapter undiding
@@ -1680,7 +1781,7 @@ carry out undiding:
 			else:
 				now solved entry is false;
 		midtable-choose;
-		say "Now you are back to searching for one of the three random sets of tasks[scen-twaddle][extra-twiddle].";
+		say "Now you are back to searching for [cur-midtable][scen-twaddle][extra-twiddle].";
 	else if your-table is table of last names:
 		choose row 5 in table of accomplishments;
 		now solved entry is false;
@@ -1693,13 +1794,86 @@ carry out undiding:
 		say "[line break]Oh, I also teleported you back to the center.";
 		now teleported is true; [this is a small hack to quash the "you should have teleported" warning]
 		reset-game;
+	now big-jump is true;
 	the rule succeeds;
 
 to say scen-twaddle:
-	say ", with no tasks done. Note that the game will not save this reverted status unless you win a scenario"
+	say ", with no tasks done. Note that the game will not save this reverted status unless you win a task set"
 
 to say extra-twiddle:
 	say ". If you really want to twiddle things, find the file fourdiop (or fourdiop.glkdata) and either delete it or set all the 1-values to 0. You can also re-set them to 1. You've gotten this far--you definitely deserve to know this small cheat"
+
+
+section undomiding
+
+undomiding is an action applying to one number
+
+carry out undomiding:
+	if number understood > 4 or number understood < 2:
+		say "Oops, this should never happen, but there's a bug in the I UNDID code. Email me at [email] if you can, to let me know [number understood] got passed." instead;
+	if old-binary is 0 or old-binary is 1:
+		say "You don't have any of the three middle scenarios solved, so trying to reset them won't do much[if on-this-table of number understood], especially since you're on the one you're trying to reset[end if]." instead;
+	choose row number understood in table of accomplishments;
+	if solved entry is false:
+		say "The [table-by-num of number understood] task set is already unsolved[if on-this-table of number understood], and in fact, it's the one you're currently on[end if]." instead;
+	now solved entry is false;
+	if your-table is table of last names or your-table is table of just plain cool stuff:
+		choose row 5 in table of accomplishments;
+		if solved entry is true:
+			now solved entry is false;
+		midtable-choose;
+		say "Unsolving the [cur-midtable] task set and making it the current one. If you didn't mean to do this, you can RESTART or type I SEEK KEEN.";
+	else:
+		say "Reverting the [table-by-num of number understood] task set to unsolved.";
+	now big-jump is true;
+	the rule succeeds;
+
+to decide whether on-this-table of (nm - a number):
+	choose row nm in table of solvable tables;
+	if tabname entry is your-table, decide yes;
+	decide no;
+	
+to say table-by-num of (num - a number):
+	say "[if num is 2]education[else if num is 3]supply finding[else]ally finding[end if]"
+
+to say cur-midtable:
+	say "[if your-table is table of education]education[else if your-table is table of supplies]supply finding[else]ally finding";
+
+chapter i undid edu-ing
+
+undideduing is an action out of world.
+
+understand the command "i undid edu" as something new.
+
+understand "i undid edu" as undideduing.
+
+carry out undideduing:
+	try undomiding 2;
+	the rule succeeds;
+
+chapter i undid junk-ing
+
+undidjunking is an action out of world.
+
+understand the command "i undid junk" as something new.
+
+understand "i undid junk" as undidjunking.
+
+carry out undidjunking:
+	try undomiding 3;
+	the rule succeeds;
+
+section i undid news-ing
+
+undidnewsing is an action out of world.
+
+understand the command "i undid news" as something new.
+
+understand "i undid news" as undidnewsing.
+
+carry out undidnewsing:
+	try undomiding 4;
+	the rule succeeds;
 
 volume status line
 
@@ -1770,6 +1944,20 @@ section debug - not for release
 when play begins (this is the debug true rule):
 	now debug-state is true;
 
+chapter dsing
+
+dsing is an action out of world.
+
+understand the command "ds" as something new.
+
+understand "ds" as dsing.
+
+carry out dsing:
+	now debug-state is whether or not debug-state is false;
+	say "Debug-state is now [debug-state].";
+	the rule succeeds;
+
+
 part main stuff
 
 when play begins (this is the set the status line rule):
@@ -1782,7 +1970,7 @@ when play begins (this is the set the status line rule):
 
 screen-read is a truth state that varies.
 
-when play begins (this is the narrativity rule):
+when play begins (this is the set table defaults rule):
 	sort the table of silly randoms in random order;
 	if debug-state is false:
 		say "Fourdiopolis has some screen reader support. Do you wish to use it?";
@@ -1799,6 +1987,11 @@ when play begins (this is the narrativity rule):
 	say "And you have gotten social demerits and such. You claimed you didn't mean to do whatever, and the authorities said it's worse that way, what if you mean to one day?";
 	say "It's not going to be like that. It can't be like that. The authorities covered those loopholes. But somehow...you stumbled onto a bunch of nonconformists. They were surprised you found them, then they realized you weren't a government agent, and you didn't even like the government. They gave you a key to the teleporters. And a task list. Of stuff to find. To help them overthrow the government. It's up to you, to find unusual things and people not stamped out yet.";
 	say "[bold type]NOTE: to see commands for Fourdiopolis, type VERBS or VERB, or V for short.[roman type][paragraph break]";
+	repeat through table of scenery:
+		if there is no found entry:
+			if debug-state is true:
+				say "Programming nitpick: [tally entry] should be set to 0.";
+			now found entry is 0;
 	wfak;
 
 chapter saved accomplishments
@@ -2010,7 +2203,10 @@ Include (-
 
 volume beta testing - not for release
 
+beta-state is a truth state that varies.
+
 when play begins:
+	now beta-state is true;
 	if debug-state is true:
 		continue the action;
 	unless currently transcripting:
@@ -2071,15 +2267,21 @@ understand "fi [number]" as fiing.
 
 carry out fiing:
 	let count be 0;
-	if number understood < 0 or number understood > 20:
-		say "1-[number of rows in your-table] please." instead;
+	if number understood < 0 or number understood > number of rows in your-table:
+		say "0-[number of rows in your-table] please." instead;
 	repeat through your-table:
 		increment count;
 		if count > number understood:
 			now found entry is 0;
 		else:
 			now found entry is 1;
-	say "First [number understood] entries are 1, last are 0. X to make sure.";
+	if number understood is 0:
+		say "Cleared all entries to 0.";
+	else if number understood is number of rows in your-table:
+		say "Set all entries to 1.";
+	else:
+		say "First [number understood] entries are 1, last are 0. X to make sure.";
+	now score is number understood;
 	the rule succeeds;
 
 volume amusing the player
@@ -2100,6 +2302,7 @@ rule for amusing a victorious player:
 
 to decide whether (n - a number) is game-done:
 	if n < 1, decide no;
+	if n is number of rows in table of accomplishments, decide yes;
 	if n > number of rows in table of accomplishments, decide yes;
 	choose row n in table of accomplishments;
 	if solved entry is true, decide yes;
@@ -2112,6 +2315,8 @@ funny-try	need-solved
 "XYZZY? And the follow-up(s)?"
 "sleeping?"
 "A scenery location at 6FF?"
+"to visit where I SEEK KEEN?"
+
 
 volume testing - not for release
 
@@ -2186,7 +2391,7 @@ carry out wfing:
 		the rule succeeds;
 	if number understood is -1:
 		say "0=clear all,31=solve all[line break]1=solve friends only. 2=solve education 4=solve supplies 8=solve marginalized.[paragraph break]Misc values: -1 gives use, -2 shows solved entries, -3 shows current table." instead;
-	say "NOTE: this writes to the file. The previous number was [old-binary], if you wish to undo things.";
+	say "[bold type]NOTE: this writes to the file. The previous number was [old-binary], if you wish to undo things.[roman type][line break]";
 	let num-to-div be number understood;
 	let count be 0;
 	repeat through table of accomplishments:
@@ -2260,6 +2465,38 @@ understand "sa" as saing.
 
 carry out saing:
 	show-accomp;
+	the rule succeeds;
+
+chapter scing
+
+scing is an action applying to one number.
+
+understand the command "sc" as something new.
+
+understand "sc [number]" as scing.
+
+carry out scing:
+	let my-count be 0;
+	repeat through table of scenery:
+		if there is a found entry and found entry is 1:
+			now found entry is 0;
+	if number understood < 0:
+		repeat through table of scenery:
+			if there is a found entry and found entry is 0:
+				increment my-count;
+				if my-count + number understood > 0:
+					now found entry is 1;
+		say "All but [0 - number understood] sceneries set to 1.";
+	else if number understood is 0:
+		say "All cleared to 0.";
+	else:
+		repeat through table of scenery:
+			if there is a found entry and found entry is 0:
+				now found entry is 1;
+				increment my-count;
+				if my-count is number understood:
+					break;
+		say "[my-count] sceneries set to 1.";
 	the rule succeeds;
 
 chapter auto tests

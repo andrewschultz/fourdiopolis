@@ -1,0 +1,579 @@
+## file name: reg-4d-ends.txt
+## test file for testing the various ends, successful or otherwise
+** game: /home/andrew/prt/debug-fourdiopolis.ulx
+** interpreter: /home/andrew/prt/glulxe -q
+
+* friend ends
+
+>wf 0
+>hidden
+
+>fi 0
+>in
+None at all?
+!Good job
+
+>undo
+>fi 1
+>in
+Only one?
+!Good job
+
+>undo
+>fi 2
+>in
+Only two?
+!Good job
+
+>undo
+>fi 3
+>in
+Only three?
+!Good job
+
+>undo
+>fi 4
+>in
+Only four?
+!Good job
+
+>undo
+>fi 5
+>in
+not too bad
+ ten 
+!Good job
+
+>undo
+>fi 6
+>in
+not too bad
+ nine 
+!Good job
+
+>undo
+>fi 7
+>in
+not too bad
+ eight 
+!Good job
+
+>undo
+>fi 8
+>in
+not too bad
+ seven 
+!Good job
+
+>undo
+>fi 9
+>in
+not too bad
+ six 
+!Good job
+
+>undo
+>fi 10
+>in
+not too bad
+ five 
+!Good job
+
+>undo
+>fi 11
+>in
+not too bad
+ four 
+!Good job
+
+>undo
+>fi 12
+>in
+not too bad
+ three 
+!Good job
+
+>undo
+>fi 13
+>in
+not too bad
+ two 
+!Good job
+
+>undo
+>fi 14
+>in
+not too bad
+ one 
+!Good job
+
+>undo
+>fi 15
+>in
+Good job! That's enough to be promoted
+
+>undo
+>fi 16
+>in
+Good job! That's enough to be promoted
+
+>undo
+>fi 17
+>in
+Good job! That's enough to be promoted
+
+>undo
+>fi 18
+>in
+Good job! That's even better
+
+>undo
+>fi 19
+>in
+Good job! That's even better
+
+>undo
+>fi 20
+>in
+Good job! That's perfect
+
+* scen-rand-ends
+
+>wf 1
+>hidden
+>fi 1
+>in
+A few people pat you
+!You did such a good job
+
+>undo
+>fi 2
+>in
+A few people pat you
+!You did such a good job
+
+>undo
+>fi 3
+>in
+A few people pat you
+!You did such a good job
+
+>undo
+>fi 4
+>in
+A few people pat you
+!You did such a good job
+
+>undo
+>fi 5
+>in
+Ambivalent whispering
+!You did such a good job
+
+>undo
+>fi 6
+>in
+Ambivalent whispering
+!You did such a good job
+
+>undo
+>fi 7
+>in
+Ambivalent whispering
+!You did such a good job
+
+>undo
+>fi 8
+>in
+Ambivalent whispering
+!You did such a good job
+
+>undo
+>fi 9
+>in
+Ambivalent whispering
+!You did such a good job
+
+>undo
+>fi 10
+>in
+Someone important
+!You did such a good job
+
+>undo
+>fi 11
+>in
+Someone important
+!You did such a good job
+
+>undo
+>fi 12
+>in
+Someone important
+!You did such a good job
+
+>undo
+>fi 13
+>in
+Someone important
+!You did such a good job
+
+>undo
+>fi 14
+>in
+Someone important
+!You did such a good job
+
+>undo
+>fi 15
+>in
+You did such a good job
+
+>undo
+>fi 16
+>in
+You did such a good job
+
+>undo
+>fi 17
+>in
+You did such a good job
+
+>undo
+>fi 18
+>in
+You did such a good job
+
+>undo
+>fi 19
+>in
+You did such a good job
+
+>undo
+>fi 20
+>in
+You did a perfect job
+
+* scen-5-ends
+
+>wf 15
+>hidden
+
+>fi 0
+>in
+substance over style
+Still a way to go
+
+>undo
+>fi 1
+>in
+substance over style
+Still a way to go
+
+>undo
+>fi 2
+>in
+substance over style
+Still a way to go
+
+>undo
+>fi 3
+>in
+substance over style
+Still a way to go
+
+>undo
+>fi 4
+>in
+substance over style
+Still a way to go
+
+>undo
+>fi 5
+>in
+substance over style
+Still a way to go
+
+>undo
+>fi 6
+>in
+substance over style
+Still a way to go
+
+>undo
+>fi 7
+>in
+substance over style
+Still a way to go
+
+>undo
+>fi 8
+>in
+substance over style
+Still a way to go
+
+>undo
+>fi 9
+>in
+substance over style
+Still a way to go
+
+>undo
+>fi 10
+>in
+cool enough for now
+Close, but...
+
+>undo
+>fi 11
+>in
+cool enough for now
+Close, but...
+
+>undo
+>fi 12
+>in
+cool enough for now
+Close, but...
+
+>undo
+>fi 13
+>in
+cool enough for now
+Close, but...
+
+>undo
+>fi 14
+>in
+cool enough for now
+Close, but...
+
+>undo
+>fi 15
+>in
+Wow! That's a lot of
+All over except the last round
+
+>undo
+>fi 16
+>in
+Wow! That's a lot of
+All over except the last round
+
+>undo
+>fi 17
+>in
+Wow! That's a lot of
+All over except the last round
+
+>undo
+>fi 18
+>in
+Wow! That's a lot of
+!Too much, if that were possible
+All over except the last round
+
+>undo
+>fi 19
+>in
+Wow! That's a lot of
+Too much, if that were possible
+All over except the last round
+
+>undo
+>fi 20
+>in
+Wow! That's a lot of
+Too much, if that were possible
+All over except the last round
+
+* scen-6-ends
+
+>wf 31
+>hidden
+
+>fi 0
+>in
+Boo! Fink.
+!uprisings
+
+>undo
+>fi 1
+>in
+Well, it's a start
+!uprisings
+
+>undo
+>fi 2
+>in
+Well, it's a start
+!uprisings
+
+>undo
+>fi 3
+>in
+Well, it's a start
+!uprisings
+
+>undo
+>fi 4
+>in
+Well, it's a start
+!uprisings
+
+>undo
+>fi 5
+>in
+Well, it's a start
+!uprisings
+
+>undo
+>fi 6
+>in
+Well, it's a start
+!uprisings
+
+>undo
+>fi 7
+>in
+A bit disappointing
+!uprisings
+
+>undo
+>fi 8
+>in
+A bit disappointing
+!uprisings
+
+>undo
+>fi 9
+>in
+A bit disappointing
+!uprisings
+
+>undo
+>fi 10
+>in
+A bit disappointing
+!uprisings
+
+>undo
+>fi 11
+>in
+A bit disappointing
+!uprisings
+
+>undo
+>fi 12
+>in
+A bit disappointing
+!uprisings
+
+>undo
+>fi 13
+>in
+A bit disappointing
+!uprisings
+
+>undo
+>fi 14
+>in
+A bit disappointing
+!uprisings
+
+>undo
+>fi 15
+>in
+A majority! Well, if we round up
+uprisings
+
+>undo
+>fi 16
+>in
+A majority!
+uprisings
+
+>undo
+>fi 17
+>in
+A majority!
+uprisings
+
+>undo
+>fi 18
+>in
+A majority!
+uprisings
+
+>undo
+>fi 19
+>in
+A majority!
+uprisings
+
+>undo
+>fi 20
+>in
+A majority!
+uprisings
+
+>undo
+>fi 21
+>in
+Wow! We could hardly have hoped
+uprisings
+
+>undo
+>fi 22
+>in
+Wow! We could hardly have hoped
+uprisings
+
+>undo
+>fi 23
+>in
+Wow! We could hardly have hoped
+uprisings
+
+>undo
+>fi 24
+>in
+Wow! We could hardly have hoped
+uprisings
+
+>undo
+>fi 25
+>in
+Wow! We could hardly have hoped
+uprisings
+
+>undo
+>fi 26
+>in
+Impressive indeed!
+uprisings
+
+>undo
+>fi 27
+>in
+Impressive indeed!
+uprisings
+
+>undo
+>fi 28
+>in
+Impressive indeed!
+uprisings
+
+>undo
+>fi 29
+>in
+Impressive indeed!
+uprisings
+
+>undo
+>fi 30
+>in
+All of them? You're almost
+uprisings
+

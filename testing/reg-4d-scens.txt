@@ -1,7 +1,189 @@
 ## file name: reg-4d-scens.txt
-## randomized text file for fourdiopolis scenario twiddling
+## test file for fourdiopolis scenario twiddling, or text that relies on certain scenarios/task lists
 ** game: /home/andrew/prt/debug-fourdiopolis.ulx
 ** interpreter: /home/andrew/prt/glulxe -q
+
+* undid-news-testing
+
+>wf 0
+>i undid news
+You don't have any of the three middle scenarios solved, so trying to reset them won't do much.
+
+>wf 1
+>i undid news
+You don't have any of the three middle scenarios solved, so trying to reset them won't do much
+
+>wf 15
+>i undid news
+Unsolving the ally finding task set and making it the current one.
+
+>wf 9
+>i undid news
+Reverting the ally finding task set to unsolved.
+>i undid news
+You don't have any of the three middle scenarios solved, so trying to reset them won't do much.
+
+>wf 7
+>i undid edu
+>i undid junk
+>i undid news
+especially since
+
+* undid-junk-testing
+
+>wf 0
+>i undid junk
+You don't have any of the three middle scenarios solved, so trying to reset them won't do much.
+
+>wf 1
+>i undid junk
+You don't have any of the three middle scenarios solved, so trying to reset them won't do much
+
+>wf 15
+>i undid junk
+Unsolving the supply finding task set and making it the current one.
+
+>wf 5
+>i undid junk
+Reverting the supply finding task set to unsolved.
+>i undid junk
+You don't have any of the three middle scenarios solved, so trying to reset them won't do much.
+
+>wf 11
+>i undid edu
+>i undid news
+>i undid junk
+especially since
+
+* undid-edu-testing
+
+>wf 0
+>i undid edu
+You don't have any of the three middle scenarios solved, so trying to reset them won't do much.
+
+>wf 1
+>i undid edu
+You don't have any of the three middle scenarios solved, so trying to reset them won't do much
+
+>wf 15
+>i undid edu
+Unsolving the education task set and making it the current one.
+
+>wf 3
+>i undid edu
+Reverting the education task set to unsolved.
+>i undid edu
+You don't have any of the three middle scenarios solved, so trying to reset them won't do much.
+
+>wf 13
+>i undid junk
+>i undid news
+>i undid edu
+especially since
+
+* keenseek-testing
+
+>iseekkee
+>n
+a weird written directory
+>r
+
+>iseekkee
+>n
+more odd hints
+>r
+
+>iseekkee
+>n
+go to the well again
+>r
+
+>sc -5
+>iseekkee
+>n
+!There must not be much left
+>r
+
+>sc -4
+>iseekkee
+>n
+There must not be much left
+>r
+
+>sc -3
+>iseekkee
+>n
+There must not be much left
+>r
+
+>sc -2
+>iseekkee
+>n
+There must not be much left
+>r
+
+>sc -1
+>iseekkee
+>n
+There must not be much left
+>r
+
+>sc 100
+>iseekkee
+>n
+There's no weird stuff
+
+!There must not be much left
+
+* keenseek-4-left
+
+* undid-edu-scen
+
+> wf 0
+>iundidedu
+future wrangling
+>r
+
+>wf 13
+>iundidedu
+current wrangling
+>r
+
+>wf 15
+>iundidedu 
+past wrangling
+
+* undid-junk-scen
+
+> wf 0
+>iundidjunk
+future wrangling
+>r
+
+>wf 11
+>iundidjunk
+current wrangling
+>r
+
+>wf 15
+>iundidjunk 
+past wrangling
+
+* undid-news-scen
+
+> wf 0
+>iundidnews
+future wrangling
+>r
+
+>wf 7
+>iundidnews
+current wrangling
+>r
+
+>wf 15
+>iundidnews
+past wrangling
 
 * invalid WFs
 
@@ -293,7 +475,7 @@ table is table of just plain cool stuff
 You already found the revolution's friends
 
 >i did i undid
-Now you are back to searching for one of the three
+Now you are back to searching for
 
 >i did i undid
 Now you are back to searching for friends
@@ -316,7 +498,7 @@ You already found
 the random cool stuff
 
 >i did i undid
-Now you are back to searching for one of the three
+Now you are back to searching for
 
 >i did i undid
 Now you are back to searching for friends

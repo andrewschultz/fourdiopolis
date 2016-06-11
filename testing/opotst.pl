@@ -11,6 +11,7 @@ use warnings;
 my $prefix;
 my $outFile;
 my $inFile = "rtest.txt";
+my $inFileSpecified = 0;
 my $copyOver = 1;
 my $iterations = 0;
 my $harvestRandoms = 0;
@@ -19,16 +20,6 @@ my $showZeros = 1;
 my $eraseRand = 0;
 my $eraseRandOut = 0;
 my $eraseAfter = 0;
-
-if (! -f $inFile)
-{
-  if (-f "rtest4.txt")
-  {
-    $inFile = "rtest4.txt"; print "RTEST.TXT not found, going with rtest4.\n";
-	if (-f "rtest3.txt") { print "There's also an rtest3, so if you want that, you need to specify it. I default to fourdiopolis.\n"; }
-  }
-  elsif (-f "rtest3.txt") { $inFile = "rtest3.txt"; }
-}
 
 my $count = 0;
 
@@ -40,10 +31,10 @@ while ($count <= $#ARGV)
   
   for ($a)
   {
-    /^-3(d?)$/ && do { $inFile = "rtest3.txt"; $count++; next; };
-    /^-4(d?)$/ && do { $inFile = "rtest4.txt"; $count++; next; };
-    /^-4(d?)s$/ && do { $inFile = "rtest4s.txt"; $count++; next; };
-	/^-p$/ && do { $inFile = "rtest$b.txt"; $count += 2; next; };
+    /^-3(d?)$/ && do { $inFileSpecified = 1; $inFile = "rtest3.txt"; $count++; next; };
+    /^-4(d?)$/ && do { $inFileSpecified = 1; $inFile = "rtest4.txt"; $count++; next; };
+    /^-4(d?)s$/ && do { $inFileSpecified = 1; $inFile = "rtest4s.txt"; $count++; next; };
+	/^-p$/ && do { $inFileSpecified = 1; $inFile = "rtest$b.txt"; $count += 2; next; };
 	/^[0-9]/ && do { $iterations = $a; $count++; next; };
 	/^-?ea/ && do { $eraseAfter = 1; $count++; next; };
 	/^-?ca/ && do { $eraseRandOut = $eraseRand = 1; $count++; next; };
@@ -57,6 +48,16 @@ while ($count <= $#ARGV)
 	/^-?i/ && do { $iterations = $b; $count += 2; next; };
 	usage();
   }
+}
+
+if (!$inFileSpecified)
+{
+  if (-f "rtest4.txt")
+  {
+    $inFile = "rtest4.txt"; print "RTEST.TXT not found, going with rtest4.\n";
+	if (-f "rtest3.txt") { print "There's also an rtest3, so if you want that, you need to specify it. I default to fourdiopolis.\n"; }
+  }
+  elsif (-f "rtest3.txt") { $inFile = "rtest3.txt"; }
 }
 
 if ((getcwd() eq "c:\\games\\inform\\prt") && ($copyOver == 1)) { $copyOver = 0; print "Already in PRT directory, not copying over.\n"; }
