@@ -194,7 +194,7 @@ to say losted:
 	if bounds-warn is false:
 		say "[line break]You look at your list, and many of the locations are relatively close to the center. Maybe you don't need to venture near the edges that much.";
 		now bounds-warn is true;
-	say "[line break][b]Back at Sector 000[r][line break]";
+	say "[line break]";
 	now ignore-remaining-dirs is true;
 
 chapter stubs
@@ -466,12 +466,14 @@ hint-oppo is a truth state that varies.
 
 check going:
 	if number of characters in your-tally > 10:
-		say "You've been wandering for too long. You get tired, and you figure it's probably best to start over with a clean look on things. You push the button on your teleporter device[if posschars > 11], cancelling the rest of your planned journey[end if], and [if ew is 0 and ns is 0 and ud is 0]everything looks a bit different[else]back you go to the center[end if].[paragraph break][b]Back at Sector 000[r][line break]";
+		say "You've been wandering for too long. You get tired, and you figure it's probably best to start over with a clean look on things. You push the button on your teleporter device[if posschars > 11], cancelling the rest of your planned journey[end if], and [if ew is 0 and ns is 0 and ud is 0]everything looks a bit different[else]back you go to the center[end if].[paragraph break]";
 		now ignore-remaining-dirs is true;
 		reset-game instead;
 	tally-and-place;
 
 scenery-found is a number that varies.
+
+note-found is a truth state that varies.
 
 to tally-and-place:
 	let A be indexed text;
@@ -489,6 +491,9 @@ to tally-and-place:
 				if location of what-drops entry is not outside-area:
 					move what-drops entry to outside-area;
 					continue the action;
+			else if note-found is false:
+				say "Hm, that place you found before--it's somewhere around here, but you're focused on what to find next.";
+				now note-found is true;
 	repeat through table of scenery:
 		if A is tally entry in lower case:
 			if there is a what-drops entry:
@@ -609,6 +614,7 @@ to reset-game:
 			say "Hmm. If you're having trouble finding things, you may wish to start with stuff that's near first, instead of what's first on your list.";
 	if add-to > 7:
 		now add-to is 7;
+	say "[b]Back at Sector 000[r][line break]";
 
 book beginning
 
@@ -622,7 +628,10 @@ the otherwise unremarkable hovel is a quasi-entry. description is "It's a bit to
 
 the edutainment storefront is a quasi-entry. "You recognize an edutainment storefront by the brain hologram.". description is "You can't tell what's inside. Perhaps you should (C)heck."
 
-the suspiciously ordinary door is a quasi-entry. description is "The wind blows by the door with a nothing-to-see-here whistle.". "[one of]Is it? Isn't it? Yes...no...it's an entry to a shadow campaign headquarters! Not that campaigns ever fail, for those who want to be elected.A suspiciously ordinary door leads in.[or]It's a bit easier to recognize the shadow campaign headquarters now.[or]Another suspiciously ordinary door. You wonder how you never recognized this sort of thing before.[stopping]"
+the suspiciously ordinary door is a quasi-entry. description is "The door is too clean and smooth. The wind blows by it with a nothing-to-see-here whistle.". "[if score is 0]Is it? Isn't it? Yes...no...it's an entry to a shadow campaign headquarters! Not that campaigns ever fail, for those who want to be elected.A suspiciously ordinary door leads in.[else if score is 1]It's a bit easier to recognize the shadow campaign headquarters now. There's another![else if score is 2]Another suspiciously ordinary door. You're sure, trying to underpin how the 'leaders' are just like regular people except for being hooked on powers.[else][another-door]. You wonder how you never recognized this sort of thing before.[end if]"
+
+to say another-door:
+	say "[one of]And here's another 'plain' door[or]Hey! You found another one[or]You feel clever at having found another secret door[or]Another suspiciously ordinary door, [one of]less suspicious than[or]as suspicious as[at random] the last, but that's suspicious in its own way[or]A door so plain, you wonder if it was ever opened.[at random]"
 
 understand "hq/headquarters" and "shadow/-- campaign/-- headquarters/hq" as suspiciously ordinary door.
 
@@ -669,6 +678,8 @@ check going inside when a quasi-entry is visible:
 check entering a quasi-entry:
 	repeat through your-table:
 		if your-tally is tally entry:
+			if noun is suspiciously ordinary door:
+				say "Whoah. You're not brave enough to enter. But you'll leave a message.[line break]";
 			if there is a foundit entry:
 				say "[foundit entry][line break]";
 			else:
@@ -711,17 +722,17 @@ to run-the-ending:
 			say "'Boo! Fink.' they chide you. But they know that with all the supplies ready, they don't need fearmongering anyway. Power to the people, well, hopefully.";
 		else if score  < 7:
 			say "'Well, it's a start. These people are hard to get at. But...we have enough momentum anyway. We hope.'";
-		else if score < 15:
+		else if score < 17:
 			say "'A bit disappointing, but, well, they'll be exposed with time anyway. Maybe those who haven't gotten anything yet will be scared in their own way.'";
 		else if score < 21:
-			say "'A majority! [if score is 15]Well, if we round up. [end if]Perhaps there is some hope that they can be scared to act before we have to. Hm, we might anyway. It'll be fun.'";
-		else if score < 26:
+			say "'A majority! [if score * 2 is number of rows in table of last names]Well, if we round up. [end if]Perhaps there is some hope that they can be scared to act before we have to. Hm, we might anyway. It'll be fun.'";
+		else if score < 29:
 			say "'Wow! We could hardly have hoped for more!'";
-		else if score < 30:
+		else if score < number of rows in table of last names:
 			say "'Impressive indeed! We're glad you're not on THEIR side. We'd have gotten a lot more threats now than we already have.'";
 		else:
 			say "'All of them? You're almost scaring us. Don't worry. Almost.'";
-		if score > 14:
+		if score > 16:
 			say "[paragraph break]You ask if you can come along for the uprisings, but they assure you your technical skills are far too valuable. You feel sort of ripped off, until you realize that means all-you-can-eat from the supplies you requisitioned earlier.";
 		end-with-undo;
 		continue the action;
@@ -1024,7 +1035,7 @@ to say seek-track:
 		say "There must not be much left. ";
 	truncate ln to 5 entries;
 	say "You read: [ln]";
-	
+
 table of scenery [tosc]
 tally (text)	descrip (text)	foundit (text)	what-drops	found
 "dejeune"	--	"You sure could use a lunch break right now!"	--	0
@@ -1185,19 +1196,22 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "ennis"	"Not their 1st name"	"[mark-away]."	suspiciously ordinary door	0
 "eskew"	"None"	"[mark-away]."	suspiciously ordinary door	0
 "henke"	"None"	"[mark-away]."	suspiciously ordinary door	0
-"hess"	"German"	"[mark-away]."	suspiciously ordinary door	0
-"hines"	"None"	"[mark-away]."	suspiciously ordinary door	0
+"hess"	"German"	"'You'd etter believe you made a heck of a mess,' you write, among other things."	suspiciously ordinary door	0
+"hines"	"Only 57% voted for"	"[mark-away]."	suspiciously ordinary door	0
 "hsieh"	"Chinese"	"[mark-away]."	suspiciously ordinary door	0
 "hsu"	"Chinese"	"[mark-away]."	suspiciously ordinary door	0
-"hussein"	"Arabic"	"[mark-away]."	suspiciously ordinary door	0
-"ishii"	"Japanese"	"[mark-away]."	suspiciously ordinary door	0
-"jenkins"	"DISRUPTOR"	"[mark-away]."	suspiciously ordinary door	0
+"hussein"	"Arabic"	"You get very good mileage indeed writing up a screed with ten different ways to say 'at least you aren't as bad as...' You're worried how easy it is."	suspiciously ordinary door	0
+"ishii"	"Japanese"	"With no idea how true it is, you mention that this politician is even more 'I/I/I' than most."	suspiciously ordinary door	0
+"jenkins"	"Disruptor"	"As you write up some absurd threat, you can't help but sign your name LEEROY, though you aren't silly enough to try to bust in."	suspiciously ordinary door	0
 "jensen"	"Swedish"	"[mark-away]."	suspiciously ordinary door	0
 "keene"	"None"	"[mark-away]."	suspiciously ordinary door	0
 "keese"	"None"	"Oh, wait, look. There's a weird pixelated bird on the door! As you make your mark, you reflect on the people keeping Fourdiopolis in the past under the guise of sticking with basics."	suspiciously ordinary door	0
 "knudsen"	"Danish"	"[mark-away]."	suspiciously ordinary door	0
 "kuhn"	"German"	"[mark-away]."	suspiciously ordinary door	0
+"neeskens"	"Dutch"	"You feel an urge to mock this person's athletic ability and deride them as constantly second-best."	suspiciously ordinary door	0
+"nhek"	"Cambodian"	"[mark-away]"	suspiciously ordinary door	0
 "niesen"	"Scandinavian"	"[mark-away]."	suspiciously ordinary door	0
+"nweke"	"Nigerian"	"You write something about how things fall apart in simple, powerful, no-nonsense language."	suspiciously ordinary door	0
 "sheen"	"WINNING"	"As much as you distrust politicians who talk about winning, the alternative is...worse? This guy was particularly outrageous, you remember now. Entertaining, but outrageous."	suspiciously ordinary door	0
 "shenn"	"None"	"[mark-away]."	suspiciously ordinary door	0
 "shin"	"Korean"	"[mark-away]."	suspiciously ordinary door	0
@@ -1208,7 +1222,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "wisniewski"	"Polish"	"As you make your mark, you feel a shudder of Loathing at Wisniewski also being The Man."	suspiciously ordinary door	0
 
 to say mark-away:
-	say "You leave a mark on the door and slip a brochure under. You're surprised it's not more secure, but on the other hand, people get suspicious of security others have that they don't. So maybe it's the best way to fool the people for so long"
+	say "You read through your guidelines on rabble rousing literature and write up a short screed describing how [your-tally in upper case] [one of]is typical of the whole bunch and one of the worst at the same time[or]doesn't care at all, but cares about themselves[or]is both too powerful and yet powerless to change the PEOPLE[or]doesn't understand common people but sure understands how to manipulate them[or]is the worst and yet controlled by even worse people at the same time[in random order]. You add in some bargle about [one of]how they'll get to spend more time with their lovely family soon[or]disgruntled ex-staffers TALK[or]they'll be the first out when people see all the corruption[or]their rags to riches story being a fraud compared to Ed Dunn[or]their lack of, or excessive, charisma is especially galling[or]Embarrassing Facts you know--ones you can't even write down[or]their lack of traditional values and desire to return Fourdiopolis to the 21st century won't stand[or]their [a random number between 85 and 95]% approval rating is a fraud[or]their getting [a random number between 85 and 95]% of the vote is suspicious[in random order]. Any crank can send an email like that, but few people have the guts to DROP BY. You dust your hands off and sneak away"
 
 table of name yay
 count	comment
@@ -1216,10 +1230,10 @@ count	comment
 3	"You haven't been caught, yet. It's still nervy."
 6	"Rebelling is almost becoming boring."
 10	"You look at the names you have left, and you wonder if focusing on (or not focusing on) ethnic names Says Something About You. Well, it says you're a third of the way there."
-15	"Halfway there. You can't believe THAT person--why, they offered token resistance to THAT bill..."
-21	"Three-quarters. That is a lot. You have sent a lesson to enough...or have you?"
-28	"Perhaps one or two should be left, as an example to the others. Or perhaps not."
-30	"That is all. You have done well."
+--	"Halfway there. You can't believe THAT person--why, they offered token resistance to THAT bill..."
+-9	"Three-quarters. That is a lot. You have sent a lesson to enough...or have you?"
+-2	"Perhaps one or two should be left, as an example to the others. Or perhaps not."
+0	"That is all. You have done well."
 
 volume undo
 
@@ -1246,7 +1260,7 @@ to say msg:
 		say "From the randomized...to the random";
 		continue the action;
 	say "[tc of q] down, [if score > 14]now only[else]still[end if] [3 - q in words] to go"
-	
+
 to say tc of (num - a number):
 	let z be indexed text;
 	now z is "[num in words]";
@@ -1645,7 +1659,6 @@ carry out ring:
 	if r-yet is false:
 		now r-yet is true;
 		say "You take one of the public teleporters back to the center. You don't need a special key. They're about the only thing free these days. The government, in a small sop to civil liberties, doesn't even track how many times a person uses it. Small things.[paragraph break]";
-	say "[b]Back at Sector 000[r][line break]";
 	if ns is 0 and ew is 0 and ud is 0 and in-place-yet is false:
 		now in-place-yet is true;
 		say "Hm. Weird. It feels like you didn't go anywhere, and at the same time, you did.[line break]";
@@ -1831,7 +1844,7 @@ to decide whether on-this-table of (nm - a number):
 	choose row nm in table of solvable tables;
 	if tabname entry is your-table, decide yes;
 	decide no;
-	
+
 to say table-by-num of (num - a number):
 	say "[if num is 2]education[else if num is 3]supply finding[else]ally finding[end if]"
 
@@ -2060,6 +2073,14 @@ when play begins (this is the set table defaults rule):
 			if debug-state is true:
 				say "Programming nitpick: [tally entry] should be set to 0.";
 			now found entry is 0;
+	repeat through table of name yay:
+		if there is no count entry:
+			now count entry is (1 + number of rows in table of last names) / 2;
+		else if count entry < 1:
+			increase count entry by number of rows in table of last names;
+	if debug-state is true:
+		repeat through table of name yay:
+			say "DEBUG [count entry]: [comment entry][line break]";
 	wfak;
 
 chapter saved accomplishments
@@ -2133,9 +2154,9 @@ to check-silly-comments:
 	repeat through table of solvable tables:
 		if tabname entry is your-table:
 			comment-mine tabcomment entry;
-	if score is 2:
+	if score is 2 and your-table is table of friends:
 		now locom-chars is 1;
-		say "[if ever-fast is true]You've already been munging directions together into one word, and there's no reason to stop[else]You know, now that you've got the hang of things, you can just munge directions together. Like DUDES instead of D, U, D, E, S[end if].";
+		say "[line break][if ever-fast is true]You've already been munging directions together into one word, and there's no reason to stop[else]You know, now that you've got the hang of things, you can just munge directions together. Like DUDES instead of D, U, D, E, S[end if].";
 
 to comment-mine (j - a table name):
 	repeat through j:

@@ -137,35 +137,38 @@ winks|Of course there are mating rituals, but there's a certain amount of rigor 
 Wow! That's a lot of cool hidden stuff we need more of!
 
 fo 6
-dejesus|You leave a mark on the door and slip a brochure under.
-dinh|You leave a mark on the door and slip a brochure under.
-dinkins|You leave a mark on the door and slip a brochure under.
-dinwiddie|You leave a mark on the door and slip a brochure under.
-dudek|You leave a mark on the door and slip a brochure under.
-eddins|You leave a mark on the door and slip a brochure under.
-ennis|You leave a mark on the door and slip a brochure under.
-eskew|You leave a mark on the door and slip a brochure under.
-henke|You leave a mark on the door and slip a brochure under.
-hess|You leave a mark on the door and slip a brochure under.
-hines|You leave a mark on the door and slip a brochure under.
-hsieh|You leave a mark on the door and slip a brochure under.
-hsu|You leave a mark on the door and slip a brochure under.
-hussein|You leave a mark on the door and slip a brochure under.
-ishii|You leave a mark on the door and slip a brochure under.
-jenkins|You leave a mark on the door and slip a brochure under.
-jensen|You leave a mark on the door and slip a brochure under.
-keene|You leave a mark on the door and slip a brochure under.
+dejesus|You read through your guidelines
+dinh|You read through your guidelines
+dinkins|You read through your guidelines
+dinwiddie|You read through your guidelines
+dudek|You read through your guidelines
+eddins|You read through your guidelines
+ennis|You read through your guidelines
+eskew|You read through your guidelines
+henke|You read through your guidelines
+hess|heck of a mess
+hines|You read through your guidelines
+hsieh|You read through your guidelines
+hsu|You read through your guidelines
+hussein|very good mileage indeed
+ishii|You read through your guidelines
+jenkins|As you write up some absurd threat
+jensen|You read through your guidelines
+keene|You read through your guidelines
 keese|Oh, wait, look. There's a weird pixelated bird on the door! As you make your mark, you reflect on the people keeping Fourdiopolis in the past under the guise of sticking with basics.
-knudsen|You leave a mark on the door and slip a brochure under.
-kuhn|You leave a mark on the door and slip a brochure under.
-niesen|You leave a mark on the door and slip a brochure under.
+knudsen|You read through your guidelines
+kuhn|You read through your guidelines
+neesken|constantly second-best
+nhek|You read through your guidelines
+niesen|You read through your guidelines
+nweke|things fall apart
 sheen|As much as you distrust politicians who talk about winning, the alternative is...worse? This guy was particularly outrageous, you remember now. Entertaining, but outrageous.
-shenn|You leave a mark on the door and slip a brochure under.
-shin|You leave a mark on the door and slip a brochure under.
-sisk|You leave a mark on the door and slip a brochure under.
-weeks|You leave a mark on the door and slip a brochure under.
-weiss|You leave a mark on the door and slip a brochure under.
-whidden|You leave a mark on the door and slip a brochure under.
+shenn|You read through your guidelines
+shin|You read through your guidelines
+sisk|You read through your guidelines
+weeks|You read through your guidelines
+weiss|You read through your guidelines
+whidden|You read through your guidelines
 wisniewski|As you make your mark, you feel a shudder of Loathing at Wisniewski also being The Man.
 
 > inside
