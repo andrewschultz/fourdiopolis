@@ -86,6 +86,27 @@ to show-accomp:
 		say "[count]: [solved entry][line break]";
 	say "Current table: [your-table].";
 
+section number-counting stubs
+
+[originally in debug only but useful for release]
+
+to decide whether (n - a number) is wrongo:
+	if the remainder after dividing n by 2 is 1:
+		if n < 16:
+			decide no;
+	if n is -1 or n is -2 or n is -3 or n is -4, decide no;
+	if n is 0 or n is 31, decide no;
+	decide yes;
+
+to decide which number is old-binary:
+	let additive be 1;
+	let total-sum be 0;
+	repeat through table of accomplishments:
+		if solved entry is true:
+			increase total-sum by additive;
+		now additive is additive * 2;
+	decide on total-sum;
+
 section transcripting stub
 
 Include (-
@@ -103,6 +124,8 @@ To decide whether currently transcripting: (- CheckTranscriptStatus() -)
 book variables
 
 debug-state is a truth state that varies.
+
+beta-state is a truth state that varies.
 
 your-table is a table name that varies.
 
@@ -2510,23 +2533,6 @@ carry out wfing:
 		now teleported is true; [this is a small hack to quash the "you should have teleported" warning]
 		reset-game;
 	the rule succeeds.
-
-to decide whether (n - a number) is wrongo:
-	if the remainder after dividing n by 2 is 1:
-		if n < 16:
-			decide no;
-	if n is -1 or n is -2 or n is -3 or n is -4, decide no;
-	if n is 0 or n is 31, decide no;
-	decide yes;
-
-to decide which number is old-binary:
-	let additive be 1;
-	let total-sum be 0;
-	repeat through table of accomplishments:
-		if solved entry is true:
-			increase total-sum by additive;
-		now additive is additive * 2;
-	decide on total-sum;
 
 chapter cxing
 
