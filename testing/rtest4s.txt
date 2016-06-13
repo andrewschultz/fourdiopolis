@@ -23,14 +23,17 @@ heed|Some police give a particularly stern lecture to a citizen not fully obeyin
 heehee|You think of a silly pun that feels funnier than it has a right to be.
 hehhuh|Two fellows in a park, sitting on a couch, commenting stupidly at music videos on an old-school television. What is society coming to? Hah, you said...
 henwen|You thought you heard a talking pig just now.
+hhh|bodyslam
 hues|The local color is particularly vibrant in this neighborhood.
 huhheh|Two fellows in a park, sitting on a couch, commenting stupidly at music videos on an old-school television. What is society coming to? Hah, you said...
 hush|Unusually quiet here.
 ides|organized march
 iknew|Someone covers for looking stupid by explaining they were just being really, really ironic.
 inkiness|Everything's a bit cloudy, here.
+iseekkeen|DEBUG NOTE found directory
 iundidedu|wrangling
 iundidjunk|wrangling
+iundidnews|wrangling
 jesus|Someone spouting an annoying proof that religions shouldn't exist then asks you to join the personality cult of a smart person dead for a hundred years, who wasn't nice, but they understood algorithms of how to make others nicer. You brush them away.
 juke|Awkward!
 keds|You feel a sudden stupid desire to buy overpriced sneakers. Maybe at Payless. But everyone shops at PayWayLess these days.
@@ -40,11 +43,13 @@ kike|Some kids call another kid a name. They try to convince him he can't be tha
 kkk|Everyone around here just really, really sucks at life. What else can I say?
 knees|You grab an old ache for a moment.
 kuskunn|You see an image of a demon trapped in a bubble, by a candle slowly burning.
+kwik|hear the misspellings
 nike|You feel a sudden stupid desire to buy overpriced sneakers. Maybe at Payless. But everyone shops at PayWayLess these days.
 nisei|You walk past shops with Japanese signs.
 nissin|You step on something. It looks like a chunk of dried noodles. You feel hungry for food you'll regret later.
 nudies|You see, and quickly ignore, some disturbing fliers on the ground.
 nuhuh|A trivial argument nearby quickly turns emotional.
+nuked|biohazard
 seediness|This area doesn't feel too posh. You don't know why, but it doesn't.
 seek|You spy someone else with a sheet similar to yours. You don't acknowledge them, though. Can't be too careful.
 seine|You feel a hackneyed flavor of, and longing for, Gay Paree.
@@ -62,6 +67,7 @@ uhhs|Conversation feels a bit slower and dumber than usual for Fourdiopolis, for
 undid|You feel regret for what you've done and regret for that regret. You waste a bit of time fretting over how you've wasted a bit of time no matter which feeling is right.
 unkind|You worry someone's going to do something mean to you, but don't worry, they're only thinking about it. Especially with video cameras all around.
 unkissed|You hear a teen sob about their lack of romantic luck.
+unwished|you a flyer
 uuid|You are suddenly unable to get the hexadecimal number
 weenies|An old long-abandoned hot dog hut lies between two places of Serious Business. Your grandparents constantly babbled about the misspelled version from THEIR youth being so tasty, and--well--maybe the misspelling did make things tastier.
 whew|You just barely escaped something, there! You don't know what, but it would've been pretty bad.
@@ -70,3 +76,4 @@ whiskies|You trip on an odd cooking doohickey you forget the name of. People don
 winded|You're almost blown off your feet for a second. Air currents in Fourdiopolis are weird--there's no PROOF the government controls them, but...|You take a break to catch your breath.
 wineskins|Everything retro is fashionable again, and drinking wine from animal skins was before when retro was a thing, so--that big rich people's gathering in the park is extra nice.
 
+#whisk<whiskies wind<winded so this list will be 2 shorter than the # of rows in the table of scenery

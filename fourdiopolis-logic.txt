@@ -516,8 +516,9 @@ B00 (far), A14 (near), CE2 (far), IE6 (extra far), 1BA (kinda near)
 DB3 (kinda far), BA3 (kinda near), 2CA (kinda near), 412 (kinda near), 203 (near)
 005 (kinda near), 217 (kinda near), 312 (very near), 1A5 (far), DE8 (kinda near)
 BAA (far), B30 (kinda far), 2A1 (kinda near), 2C1 (kinda near), 2AA (far)
-510 (near), BA4 (kinda far), 224 (kinda near), 233 (kinda near), 004 (near)
-0F0 (near), 2CA (kinda near), BD2 (kinda near), B14 (far), DI3 (WAY far)
+510 (near), 2B1 (very far), 411 (near), BA4 (kinda far), 2AA (kinda near)
+224 (kinda near), 233 (kinda near), 004 (near), 0F0 (near), 2CA (kinda near)
+BD2 (kinda near), B14 (far), DI3 (WAY far)
 
 As before we start with the very near. 312 is first. That's H, with a south and up. HSU. This gives us a bit of a wedge to determine the first letter for the next last names. Not much, but enough in some cases.
 
@@ -525,8 +526,9 @@ B00 (far), A14 (near), CE2 (far), IE6 (extra far), 1BA (kinda near)
 DB3 (kinda far), BA3 (kinda near), 2CA (kinda near), 412 (kinda near), 203 (near)
 005 (kinda near), 217 (kinda near), HSU, 1A5 (far), DE8 (kinda near)
 BAA (far), B30 (kinda far), 2A1 (kinda near), 2C1 (kinda near), 2AA (far)
-510 (near), BA4 (kinda far), 224 (kinda near), 233 (kinda near), 004 (near)
-0F0 (near), 2CA (kinda near), BD2 (kinda near), B14 (far), DI3 (WAY far)
+510 (near), 2B1 (very far), 411 (near), BA4 (kinda far), 2AA (kinda near)
+224 (kinda near), 233 (kinda near), 004 (near), 0F0 (near), 2CA (kinda near)
+BD2 (kinda near), B14 (far), DI3 (WAY far)
 
 A14 (Vietnamese) is next. It has an even distance-sum, so there's two teleporters. (Four would make all digits even.) It need to get near 004, so that's HI, and then there's a D and a N. Now H(DNI) might be HIND, but that's not Vietnamese. D is the only other viable first letter, and DINH is it.
 
@@ -538,14 +540,17 @@ I'm going to skip ahead to 0F0 because it's less ambiguous to figure. It has eve
 
 004 is another with even teleporters. If there were four, it'd be 000 or 008, so...it has H and I and two opposing directions. But which ones? Well, the first letter must be past K. So we can have S (NHI) or N (HIS) or U (HID) or W (HIE). U and W aren't alphabetical, so that cuts things down a lot. In fact, SIHN/SINH can't work and SNIH isn't alphabetical. Of the N* and S*, SHIN works.
 
+Let's try the Cambodian name at 411, now. It has an even number of teleporters--two, and it is nearest 400. So we have an H and K to teleport, and the N and E are walking. This may require some trial and error, but since there are only six possibilities, we can get NHEK eventually.
+
 B00 (far), DINH, CE2 (far), IE6 (extra far), 1BA (kinda near)
 DB3 (kinda far), BA3 (kinda near), 2CA (kinda near), 412 (kinda near), HESS
 005 (kinda near), 217 (kinda near), HSU, 1A5 (far), DE8 (kinda near)
 BAA (far), B30 (kinda far), 2A1 (kinda near), 2C1 (kinda near), 2AA (far)
-KUHN, BA4 (kinda far), 224 (kinda near), 233 (kinda near), SHIN
-SISK, 2CA (kinda near), BD2 (kinda near), B14 (far), DI3 (WAY far)
+KUHN, 2B1 (very far), NHEK, BA4 (kinda far), 2AA (kinda near)
+224 (kinda near), 233 (kinda near), SHIN, SISK, 2CA (kinda near)
+BD2 (kinda near), B14 (far), DI3 (WAY far)
 
-It's a bit clearer now, but we have some tricky ones ahead. 1BA is the first, and the nationality may help a bit with the guesswork. If it had 3 teleporters, it'd have to go to 2BB (2 mod 4) but 2BB is only accessible with one. So, it has one teleporter. That could be either 2BB or BB2 at first glance, but BB2 would require 6 walks. So it's 2BB. You have a K. And a D and an E. There are some possibilities. DEK(NS), DEK(DU) and DEK(EW). DEKEW would need to start with E to be alphabetical and not clump. ED(KEW) or EK(WED) or EW(KED) turn up nothing. DE(KNS) would need to start DE not to clumb, but that doesn't work alphabetically. So DDEKU. EKUDD etc. doesn't quite work but DUDEK does.
+It's a bit clearer now, but we have some tricky ones ahead. 1BA is the first kinda-near, and the nationality may help a bit with the guesswork. If it had 3 teleporters, it'd have to go to 2BB (2 mod 4) but 2BB is only accessible with one. So, it has one teleporter. That could be either 2BB or BB2 at first glance, but BB2 would require 6 walks. So it's 2BB. You have a K. And a D and an E. There are some possibilities. DEK(NS), DEK(DU) and DEK(EW). DEKEW would need to start with E to be alphabetical and not clump. ED(KEW) or EK(WED) or EW(KED) turn up nothing. DE(KNS) would need to start DE not to clumb, but that doesn't work alphabetically. So DDEKU. EKUDD etc. doesn't quite work but DUDEK does.
 
 We're going to jump ahead to 2CA. It is close to 2BB, so that's a K, and it has an E and an S and two opposing directions. NS would force ENSSK, a mess of consonants, while UD gives DESKU. DUKES has been done, though it's a possibility, and E(KSUD) doesn't do much either. So EEWKS may work. WEEKS is too far ahead in the alphabet, but ESKEW turns out okay.
 
@@ -571,14 +576,17 @@ From this 233 is pretty forced, with an S to start and an H. That leaves NNE. SH
 
 This makes BD2 start with W by force, which is a big help. It means we have a 4-letter jump to BD3, and that's not bad at all to grasp. I is the jump letter, and SSE are the others. WI(SSE) turns up nothing, and WS* clogs, but WE(ISS) is, well, WEISS.
 
+2AA is sort of tricky since having, say, three teleports would not get you two walks away. One teleport means you'd need a K, and an N, too. KEN and two opposing directions. KWENE looks possible but doesn't work. So we need to start with an N. N(KENS) is too consonanty, and the wrong kind of consonants. N(EKUD) needs to be ahead of NHEK, leaving a U. NUDKE and other things sound more Eastern European, and NUKED is actually scenery. So we have N(EEKW) and NKEWE is a possibility but NWEKE is a better fit.
+
 B00 (far), DINH, CE2 (far), IE6 (extra far), DUDEK
 DB3 (kinda far), ENNIS, ESKEW, HENKE, HESS
 HINES, HSIEH, HSU, 1A5 (far), ISHII
 BAA (far), B30 (kinda far), KEENE, KEESE, 2AA (far)
-KUHN, BA4 (kinda far), SHEEN, SHENN, SHIN
-SISK, WEEKS, WEISS, B14 (far), DI3 (WAY far)
+KUHN, 2B1 (very far), NHEK, BA4 (kinda far), NWEKE
+SHEEN, SHENN, SHIN, SISK, WEEKS
+WEISS, B14 (far), DI3 (WAY far)
 
-At this point it gets rather tricky and plain logic isn't enough. The Scandinavian name, you may guess, ends in -sen. Or you can note that 3 jumps can get you to BB6, which is HII, with WWN, and nothing feels Scandinavian, so there's just one jump and it's BB2 (or I) as otherwise you'd have too long a walk. If it starts with S, then SE (I) (ENN) is a possibility, but nothing stands out. However, (EIN) (SEN) gives NIESEN.
+At this point it gets rather tricky and plain logic isn't enough. The Scandinavian name, you may guess, ends in -sen. Or you can note that 3 jumps can get you to BB6, which is HII, with WWN, and nothing feels Scandinavian, so there's just one jump and it's BB2 (or I) as otherwise you'd have too long a walk. NWEKE and NHEK nail things down a bit. NI (EESN) is left. Looking through the combinations gives NIESEN.
 
 Similarly B30 is not too bad. It's near B22, which would give HIJ and WWN, which clogs. So it needs only one jump, and that would have to be J. BB2 is 7 away, and 222 is too. That J must also be the first letter, so things are alphabetical. Again the SEN prefix may clue you in to JENSEN.
 
@@ -586,8 +594,9 @@ B00 (far), DINH, CE2 (far), IE6 (extra far), DUDEK
 DB3 (kinda far), ENNIS, ESKEW, HENKE, HESS
 HINES, HSIEH, HSU, 1A5 (far), ISHII
 BAA (far), JENSEN, KEENE, KEESE, 2AA (far)
-KUHN, NIESEN, SHEEN, SHENN, SHIN
-SISK, WEEKS, WEISS, B14 (far), DI3 (WAY far)
+KUHN, 2B1 (very far), NHEK, NIESEN, NWEKE
+SHEEN, SHENN, SHIN, SISK, WEEKS
+WEISS, B14 (far), DI3 (WAY far)
 
 B00 must start DE or DI. DI means we have -2 2 1 in 5 moves, which would mean DIDDNNE. So DE and A0A. A0A is close to B2B, or J, and the others are too far to walk. That leaves ESSU. DE(ESSUJ) and after some twiddling, DEJESUS is the fit.
 
@@ -607,12 +616,25 @@ DEJESUS, DINH, DINKINS, IE6 (extra far), DUDEK
 EDDINS, ENNIS, ESKEW, HENKE, HESS
 HINES, HSIEH, HSU, HUSSEIN, ISHII
 JENKINS, JENSEN, KEENE, KEESE, KNUDSEN
-KUHN, NIESEN, SHEEN, SHENN, SHIN
-SISK, WEEKS, WEISS, WHIDDEN, DI3 (WAY far)
+KUHN, 2B1 (very far), NHEK, NIESEN, NWEKE
+SHEEN, SHENN, SHIN, SISK, WEEKS
+WEISS, WHIDDEN, DI3 (WAY far)
 
-The last two are decidedly nontrivial, and logic alone won't take them out. IE6 starts with DI and ends with IE, and that leaves DA1 in 5 moves. I plus W N D D is the only way to get there--and DINWIDDIE is the answer.
+The last three are decidedly nontrivial, and logic alone won't take them out. However, we can give some good guesses for 2B1. KU is a possibility for start, as you need DNNN and two opposing directions. We could have something close to, say, 2B2 with HIK and then a W and two opposing directions--this is a bit tricky, but KU* and KW* don't seem Dutch. Perhaps if we start with NE, we will get more? Then we have six turns to get to 2C0. If there are three jumps, they need to be to 2B2, with HIK again, and then we have a S and 2 W's. NE (HIKSWW) has too many consonants, so we probably need to go with K as the only jump. If we go with H, then we have 222 and need 7 walk-moves. So, NEK + S + EE + two reverse directions. Here's where knowing a few Dutch suffixes may come in handy. -ENS is a big one. NE---ENS with a K in it means an E and S are left, leaving NEESKENS.
 
-DI3, well, a Polish suffix is SKI, so that leaves DD4 for W------SKI if we make an educated guess. DD4 in 6 teleports could be IIIJHK, but good luck with that. WU-----SKI also requires ED4 in 5 turns, but that'd require you to get to BB2 or such and then walk the rest of the way. There are a few possibilities, but I won't tinker too much. The answer is WISNIEWSKI, and...well, that last lousy point is meant to be tough.
+Neeskens refers to a midfielder in the Dutch runner-up teams at the World Cup--who were very exciting and memorable "despite" not quite winning it all.
+
+IE6 starts with DI and ends with IE, and that leaves DA1 in 5 moves. I plus W N D D is the only way to get there--and DINWIDDIE is the answer.
+
+DI3, well, a Polish suffix is SKI, so that leaves DD4 for W------SKI if we make an educated guess. DD4 in 6 teleports could be IIIJHK, but good luck with that. WU-----SKI also requires ED4 in 5 turns, but that'd require you to get to BB2 or such and then walk the rest of the way. There are a few possibilities, but I won't tinker too much. The answer is WISNIEWSKI, and...well, that last lousy point is meant to be tough. If you're confused by the text clue, The Big Wisniewski and The Man are the two possible antagonists in the level 12 quest of Kingdom of Loathing, a wonderful online game.
+
+DEJESUS, DINH, DINKINS, DINWIDDIE, DUDEK
+EDDINS, ENNIS, ESKEW, HENKE, HESS
+HINES, HSIEH, HSU, HUSSEIN, ISHII
+JENKINS, JENSEN, KEENE, KEESE, KNUDSEN
+KUHN, NEESKENS, NHEK, NIESEN, NWEKE
+SHEEN, SHENN, SHIN, SISK, WEEKS
+WEISS, WHIDDEN, WISNIEWSKI
 
 ======================end explained walkthrough
 

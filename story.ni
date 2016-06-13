@@ -628,15 +628,16 @@ to reset-game:
 	if teleported is false:
 		say "You remember hearing that anywhere worth getting to, you had to teleport to. And you didn't, this run.";
 		continue the action;
-	now teleported is false;
-	if add-to > 7 and your-table is table of friends:
-		say "You don't know if they'd make you wander THIS much in order to find something. Perhaps you should stick with as short journeys as possible.";
-		continue the action;
-	if add-to >= 8:
-		if score < 5:
-			say "Hmm. If you're having trouble finding things, you may wish to start with stuff that's near first, instead of what's first on your list.";
-	if add-to > 7:
-		now add-to is 7;
+	else:
+		now teleported is false;
+		if add-to > 7 and your-table is table of friends:
+			say "You don't know if they'd make you wander THIS much in order to find something. Perhaps you should stick with as short journeys as possible.";
+			continue the action;
+		if add-to >= 8:
+			if score < 5:
+				say "Hmm. If you're having trouble finding things, you may wish to start with stuff that's near first, instead of what's first on your list.";
+		if add-to > 7:
+			now add-to is 7;
 	say "[b]Back at Sector 000[r][line break]";
 
 book beginning
@@ -1049,6 +1050,8 @@ to say seek-track:
 	repeat through table of scenery:
 		if found entry is 0:
 			add "[tally entry in upper case]" to ln;
+	if debug-state is true:
+		say 'DEBUG NOTE found directory.";
 	if number of entries in ln is 0:
 		say "There's no weird stuff to track down"; [technically not true. DIE is always there, but I just didn't want to futz with the code. The stuff that's not listed is hidden in the AMUSING section, anyway.]
 		continue the action;
@@ -1077,6 +1080,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "heehee"	--	"You think of a silly pun that feels funnier than it has a right to be."	--	0
 "hehhuh"	--	"[bnb]"	--	0
 "henwen"	"Prydain Chronicles"	"You thought you heard a talking pig just now."	--	0
+"hhh"	"Triple H"	"Someone threatens to bodyslam another person for being utterly evil. Then--bam! You see they actually do! Someone whispers to you, don't worry, it's fake, just entertainment. What is the world coming to?"
 "hues"	--	"The local color is particularly vibrant in this neighborhood."	--	0
 "huhheh"	--	"[bnb]"	--	0
 "hush"	--	"Unusually quiet here."	--	0
@@ -1096,11 +1100,13 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "kkk"	"bad bad people"	"Everyone around here just really, really sucks at life. What else can I say?"	--	0 [super extra double for this but here there's an opportunity to laugh at people a bit I hope]
 "knees"	--	"You grab an old ache for a moment."	--	0
 "kuskunn"	"Magic Candle"	"You see an image of a demon trapped in a bubble, by a candle slowly burning."	--	0
+"kwik"	--	"You can just hear the misspellings as people talk too fast here."	--	0
 "nike"	--	"[snee]."	--	0
 "nisei"	--	"You walk past shops with Japanese signs."	--	0
 "nissin"	--	"You step on something. It looks like a chunk of dried noodles. You feel hungry for food you'll regret later."	--	0
 "nudies"	--	"You see, and quickly ignore, some disturbing fliers on the ground."	--	0
 "nuhuh"	--	"A trivial argument nearby quickly turns emotional."	--	0
+"nuked"	--	"A surprisingly empty area. You look for biohazard signs but don't see any[nuked-nukes]."	--	0
 "seediness"	--	"This area doesn't feel too posh. You don't know why, but it doesn't."	--	0
 "seek"	--	"You spy someone else with a sheet similar to yours. You don't acknowledge them, though. Can't be too careful."	--	0
 "seine"	--	"You feel a hackneyed flavor of, and longing for, Gay Paree."	--	0
@@ -1118,6 +1124,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "undid"	--	"You feel regret for what you've done and regret for that regret. You waste a bit of time fretting over how you've wasted a bit of time no matter which feeling is right."	--	0
 "unkind"	--	"You worry someone's going to do something mean to you, but don't worry, they're only thinking about it. Especially with video cameras all around."	--	0
 "unkissed"	--	"You hear a teen sob about their lack of romantic luck."	--	0
+"unwished"	--	"Someone tries to hand you a flyer you really, really don't want."	--	0
 "uuid"	--	"You are suddenly unable to get the hexadecimal number [b][uuid][r] out of your head!"	--	0
 "weenies"	--	"An old long-abandoned hot dog hut lies between two places of Serious Business. Your grandparents constantly babbled about the misspelled version from THEIR youth being so tasty, and--well--maybe the misspelling did make things tastier."	--	0
 "whew"	--	"You just barely escaped something, there! You don't know what, but it would've been pretty bad."	--	0
@@ -1219,7 +1226,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "ennis"	"Not their 1st name"	"[mark-away]."	suspiciously ordinary door	0
 "eskew"	"None"	"[mark-away]."	suspiciously ordinary door	0
 "henke"	"None"	"[mark-away]."	suspiciously ordinary door	0
-"hess"	"German"	"'You'd etter believe you made a heck of a mess,' you write, among other things."	suspiciously ordinary door	0
+"hess"	"German"	"'You'd better believe you made a heck of a mess,' you write, among other things."	suspiciously ordinary door	0
 "hines"	"Only 57% voted for"	"[mark-away]."	suspiciously ordinary door	0
 "hsieh"	"Chinese"	"[mark-away]."	suspiciously ordinary door	0
 "hsu"	"Chinese"	"[mark-away]."	suspiciously ordinary door	0
@@ -1341,6 +1348,7 @@ after reading a command:
 				do nothing;
 			else:
 				dirparse locom;
+				consider the silly stuff rule;
 				reject the player's command;
 	let w1 be word number 1 in locom;
 	if the w1 is "g" or w1 is "again":
@@ -1423,6 +1431,9 @@ cycle-note is a truth state that varies.
 
 skip-silly-this-turn is a truth state that varies.
 
+to rulesAll: [used to turn rules ALL on at the very start of play]
+	(- RulesAllSub(); -)
+
 every turn (this is the silly stuff rule):
 	if skip-silly-this-turn is true:
 		now skip-silly-this-turn is false;
@@ -1468,9 +1479,17 @@ silliness
 "A couple argues over the safest of six ways to walk to a new neighborhood 1 [rd of up] 1 [rd of north] 1 [rd of east]."
 "You've grown oblivious to the whooshing of transport tubes, and one day you'll grow oblivious to your obliviousness."
 "A distinguished-looking [if a random chance of 1 in 2 succeeds]wo[end if]man slips a street urchin 1000000 New Scrip for spraying particularly creative pro-government graffiti. The kid is grateful--food for a whole week! Or nutritious food for two days! Whichever."
+"You do some brief math and realize it'd take fifteen--no, [italic type]seventeen[roman type] whole turns to get from the center to the downwestsouth corner."
+"One person proclaims the plight of people living in the upeastnorth, downwestnorth, upwestsouth and downeastsouth corners of Fourdiopolis and how they don't have easy access to efficient teleportation transport."
+"Someone hands out a flyer for the party of the YEAR at sector [unreachable]."
+"You stumble onto some sort of geocaching competition clue that tells you to look around sector [unreachable] next. But that seems a bit too far away."
+"You encounter an old friend who encourages you to visit them in sector [unreachable] when you get the time."
+"You hear mumbles of a secret prison--I mean, detaining area--in [unreachable]."
+"A police officer stops and accosts you and claims to remember a 'suspicious incident' from a bit ago in sector [unreachable]. You're pretty sure you haven't been there."
 "An idealistic youngun tries to plot how many trips it'd take to visit all of Fourdiopolis's main blocks. He uses up so much scratch paper, he's warned and shooed by a Waste Police droid."
 "A fellow pedestrian is fined for having a cracked phone-screen. He is apparently a repeat offender who hasn't gotten it cleared for a whole month."
-"A robo-dog zips between your legs with quantum-calculated precision. Apparently organic pets are worse. But you haven't seen many."
+"[if score < 2]You wonder how many moves it takes to get from one far corner of the city to the other, and back, and if they're the same[else]In a sudden rush of insight, you realize it will take 31 moves to get from one corner of Fourdiopolis to the other, then 24 to get back[end if]."
+"A robo-dog zips between your legs with quantum-calculated precision. You hate them! If one stands by you too long, you get a weird embarrassing tingling. Apparently organic pets are worse. But you haven't seen many."
 "Someone claiming to have been to Spaceneedleston says sure, it's posh, but it's not PRACTICAL or full of REAL PROGRESS like Fourdiopolis."
 "People ahead of you discuss the politics of urban versus rural gerrymandering and qualifications for moving from half an effective vote to three-quarters, or even a full vote."
 "A cop allows a kid reading an approved book to sit and loiter--if he isn't blocking foot-traffic TOO much."
@@ -1480,12 +1499,102 @@ silliness
 "A political debate over whether payoffs to gangs or governments works better ensues."
 "One kid tries to impress others with a story of a poor sap who got teleported into rock, another with a story of someone teleported five hundred feet above solid ground, and another tries to impress them with proof it'd never happen."
 "You hear the swishing of sewage flow overhead."
+"Some conspiracy theory nut goes on about how the transport tubes and/or teleporters destroyed his bike."
 
 to say rd of (myd - a direction):
 	if a random chance of 1 in 2 succeeds:
 		say "[myd]";
 	else:
 		say "[opposite of myd]";
+
+to say unreachable: [this picks something that can only be gotten in 11 moves and throws it to the player]
+	let got-yet be false;
+	while got-yet is false:
+		choose a random row in table of elevensies;
+		now got-yet is true;
+		if a random chance of 1 in 2 succeeds:
+			if x entry is y entry or y entry is z entry:
+				now got-yet is false;
+	let W be a list of numbers;
+	add x entry to W;
+	add y entry to W;
+	add z entry to W;
+	sort W in random order;
+	say "[sec of entry 1 of W][sec of entry 2 of W][sec of entry 3 of W]";
+
+table of elevensies
+x	y	z
+-9	-9	-1
+-9	-9	1
+-9	-8	-4
+-9	-8	-2
+-9	-7	-2
+-9	-7	-1
+-9	-6	-4
+-9	-6	-3
+-9	-5	-5
+-9	-5	-3
+-9	-1	9
+-9	1	7
+-9	1	9
+-9	2	7
+-9	2	8
+-9	3	5
+-9	3	6
+-9	4	6
+-9	4	8
+-9	5	5
+-8	-8	-5
+-8	-8	-3
+-8	-7	-4
+-8	-7	-3
+-8	-6	-6
+-8	-6	-5
+-8	2	9
+-8	3	7
+-8	3	8
+-8	4	7
+-8	4	9
+-8	5	6
+-8	5	8
+-8	6	6
+-7	-7	-6
+-7	-7	-4
+-7	-6	-5
+-7	-5	-5
+-7	1	9
+-7	2	9
+-7	3	8
+-7	4	7
+-7	4	8
+-7	5	5
+-7	5	6
+-7	6	7
+-6	3	9
+-6	4	9
+-6	5	7
+-6	5	8
+-6	6	8
+-6	7	7
+-5	3	9
+-5	5	7
+-5	5	9
+-5	6	7
+-5	6	8
+-5	8	8
+-4	6	9
+-4	7	7
+-4	7	8
+-4	8	9
+-3	5	9
+-3	6	9
+-3	7	8
+-3	8	8
+-2	7	9
+-2	8	9
+-1	7	9
+-1	9	9
+1	9	9
 
 volume meta-verbs
 
@@ -2567,6 +2676,8 @@ carry out saing:
 	the rule succeeds;
 
 chapter scing
+
+[* this changes how much scenery we see]
 
 scing is an action applying to one number.
 
