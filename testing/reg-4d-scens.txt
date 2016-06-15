@@ -3,6 +3,13 @@
 ** game: /home/andrew/prt/debug-fourdiopolis.ulx
 ** interpreter: /home/andrew/prt/glulxe -q
 
+*unkindness-testing
+
+>unkindness
+This will skip
+>unkindness
+You're already
+
 *did-edu-testing
 
 >wf 0

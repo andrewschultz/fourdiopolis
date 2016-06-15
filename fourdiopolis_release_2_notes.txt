@@ -6,7 +6,7 @@ I was able to use Zarf's script to do stability testing, which was a big help, a
 --the commands to go forward and backward through the game (clearing one tast list or resetting it) have been sharpened. They are also all UNDOable.
 ----you can now specifically solve or un-solve each of the three random middle scenarios
 --game state corruption is also detected if you edit the GLKDATA file wrong.
---70 pieces of scenery, up from 43
+--72 pieces of scenery, up from 43
 --46 silly events, up from 33
 --A(ction) command now reveals TECH, which was guess-the-verb in the Spring Thing version
 --the final scenario is now tilted a bit differently towards the shadow leaders' campaign offices and not their homes. Also, lots of randomized text for names without any specific bad jokes.

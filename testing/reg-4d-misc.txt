@@ -5,8 +5,6 @@
 
 * meta-commands
 
->wf 0
-
 >a
 C is short for check
 !will kick you back to
@@ -15,6 +13,10 @@ C is short for check
 >a
 will kick you back to finding friends
 
+>nsew
+You sense you're both in the center
+>r
+
 >wf 15
 >a
 will kick you back to the pod
@@ -22,6 +24,11 @@ will kick you back to the pod
 >wf 31
 >a
 will kick you back to the cool stuff tasks
+
+>n.e
+NOTE: ignoring period.
+
+>wf 0
 
 >z
 Loitering is a serious offense
@@ -158,3 +165,627 @@ You've been wandering for too long
 !cancelling the rest
 back you go to the center
 Back at Sector 000
+
+* game text unit tests
+
+
+>wf 7
+>
+be gentle at 322
+
+>wf 11
+>
+stupid pro-government buttons for cover at BA1
+
+>wf 13
+>
+motivation at 2A0
+
+>wf 0
+>
+You consider what to do next. Hmm, look for the shortest first: cross, iron friend at 0D1 seems as good as any.
+>ike
+>
+Your eyes wander... hey!
+>e
+>r
+>fi 20
+>
+No dawdling! Time to go back to the hideout. Where was it hidden inside, again?
+>fi 19
+>
+
+
+>wf 15
+old fashioned hospitality at B02
+
+>wf 0
+
+* 4d-basic-verbs
+
+>x me
+You don't look particularly odd, but authorities and such have always said there's something suspicious about you. Lately, you've sort of wished there was.
+>x me
+You should blend in nicely with the scenery for all the tasks you need to do.
+
+>x transporter
+You review the literature on the transporter about the three approved teleport directions: h, i, j and k, and something about quaternions, and something else about how you can't have people passing each other in opposite directions in a teleportal field, or BAM. It's all pretty standard stuff, and if people can't understand it, they look knowledgeable nodding their heads about it.
+It has the letters I, J, K and H in a rough circle
+
+>x transporter
+!quaternions
+It has the letters I, J, K and H in a rough circle
+
+>enter transporter
+That's a bit ambiguous. Try going h, i, j or k, instead.
+
+>exit
+Out? Of Fourdiopolis? You don't have proper documentation. And you can't get it. Well, not in this game.
+
+>north
+In these efficient days, people find using more than one letter for a direction too flowery.
+>south
+In these efficient days, people find using more than one letter for a direction too flowery.
+>east
+In these efficient days, people find using more than one letter for a direction too flowery.
+>west
+In these efficient days, people find using more than one letter for a direction too flowery.
+>up
+In these efficient days, people find using more than one letter for a direction too flowery.
+>down
+In these efficient days, people find using more than one letter for a direction too flowery.
+
+>ne
+You can't cut through buildings on your own. Even with teleporters being all the rage. Well, apparently you could cut through some lobbies years ago, but surveillance and keycard-doors have taken care of that.
+>nw
+You can't cut through buildings on your own. Even with teleporters being all the rage. Well, apparently you could cut through some lobbies years ago, but surveillance and keycard-doors have taken care of that.
+>sw
+You can't cut through buildings on your own. Even with teleporters being all the rage. Well, apparently you could cut through some lobbies years ago, but surveillance and keycard-doors have taken care of that.
+>se
+You can't cut through buildings on your own. Even with teleporters being all the rage. Well, apparently you could cut through some lobbies years ago, but surveillance and keycard-doors have taken care of that.
+
+>undo
+You can't really quite reverse how and where you walked, or when you teleported. Worse, Fourdiopolis is no closer to time travel than Threediopolis, but it's a lot closer to proving time travel's impossible.
+But don't worry, if you get killed somehow, you will be able to undo. And you can always zap back to the center and retrace your steps.
+
+>wf 0
+
+>enter
+Nothing to enter.
+
+>yes
+Not much to say yes to--rhetorical questions are for narrative purposes, and yes/no questions will be specifically prompted that way.
+
+>y
+Not much to say yes to.
+!rhetorical
+
+>no
+Not much to say no to.
+!rhetorical
+
+>score
+So far, you've found 0 of the 20 locations you needed to. Note that X, or the status line, may be a better way to keep track of overall progress.
+
+>score
+So far, you've found 0 of the 20 locations you needed to.
+!Note that X
+
+>hhh
+>score
+You've also found 1 of 72 miscellaneous bits of scenery.
+
+>drink
+hydration stations
+
+>jump
+undue attention
+
+>wave
+undue attention
+
+>burn
+undue attention
+
+>l
+You look around, hoping for some weird fifth dimension, or eleventh direction, to look for something significant. You don't find it.
+
+>o
+I didn't recognize that verb. You can type A for the actions available. None should be too complex.
+
+>g
+That would actually make getting around in Fourdiopolis more complex. Because you can't really move from there to here, again, or not that way. Most of the fun stuff would begin with G, though EGGS and DUNG would be left, which is not so fun. Using one-word directions should be quick enough.
+
+>sleep
+There's laws against that. Well, there are no laws against sleeping, but sleeping in possession of valuables encourages criminals. Sleeping without them is vagrancy.
+
+>shit
+The old swear words have a certain charm, even though a language commission established new previously nonsensical words as more neurologically effective.
+
+>bother
+The government approves of such restraint in frustration.
+
+>x
+There's a note scribbled in that you probably have to use a transporter to get to any of these places.
+You're not sure where to report after reading this
+in explicit order
+
+>hidden
+All right!
+>l
+Hey! It's that hideout you stumbled on! Well, one of the two!
+>l
+The hideout where you got your tasks from is nearby.
+>x hideout
+Yup, you recognize it now. You just need to look carefully--but not too carefully so others get curious.
+
+>x
+Ooh, the hideout to go
+!in explicit order
+>n
+>r
+!You're not sure where to report after reading this
+
+> 4d-force-back
+>hhhhu
+You can see the sun above. No upward-tubes or buildings block your view
+>u
+A security droid whizzes behind you--you might get too much sun if you go any higher, and the ozone layer isn't healed yet!
+
+>hhhhuuu
+you decide to cancel the rest of your walking plans
+
+>iiiid
+less, well, open
+>d
+digging beneath Fourdiopolis
+
+>hhhhn
+You can see the countryside
+>n
+An anti-suicide droid pulls you back as you walk close to what you realize is the edge of Fourdiopolis. It reminds you there are cleaner ways to do that, if you know where to look. You're whisked back to the center.
+
+>hhhhhe
+You can see the countryside
+>e
+An anti-suicide droid pulls you back as you walk close to what you realize is the edge of Fourdiopolis. It reminds you there are cleaner ways to do that, if you know where to look. You're whisked back to the center.
+
+>iiiis
+You can see the countryside
+>s
+An anti-suicide droid pulls you back as you walk close to what you realize is the edge of Fourdiopolis. It reminds you there are cleaner ways to do that, if you know where to look. You're whisked back to the center.
+
+>iiiiw
+You can see the countryside
+>w
+An anti-suicide droid pulls you back as you walk close to what you realize is the edge of Fourdiopolis. It reminds you there are cleaner ways to do that, if you know where to look. You're whisked back to the center.
+
+* 4d-return-messages
+
+>wf 0
+
+>r
+You're already at
+
+>n
+>r
+You only just left the center. You're a little worried that if you use the transporters TOO frequently, you might get tracked somehow. Maybe with a bit more experience and confidence, you can sneak back quickly.
+
+>n
+>r
+Maybe explore another block before hitting the transporters--you're not quite experienced or confident enough to do so yet. Using the transporters too frequently raises red flags.
+
+>nnsseew
+You pick up the pace
+>r
+>nnsseew
+!You pick up the pace
+>r
+
+>ike
+>c
+
+>jed
+>c
+
+>kiki
+>c
+
+>n
+>r
+You do a small random shuffle before taking a teleporter back to the center, just to throw off the city's data tracking complex. Not too random, though. You don't want to get picked up on suspicion of intoxication.
+
+>nn
+>r
+You do a small random shuffle before taking a teleporter back to the center, just to throw off the city's data tracking complex. Not too random, though. You don't want to get picked up on suspicion of intoxication.
+
+>iiii
+>r
+You take one of the public teleporters back to the center. You don't need a special key. They're about the only thing free these days. The government, in a small sop to civil liberties, doesn't even track how many times a person uses it. Small things.
+
+>nsn
+>r
+Your journey this time was very short, but no point wandering if it's off to a bad start.
+
+>nsns
+>r
+You remember hearing that anywhere worth getting to, you had to teleport to. And you didn't, this run.
+A short journey, but maybe you discovered something to do. Or not-do.
+
+>nsnsn
+>r
+A kind of short journey, good for exercise and sightseeing.
+
+>nsnsns
+>r
+A kind of long journey this time.
+
+>nsnsnsn
+>r
+A long journey. You're glad you're in shape so you can walk this much. Or maybe you've walked so much and you're now in shape. That's the sort of thing you think about during long walks.
+
+>nsnsnsns
+>r
+It's been a very long walk indeed.
+You don't know if they'd make you wander THIS much in order to find something. Perhaps you should stick with as short journeys as possible.
+
+>nsnsnsnsn
+>r
+This walk has been extra long. You sense the further you went, the less likely you were to find something.
+
+>nsnsnsnsns
+>r
+Man! That was a marathon, but you zapped back to the center before you got too tired.
+
+>nkknsewnsewnswe
+That is way too long a trip
+
+>nnsewnsewnswe
+wandering for too long
+cancelling the rest
+>nknsewnsewn
+wandering for too long
+!cancelling the rest
+
+* 4q-quickmode-check
+
+>wf 0
+
+>ikek
+>r
+
+>q
+Now quick mode is on.
+>ikek
+You're vaguely worried you missed something, but you have somewhere to be. You think. You hope.
+>r
+
+>q
+Now quick mode is off.
+>ikek
+As you blip away, you reflect you can always find that place later, if you want.
+>r
+
+>in
+You don't see anywhere to go in.
+
+>ike
+>c
+
+>kiki
+>c
+
+>in
+BA2
+>es
+>in
+(well, knocking, actually)
+It's Ines!
+
+* 4d-up-down-check
+
+>u
+The hybrid transport tubes/stairs are designed for optimal pedestrian convenience and exercise potential
+
+>u
+!The hybrid transport tubes/stairs are designed for optimal pedestrian convenience and exercise potential
+
+* 4d-comeback-check
+
+>wf 0
+
+>ike
+>c
+>ike
+Hm, that place
+>hhh
+This wasn't critical to the game
+>hhh
+!This wasn't critical to the game
+
+>r
+>weiss
+You feel very cold
+
+>r
+>dunks
+a bit ahead of yourself
+
+* 4d-suspiciously
+
+>wf 31
+>weiss
+Is it? Isn't it?
+>kuhn
+It's a bit easier to recognize the shadow campaign headquarters now. There's another!
+>nweke
+Another suspiciously ordinary
+
+* 4d-score-notes
+
+>wf 0
+>fi 0
+>winnie
+You head back to the center of Fourdiopolis, feeling confident you're off to a good start
+Well, you found someone. That's a good start.
+
+>wf 0
+>fi 2
+>winnie
+You've got a bit of a crowd, but you know you can do more.
+
+>wf 0
+>fi 5
+>winnie
+You head back to the center of Fourdiopolis, feeling in the groove
+It's starting to make sense. The tougher ones should be a bit easier now, you hope.
+
+>wf 0
+>fi 9
+>winnie
+Halfway there.
+
+>wf 0
+>fi 10
+>winnie
+You head back to the center of Fourdiopolis, feeling well on your way
+
+>wf 0
+>fi 14
+>winnie
+You're probably doing well enough to return. Not perfect, but hey, if you worry about perfection, you won't get everything done.
+
+>wf 0
+>fi 15
+>winnie
+You head back to the center of Fourdiopolis, feeling you've done enough, and not just the bare minimum
+
+>wf 0
+>fi 18
+>winnie
+The last one's the toughest. You think.
+
+* 4d-scenario-specific-texts
+
+>wf 11
+>whiskies
+You figure there may be something a bit more restrained at the end of your list--a different way to imbibe
+>wf 11
+>wines
+>c
+>whiskies
+You already got some wines, but whiskies should probably best wait to celebrate a successful revolution
+
+* 4d-amusing
+
+>wf 0
+>die
+>c
+enjoyed the silly death
+>undo
+
+>wf 0
+>fi 20
+>hidden
+>c
+AMUSING
+>amusing
+to DIE?
+You can still solve more
+
+>undo
+>wf 31
+>fi 33
+>hidden
+>c
+to DIE?
+waiting?
+XYZZY? And the follow-up(s)?
+sleeping?
+A scenery location at 6FF?
+to visit where I SEEK KEEN?
+!You can still solve more
+
+* 4d-nearlies
+
+>wf 0
+>jesse
+>r
+On your way back to the center, you wonder if you could've gone down a small detour
+
+>wf 7
+>dis
+>r
+On your way back to the center, you wonder if you could've gone a good bit ahead
+
+>wf 7
+>duke
+>r
+On your way back to the center, you wonder if you could've gone a bit farther
+
+>wf 7
+>hunk
+>r
+On your way back to the center, you wonder if you could've gone a bit farther
+
+>wf 7
+>indie
+>r
+On your way back to the center, you wonder if you could've gone a bit farther
+
+>wf 7
+>junkie
+>r
+On your way back to the center, you wonder if you could've gone a bit farther
+
+>wf 7
+>kid
+>r
+On your way back to the center, you wonder if you could've gone a bit farther
+
+>wf 7
+>sheikh
+>r
+On your way back to the center, you wonder if you could've gone a bit farther
+
+>wf 11
+>hijink
+>r
+On your way back to the center, you wonder if you could've gone a bit farther
+
+>wf 11
+>hike
+>r
+On your way back to the center, you wonder if you could've gone a bit farther
+
+>wf 11
+>issue
+>r
+On your way back to the center, you wonder if you could've gone a bit farther
+
+>wf 11
+>sine
+>r
+On your way back to the center, you wonder if you could've gone a bit farther
+
+>wf 11
+>sin
+>r
+On your way back to the center, you wonder if you could've gone a bit farther
+
+>wf 13
+>desk
+>r
+On your way back to the center, you wonder if you could've gone a bit farther
+
+>wf 13
+>dish
+>r
+On your way back to the center, you wonder if you could've gone a small way along
+
+>wf 13
+>hen
+>r
+On your way back to the center, you wonder if you could've gone a bit farther
+
+>wf 13
+>kiwi
+>r
+On your way back to the center, you wonder if you could've gone a bit farther
+
+>wf 13
+>nuke
+>r
+On your way back to the center, you wonder if you could've gone a bit farther
+
+>wf 13
+>shed
+>r
+On your way back to the center, you wonder if you could've gone a bit farther
+
+>wf 13
+>skunk
+>r
+On your way back to the center, you wonder if you could've gone a bit farther
+
+>wf 13
+>undie
+>r
+On your way back to the center, you wonder if you could've gone a bit farther
+
+>wf 13
+>wine
+>r
+On your way back to the center, you wonder if you could've gone a bit farther
+
+>wf 13
+>wish
+>r
+On your way back to the center, you wonder if you could've gone a small way along
+
+>wf 13
+>wishess
+>r
+!On your way back to the center, you wonder if you could've gone a small way along
+
+>wf 15
+>dunk
+>r
+On your way back to the center, you wonder if you could've gone a bit farther
+
+>wf 15
+>hiss
+>r
+On your way back to the center, you wonder if you could've gone a bit farther
+
+
+>wf 15
+>husk
+>r
+On your way back to the center, you wonder if you could've gone a bit farther
+
+>wf 15
+>kiss
+>r
+On your way back to the center, you wonder if you could've gone a bit farther
+
+>wf 15
+>shine
+>r
+On your way back to the center, you wonder if you could've gone down a small detour
+
+>wf 15
+>skink
+>r
+On your way back to the center, you wonder if you could've gone a bit farther
+
+>wf 15
+>ski
+>r
+On your way back to the center, you wonder if you could've gone a bit farther
+
+>wf 15
+>wink
+>r
+On your way back to the center, you wonder if you could've gone a bit farther
+
+* 4d-munge-tests
+
+>wf 0
+>i
+>k
+>e
+>c
+>j
+>e
+>d
+>c
+Now that you've got the hang of things, you can just munge directions together. Like DUDES instead of D, U, D, E, S.
+
+>wf 0
+>ike
+>c
+>jed
+>c
+
+#undone: abstract everything to outside-area and examine them

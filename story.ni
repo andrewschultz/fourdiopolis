@@ -1,6 +1,11 @@
 "Fourdiopolis" by Andrew Schultz
 
-[Note to self: 2=education, 3=supplies, 4=marginalized people]
+[Notes to self:
+2=education, 3=supplies, 4=marginalized people
+wf 13 = education
+wf 11 = supplies
+wf 7 = marginalized
+]
 
 the story description is "Threediopolis with Teleporters and Such"
 
@@ -63,8 +68,11 @@ to say 2da:
 
 to set-your-table (myt - a table name):
 	now your-table is myt;
+	if your-table is not table of friends:
+		now hidden-inside is true;
 	repeat through your-table:
 		now found entry is 0;
+	now score is 0;
 
 to say email:
 	say "blurglecruncheon@gmail.com"
@@ -195,15 +203,14 @@ carry out examining the task list:
 			say ", ";
 	say "[line break]There's a note scribbled in that you probably have to use a transporter to get to any of these places.";
 	if hideout is visible:
-		say "Ooh, the hideout to go back to is visible!";
+		say "Ooh, the hideout to go back to is visible![line break]";
 	else if hidden-inside is false:
-		say "[line break]You're not sure where to report after reading this, but it's somewhere hidden inside. Where was it? B15? ED5? Anyway, they apparently had a backup shelter, if one got raided." instead;
+		say "[line break]You're not sure where to report after reading this, but it's somewhere hidden inside. Where was it? B15? ED5? Anyway, they apparently had a backup shelter, if one got raided[if score > 14]. You've probably done enough to go back[end if]." instead;
 	else:
 		say "[line break]You found the place hidden inside to return to. [if score > 14]Maybe you can go there, now[else]But you might not want to go back yet[end if].";
-	if score > 14:
-		say "You can probably go back. You've done enough. You hope. You think." instead;
 	if list-exam is false:
 		say "Hmm, you might not want to do these in explicit order. Maybe try and find the nearest ones first to get your feet wet.";
+		now list-exam is true;
 	the rule succeeds;
 
 to say losted:
@@ -213,7 +220,7 @@ to say losted:
 		say "[line break]A small alarm goes off. Law-abiding citizens don't need to be digging beneath Fourdiopolis. Or even looking like they are. A security droid taps you on your left shoulder, and when you turn around, you realize it was on your right. [one of]Snea-kee[or]Fooled again[stopping]! ";
 	else:
 		say "[line break]An anti-suicide droid pulls you back as you walk close to what you realize is the edge of Fourdiopolis. It reminds you there are cleaner ways to do that, if you know where to look. ";
-	say "You're whisked back to the center [if posschars > number of characters in your-tally], and with this interruption, you decide to cancel the rest of your walking plans[end if].";
+	say "You're whisked back to the center[if posschars > number of characters in your-tally], and with this interruption, you decide to cancel the rest of your walking plans[end if].";
 	if bounds-warn is false:
 		say "[line break]You look at your list, and many of the locations are relatively close to the center. Maybe you don't need to venture near the edges that much.";
 		now bounds-warn is true;
@@ -273,7 +280,7 @@ instead of swearing mildly:
 	say "The government approves of such restraint in frustration."
 
 instead of kissing:
-	say "This isn't a romance game."
+	say "That both is and isn't appropriate in Fourdiopolis."
 
 instead of burning:
 	say "[u-a].";
@@ -326,12 +333,15 @@ before going (this is the don't waste my time with all those extra letters alrea
 	if the player's command matches the text "down", case insensitively:
 		dirsmack instead;
 
+walked-by is a truth state that varies.
+
 to see-if-left (t - a truth state):
 	if number of quasi-entries in outside-area > 0:
 		if quick-mode is true:
 			say "You're vaguely worried you missed something, but you have somewhere to be. You think. You hope.";
 			continue the action;
 		say "As you [if t is true]walk[else]blip[end if] away, you reflect you can always find [if hideout is in outside-area]the hideout[else]that place[end if] later, if you want.";
+		now walked-by is true;
 
 check going inside:
 	if number of visible quasi-entries > 0:
@@ -502,7 +512,7 @@ to tally-and-place:
 	let A be indexed text;
 	now A is your-tally;
 	repeat with Q running through things in outside-area:
-		if Q is not player:
+		if Q is not player and Q is not transporter:
 			now Q is off-stage;
 	repeat through your-table:
 		if A is tally entry in lower case:
@@ -514,9 +524,6 @@ to tally-and-place:
 				if location of what-drops entry is not outside-area:
 					move what-drops entry to outside-area;
 					continue the action;
-			else if note-found is false:
-				say "Hm, that place you found before--it's somewhere around here, but you're focused on what to find next.";
-				now note-found is true;
 	repeat through table of scenery:
 		if A is tally entry in lower case:
 			if there is a what-drops entry:
@@ -546,6 +553,13 @@ after printing the locale description:
 		if hideout is not in outside-area:
 			move hideout to outside-area;
 			say "[one of]All right! You think you see it! The hideout where your [if your-table is not table of friends]latest jaunt[else]whole task[end if] started![or]The hideout, again. A bit easier to recognize this time.[stopping]";
+			now hidden-inside is true;
+	repeat through your-table:
+		if found entry is 1:
+			if your-tally is tally entry in lower case:
+				if note-found is false:
+					say "Hm, that place you found before--it's somewhere around here, but you're focused on what to find next.";
+					now note-found is true;
 
 to sweep-up (x - a table name):
 	if x is table of friends: [never look back]
@@ -624,7 +638,9 @@ to reset-game:
 	now all visible quasi-entries are off-stage; [probably not neccessary to put all the way up here but just in case]
 	let add-to be number of characters in your-tally;
 	now your-tally is "";
-	consider the plural-almost rule;
+	if walked-by is false:
+		consider the plural-almost rule;
+	now walked-by is false;
 	if teleported is false:
 		say "You remember hearing that anywhere worth getting to, you had to teleport to. And you didn't, this run.";
 		continue the action;
@@ -694,7 +710,7 @@ a surprisingly churchy looking place is a quasi-entry. description is "Even huma
 check entering ominous door:
 	say "Assisted suicide is more rigorous and refined here and now than with Threediopolis's pilot program. A hundred years ago, the Death Panels there (not the healthcare kind, silly!) only gave punditly views on the how and why before you pegged out, but--the authorities realized nobody asked YOU! The person of the moment![paragraph break]You're given surveys...questionnaires...what would you do better? What do you think authorities would do better? No, no, you are just lashing out because you are suicidal.  No, those free striped lollipops are for employees, not clients. You had plenty of time for a last meal before you walked in! Perhaps a moment to reconsider your one complaint here? If you're not in a rush? Ah, yes, you are not the first. Realizing others appreciate Fourdiopolis more than you could, and leaving more of its resources to them. Ah, yes, even the unsatisfied are satisfied in Fourdiopolis![paragraph break]";
 	say "Erm, yeah. This isn't the best ending. Not at all. You may wish to UNDO.";
-	end-with-undo;
+	end-loss-with-undo;
 
 check going inside when a quasi-entry is visible:
 	try entering a random visible quasi-entry instead;
@@ -703,7 +719,7 @@ check entering a quasi-entry:
 	repeat through your-table:
 		if your-tally is tally entry:
 			if noun is suspiciously ordinary door:
-				say "Whoah. You're not brave enough to enter. But you'll leave a message.[line break]";
+				say "Whoah. You're not brave enough to enter. But you'll leave a message.[paragraph break]";
 			if there is a foundit entry:
 				say "[foundit entry][line break]";
 			else:
@@ -739,7 +755,7 @@ to run-the-ending:
 		choose row 1 in table of accomplishments;
 		now solved entry is true;
 		write file of accomplishments from the table of accomplishments;
-		end-with-undo;
+		end-win-with-undo;
 		continue the action;
 	else if your-table is table of last names:
 		if score is 0:
@@ -758,7 +774,7 @@ to run-the-ending:
 			say "'All of them? You're almost scaring us. Don't worry. Almost.'";
 		if score > 16:
 			say "[paragraph break]You ask if you can come along for the uprisings, but they assure you your technical skills are far too valuable. You feel sort of ripped off, until you realize that means all-you-can-eat from the supplies you requisitioned earlier.";
-		end-with-undo;
+		end-win-with-undo;
 		continue the action;
 	else if your-table is table of just plain cool stuff:
 		if score < 10:
@@ -771,7 +787,7 @@ to run-the-ending:
 			choose row 5 in table of accomplishments;
 			now solved entry is true;
 			write file of accomplishments from the table of accomplishments;
-		end-with-undo;
+		end-win-with-undo;
 		continue the action;
 	let lists-done be 0;
 	let table-count be 0;
@@ -814,7 +830,7 @@ to run-the-ending:
 	else:
 		say "'You did [if score is 20]a perfect job[else]such a good job. [score in words] of 20 is impressive[end if]! But hey! There's still a bit more. We're--well, even shorter of competent people like you to find stuff. There's just [4 - lists-done in words] other big twenty-item task[if 4 - lists-done > 1]s[end if] left to do, but--it'll be about the same challenge as what you already found.'";
 	bracket-say "if you wish to undo this specific task set, you can type I UNDID [spec-undo]. This will be in the A command, if you forget.";
-	end-with-undo;
+	end-win-with-undo;
 
 to say spec-undo:
 	if your-table is table of marginalized people:
@@ -1051,7 +1067,7 @@ to say seek-track:
 		if found entry is 0:
 			add "[tally entry in upper case]" to ln;
 	if debug-state is true:
-		say 'DEBUG NOTE found directory.";
+		say "DEBUG NOTE found directory.";
 	if number of entries in ln is 0:
 		say "There's no weird stuff to track down"; [technically not true. DIE is always there, but I just didn't want to futz with the code. The stuff that's not listed is hidden in the AMUSING section, anyway.]
 		continue the action;
@@ -1091,6 +1107,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "iundidedu"	--	"[worry-undo of table of education]."	--	-1
 "iundidjunk"	--	"[worry-undo of table of supplies]."	--	-1
 "iundidnews"	--	"[worry-undo of table of marginalized people]."	--	-1
+"jedi"	--	"You feel some sort of good force with you, for a moment."	--	0
 "jesus"	--	"Someone spouting an annoying proof that religions shouldn't exist then asks you to join the personality cult of a smart person dead for a hundred years, who wasn't nice, but they understood algorithms of how to make others nicer. You brush them away."	--	0
 "juke"	--	"Someone walking towards you tries to get out of your way, and you do the same. But you both pick the same way to go, several times. Awkward!"	--	0
 "keds"	--	"[snee]."	--	0
@@ -1106,7 +1123,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "nissin"	--	"You step on something. It looks like a chunk of dried noodles. You feel hungry for food you'll regret later."	--	0
 "nudies"	--	"You see, and quickly ignore, some disturbing fliers on the ground."	--	0
 "nuhuh"	--	"A trivial argument nearby quickly turns emotional."	--	0
-"nuked"	--	"A surprisingly empty area. You look for biohazard signs but don't see any[nuked-nukes]."	--	0
+"nuked"	--	"A surprisingly empty area. You look for biohazard signs but don't see any. Still, you feel disturbingly tingly."	--	0
 "seediness"	--	"This area doesn't feel too posh. You don't know why, but it doesn't."	--	0
 "seek"	--	"You spy someone else with a sheet similar to yours. You don't acknowledge them, though. Can't be too careful."	--	0
 "seine"	--	"You feel a hackneyed flavor of, and longing for, Gay Paree."	--	0
@@ -1131,6 +1148,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "whininess"	--	"You can zone out one complaint or two, but when it's all around, it's like it's contagious and you just won't put up with it! Really, some people! It's just not fair! You'd never...oops."	--	0
 "whisk"	--	"You trip on an odd cooking doohickey you forget the name of. People don't have time for making their own meals, with so much virtual reality to experience these days, and machines do it all well enough."	--	0
 "whiskies"	--	"Wow! People seem to be having a rip roaring time, here[whisky-wine]. You don't have time for such carousing at the moment, but it boosts your spirits."	--	0
+"wiki"	--	"You suddenly have an urge to look up some term and follow a chain to all sorts of odd knowledge you may never use but it'll be fun."	--	0
 "wind"	--	"You're almost blown off your feet for a second. Air currents in Fourdiopolis are weird--there's no PROOF the government controls them, but..."	--	0
 "winded"	--	"You take a break to catch your breath."	--	0
 "wineskins"	--	"Everything retro is fashionable again, and drinking wine from animal skins was before when retro was a thing, so--that big rich people's gathering in the park is extra nice."	--	0
@@ -1148,8 +1166,8 @@ Include (-
 
 to say whisky-wine:
 	if your-table is table of supplies:
-		choose row with tally of "whisky" in your-table;
-		say ". [if found entry is 0]You figure there may be something a bit more restrained at the end of your list--a different way to imbibe[else]you already got some wines, but whiskies should probably best wait to celebrate a successful revolution[end if]"
+		choose row with tally of "wines" in your-table;
+		say ". [if found entry is 0]You figure there may be something a bit more restrained at the end of your list--a different way to imbibe[else]You already got some wines, but whiskies should probably best wait to celebrate a successful revolution[end if]"
 
 chapter nearlies table
 
@@ -1174,7 +1192,7 @@ this is the plural-almost rule:
 			if found-yet of mult entry:
 				now found entry is 2;
 			else:
-				say "On your way back to the center, you wonder if you could've gone [if missage entry is 1]a bit farther[else if missage entry is 2]a small way along[else if missage entry is 3]a good bit ahead[else]down a small detour[end if] to find something. Or things. You felt like you were close.";
+				say "On your way back to the center, you wonder if you could've gone [if missage entry is 1]a bit farther[else if missage entry is 2]a small way along[else if missage entry is 3]a good bit ahead[else]down a small detour[end if] to find something. Or things. You felt like you were close.[paragraph break]";
 				now found entry is 0;
 				the rule succeeds;
 	the rule succeeds;
@@ -1202,16 +1220,16 @@ tally	mult	tname	found	missage
 "shed"	"sheds"	table of supplies	0	1
 "skunk"	"skunks"	table of supplies	0	1
 "undie"	"undies"	table of supplies	0	1
+"wine"	"wines"	table of supplies	0	1
 "wish"	"wishes"	table of supplies	0	2
 "dunk"	"dunks"	table of just plain cool stuff	0	1
 "hiss"	"hisses"	table of just plain cool stuff	0	2
 "husk"	"husks"	table of just plain cool stuff	0	1
 "kiss"	"kisses"	table of just plain cool stuff	0	2
-"shine"	"shininess"	table of just plain cool stuff	0	3
+"shine"	"shininess"	table of just plain cool stuff	0	4
 "skink"	"skinks"	table of just plain cool stuff	0	1
 "ski"	"skis"	table of just plain cool stuff	0	1
 "wink"	"winks"	table of just plain cool stuff	0	1
-"wine"	"wines"	table of supplies	0	1
 
 chapter final table
 
@@ -1252,7 +1270,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "wisniewski"	"Polish"	"As you make your mark, you feel a shudder of Loathing at Wisniewski also being The Man."	suspiciously ordinary door	0
 
 to say mark-away:
-	say "You read through your guidelines on rabble rousing literature and write up a short screed describing how [your-tally in upper case] [one of]is typical of the whole bunch and one of the worst at the same time[or]doesn't care at all, but cares about themselves[or]is both too powerful and yet powerless to change the PEOPLE[or]doesn't understand common people but sure understands how to manipulate them[or]is the worst and yet controlled by even worse people at the same time[in random order]. You add in some bargle about [one of]how they'll get to spend more time with their lovely family soon[or]disgruntled ex-staffers TALK[or]they'll be the first out when people see all the corruption[or]their rags to riches story being a fraud compared to Ed Dunn[or]their lack of, or excessive, charisma is especially galling[or]Embarrassing Facts you know--ones you can't even write down[or]their lack of traditional values and desire to return Fourdiopolis to the 21st century won't stand[or]their [a random number between 85 and 95]% approval rating is a fraud[or]their getting [a random number between 85 and 95]% of the vote is suspicious[in random order]. Any crank can send an email like that, but few people have the guts to DROP BY. You dust your hands off and sneak away"
+	say "You read through your guidelines on rabble rousing literature and write up a short screed describing how [your-tally in title case] [one of]is typical of the whole bunch and one of the worst at the same time[or]doesn't care at all, but cares about themselves[or]is both too powerful and yet powerless to change the PEOPLE[or]doesn't understand common people but sure understands how to manipulate them[or]is the worst and yet controlled by even worse people at the same time[in random order]. You add in some bargle about [one of]how they'll get to spend more time with their lovely family soon[or]disgruntled ex-staffers TALK[or]they'll be the first out when people see all the corruption[or]their rags to riches story being a fraud compared to Ed Dunn[or]their lack of, or excessive, charisma is especially galling[or]Embarrassing Facts you know--ones you can't even write down[or]their lack of traditional values and desire to return Fourdiopolis to the 21st century won't stand[or]their [a random number between 85 and 95]% approval rating is a fraud[or]their getting [a random number between 85 and 95]% of the vote is suspicious[in random order]. Any crank can send an email like that, but few people have the guts to DROP BY. You dust your hands off and sneak away"
 
 table of name yay
 count	comment
@@ -1273,9 +1291,13 @@ story-ended is a truth state that varies.
 
 big-jump is a truth state that varies.
 
-to end-with-undo:
+to end-loss-with-undo:
 	now story-ended is true;
 	end the story saying "[msg]";
+
+to end-win-with-undo:
+	now story-ended is true;
+	end the story finally saying "[msg]";
 
 to say msg:
 	if your-tally is "die":
@@ -1325,6 +1347,7 @@ locom-chars is a number that varies. locom-chars is 2.
 
 after reading a command:
 	let locom be the player's command in lower case;
+	change the text of the player's command to "[locom]";
 	if period-warn is false:
 		if locom matches the regular expression "\.":
 			say "You don't need to separate commands with periods. You [if score > 1]should've been noted you can munge directions together[else]may find out why in a bit[end if]. In the meantime, they may distract the parser.";
@@ -1338,18 +1361,19 @@ after reading a command:
 		if number of quasi-entries in outside-area > 0 and the player's command matches "^in$":
 			continue the action;
 		if number of characters in locom > locom-chars:
-			if the player's command matches "i did i undid":
-				do nothing;
-			else if the player's command matches "i seek keen":
-				do nothing;
-			else if locom is "in":
-				do nothing;
-			else if the player's command matches the regular expression "^i (did|undid) (edu|junk|news)":
-				do nothing;
-			else:
-				dirparse locom;
-				consider the silly stuff rule;
-				reject the player's command;
+			if locom is "unkindness":
+				continue the action;
+			if locom is "i did i undid":
+				continue the action;
+			if locom is "i seek keen":
+				continue the action;
+			if locom is "in":
+				continue the action;
+			if locom matches the regular expression "^i (did|undid) (edu|junk|news)$":
+				continue the action;
+			dirparse locom;
+			consider the silly stuff rule;
+			reject the player's command;
 	let w1 be word number 1 in locom;
 	if the w1 is "g" or w1 is "again":
 		say "That would actually make getting around in Fourdiopolis more complex. Because you can't really move from there to here, again, or not that way[if score < 3 and your-table is table of friends]. You'll understand once you find a few things--it'd just allow all kinds of extra crazy [italic type]guesses[roman type][else]. Most of the fun stuff would begin with G, though EGGS and DUNG would be left, which is not so fun[end if]. Using one-word directions should be quick enough.";
@@ -1357,7 +1381,7 @@ after reading a command:
 
 check looking (this is the if command says L rule) :
 	if the player's command matches the regular expression "^(l|look)\b":
-		say "You look around, hoping for some weird fifth direction to look for something significant. You don't find it.";
+		say "You look around, hoping for some weird fifth dimension, or eleventh direction, to look for something significant. You don't find it.";
 	if dirparsing is true and quick-mode is true:
 		say "[bold type]Speeding by sector [sec of ud][sec of ns][sec of ew][roman type][line break]";
 		the rule succeeds;
@@ -1610,7 +1634,7 @@ carry out unkindnessing:
 	if your-table is table of last names:
 		say "You're already hunting last names." instead;
 	say "This will skip to the final toughest puzzle. Are you sure?";
-	if the player consents:
+	if debug-state is true or the player consents:
 		say "Ok. Have fun.";
 	else:
 		say "Ok. Back to normal.";
@@ -1724,21 +1748,26 @@ Rule for printing a parser error when the latest parser error is the I beg your 
 		say "Your eyes wander... hey! You can totally enter the [random visible quasi-entry], if you'd like.";
 		the rule succeeds;
 	let any-left be false;
+	let total-left be 0;
+	let cur-length be 3;
+	let max-length be 3;
 	repeat through your-table:
 		if found entry is 0:
 			now any-left is true;
+			increment total-left;
+		if max-length < number of characters in tally entry:
+			now max-length is number of characters in tally entry;
 	if any-left is false:
 		say "No dawdling! Time to go back to the hideout. Where was it hidden inside, again?" instead;
-	say "You consider what to do next. Hmm, look for the shortest first: ";
-	let cur-length be 3;
-	while cur-length < 9:
+	say "You consider what to do next. Hmm, [if total-left > 1]look for the shortest first: [end if]";
+	while cur-length <= max-length:
 		repeat through your-table:
 			if number of characters in tally entry is cur-length:
 				if found entry is 0:
 					if there is no descrip entry:
 						say "(needs descrip entry).";
 					else:
-						say "[descrip entry] at [sector-num of tally entry] seems as good as any.";
+						say "[bold type][descrip entry] at [sector-num of tally entry][roman type] [if total-left is 1]is the last task[else]seems potentially the easiest[end if].";
 					the rule succeeds;
 		increment cur-length;
 	say "BUG. Nothing is left.";
@@ -1897,7 +1926,7 @@ understand "i seek keen" as keenseeking.
 
 carry out keenseeking:
 	if your-table is not table of friends:
-		say "You already found the revolution's friends, so there's no way to skip forward any more[if your-table is not table of last names] besides editing the save file, fourdiop, or fourdiop.glkdata, and setting variables to 1 (done) or 0 (not) as you want[end if]." instead;
+		say "You already found the revolution's friends, so this isn't the way to skip forward any more[if your-table is not table of last names] besides editing the save file, fourdiop, or fourdiop.glkdata, and setting variables to 1 (done) or 0 (not) as you want[end if]." instead;
 	choose row 1 in table of accomplishments;
 	now solved entry is true;
 	midtable-choose;
@@ -2288,7 +2317,7 @@ to check-silly-comments:
 			comment-mine tabcomment entry;
 	if score is 2 and your-table is table of friends:
 		now locom-chars is 1;
-		say "[line break][if ever-fast is true]You've already been munging directions together into one word, and there's no reason to stop[else]You know, now that you've got the hang of things, you can just munge directions together. Like DUDES instead of D, U, D, E, S[end if].";
+		say "[line break][if ever-fast is true]You've already been munging directions together into one word, and there's no reason to stop[else]Now that you've got the hang of things, you can just munge directions together. Like DUDES instead of D, U, D, E, S[end if].";
 
 to comment-mine (j - a table name):
 	repeat through j:
@@ -2351,7 +2380,7 @@ to say rhet:
 check requesting the score:
 	say "So far, you've found [the score] of the [number of rows in your-table] locations you needed to[one of]. Note that X, or the status line, may be a better way to keep track of overall progress[or][stopping].";
 	if scenery-found > 0:
-		say "You've also found [scenery-found] of [number of rows in table of scenery] miscellaneous bits of scenery.";
+		say "[line break]You've also found [scenery-found] of [number of rows in table of scenery] miscellaneous bits of scenery.";
 	the rule succeeds;
 
 instead of drinking:
@@ -2521,7 +2550,7 @@ rule for amusing a victorious player:
 				now hide-this is true;
 				now hide-ever is true;
 		if hide-this is false:
-			say "[2da][need-solved entry][line break]";
+			say "[2da][funny-try entry][line break]";
 	if hide-ever is true:
 		say "You still can solve more and unlock other amusing things to do.";
 
@@ -2536,11 +2565,11 @@ to decide whether (n - a number) is game-done:
 table of silly jokes
 funny-try	need-solved
 "to DIE?"	1
-"waiting?"
-"XYZZY? And the follow-up(s)?"
-"sleeping?"
-"A scenery location at 6FF?"
-"to visit where I SEEK KEEN?"
+"waiting?"	--
+"XYZZY? And the follow-up(s)?"	--
+"sleeping?"	--
+"A scenery location at 6FF?"	--
+"to visit where I SEEK KEEN?"	--
 
 
 volume testing - not for release
