@@ -121,6 +121,7 @@ Good job! That's enough to be promoted
 >fi 17
 >in
 Good job! That's enough to be promoted
+if we round up
 
 >undo
 >fi 18
@@ -591,6 +592,12 @@ uprisings
 
 >undo
 >fi 33
+>in
+Impressive indeed!
+uprisings
+
+>undo
+>fi 34
 >in
 All of them? You're almost
 uprisings

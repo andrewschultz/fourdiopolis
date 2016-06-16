@@ -7,6 +7,9 @@ prefix:4ds
 cmd:r
 
 fo sc
+
+>t
+
 dejeune|You sure could use a lunch break right now!
 deke|You wonder if you faked yourself out going this way.
 didi|A fellow with oversized glasses and suspenders runs into you, shrugs his shoulders, snort-laughs and then runs away.

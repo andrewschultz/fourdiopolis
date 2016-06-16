@@ -518,6 +518,7 @@ note-found is a truth state that varies.
 to tally-and-place:
 	let A be indexed text;
 	now A is your-tally;
+	let B be number of characters in your-tally;
 	repeat with Q running through things in outside-area:
 		if Q is not player and Q is not transporter:
 			now Q is off-stage;
@@ -531,12 +532,15 @@ to tally-and-place:
 				if location of what-drops entry is not outside-area:
 					move what-drops entry to outside-area;
 					continue the action;
-	repeat through table of scenery:
-		if A is tally entry in lower case:
-			if there is a what-drops entry:
-				now found entry is 1;
-				move what-drops entry to outside-area;
-				continue the action;
+	if B > 2:
+		repeat through table of scenery:
+			if A is tally entry in lower case:
+				if there is a what-drops entry:
+					now found entry is 1;
+					move what-drops entry to outside-area;
+					continue the action;
+			if B < number of characters in tally entry:
+				break;
 
 after printing the locale description:
 	let A be indexed text;
@@ -1088,78 +1092,79 @@ to say seek-track:
 
 table of scenery [tosc]
 tally (text)	descrip (text)	foundit (text)	what-drops	found
-"dejeune"	--	"You sure could use a lunch break right now!"	--	0
-"deke"	--	"You wonder if you faked yourself out going this way."	--	0
-"didi"	"Urkel"	"A fellow with oversized glasses and suspenders runs into you, shrugs his shoulders, snort-laughs and then runs away."	--	0
 "die"	"sacrifice yourself"	"Assisted suicide is more rigorous than in Threediopolis. The Death Panels there (not the healthcare kind) give punditary views before you pegged out, but here, you have surveys...quesstionnaires...what would you do better? What do you think authorities would do better? No, no, you are just lashing out because you are suicidal. Ah, yes, even the unsatisfied are satisfied in Fourdiopolis."	ominous door	0
-"dike"	--	"In this blocked-off area, people talk about the city water supply."	--	0
-"dindin"	--	"You feel hungry."	--	0
-"dink"	--	"You're hit by a very very soft nerf ball that runs away. Hmm."	--	0
 "duh"	--	"Oh, man! You can't believe you missed THAT one. It's obvious now!"	--	0
 "dui"	--	"A robot-police runs by and grabs a breath-sample from the air in front of you. 'Proceed,' it says. Hmm.'"	--	0
 "eek"	--	"Someone tells a scary story for effect and, well, gets the effect they want."	--	0
+"hhh"	"Triple H"	"Someone threatens to bodyslam another person for being utterly evil. Then--bam! You see they actually do! Someone whispers to you, don't worry, it's fake, just entertainment. What is the world coming to?"	--	0
+"kkk"	"bad bad people"	"Everyone around here just really, really sucks at life. What else can I say?"	--	0 [super extra double for this vs another k word but here there's an opportunity to laugh at people a bit I hope]
+"deke"	--	"You wonder if you faked yourself out going this way."	--	0
+"didi"	"Urkel"	"A fellow with oversized glasses and suspenders runs into you, shrugs his shoulders, snort-laughs and then runs away."	--	0
+"dike"	--	"In this blocked-off area, people talk about the city water supply."	--	0
+"dink"	--	"You're hit by a very very soft nerf ball that runs away. Hmm."	--	0
 "ehhs"	--	"People keep asking fellow conversers to repeat themselves, here."	--	0
-"ennui"	--	"Yyyyyawn. What's the point?"	--	0
 "heed"	--	"Some police give a particularly stern lecture to a citizen not fully obeying some minor law."	--	0
+"hues"	--	"The local color is particularly vibrant in this neighborhood."	--	0
+"hush"	--	"Unusually quiet here."	--	0
+"ides"	--	"An organized march nearby leaves you feeling wary."	--	0
+"juke"	--	"Someone walking towards you tries to get out of your way, and you do the same. But you both pick the same way to go, several times. Awkward!"	--	0
+"keds"	--	"[snee]."	--	0
+"kike"	"an unacceptable slur"	"Some kids call another kid a name. They try to convince him he can't be that made if he doesn't know what it means, or if it's a really old insult before it's over. You want to step in and help the poor kid but you don't know how."	--	0
+"kwik"	--	"You can just hear the misspellings as people talk too fast here."	--	0
+"nike"	--	"[snee]."	--	0
+"seek"	--	"You spy someone else with a sheet similar to yours. You don't acknowledge them, though. Can't be too careful."	--	0
+"shun"	--	"You feel very, very alone. People are more than just giving you your space."	--	0
+"uhhs"	--	"Conversation feels a bit slower and dumber than usual for Fourdiopolis, for a second here."	--	0
+"uuid"	--	"You are suddenly unable to get the hexadecimal number [b][uuid][r] out of your head!"	--	0
+"whew"	--	"You just barely escaped something, there! You don't know what, but it would've been pretty bad."	--	0
+"wiki"	--	"You suddenly have an urge to look up some term and follow a chain to all sorts of odd knowledge you may never use but it'll be fun."	--	0
+"wind"	--	"You're almost blown off your feet for a second. Air currents in Fourdiopolis are weird--there's no PROOF the government controls them, but..."	--	0
+"ennui"	--	"Yyyyyawn. What's the point?"	--	0
+"iknew"	--	"Someone covers for looking stupid by explaining they were just being really, really ironic."	--	0
+"jesus"	--	"Someone spouting an annoying proof that religions shouldn't exist then asks you to join the personality cult of a smart person dead for a hundred years, who wasn't nice, but they understood algorithms of how to make others nicer. You brush them away."	--	0
+"knees"	--	"You grab an old ache for a moment."	--	0
+"nisei"	--	"You walk past shops with Japanese signs."	--	0
+"nuhuh"	--	"A trivial argument nearby quickly turns emotional."	--	0
+"nuked"	--	"A surprisingly empty area. You look for biohazard signs but don't see any. Still, you feel disturbingly tingly."	--	0
+"seine"	--	"You feel a hackneyed flavor of, and longing for, Gay Paree."	--	0
+"shins"	--	"You grab an old ache for a moment."	--	0
+"shush"	--	"'Oh, sure, you can THINK that, just don't SAY it, you know?'"	--	0
+"sides"	--	"You feel cornered in here. You're not sure why."	--	0
+"undid"	--	"You feel regret for what you've done and regret for that regret. You waste a bit of time fretting over how you've wasted a bit of time no matter which feeling is right."	--	0
+"whisk"	--	"You trip on an odd cooking doohickey you forget the name of. People don't have time for making their own meals, with so much virtual reality to experience these days, and machines do it all well enough."	--	0
+"dindin"	--	"You feel hungry."	--	0
 "heehee"	--	"You think of a silly pun that feels funnier than it has a right to be."	--	0
 "hehhuh"	--	"[bnb]"	--	0
 "henwen"	"Prydain Chronicles"	"You thought you heard a talking pig just now."	--	0
-"hhh"	"Triple H"	"Someone threatens to bodyslam another person for being utterly evil. Then--bam! You see they actually do! Someone whispers to you, don't worry, it's fake, just entertainment. What is the world coming to?"	--	0
-"hues"	--	"The local color is particularly vibrant in this neighborhood."	--	0
 "huhheh"	--	"[bnb]"	--	0
-"hush"	--	"Unusually quiet here."	--	0
-"ides"	--	"An organized march nearby leaves you feeling wary."	--	0
-"iknew"	--	"Someone covers for looking stupid by explaining they were just being really, really ironic."	--	0
-"inkiness"	--	"Everything's a bit cloudy, here."	--	0
-"iseekkeen"	--	"[seek-track]."	--	-1
-"iundidedu"	--	"[worry-undo of table of education]."	--	-1
-"iundidjunk"	--	"[worry-undo of table of supplies]."	--	-1
-"iundidnews"	--	"[worry-undo of table of marginalized people]."	--	-1
-"jeskiddin"	--	"Someone walks by and notifies you this is a Level 17 restricted area. You quickly hide your to-do list, before they point and laugh that they got you GOOD, and the grocery store's THAT way."	--	0
-"jesus"	--	"Someone spouting an annoying proof that religions shouldn't exist then asks you to join the personality cult of a smart person dead for a hundred years, who wasn't nice, but they understood algorithms of how to make others nicer. You brush them away."	--	0
-"juke"	--	"Someone walking towards you tries to get out of your way, and you do the same. But you both pick the same way to go, several times. Awkward!"	--	0
-"keds"	--	"[snee]."	--	0
-"kidniki"	--	"You temporarily feel on guard against the possibility of radical ninjas."	--	0
-"kidskin"	--	"You walk by an exotic leather store."	--	0
-"kike"	"an unacceptable slur"	"Some kids call another kid a name. They try to convince him he can't be that made if he doesn't know what it means, or if it's a really old insult before it's over. You want to step in and help the poor kid but you don't know how."	--	0
-"kkk"	"bad bad people"	"Everyone around here just really, really sucks at life. What else can I say?"	--	0 [super extra double for this but here there's an opportunity to laugh at people a bit I hope]
-"knees"	--	"You grab an old ache for a moment."	--	0
-"kuskunn"	"Magic Candle"	"You see an image of a demon trapped in a bubble, by a candle slowly burning."	--	0
-"kwik"	--	"You can just hear the misspellings as people talk too fast here."	--	0
-"nike"	--	"[snee]."	--	0
-"nisei"	--	"You walk past shops with Japanese signs."	--	0
 "nissin"	--	"You step on something. It looks like a chunk of dried noodles. You feel hungry for food you'll regret later."	--	0
 "nudies"	--	"You see, and quickly ignore, some disturbing fliers on the ground."	--	0
-"nuhuh"	--	"A trivial argument nearby quickly turns emotional."	--	0
-"nuked"	--	"A surprisingly empty area. You look for biohazard signs but don't see any. Still, you feel disturbingly tingly."	--	0
-"seediness"	--	"This area doesn't feel too posh. You don't know why, but it doesn't."	--	0
-"seek"	--	"You spy someone else with a sheet similar to yours. You don't acknowledge them, though. Can't be too careful."	--	0
-"seine"	--	"You feel a hackneyed flavor of, and longing for, Gay Paree."	--	0
 "shinju"	--	"Hm, looks like a play, in the park. Not quite Romeo and Juliet, but seemes like it just ended the same way."	--	0
-"shins"	--	"You grab an old ache for a moment."	--	0
 "shishe"	--	"You smell evidence people are--gasp--SMOKING. You remember health warnings that a whiff of the good smelling stuff is worse than the bad smelling stuff, and vice versa."	--	0
-"shun"	--	"You feel very, very alone. People are more than just giving you your space."	--	0
-"shush"	--	"'Oh, sure, you can THINK that, just don't SAY it, you know?'"	--	0
-"sides"	--	"You feel cornered in here. You're not sure why."	--	0
+"unkind"	--	"You worry someone's going to do something mean to you, but don't worry, they're only thinking about it. Especially with video cameras all around."	--	0
+"winded"	--	"You take a break to catch your breath."	--	0
+"dejeune"	--	"You sure could use a lunch break right now!"	--	0
+"kidniki"	--	"You temporarily feel on guard against the possibility of radical ninjas."	--	0
+"kidskin"	--	"You walk by an exotic leather store."	--	0
+"kuskunn"	"Magic Candle"	"You see an image of a demon trapped in a bubble, by a candle slowly burning."	--	0
 "sissies"	--	"Some self-made tough guys still feel a need to gang up on people weaker than they are. The pain's all over at once that way, amirite?"	--	0
 "skidded"	--	"A goverment utility vehicle swerves and almost hits someone about to jaywalk. Funny how one is always around, unless you jaywalk REALLY assertively."	--	0
-"skinniness"	--	"You are momentarily bombarded with ads for diet plans."	--	0
-"skunkweed"	--	"It smells bad here, like it should be illegal."	--	0
-"uhhs"	--	"Conversation feels a bit slower and dumber than usual for Fourdiopolis, for a second here."	--	0
-"undid"	--	"You feel regret for what you've done and regret for that regret. You waste a bit of time fretting over how you've wasted a bit of time no matter which feeling is right."	--	0
-"unkind"	--	"You worry someone's going to do something mean to you, but don't worry, they're only thinking about it. Especially with video cameras all around."	--	0
+"weenies"	--	"An old long-abandoned hot dog hut lies between two places of Serious Business. Your grandparents constantly babbled about the misspelled version from THEIR youth being so tasty, and--well--maybe the misspelling did make things tastier."	--	0
+"inkiness"	--	"Everything's a bit cloudy, here."	--	0
 "unkissed"	--	"You hear a teen sob about their lack of romantic luck."	--	0
 "unwished"	--	"Someone tries to hand you a flyer you really, really don't want."	--	0
-"uuid"	--	"You are suddenly unable to get the hexadecimal number [b][uuid][r] out of your head!"	--	0
-"weenies"	--	"An old long-abandoned hot dog hut lies between two places of Serious Business. Your grandparents constantly babbled about the misspelled version from THEIR youth being so tasty, and--well--maybe the misspelling did make things tastier."	--	0
-"whew"	--	"You just barely escaped something, there! You don't know what, but it would've been pretty bad."	--	0
-"whininess"	--	"You can zone out one complaint or two, but when it's all around, it's like it's contagious and you just won't put up with it! Really, some people! It's just not fair! You'd never...oops."	--	0
-"whisk"	--	"You trip on an odd cooking doohickey you forget the name of. People don't have time for making their own meals, with so much virtual reality to experience these days, and machines do it all well enough."	--	0
 "whiskies"	--	"Wow! People seem to be having a rip roaring time, here[whisky-wine]. You don't have time for such carousing at the moment, but it boosts your spirits."	--	0
-"wiki"	--	"You suddenly have an urge to look up some term and follow a chain to all sorts of odd knowledge you may never use but it'll be fun."	--	0
-"wind"	--	"You're almost blown off your feet for a second. Air currents in Fourdiopolis are weird--there's no PROOF the government controls them, but..."	--	0
-"winded"	--	"You take a break to catch your breath."	--	0
+"iseekkeen"	--	"[seek-track]."	--	-1
+"iundidedu"	--	"[worry-undo of table of education]."	--	-1
+"jeskiddin"	--	"Someone walks by and notifies you this is a Level 17 restricted area. You quickly hide your to-do list, before they point and laugh that they got you GOOD, and the grocery store's THAT way."	--	0
+"seediness"	--	"This area doesn't feel too posh. You don't know why, but it doesn't."	--	0
+"skunkweed"	--	"It smells bad here, like it should be illegal."	--	0
+"whininess"	--	"You can zone out one complaint or two, but when it's all around, it's like it's contagious and you just won't put up with it! Really, some people! It's just not fair! You'd never...oops."	--	0
 "wineskins"	--	"Everything retro is fashionable again, and drinking wine from animal skins was before when retro was a thing, so--that big rich people's gathering in the park is extra nice."	--	0
+"iundidjunk"	--	"[worry-undo of table of supplies]."	--	-1
+"iundidnews"	--	"[worry-undo of table of marginalized people]."	--	-1
+"skinniness"	--	"You are momentarily bombarded with ads for diet plans."	--	0
+
 
 to say uuid:
 	(- RAW(); -)
@@ -1180,7 +1185,6 @@ to say whisky-wine:
 chapter nearlies table
 
 to check-nearlies:
-	continue the action;
 	repeat through table of nearlies:
 		if tname entry is your-table:
 			if your-tally is tally entry:
