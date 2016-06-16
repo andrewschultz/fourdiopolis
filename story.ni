@@ -677,7 +677,7 @@ the edutainment storefront is a quasi-entry. "You recognize an edutainment store
 the suspiciously ordinary door is a quasi-entry. description is "The door is too clean and smooth. The wind blows by it with a nothing-to-see-here whistle.". "[if score is 0]Is it? Isn't it? Yes...no...it's an entry to a shadow campaign headquarters! Not that campaigns ever fail, for those who want to be elected.A suspiciously ordinary door leads in.[else if score is 1]It's a bit easier to recognize the shadow campaign headquarters now. There's another![else if score is 2]Another suspiciously ordinary door. You're sure, trying to underpin how the 'leaders' are just like regular people except for being hooked on powers.[else][another-door]. You wonder how you never recognized this sort of thing before.[end if]"
 
 to say another-door:
-	say "[one of]And here's another 'plain' door[or]Hey! You found another one[or]You feel clever at having found another secret door[or]Another suspiciously ordinary door, [one of]less suspicious than[or]as suspicious as[at random] the last, but that's suspicious in its own way[or]A door so plain, you wonder if it was ever opened.[at random]"
+	say "[one of]And here's another 'plain' door[or]Hey! You found another one[or]You feel clever at having found another secret door[or]Another suspiciously ordinary door, [one of]less suspicious than[or]as suspicious as[at random] the last, but that's suspicious in its own way[or]A door so plain, you wonder if it was ever opened[at random]"
 
 understand "hq/headquarters" and "shadow/-- campaign/-- headquarters/hq" as suspiciously ordinary door.
 
@@ -1259,7 +1259,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "hsieh"	"Chinese"	"[mark-away]."	suspiciously ordinary door	0
 "hsu"	"Chinese"	"[mark-away]."	suspiciously ordinary door	0
 "hussein"	"Arabic"	"You get very good mileage indeed writing up a screed with ten different ways to say 'at least you aren't as bad as...' You're worried how easy it is."	suspiciously ordinary door	0
-"ishii"	"Japanese"	"With no idea how true it is, you mention that this politician is even more 'I/I/I' than most."	suspiciously ordinary door	0
+"ishii"	"Japanese"	"With no idea how true it is, you mention that this politician is even more 'I, I, I' than most."	suspiciously ordinary door	0
 "jenkins"	"Disruptor"	"As you write up some absurd threat, you can't help but sign your name LEEROY, though you aren't silly enough to try to bust in."	suspiciously ordinary door	0
 "jensen"	"Swedish"	"[mark-away]."	suspiciously ordinary door	0
 "keene"	"None"	"[mark-away]."	suspiciously ordinary door	0

@@ -20,6 +20,7 @@ my $showZeros = 1;
 my $eraseRand = 0;
 my $eraseRandOut = 0;
 my $eraseAfter = 0;
+my $onlyFinal = 0;
 
 my $count = 0;
 
@@ -40,6 +41,8 @@ while ($count <= $#ARGV)
 	/^-?ca/ && do { $eraseRandOut = $eraseRand = 1; $count++; next; };
 	/^-?co/ && do { $eraseRandOut = 1; $count++; next; };
 	/^-?c/ && do { $eraseRand = 1; $count++; next; };
+	/^-?a6/ && do { $onlyFinal = 1; $count++; next; };
+	/^-?of/ && do { $onlyFinal = 1; $count++; next; };
 	/^-?y/ && do { $copyOver = 1; $count++; next; };
 	/^-?n/ && do { $copyOver = 0; $count++; next; };
 	/^-?t/ && do { $trackScenery = 1; $count++; next; };
@@ -143,6 +146,7 @@ while ($a = <A>)
   if ($a =~ /^prefix/i) { next; }
   if ($a =~ /~~/) { chomp($a); my @b = split("~~", $a); $equiv{$b[0]} = $b[1]; next; }
   if ($a =~ /^(\*\*|##)/) { print B "$a\n"; next; }
+  #if (($a =~ /^\* /) && ($onlyFinal)) { if ($a =~ /search-test-[1-5]/) { $a =~ s/search-/_search-/; die; } next; }
   if ($a =~ /^cmd:/i) { $a =~ s/^cmd://gi; $cmd = $a; next; }
   if ($a eq "\\") { print B "\n"; next; }
 
@@ -160,7 +164,9 @@ while ($a = <A>)
   if ($a =~ /^fo /)
   {
     my $x = $a; $x =~ s/^fo //g; chomp($x);
-    print B "* search-test-$x\n\n>fo $x\n\n";
+    print B "* ";
+	if (($onlyFinal) && ($x =~ /[1-5]/)) { print B "_"; }
+	print B "search-test-$x\n\n>fo $x\n\n";
     if ($a =~ /^fo sc/) { $scenery = 1; }
     $harvestRandoms = 1; @sortArray = (); next;
   }

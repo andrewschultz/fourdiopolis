@@ -5,6 +5,8 @@
 
 * meta-commands
 
+>wf 0
+
 >a
 C is short for check
 !will kick you back to
