@@ -203,7 +203,7 @@ carry out examining the task list:
 		else:
 			say "[descrip entry] @ [sector-num of tally entry] ";
 			say "([farness of tally entry])";
-		if the remainder after dividing Q2 by 5 is 0:
+		if the remainder after dividing Q2 by 5 is 0 or Q2 is number of rows in your-table:
 			say ".";
 		else:
 			say ", ";
@@ -992,7 +992,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "hussies"	"unfairly labeled women"	"Oh, sure, men get boxed in for talking back. It just still seems to happen more frequently to women. And these women would like to change that."	hovel	0
 "indies"	"non-mainstream art"	"You persuade the people here that their art will get more exposure with the Fourdiopolis power structure down. But don't worry, you won't become totally mainstream!"	hovel	0
 "inked"	"tattooed tough guys"	"Tattoos are illegal now unless they're government-enforced. Okay, if you manage to hide them certain places...but some people have had enough."	warehouse	0
-"jedi"	"star wars fans"	"You learn some cool mind tricks and some awesome classic movie trivia. It's sad that people can't enjoy their own favorite movies."	movie house	0
+"jedi"	"star wars fans"	"You learn some cool mind tricks, like melding concentration and intuition, and some awesome classic movie trivia. It's sad that people can't enjoy their own favorite movies."	movie house	0
 "jejune"	"political pranksters"	"You run into people who want to commit political pranks in support of being able to commit more political pranks. It's sure better than power for power's sake."	hovel	0
 "jeune"	"young idealistic foreigners"	"Kids from another land talk about all the stuff they don't have to beg for. You almost feel guilty wanting it, too."	tiny schoolhouse	0
 "junkies"	"people hooked on caffeine NOT from overpriced coffee"	"Apparently there is a whole repository of places to get caffeine. All kinds of rainbow colored pop! And worse, Well, that certainly seems worth fighting for."	hovel	0
@@ -1115,7 +1115,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "iundidedu"	--	"[worry-undo of table of education]."	--	-1
 "iundidjunk"	--	"[worry-undo of table of supplies]."	--	-1
 "iundidnews"	--	"[worry-undo of table of marginalized people]."	--	-1
-"jedi"	--	"You feel some sort of good force with you, for a moment."	--	0
+"jeskiddin"	--	"Someone walks by and notifies you this is a Level 17 restricted area. You quickly hide your to-do list, before they point and laugh that they got you GOOD, and the grocery store's THAT way."	--	0
 "jesus"	--	"Someone spouting an annoying proof that religions shouldn't exist then asks you to join the personality cult of a smart person dead for a hundred years, who wasn't nice, but they understood algorithms of how to make others nicer. You brush them away."	--	0
 "juke"	--	"Someone walking towards you tries to get out of your way, and you do the same. But you both pick the same way to go, several times. Awkward!"	--	0
 "keds"	--	"[snee]."	--	0
@@ -1180,6 +1180,7 @@ to say whisky-wine:
 chapter nearlies table
 
 to check-nearlies:
+	continue the action;
 	repeat through table of nearlies:
 		if tname entry is your-table:
 			if your-tally is tally entry:
@@ -1269,6 +1270,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "neeskens"	"Dutch"	"You feel an urge to mock this person's athletic ability and deride them as constantly second-best."	suspiciously ordinary door	0
 "nhek"	"Cambodian"	"[mark-away]"	suspiciously ordinary door	0
 "niesen"	"Scandinavian"	"[mark-away]."	suspiciously ordinary door	0
+"nijinski"	"Polish/Russian"	"You write something about how this person is particularly good at dancing around issues, until they aren't. Booyah!"	suspiciously ordinary door	0
 "nweke"	"Nigerian"	"You write something about how things fall apart in simple, powerful, no-nonsense language."	suspiciously ordinary door	0
 "sheen"	"WINNING"	"As much as you distrust politicians who talk about winning, the alternative is...worse? This guy was particularly outrageous, you remember now. Entertaining, but outrageous."	suspiciously ordinary door	0
 "shenn"	"None"	"[mark-away]."	suspiciously ordinary door	0
