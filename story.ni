@@ -68,10 +68,16 @@ to say 2da:
 
 to set-your-table (myt - a table name):
 	now your-table is myt;
-	if your-table is not table of friends:
-		now hidden-inside is true;
+	now hidden-inside is true;
+	now locom-chars is 1;
+	if your-table is table of friends:
+		now locom-chars is 2;
+		now hidden-inside is false;
 	repeat through your-table:
 		now found entry is 0;
+	repeat through table of scenery:
+		if found entry is 1:
+			now found entry is 0;
 	now score is 0;
 
 to say email:
@@ -205,7 +211,7 @@ carry out examining the task list:
 	if hideout is visible:
 		say "Ooh, the hideout to go back to is visible![line break]";
 	else if hidden-inside is false:
-		say "[line break]You're not sure where to report after reading this, but it's somewhere hidden inside. Where was it? B15? ED5? Anyway, they apparently had a backup shelter, if one got raided[if score > 14]. You've probably done enough to go back[end if]." instead;
+		say "[line break]You're not sure where to report after reading this, but it's somewhere hidden inside. Where was it? B15? ED5? Anyway, they apparently had a backup shelter, if one got raided[if score > 14]. You've probably done enough to go back[end if].";
 	else:
 		say "[line break]You found the place hidden inside to return to. [if score > 14]Maybe you can go there, now[else]But you might not want to go back yet[end if].";
 	if list-exam is false:
@@ -256,7 +262,7 @@ to say edge-check:
 	else if ew is 9 or ns is 9 or ew is -9 or ns is -9:
 		say ". You can see the countryside beyond the Fourdiopolis limits here";
 	else if ud is -9:
-		say ". You don't see any tubes down here";
+		say ". The tubes down here seem less, well, open";
 
 instead of waiting:
 	say "Loitering is a serious offense in Fourdiopolis. Officers often patrol for them. Often undercover. Which creates confusion, which makes loitering an even more serious offense.";
@@ -268,6 +274,9 @@ instead of jumping:
 	say "[u-a].";
 
 instead of waving:
+	say "[u-a].";
+
+instead of waving hands:
 	say "[u-a].";
 
 instead of sleeping:
@@ -291,7 +300,7 @@ instead of attacking:
 the transporter is scenery in outside-area. "The transporter--well, the details are inside, and they're not important. It has the letters I, J, K and H in a rough circle, or maybe they're vertices of a pyramid, or something. Anyway, you can probably just go h, i, j or k, and it'll understand that. No need for red tape."
 
 check entering transporter:
-	say "Try going h, i, j or k, instead." instead;
+	say "That's a bit ambiguous. Try going h, i, j or k, instead." instead;
 
 check examining the transporter for the first time:
 	say "You review the literature on the transporter about the three approved teleport directions: h, i, j and k, and something about quaternions, and something else about how you can't have people passing each other in opposite directions in a teleportal field, or BAM. It's all pretty standard stuff, and if people can't understand it, they look knowledgeable nodding their heads about it."
@@ -344,8 +353,6 @@ to see-if-left (t - a truth state):
 		now walked-by is true;
 
 check going inside:
-	if number of visible quasi-entries > 0:
-		try cing instead;
 	if word number 1 in the player's command is "in":
 		if score >= 2:
 			dirparse "in" instead;
@@ -481,7 +488,7 @@ gone-up-or-down is a truth state that varies.
 
 to say up-down-cool:
 	say "The hybrid transport tubes/stairs are designed for optimal pedestrian convenience and exercise potential";
-	now gone-up-or-down is false;
+	now gone-up-or-down is true;
 
 to decide whether oops:
 	if ew < -9 or ew > 9:
@@ -547,7 +554,7 @@ after printing the locale description:
 					if scenery-found-yet is false:
 						bracket-say "this wasn't critical to the game, but it's just something neat to find. There are [number of rows in table of scenery - 1] more to find, but they're meant to be obscure. Congratulations on finding one, though!";
 						now scenery-found-yet is true;
-					if found entry is 0: [-1 for ISEEKKEEN is a bit of a hack but yeah]
+					if found entry is 0: [-1 for ISEEKKEEN/etc is a bit of a hack but yeah]
 						now found entry is 1;
 	if your-tally is "hidden" or your-tally is "inside":
 		if hideout is not in outside-area:
@@ -643,7 +650,6 @@ to reset-game:
 	now walked-by is false;
 	if teleported is false:
 		say "You remember hearing that anywhere worth getting to, you had to teleport to. And you didn't, this run.";
-		continue the action;
 	else:
 		now teleported is false;
 		if add-to > 7 and your-table is table of friends:
@@ -689,7 +695,7 @@ a beaten-up store is a quasi-entry. description is "It does look as if a swanker
 
 the movie house is a quasi-entry. description is "These are pretty much illegal, since if people want to watch a movie they can just go watch it themselves. But some movie houses pretend to run propaganda...bot don't really."
 
-a dusty warehouse is a quasi-entry. description is "The warehouse is dusty but clean. So someone is probably living ther."
+a dusty warehouse is a quasi-entry. description is "The warehouse is dusty but clean. So someone is probably living there."
 
 a fake barn is a quasi-entry. description is "Amazingly, there are no records of health code violations here. The occupants are very lucky."
 
@@ -718,6 +724,8 @@ check going inside when a quasi-entry is visible:
 check entering a quasi-entry:
 	repeat through your-table:
 		if your-tally is tally entry:
+			if noun is front door:
+				say "(well, knocking, actually)[line break]";			
 			if noun is suspiciously ordinary door:
 				say "Whoah. You're not brave enough to enter. But you'll leave a message.[paragraph break]";
 			if there is a foundit entry:
@@ -1059,7 +1067,7 @@ to say worry-undo of (tn - a table name):
 	else:
 		choose row j in table of accomplishments;
 		say "[if solved entry is true]past[else]future[end if]";
-	say " wrangling may be all for nought and can be wiped out just like that, as if you're part of some big silly game you only understand on the surface.";
+	say " wrangling may be all for nought and can be wiped out just like that, as if you're part of some big silly game you only understand on the surface";
 
 to say seek-track:
 	let ln be a list of indexed text;
@@ -1096,7 +1104,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "heehee"	--	"You think of a silly pun that feels funnier than it has a right to be."	--	0
 "hehhuh"	--	"[bnb]"	--	0
 "henwen"	"Prydain Chronicles"	"You thought you heard a talking pig just now."	--	0
-"hhh"	"Triple H"	"Someone threatens to bodyslam another person for being utterly evil. Then--bam! You see they actually do! Someone whispers to you, don't worry, it's fake, just entertainment. What is the world coming to?"
+"hhh"	"Triple H"	"Someone threatens to bodyslam another person for being utterly evil. Then--bam! You see they actually do! Someone whispers to you, don't worry, it's fake, just entertainment. What is the world coming to?"	--	0
 "hues"	--	"The local color is particularly vibrant in this neighborhood."	--	0
 "huhheh"	--	"[bnb]"	--	0
 "hush"	--	"Unusually quiet here."	--	0
@@ -1175,13 +1183,14 @@ to check-nearlies:
 	repeat through table of nearlies:
 		if tname entry is your-table:
 			if your-tally is tally entry:
-				now found entry is 1;
+				unless found-yet of mult entry:
+					now found entry is 1;
 			if your-tally is mult entry:
 				now found entry is 0;
 
 to decide whether found-yet of (x - indexed text):
 	repeat through your-table:
-		if tally entry is x:
+		if x is "[tally entry]":
 			if found entry is 1, decide yes;
 			if found entry is 0, decide no;
 	decide no;
@@ -1225,6 +1234,7 @@ tally	mult	tname	found	missage
 "dunk"	"dunks"	table of just plain cool stuff	0	1
 "hiss"	"hisses"	table of just plain cool stuff	0	2
 "husk"	"husks"	table of just plain cool stuff	0	1
+"husk"	"huskies"	table of just plain cool stuff	0	3
 "kiss"	"kisses"	table of just plain cool stuff	0	2
 "shine"	"shininess"	table of just plain cool stuff	0	4
 "skink"	"skinks"	table of just plain cool stuff	0	1
@@ -1767,7 +1777,7 @@ Rule for printing a parser error when the latest parser error is the I beg your 
 					if there is no descrip entry:
 						say "(needs descrip entry).";
 					else:
-						say "[bold type][descrip entry] at [sector-num of tally entry][roman type] [if total-left is 1]is the last task[else]seems potentially the easiest[end if].";
+						say "[bold type][descrip entry] at [sector-num of tally entry][roman type] [if total-left is 1]is the last task[else if total-left is 2]looks like the easier of the two[else]seems potentially the easiest[end if].";
 					the rule succeeds;
 		increment cur-length;
 	say "BUG. Nothing is left.";
@@ -2203,7 +2213,6 @@ carry out dsing:
 part main stuff
 
 when play begins (this is the set the status line rule):
-	set-your-table table of friends;
 	now your-tally is "";
 	now right hand status line is "[score]/[number of rows in your-table]";
 	now ns is 0;
@@ -2213,6 +2222,12 @@ when play begins (this is the set the status line rule):
 screen-read is a truth state that varies.
 
 when play begins (this is the set table defaults rule):
+	repeat through table of scenery:
+		if there is no found entry:
+			if debug-state is true:
+				say "[b]Programming nitpick:[r] [tally entry] should be set to 0.";
+			now found entry is 0;
+	set-your-table table of friends;
 	sort the table of silly randoms in random order;
 	if debug-state is false:
 		say "Fourdiopolis has some screen reader support. Do you wish to use it?";
@@ -2229,19 +2244,11 @@ when play begins (this is the set table defaults rule):
 	say "And you have gotten social demerits and such. You claimed you didn't mean to do whatever, and the authorities said it's worse that way, what if you mean to one day?";
 	say "It's not going to be like that. It can't be like that. The authorities covered those loopholes. But somehow...you stumbled onto a bunch of nonconformists. They were surprised you found them, then they realized you weren't a government agent, and you didn't even like the government. They gave you a key to the teleporters. And a task list. Of stuff to find. To help them overthrow the government. It's up to you, to find unusual things and people not stamped out yet.";
 	say "[bold type]NOTE: to see commands for Fourdiopolis, type VERBS or VERB, or V for short.[roman type][paragraph break]";
-	repeat through table of scenery:
-		if there is no found entry:
-			if debug-state is true:
-				say "Programming nitpick: [tally entry] should be set to 0.";
-			now found entry is 0;
 	repeat through table of name yay:
 		if there is no count entry:
 			now count entry is (1 + number of rows in table of last names) / 2;
 		else if count entry < 1:
 			increase count entry by number of rows in table of last names;
-	if debug-state is true:
-		repeat through table of name yay:
-			say "DEBUG [count entry]: [comment entry][line break]";
 	wfak;
 
 chapter saved accomplishments
@@ -2380,7 +2387,7 @@ to say rhet:
 check requesting the score:
 	say "So far, you've found [the score] of the [number of rows in your-table] locations you needed to[one of]. Note that X, or the status line, may be a better way to keep track of overall progress[or][stopping].";
 	if scenery-found > 0:
-		say "[line break]You've also found [scenery-found] of [number of rows in table of scenery] miscellaneous bits of scenery.";
+		say "[line break]You've [if score > 0]also [end if]found [scenery-found] of [number of rows in table of scenery] miscellaneous bits of scenery.";
 	the rule succeeds;
 
 instead of drinking:

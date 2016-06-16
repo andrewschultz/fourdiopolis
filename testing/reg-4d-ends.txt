@@ -484,14 +484,14 @@ A bit disappointing
 >undo
 >fi 15
 >in
-A majority! Well, if we round up
-uprisings
+A bit disappointing
+!uprisings
 
 >undo
 >fi 16
 >in
-A majority!
-uprisings
+A bit disappointing
+!uprisings
 
 >undo
 >fi 17
@@ -550,19 +550,19 @@ uprisings
 >undo
 >fi 26
 >in
-Impressive indeed!
+Wow! We could hardly have hoped
 uprisings
 
 >undo
 >fi 27
 >in
-Impressive indeed!
+Wow! We could hardly have hoped
 uprisings
 
 >undo
 >fi 28
 >in
-Impressive indeed!
+Wow! We could hardly have hoped
 uprisings
 
 >undo
@@ -573,6 +573,24 @@ uprisings
 
 >undo
 >fi 30
+>in
+Impressive indeed!
+uprisings
+
+>undo
+>fi 31
+>in
+Impressive indeed!
+uprisings
+
+>undo
+>fi 32
+>in
+Impressive indeed!
+uprisings
+
+>undo
+>fi 33
 >in
 All of them? You're almost
 uprisings
