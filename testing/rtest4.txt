@@ -7,9 +7,6 @@ prefix:4d
 cmd:c
 
 fo 1
-
->t
-
 dennis|his wonderful friend Jonathan and Jonathan's lovely future wife Elizabeth
 eddie|He stashes some absurdly low-priced appliances into a closet
 enid|a book with a bunch of kids running around
@@ -36,9 +33,6 @@ winnie|Talking with Winnie you feel nostalgia and remember some growing pains.
 There's...a few more task lists. We're short of people.
 
 fo 2
-
->t
-
 hijinks|You learn tricks to make political rallies and flash mobs work with a minimum of arrests.
 hikes|You get a brief virtual reality sample of the unlivable wilds beyond the cities.
 issues|You learn not only the important issues but the details--and even how to skewer people who go too far into details.
@@ -65,9 +59,6 @@ wushu|You hear some blather about martial arts, not a sport, or some game that r
 Completed
 
 fo 3
-
->t
-
 desks|Well, we all need desks. Desks just aren't exciting. Maybe they can fold up, or have weird shapes, or even have cool drawers. But they're never exciting. At least they're ergonomic and space-efficient these days.
 dishes|Wow! All kinds of dishes! They're all biodegradable, too. They're a bit ugly, but you can't have everything. In a pinch, they can also be broken and thrown as weapons. Not very good weapons, but better than nothing.
 disused|Shadow groups can always use a good disused place. Until it gets too dis-dis-used.
@@ -94,9 +85,6 @@ wishes|You look down at your list.
 Completed
 
 fo 4
-
->t
-
 denied|There are always disgruntled people to bring to a cause.
 disses|Many people here applaud you for getting them to join the fight to freely insult the powerful as well as the poor -- even if you might not be able to formulate an insult yourself.
 djinn|You--you don't really believe in magic. But still, that smoky looking bottle has got to help someone. You just hope whoever uses it is up on their wishing theory and doesn't get rooked.
@@ -123,9 +111,6 @@ swiss|Fourdiopolis officials have played the game of "oh, even neutral people ca
 Completed
 
 fo 5
-
->t
-
 dunks|Oh man! The old ten-foot rims are cheating a bit, but it's still fun to watch. You forget when dunking was outlawed on national television, or why, or when Basketball Drones overtook Basketball Jones.
 dusk|Oh wow! That's beautiful! You catch yourself thinking what range of RGB colors is in the sunset, before realizing you're missing the point.
 hisses|Well, not all snakes are poisonous, though the ones outside of cities are. Still, it's neat to see. For free. I mean, there are zoos and private forest preserves, but it'd be neat to have this.
@@ -152,9 +137,6 @@ winks|Of course there are mating rituals, but there's a certain amount of rigor 
 Wow! That's a lot of cool hidden stuff we need more of!
 
 fo 6
-
->t
-
 dejesus|You read through your guidelines
 dinh|You read through your guidelines
 dinkins|You read through your guidelines

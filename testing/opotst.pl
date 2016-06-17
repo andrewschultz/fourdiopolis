@@ -21,6 +21,7 @@ my $eraseRand = 0;
 my $eraseRandOut = 0;
 my $eraseAfter = 0;
 my $onlyFinal = 0;
+my $allowRand = 0;
 
 my $count = 0;
 
@@ -38,6 +39,7 @@ while ($count <= $#ARGV)
 	/^-p$/ && do { $inFileSpecified = 1; $inFile = "rtest$b.txt"; $count += 2; next; };
 	/^[0-9]/ && do { $iterations = $a; $count++; next; };
 	/^-?ea/ && do { $eraseAfter = 1; $count++; next; };
+	/^-ar/ && do { $allowRand = 1; $count++; next; };
 	/^-?ca/ && do { $eraseRandOut = $eraseRand = 1; $count++; next; };
 	/^-?co/ && do { $eraseRandOut = 1; $count++; next; };
 	/^-?c/ && do { $eraseRand = 1; $count++; next; };
@@ -166,7 +168,9 @@ while ($a = <A>)
     my $x = $a; $x =~ s/^fo //g; chomp($x);
     print B "* ";
 	if (($onlyFinal) && ($x =~ /[1-5]/)) { print B "_"; }
-	print B "search-test-$x\n\n>fo $x\n\n";
+	print B "search-test-$x\n\n>fo $x\n";
+	if (!$allowRand) { print B "\n>t\n"; }
+	print B "\n";
     if ($a =~ /^fo sc/) { $scenery = 1; }
     $harvestRandoms = 1; @sortArray = (); next;
   }

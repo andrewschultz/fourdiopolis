@@ -79,6 +79,7 @@ to set-your-table (myt - a table name):
 		if found entry is 1:
 			now found entry is 0;
 	now score is 0;
+	now should-rejig is true;
 
 to say email:
 	say "blurglecruncheon@gmail.com"
@@ -522,18 +523,20 @@ to tally-and-place:
 	repeat with Q running through things in outside-area:
 		if Q is not player and Q is not transporter:
 			now Q is off-stage;
-	repeat through your-table:
-		if A is tally entry in lower case:
-			if found entry is not 1:
-				if there is no what-drops entry:
-					move generic door to outside-area;
-					say "BUG we need to get rid of the generic door.";
-					continue the action;
-				if location of what-drops entry is not outside-area:
-					move what-drops entry to outside-area;
-					continue the action;
 	if B > 2:
+		repeat through your-table:
+			if A is tally entry in lower case:
+				if found entry is not 1:
+					if there is no what-drops entry:
+						move generic door to outside-area;
+						say "BUG we need to get rid of the generic door.";
+						continue the action;
+					if location of what-drops entry is not outside-area:
+						move what-drops entry to outside-area;
+						continue the action;
 		repeat through table of scenery:
+			if B > chrs entry:
+				next;
 			if A is tally entry in lower case:
 				if there is a what-drops entry:
 					now found entry is 1;
@@ -697,7 +700,7 @@ an abandoned shed is a quasi-entry. description is "You're not sure how the shed
 
 a beaten-up store is a quasi-entry. description is "It does look as if a swanker store a street down came by and gave it a noogie or worse."
 
-the movie house is a quasi-entry. description is "These are pretty much illegal, since if people want to watch a movie they can just go watch it themselves. But some movie houses pretend to run propaganda...bot don't really."
+the movie house is a quasi-entry. description is "These are pretty much illegal, since if people want to watch a movie they can just go watch it themselves. You've heard some movie houses actually don't run propaganda before, after, and midway through films. That would be fun!"
 
 a dusty warehouse is a quasi-entry. description is "The warehouse is dusty but clean. So someone is probably living there."
 
@@ -705,7 +708,7 @@ a fake barn is a quasi-entry. description is "Amazingly, there are no records of
 
 a grocery store is a quasi-entry. description is "There's no description of sales at all. They probably figure if you have to ask, you don't deserve a discount."
 
-a gymnasium is a quasi-entry. description is "You don't want to look too closely. All the exercise just walking around has been enough."
+a gymnasium is a quasi-entry. description is "You don't want to look too closely. All the exercise just walking around has been enough.". understand "gym" as gymnasium
 
 a museum is a quasi-entry. description is "This museum doesn't even seem to want an ID or a fingerprint or anything!"
 
@@ -991,7 +994,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "disses"	"comedy insult club"	"Many people here applaud you for getting them to join the fight to freely insult the powerful as well as the poor -- even if you might not be able to formulate an insult yourself."	neon	0
 "djinn"	"bottled up powerful ally"	"You--you don't really believe in magic. But still, that smoky looking bottle has got to help someone. You just hope whoever uses it is up on their wishing theory and doesn't get rooked."	warehouse	0
 "dukes"	"right neighborly fellers from Kentucky"	"Hoo-wee! You learn some good lessons about loving your oppressive neighbors, knowing it could be worse, but not fearing what could be worse. You don't know about owning an orange vehicle."	fake barn	0
-"hunks"	"guys unnecessarily muscular"	"If you're muscular and don't have a physical job and aren't in the army, Fourdiopolis frowns on that. Sure, it's not illegal...but..."	gymnasium	0
+"hunks"	"guys unnecessarily muscular"	"If you're muscular and don't have a physical job and aren't in the army, Fourdiopolis frowns on that. Sure, it's not illegal...but...it's even worse if you keep your body AND mind in shape just for your own sake."	gymnasium	0
 "huns"	"allegedly barbarous, but we can't all be gentle"	"You need some people who have, sadly, been pigeonholed for their ancestry. They know others have it worse, but still..." 	hovel	0
 "hussies"	"unfairly labeled women"	"Oh, sure, men get boxed in for talking back. It just still seems to happen more frequently to women. And these women would like to change that."	hovel	0
 "indies"	"non-mainstream art"	"You persuade the people here that their art will get more exposure with the Fourdiopolis power structure down. But don't worry, you won't become totally mainstream!"	hovel	0
@@ -1091,80 +1094,79 @@ to say seek-track:
 	say "You read: [ln]";
 
 table of scenery [tosc]
-tally (text)	descrip (text)	foundit (text)	what-drops	found
-"die"	"sacrifice yourself"	"Assisted suicide is more rigorous than in Threediopolis. The Death Panels there (not the healthcare kind) give punditary views before you pegged out, but here, you have surveys...quesstionnaires...what would you do better? What do you think authorities would do better? No, no, you are just lashing out because you are suicidal. Ah, yes, even the unsatisfied are satisfied in Fourdiopolis."	ominous door	0
-"duh"	--	"Oh, man! You can't believe you missed THAT one. It's obvious now!"	--	0
-"dui"	--	"A robot-police runs by and grabs a breath-sample from the air in front of you. 'Proceed,' it says. Hmm.'"	--	0
-"eek"	--	"Someone tells a scary story for effect and, well, gets the effect they want."	--	0
-"hhh"	"Triple H"	"Someone threatens to bodyslam another person for being utterly evil. Then--bam! You see they actually do! Someone whispers to you, don't worry, it's fake, just entertainment. What is the world coming to?"	--	0
-"kkk"	"bad bad people"	"Everyone around here just really, really sucks at life. What else can I say?"	--	0 [super extra double for this vs another k word but here there's an opportunity to laugh at people a bit I hope]
-"deke"	--	"You wonder if you faked yourself out going this way."	--	0
-"didi"	"Urkel"	"A fellow with oversized glasses and suspenders runs into you, shrugs his shoulders, snort-laughs and then runs away."	--	0
-"dike"	--	"In this blocked-off area, people talk about the city water supply."	--	0
-"dink"	--	"You're hit by a very very soft nerf ball that runs away. Hmm."	--	0
-"ehhs"	--	"People keep asking fellow conversers to repeat themselves, here."	--	0
-"heed"	--	"Some police give a particularly stern lecture to a citizen not fully obeying some minor law."	--	0
-"hues"	--	"The local color is particularly vibrant in this neighborhood."	--	0
-"hush"	--	"Unusually quiet here."	--	0
-"ides"	--	"An organized march nearby leaves you feeling wary."	--	0
-"juke"	--	"Someone walking towards you tries to get out of your way, and you do the same. But you both pick the same way to go, several times. Awkward!"	--	0
-"keds"	--	"[snee]."	--	0
-"kike"	"an unacceptable slur"	"Some kids call another kid a name. They try to convince him he can't be that made if he doesn't know what it means, or if it's a really old insult before it's over. You want to step in and help the poor kid but you don't know how."	--	0
-"kwik"	--	"You can just hear the misspellings as people talk too fast here."	--	0
-"nike"	--	"[snee]."	--	0
-"seek"	--	"You spy someone else with a sheet similar to yours. You don't acknowledge them, though. Can't be too careful."	--	0
-"shun"	--	"You feel very, very alone. People are more than just giving you your space."	--	0
-"uhhs"	--	"Conversation feels a bit slower and dumber than usual for Fourdiopolis, for a second here."	--	0
-"uuid"	--	"You are suddenly unable to get the hexadecimal number [b][uuid][r] out of your head!"	--	0
-"whew"	--	"You just barely escaped something, there! You don't know what, but it would've been pretty bad."	--	0
-"wiki"	--	"You suddenly have an urge to look up some term and follow a chain to all sorts of odd knowledge you may never use but it'll be fun."	--	0
-"wind"	--	"You're almost blown off your feet for a second. Air currents in Fourdiopolis are weird--there's no PROOF the government controls them, but..."	--	0
-"ennui"	--	"Yyyyyawn. What's the point?"	--	0
-"iknew"	--	"Someone covers for looking stupid by explaining they were just being really, really ironic."	--	0
-"jesus"	--	"Someone spouting an annoying proof that religions shouldn't exist then asks you to join the personality cult of a smart person dead for a hundred years, who wasn't nice, but they understood algorithms of how to make others nicer. You brush them away."	--	0
-"knees"	--	"You grab an old ache for a moment."	--	0
-"nisei"	--	"You walk past shops with Japanese signs."	--	0
-"nuhuh"	--	"A trivial argument nearby quickly turns emotional."	--	0
-"nuked"	--	"A surprisingly empty area. You look for biohazard signs but don't see any. Still, you feel disturbingly tingly."	--	0
-"seine"	--	"You feel a hackneyed flavor of, and longing for, Gay Paree."	--	0
-"shins"	--	"You grab an old ache for a moment."	--	0
-"shush"	--	"'Oh, sure, you can THINK that, just don't SAY it, you know?'"	--	0
-"sides"	--	"You feel cornered in here. You're not sure why."	--	0
-"undid"	--	"You feel regret for what you've done and regret for that regret. You waste a bit of time fretting over how you've wasted a bit of time no matter which feeling is right."	--	0
-"whisk"	--	"You trip on an odd cooking doohickey you forget the name of. People don't have time for making their own meals, with so much virtual reality to experience these days, and machines do it all well enough."	--	0
-"dindin"	--	"You feel hungry."	--	0
-"heehee"	--	"You think of a silly pun that feels funnier than it has a right to be."	--	0
-"hehhuh"	--	"[bnb]"	--	0
-"henwen"	"Prydain Chronicles"	"You thought you heard a talking pig just now."	--	0
-"huhheh"	--	"[bnb]"	--	0
-"nissin"	--	"You step on something. It looks like a chunk of dried noodles. You feel hungry for food you'll regret later."	--	0
-"nudies"	--	"You see, and quickly ignore, some disturbing fliers on the ground."	--	0
-"shinju"	--	"Hm, looks like a play, in the park. Not quite Romeo and Juliet, but seemes like it just ended the same way."	--	0
-"shishe"	--	"You smell evidence people are--gasp--SMOKING. You remember health warnings that a whiff of the good smelling stuff is worse than the bad smelling stuff, and vice versa."	--	0
-"unkind"	--	"You worry someone's going to do something mean to you, but don't worry, they're only thinking about it. Especially with video cameras all around."	--	0
-"winded"	--	"You take a break to catch your breath."	--	0
-"dejeune"	--	"You sure could use a lunch break right now!"	--	0
-"kidniki"	--	"You temporarily feel on guard against the possibility of radical ninjas."	--	0
-"kidskin"	--	"You walk by an exotic leather store."	--	0
-"kuskunn"	"Magic Candle"	"You see an image of a demon trapped in a bubble, by a candle slowly burning."	--	0
-"sissies"	--	"Some self-made tough guys still feel a need to gang up on people weaker than they are. The pain's all over at once that way, amirite?"	--	0
-"skidded"	--	"A goverment utility vehicle swerves and almost hits someone about to jaywalk. Funny how one is always around, unless you jaywalk REALLY assertively."	--	0
-"weenies"	--	"An old long-abandoned hot dog hut lies between two places of Serious Business. Your grandparents constantly babbled about the misspelled version from THEIR youth being so tasty, and--well--maybe the misspelling did make things tastier."	--	0
-"inkiness"	--	"Everything's a bit cloudy, here."	--	0
-"unkissed"	--	"You hear a teen sob about their lack of romantic luck."	--	0
-"unwished"	--	"Someone tries to hand you a flyer you really, really don't want."	--	0
-"whiskies"	--	"Wow! People seem to be having a rip roaring time, here[whisky-wine]. You don't have time for such carousing at the moment, but it boosts your spirits."	--	0
-"iseekkeen"	--	"[seek-track]."	--	-1
-"iundidedu"	--	"[worry-undo of table of education]."	--	-1
-"jeskiddin"	--	"Someone walks by and notifies you this is a Level 17 restricted area. You quickly hide your to-do list, before they point and laugh that they got you GOOD, and the grocery store's THAT way."	--	0
-"seediness"	--	"This area doesn't feel too posh. You don't know why, but it doesn't."	--	0
-"skunkweed"	--	"It smells bad here, like it should be illegal."	--	0
-"whininess"	--	"You can zone out one complaint or two, but when it's all around, it's like it's contagious and you just won't put up with it! Really, some people! It's just not fair! You'd never...oops."	--	0
-"wineskins"	--	"Everything retro is fashionable again, and drinking wine from animal skins was before when retro was a thing, so--that big rich people's gathering in the park is extra nice."	--	0
-"iundidjunk"	--	"[worry-undo of table of supplies]."	--	-1
-"iundidnews"	--	"[worry-undo of table of marginalized people]."	--	-1
-"skinniness"	--	"You are momentarily bombarded with ads for diet plans."	--	0
-
+tally (text)	descrip (text)	foundit (text)	what-drops	found	chrs
+"die"	"sacrifice yourself"	"Assisted suicide is more rigorous than in Threediopolis. The Death Panels there (not the healthcare kind) give punditary views before you pegged out, but here, you have surveys...quesstionnaires...what would you do better? What do you think authorities would do better? No, no, you are just lashing out because you are suicidal. Ah, yes, even the unsatisfied are satisfied in Fourdiopolis."	ominous door	0	3
+"duh"	--	"Oh, man! You can't believe you missed THAT one. It's obvious now!"	--	0	3
+"dui"	--	"A robot-police runs by and grabs a breath-sample from the air in front of you. 'Proceed,' it says. Hmm.'"	--	0	3
+"eek"	--	"Someone tells a scary story for effect and, well, gets the effect they want."	--	0	3
+"hhh"	"Triple H"	"Someone threatens to bodyslam another person for being utterly evil. Then--bam! You see they actually do! Someone whispers to you, don't worry, it's fake, just entertainment. What is the world coming to?"	--	0	3
+"kkk"	"bad bad people"	"Everyone around here just really, really sucks at life. What else can I say?"	--	0	3 [super extra double for this vs another k word but here there's an opportunity to laugh at people a bit I hope]
+"deke"	--	"You wonder if you faked yourself out going this way."	--	0	4
+"didi"	"Urkel"	"A fellow with oversized glasses and suspenders runs into you, shrugs his shoulders, snort-laughs and then runs away."	--	0	4
+"dike"	--	"In this blocked-off area, people talk about the city water supply."	--	0	4
+"dink"	--	"You're hit by a very very soft nerf ball that runs away. Hmm."	--	0	4
+"ehhs"	--	"People keep asking fellow conversers to repeat themselves, here."	--	0	4
+"heed"	--	"Some police give a particularly stern lecture to a citizen not fully obeying some minor law."	--	0	4
+"hues"	--	"The local color is particularly vibrant in this neighborhood."	--	0	4
+"hush"	--	"Unusually quiet here."	--	0	4
+"ides"	--	"An organized march nearby leaves you feeling wary."	--	0	4
+"juke"	--	"Someone walking towards you tries to get out of your way, and you do the same. But you both pick the same way to go, several times. Awkward!"	--	0	4
+"keds"	--	"[snee]."	--	0	4
+"kike"	"an unacceptable slur"	"Some kids call another kid a name. They try to convince him he can't be that made if he doesn't know what it means, or if it's a really old insult before it's over. You want to step in and help the poor kid but you don't know how."	--	0	4
+"kwik"	--	"You can just hear the misspellings as people talk too fast here."	--	0	4
+"nike"	--	"[snee]."	--	0	4
+"seek"	--	"You spy someone else with a sheet similar to yours. You don't acknowledge them, though. Can't be too careful."	--	0	4
+"shun"	--	"You feel very, very alone. People are more than just giving you your space."	--	0	4
+"uhhs"	--	"Conversation feels a bit slower and dumber than usual for Fourdiopolis, for a second here."	--	0	4
+"uuid"	--	"You are suddenly unable to get the hexadecimal number [b][uuid][r] out of your head!"	--	0	4
+"whew"	--	"You just barely escaped something, there! You don't know what, but it would've been pretty bad."	--	0	4
+"wiki"	--	"You suddenly have an urge to look up some term and follow a chain to all sorts of odd knowledge you may never use but it'll be fun."	--	0	4
+"wind"	--	"You're almost blown off your feet for a second. Air currents in Fourdiopolis are weird--there's no PROOF the government controls them, but..."	--	0	4
+"ennui"	--	"Yyyyyawn. What's the point?"	--	0	5
+"iknew"	--	"Someone covers for looking stupid by explaining they were just being really, really ironic."	--	0	5
+"jesus"	--	"Someone spouting an annoying proof that religions shouldn't exist then asks you to join the personality cult of a smart person dead for a hundred years, who wasn't nice, but they understood algorithms of how to make others nicer. You brush them away."	--	0	5
+"knees"	--	"You grab an old ache for a moment."	--	0	5
+"nisei"	--	"You walk past shops with Japanese signs."	--	0	5
+"nuhuh"	--	"A trivial argument nearby quickly turns emotional."	--	0	5
+"nuked"	--	"A surprisingly empty area. You look for biohazard signs but don't see any. Still, you feel disturbingly tingly."	--	0	5
+"seine"	--	"You feel a hackneyed flavor of, and longing for, Gay Paree."	--	0	5
+"shins"	--	"You grab an old ache for a moment."	--	0	5
+"shush"	--	"'Oh, sure, you can THINK that, just don't SAY it, you know?'"	--	0	5
+"sides"	--	"You feel cornered in here. You're not sure why."	--	0	5
+"undid"	--	"You feel regret for what you've done and regret for that regret. You waste a bit of time fretting over how you've wasted a bit of time no matter which feeling is right."	--	0	5
+"whisk"	--	"You trip on an odd cooking doohickey you forget the name of. People don't have time for making their own meals, with so much virtual reality to experience these days, and machines do it all well enough."	--	0	5
+"dindin"	--	"You feel hungry."	--	0	6
+"heehee"	--	"You think of a silly pun that feels funnier than it has a right to be."	--	0	6
+"hehhuh"	--	"[bnb]"	--	0	6
+"henwen"	"Prydain Chronicles"	"You thought you heard a talking pig just now."	--	0	6
+"huhheh"	--	"[bnb]"	--	0	6
+"nissin"	--	"You step on something. It looks like a chunk of dried noodles. You feel hungry for food you'll regret later."	--	0	6
+"nudies"	--	"You see, and quickly ignore, some disturbing fliers on the ground."	--	0	6
+"shinju"	--	"Hm, looks like a play, in the park. Not quite Romeo and Juliet, but seemes like it just ended the same way."	--	0	6
+"shishe"	--	"You smell evidence people are--gasp--SMOKING. You remember health warnings that a whiff of the good smelling stuff is worse than the bad smelling stuff, and vice versa."	--	0	6
+"unkind"	--	"You worry someone's going to do something mean to you, but don't worry, they're only thinking about it. Especially with video cameras all around."	--	0	6
+"winded"	--	"You take a break to catch your breath."	--	0	6
+"dejeune"	--	"You sure could use a lunch break right now!"	--	0	7
+"kidniki"	--	"You temporarily feel on guard against the possibility of radical ninjas."	--	0	7
+"kidskin"	--	"You walk by an exotic leather store."	--	0	7
+"kuskunn"	"Magic Candle"	"You see an image of a demon trapped in a bubble, by a candle slowly burning."	--	0	7
+"sissies"	--	"Some self-made tough guys still feel a need to gang up on people weaker than they are. The pain's all over at once that way, amirite?"	--	0	7
+"skidded"	--	"A goverment utility vehicle swerves and almost hits someone about to jaywalk. Funny how one is always around, unless you jaywalk REALLY assertively."	--	0	7
+"weenies"	--	"An old long-abandoned hot dog hut lies between two places of Serious Business. Your grandparents constantly babbled about the misspelled version from THEIR youth being so tasty, and--well--maybe the misspelling did make things tastier."	--	0	7
+"inkiness"	--	"Everything's a bit cloudy, here."	--	0	8
+"unkissed"	--	"You hear a teen sob about their lack of romantic luck."	--	0	8
+"unwished"	--	"Someone tries to hand you a flyer you really, really don't want."	--	0	8
+"whiskies"	--	"Wow! People seem to be having a rip roaring time, here[whisky-wine]. You don't have time for such carousing at the moment, but it boosts your spirits."	--	0	8
+"iseekkeen"	--	"[seek-track]."	--	-1	9
+"iundidedu"	--	"[worry-undo of table of education]."	--	-1	9
+"jeskiddin"	--	"Someone walks by and notifies you this is a Level 17 restricted area. You quickly hide your to-do list, before they point and laugh that they got you GOOD, and the grocery store's THAT way."	--	0	9
+"seediness"	--	"This area doesn't feel too posh. You don't know why, but it doesn't."	--	0	9
+"skunkweed"	--	"It smells bad here, like it should be illegal."	--	0	9
+"whininess"	--	"You can zone out one complaint or two, but when it's all around, it's like it's contagious and you just won't put up with it! Really, some people! It's just not fair! You'd never...oops."	--	0	9
+"wineskins"	--	"Everything retro is fashionable again, and drinking wine from animal skins was before when retro was a thing, so--that big rich people's gathering in the park is extra nice."	--	0	9
+"iundidjunk"	--	"[worry-undo of table of supplies]."	--	-1	10
+"iundidnews"	--	"[worry-undo of table of marginalized people]."	--	-1	10
+"skinniness"	--	"You are momentarily bombarded with ads for diet plans."	--	0	10
 
 to say uuid:
 	(- RAW(); -)
@@ -1185,13 +1187,19 @@ to say whisky-wine:
 chapter nearlies table
 
 to check-nearlies:
+	if your-table is table of last names:
+		continue the action;
+	let mine-yet be false;
 	repeat through table of nearlies:
 		if tname entry is your-table:
+			now mine-yet is true;
 			if your-tally is tally entry:
 				unless found-yet of mult entry:
 					now found entry is 1;
 			if your-tally is mult entry:
 				now found entry is 0;
+		else if mine-yet is true:
+			break;
 
 to decide whether found-yet of (x - indexed text):
 	repeat through your-table:
@@ -1749,6 +1757,16 @@ carry out teching:
 
 volume errors/parser
 
+understand "examine" and "x" as examining.
+
+rule for supplying a missing noun when examining:
+	if number of visible quasi-entries is 1:
+		now the noun is a random visible quasi-entry;
+		say "([the noun], since it's more interesting than your task list at the moment)[line break]";
+	else:
+		say "(the task list)[line break]";
+		now the noun is the task list;
+
 rule for supplying a missing noun when entering:
 	let Q be number of visible quasi-entries;
 	if Q is 0:
@@ -1887,7 +1905,7 @@ carry out aing:
 	say "[2da][b]R[r] restarts your journey in sector 000 with a clear mind.";
 	say "[2da][b]F[r] toggles the header with the list of remaining tasks.";
 	say "[2da][b]B[r] gives brief room descriptions, which you may eventually want, as the random descriptions eventually loop. [b]V[r] expands them.";
-	say "[2da][b]X[r] examines your list of tasks.";
+	say "[2da][b]X[r] examines your list of tasks or, if an entry is nearby, examines that.";
 	say "[2da][b]T[r] toggles silly random events that don't affect the game.";
 	say "[2da][b]Q[r] toggles quick mode when you run around Fourdiopolis (ignores random events until you arrive at your destination).";
 	say "[2da]Meta-commands (information on the game's development) include [b]ABOUT[r], [b]CREDITS[r] and [b]TECH[r].";
@@ -2140,8 +2158,6 @@ rule for constructing the status line when full-view is false:
 	center "Sector [sec of ud][sec of ns][sec of ew]: [score]/[number of rows in your-table]" at row 1;
 	the rule succeeds;
 
-need-to-deepen is a truth state that varies.
-
 last-lines is a number that varies. last-lines is usually 15.
 
 should-rejig is a truth state that varies. should-rejig is usually true.
@@ -2165,7 +2181,7 @@ rule for constructing the status line when full-view is true and should-rejig is
 			now cur-length is 6 + number of characters in descrip entry + farchar of number of characters in tally entry;
 			unless the remainder after dividing tab-row by 5 is 0:
 				increase cur-length by 2;
-			if cur-length + hpos > screen width:
+			if cur-length + hpos > screen width - 1:
 				say "[line break]  ";
 				increment total-lines;
 				now hpos is 2;
@@ -2175,7 +2191,7 @@ rule for constructing the status line when full-view is true and should-rejig is
 			now cur-length is number of characters in tally entry;
 			unless the remainder after dividing tab-row by 5 is 0:
 				increase cur-length by 2;
-			if cur-length + hpos > screen width:
+			if cur-length + hpos > screen width - 1:
 				say "[line break]  ";
 				increment total-lines;
 				now hpos is 2;
@@ -2228,11 +2244,6 @@ when play begins (this is the set the status line rule):
 screen-read is a truth state that varies.
 
 when play begins (this is the set table defaults rule):
-	repeat through table of scenery:
-		if there is no found entry:
-			if debug-state is true:
-				say "[b]Programming nitpick:[r] [tally entry] should be set to 0.";
-			now found entry is 0;
 	set-your-table table of friends;
 	sort the table of silly randoms in random order;
 	if debug-state is false:
@@ -2256,6 +2267,8 @@ when play begins (this is the set table defaults rule):
 		else if count entry < 1:
 			increase count entry by number of rows in table of last names;
 	wfak;
+
+scrange is a list of numbers that varies.
 
 chapter saved accomplishments
 

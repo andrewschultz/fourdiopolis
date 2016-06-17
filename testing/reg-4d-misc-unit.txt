@@ -827,4 +827,134 @@ Now that you've got the hang of things, you can just munge directions together. 
 >jed
 >c
 
-#undone: abstract everything to outside-area and examine them
+* 4d-examine-everything
+
+>wf 0
+
+>hidden
+>x hideout
+Yup, you recognize it now. You just need to look carefully--but not too carefully so others get curious.
+>n
+>r
+
+>ike
+>x front door
+There's no name on it, but you can (C)heck if anyone's home.
+>c
+
+>die
+ominous door
+>x ominous door
+Boy! It's ominous, all right! It might be a mistake to enter.
+>n
+>r
+# going in will kill you so I need to detour
+
+>wf 13
+
+>sensei
+You recognize an edutainment storefront by the brain hologram.
+>x edutainment
+You can't tell what's inside. Perhaps you should (C)heck.
+>c
+
+>sines
+tiny schoolhouse
+>x schoolhouse
+All schoolhouses are tiny. Part of the point of education is to say, you don't deserve a big school, but CEO's deserve a big office.
+>c
+
+>wf 11
+
+>desks
+dusty warehouse
+>x dusty
+The warehouse is dusty but clean. So someone is probably living there.
+>c
+
+>dishes
+beaten-up store
+>x store
+It does look as if a swanker store a street down came by and gave it a noogie or worse.
+>c
+
+>disused
+abandoned shed
+>x shed
+You're not sure how the shed is squeezed between buildings, but it is.
+>c
+
+>hens
+fake barn
+>x barn
+Amazingly, there are no records of health code violations here. The occupants are very lucky.
+>c
+
+>nines
+upscale store
+>x store
+There's not even a sign saying NO RIFF RAFF NEED APPLY.
+>c
+
+>kiwis
+grocery store
+>x store
+There's no description of sales at all. They probably figure if you have to ask, you don't deserve a discount.
+.>c
+
+>wishes
+surprisingly churchy looking place
+>x place
+Even humanism is under suspicion. Of course, nobody's a god, but all the same, you'd hate to be wrong about wasting time caring about one with so much real world stuff going on. Besides, if God were active at all, he'd have destroyed the world well before Fourdiopolis set things right.
+>c
+
+#wf 7
+
+>wf 7
+
+>denied
+otherwise unremarkable hovel
+>x hovel
+It's a bit too calculatedly unremarkable. I mean, most hovels have some special feature, but this has nothing.
+>c
+
+>disses
+cozy place with a neon sign
+>x cozy
+The neon sign is fritzing charmingly. Unfortunately, there's a steep license to pay for anything not reading IN HERE.
+>c
+
+>hunks
+gymnasium
+>x gymnasium
+You don't want to look too closely. All the exercise just walking around has been enough.
+>c
+
+>jedi
+movie house
+>x house
+These are pretty much illegal, since if people want to watch a movie they can just go watch it themselves. You've heard some movie houses actually don't run propaganda before, after, and midway through films. That would be fun!
+>c
+
+>wf 15
+
+>dusk
+climate-controlled building
+>x building
+You know it's climate-controlled by the tinted windows.
+>c
+
+>newsdesk
+museum
+>x museum
+This museum doesn't even seem to want an ID or a fingerprint or anything!
+>c
+
+>wf 31
+
+>kuhn
+>x door
+The door is too clean and smooth. The wind blows by it with a nothing-to-see-here whistle.
+>c
+
+#people don't notice things any more.

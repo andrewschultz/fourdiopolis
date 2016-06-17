@@ -121,7 +121,6 @@ Good job! That's enough to be promoted
 >fi 17
 >in
 Good job! That's enough to be promoted
-if we round up
 
 >undo
 >fi 18
@@ -498,6 +497,7 @@ A bit disappointing
 >fi 17
 >in
 A majority!
+round up
 uprisings
 
 >undo
