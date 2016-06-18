@@ -40,11 +40,10 @@ juke|Awkward!
 keds|You feel a sudden stupid desire to buy overpriced sneakers. Maybe at Payless. But everyone shops at PayWayLess these days.
 kidniki|You temporarily feel on guard against the possibility of radical ninjas.
 kidskin|You walk by an exotic leather store.
-kike|Some kids call another kid a name. They try to convince him he can't be that made if he doesn't know what it means, or if it's a really old insult before it's over. You want to step in and help the poor kid but you don't know how.
 kkk|Everyone around here just really, really sucks at life. What else can I say?
 knees|You grab an old ache for a moment.
 kuskunn|You see an image of a demon trapped in a bubble, by a candle slowly burning.
-kwik|hear the misspellings
+kwik|You can just hear the bad spelling as people with more willpower than abstract knowledge exercise their authority.
 nike|You feel a sudden stupid desire to buy overpriced sneakers. Maybe at Payless. But everyone shops at PayWayLess these days.
 nisei|You walk past shops with Japanese signs.
 nissin|You step on something. It looks like a chunk of dried noodles. You feel hungry for food you'll regret later.
@@ -64,9 +63,10 @@ sissies|Some self-made tough guys still feel a need to gang up on people weaker 
 skidded|A goverment utility vehicle swerves and almost hits someone about to jaywalk. Funny how one is always around, unless you jaywalk REALLY assertively.
 skinniness|You are momentarily bombarded with ads for diet plans.
 skunkweed|It smells bad here, like it should be illegal.
+swedish|An ethnic area full of oddly dotted vowels. You know them by their unicode numbers, but you have no clue how to pronounce them.
 uhhs|Conversation feels a bit slower and dumber than usual for Fourdiopolis, for a second here.
 undid|You feel regret for what you've done and regret for that regret. You waste a bit of time fretting over how you've wasted a bit of time no matter which feeling is right.
-unkind|You worry someone's going to do something mean to you, but don't worry, they're only thinking about it. Especially with video cameras all around.
+unkind|You hear a name. It's a slur. It's probably old,
 unkissed|You hear a teen sob about their lack of romantic luck.
 unwished|you a flyer
 uuid|You are suddenly unable to get the hexadecimal number

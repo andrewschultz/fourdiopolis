@@ -3,6 +3,70 @@
 ** game: /home/andrew/prt/debug-fourdiopolis.ulx
 ** interpreter: /home/andrew/prt/glulxe -q
 
+* missing-scenery
+
+>wf 0
+>kuhn
+>r
+You feel very cold. Something unknown but oppressive lies nearby, but you don't nearly have the means or skill to see or deal with it, yet.
+
+>hikes
+>r
+You feel like maybe you got a bit ahead of yourself, here, and you should remember this place for a later time.
+
+>desks
+>r
+You feel like maybe you got a bit ahead of yourself, here, and you should remember this place for a later time.
+
+>inns
+>r
+You feel like maybe you got a bit ahead of yourself, here, and you should remember this place for a later time.
+
+>dukes
+>r
+You feel like maybe you got a bit ahead of yourself, here, and you should remember this place for a later time.
+
+>wf 1
+>fo 2
+>kuhn
+>r
+You feel very cold. Something unknown but oppressive lies nearby, but you don't have the means or skill to see or deal with it, yet.
+
+>hens
+>r
+You feel like maybe you got a bit ahead of yourself, here, and you should remember this place for a later time.
+
+>jedi
+>r
+You feel like maybe you got a bit ahead of yourself, here, and you should remember this place for a later time.
+
+>wf 1
+>fo 3
+
+>skew
+>r
+You feel like maybe you got a bit ahead of yourself, here, and you should remember this place for a later time.
+
+>jedi
+>r
+You feel like maybe you got a bit ahead of yourself, here, and you should remember this place for a later time.
+
+>wf 1
+>fo 4
+
+>skew
+>r
+You feel like maybe you got a bit ahead of yourself, here, and you should remember this place for a later time.
+
+>hens
+>r
+You feel like maybe you got a bit ahead of yourself, here, and you should remember this place for a later time.
+
+>wf 15
+>kuhn
+>r
+You feel very cold. Something unknown but oppressive lies nearby, but you don't quite have the means or skill to see or deal with it, yet.
+
 *unkindness-testing
 
 >unkindness

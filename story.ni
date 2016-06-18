@@ -529,7 +529,7 @@ to tally-and-place:
 			now Q is off-stage;
 	if B > 2:
 		repeat through your-table:
-			if A is tally entry in lower case:
+			if A is tally entry:
 				if found entry is not 1:
 					if there is no what-drops entry:
 						move generic door to outside-area;
@@ -541,7 +541,7 @@ to tally-and-place:
 		repeat through table of scenery:
 			if B > chrs entry:
 				next;
-			if A is tally entry in lower case:
+			if A is tally entry:
 				if there is a what-drops entry:
 					now found entry is 1;
 					move what-drops entry to outside-area;
@@ -557,7 +557,7 @@ after printing the locale description:
 		repeat through table of solvable tables:
 			sweep-up tabname entry;
 	repeat through table of scenery:
-		if A is tally entry in lower case:
+		if A is tally entry:
 			if found entry is not 1:
 				increment scenery-found;
 				unless there is a what-drops entry:
@@ -576,7 +576,7 @@ after printing the locale description:
 			now hidden-inside is true;
 	repeat through your-table:
 		if found entry is 1:
-			if your-tally is tally entry in lower case:
+			if your-tally is tally entry:
 				if note-found is false:
 					say "Hm, that place you found before--it's somewhere around here, but you're focused on what to find next.";
 					now note-found is true;
@@ -594,11 +594,11 @@ to sweep-up (x - a table name):
 	if tabsolv entry is true: [don't clue stuff already solved]
 		continue the action;
 	repeat through x:
-		if your-tally is tally entry in lower case:
+		if your-tally is tally entry:
 			if x is table of last names:
-				say "You feel very cold. Something unknown but oppressive lies nearby, but you don't have the means or skill to see it, yet.";
+				say "You feel very cold. Something unknown but oppressive lies nearby, but you don't [if your-table is table of friends]nearly [else if your-table is table of just plain cool stuff]quite [end if]have the means or skill to see or deal with it, yet.";
 				continue the action;
-			say "You feel like maybe you got a bit ahead of yourself, here, and maybe you should remember this place for a later time.";
+			say "You feel like maybe you got a bit ahead of yourself, here, and you should remember this place for a later time.";
 			continue the action;
 
 scenery-found-yet is a truth state that varies.
@@ -1120,8 +1120,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found	chrs
 "ides"	--	"An organized march nearby leaves you feeling wary."	--	0	4
 "juke"	--	"Someone walking towards you tries to get out of your way, and you do the same. But you both pick the same way to go, several times. Awkward!"	--	0	4
 "keds"	--	"[snee]."	--	0	4
-"kike"	"an unacceptable slur"	"Some kids call another kid a name. They try to convince him he can't be that made if he doesn't know what it means, or if it's a really old insult before it's over. You want to step in and help the poor kid but you don't know how."	--	0	4
-"kwik"	--	"You can just hear the misspellings as people talk too fast here."	--	0	4
+"kwik"	--	"You can just hear the bad spelling as people with more willpower than abstract knowledge exercise their authority."	--	0	4
 "nike"	--	"[snee]."	--	0	4
 "seek"	--	"You spy someone else with a sheet similar to yours. You don't acknowledge them, though. Can't be too careful."	--	0	4
 "shun"	--	"You feel very, very alone. People are more than just giving you your space."	--	0	4
@@ -1152,7 +1151,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found	chrs
 "nudies"	--	"You see, and quickly ignore, some disturbing fliers on the ground."	--	0	6
 "shinju"	--	"Hm, looks like a play, in the park. Not quite Romeo and Juliet, but seemes like it just ended the same way."	--	0	6
 "shishe"	--	"You smell evidence people are--gasp--SMOKING. You remember health warnings that a whiff of the good smelling stuff is worse than the bad smelling stuff, and vice versa."	--	0	6
-"unkind"	--	"You worry someone's going to do something mean to you, but don't worry, they're only thinking about it. Especially with video cameras all around."	--	0	6
+"unkind"	--	"You hear a name. It's a slur. It's probably old, and maybe people forget why, but the nastiness still remains. It's the sort of thing the ubiquitous video cameras can't catch and report."	--	0	6
 "winded"	--	"You take a break to catch your breath."	--	0	6
 "dejeune"	--	"You sure could use a lunch break right now!"	--	0	7
 "kidniki"	--	"You temporarily feel on guard against the possibility of radical ninjas."	--	0	7
@@ -1160,6 +1159,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found	chrs
 "kuskunn"	"Magic Candle"	"You see an image of a demon trapped in a bubble, by a candle slowly burning."	--	0	7
 "sissies"	--	"Some self-made tough guys still feel a need to gang up on people weaker than they are. The pain's over sooner than if they went one at a time, amirite?"	--	0	7
 "skidded"	--	"A goverment utility vehicle swerves and almost hits someone about to jaywalk. Funny how one is always around, unless you jaywalk REALLY assertively."	--	0	7
+"swedish"	--	"An ethnic area full of oddly dotted vowels. You know them by their unicode numbers, but you have no clue how to pronounce them."	--	0	7
 "weenies"	--	"An old long-abandoned hot dog hut lies between two places of Serious Business. Your grandparents constantly babbled about the misspelled version from THEIR youth being so tasty, and--well--maybe the misspelling did make things tastier."	--	0	7
 "inkiness"	--	"Everything's a bit cloudy, here."	--	0	8
 "unkissed"	--	"You hear a teen sob about their lack of romantic luck."	--	0	8
@@ -1429,12 +1429,15 @@ to dirparse (dirlump - indexed text):
 	if number of characters in dirlump > 2 and number of characters in your-tally > 0:
 		if debug-state is true:
 			say "DEBUG: [your-tally] and [number of characters in dirlump].";
-		say "You aren't starting from the center. Do you still wish to turbo ahead?";
-		if the player consents:
-			say "Ok.";
+		if debug-state is false:
+			say "You aren't starting from the center. Do you still wish to turbo ahead?";
+			if the player consents:
+				say "Ok.";
+			else:
+				say "Just type [b]R[roman type] to go to the center and try again.";
+				continue the action;
 		else:
-			say "Just type [b]R[roman type] to go to the center and try again.";
-			continue the action;
+			say "WARNING should have question but skipping for testing purposes.";
 	if number of characters in dirlump > 13:
 		say "That is way too long a trip to even think about.";
 		continue the action;
@@ -1551,7 +1554,7 @@ silliness
 "People ahead of you discuss the politics of urban versus rural gerrymandering and qualifications for moving from half an effective vote to three-quarters, or even a full vote."
 "A cop allows a kid reading an approved book to sit and loiter--if he isn't blocking foot-traffic TOO much."
 "An argument erupts between members of the Nerd and Jock political parties, and when someone tries to mediate, he's panned for pretending he has and knows it all."
-"You walk past a cheery pizza vendor droid. Well, it's cheery until someone tries for a prank order. Or even a weird subversive one like half canadian bacon with Pineapple, half artichoke with pesto, and light on the cheese--there are algorithms to check that and alert police."
+"You walk past a cheery pizza vendor droid. Well, it's cheery until someone tries for a prank order. Or even a weird subversive one like half Canadian bacon with pineapple, half artichoke with pesto, and light on the cheese--there are algorithms to check that and alert police."
 "Gang leaders argue whether a disobedient underling should be smacked up or down."
 "A political debate over whether payoffs to gangs or governments works better ensues."
 "One kid tries to impress others with a story of a poor sap who got teleported into rock, another with a story of someone teleported five hundred feet above solid ground, and another tries to impress them with proof it'd never happen."
@@ -2806,9 +2809,3 @@ test 5win with "fo 5/dunks/c/dusk/c/hisses/c/huskies/c/husks/c/inn/c/kisses/c/ne
 test 5w with "x/dunks/c/dusk/c/hisses/c/huskies/c/husks/c/inn/c/kisses/c/newsdesk/c/sheesh/c/shininess/c/skinks/c/skis/c/sunk/c/sunshine/c/swish/c/unwind/c/weekend/c/whee/c/whinnies/c/winks/c/hidden/c"
 
 test 5wx with "x/dunks/cx/dusk/cx/hisses/cx/huskies/cx/husks/cx/inn/cx/kisses/cx/newsdesk/cx/sheesh/cx/shininess/cx/skinks/cx/skis/cx/sunk/cx/sunshine/cx/swish/cx/unwind/cx/weekend/cx/whee/cx/whinnies/cx/winks/cx/hidden/cx"
-
-test 6win with "fo 6/dejesus/c/dinh/c/dinkins/c/dinwiddie/c/dudek/c/eddins/c/ennis/c/eskew/c/henke/c/hess/c/hines/c/hsieh/c/hsu/c/hussein/c/ishii/c/jenkins/c/jensen/c/keene/c/keese/c/knudsen/c/kuhn/c/niesen/c/sheen/c/shenn/c/shin/c/sisk/c/weeks/c/weiss/c/whidden/c/wisniewski/c/inside/c"
-
-test 6w with "x/dejesus/c/dinh/c/dinkins/c/dinwiddie/c/dudek/c/eddins/c/ennis/c/eskew/c/henke/c/hess/c/hines/c/hsieh/c/hsu/c/hussein/c/ishii/c/jenkins/c/jensen/c/keene/c/keese/c/knudsen/c/kuhn/c/niesen/c/sheen/c/shenn/c/shin/c/sisk/c/weeks/c/weiss/c/whidden/c/wisniewski/c/inside/c"
-
-test 6wx with "x/dejesus/cx/dinh/cx/dinkins/cx/dinwiddie/cx/dudek/cx/eddins/cx/ennis/cx/eskew/cx/henke/cx/hess/cx/hines/cx/hsieh/cx/hsu/cx/hussein/cx/ishii/cx/jenkins/cx/jensen/cx/keene/cx/keese/cx/knudsen/cx/kuhn/cx/niesen/cx/sheen/cx/shenn/cx/shin/cx/sisk/cx/weeks/cx/weiss/cx/whidden/cx/wisniewski/cx/inside/cx"
