@@ -65,21 +65,30 @@ sub showPos
 {
   my $x = my $y = my $z = 0;
 
-  my @a = split(//, lc($_[0]));
+  my @a = split(//, $_[0]);
   $tempstr = $_[0];
 
+  my $retreats = 0;
+  
+  if ($a =~ /[A-Z]/) { print "Note that upper case letters mean backwards.\n"; }
+  
   for (@a)
   {
-    /e/ && do { $x++; next; };
-    /n/ && do { $y++; next; };
-    /u/ && do { $z++; next; };
-    /w/ && do { $x--; next; };
-    /s/ && do { $y--; next; };
-    /d/ && do { $z--; next; };
+    /[UDNSEWHIJK]/ && do { $retreats++; };
+    /[eW]/ && do { $x++; next; };
+    /[nS]/ && do { $y++; next; };
+    /[uD]/ && do { $z++; next; };
+    /[wE]/ && do { $x--; next; };
+    /[sN]/ && do { $y--; next; };
+    /[dU]/ && do { $z--; next; };
     /h/ && do { $x+=2; $y+=2; $z+=2; next; };
+    /H/ && do { $x-=2; $y-=2; $z-=2; next; };
     /i/ && do { $x+=2; $y-=2; $z-=2; next; };
+    /I/ && do { $x-=2; $y+=2; $z+=2; next; };
     /j/ && do { $x-=2; $y+=2; $z-=2; next; };
+    /J/ && do { $x+=2; $y-=2; $z+=2; next; };
     /k/ && do { $x-=2; $y-=2; $z+=2; next; };
+    /K/ && do { $x+=2; $y+=2; $z-=2; next; };
     print "Oops invalid char $_.\n";
   }
 
@@ -107,7 +116,7 @@ sub showPos
   while ($q <= $telep)
   {
     print "Trying $q teleports.\n";
-    h2k($q, $x, $y, $z, length($_[0]) - $q);
+    h2k($q, $x, $y, $z, length($_[0]) - $q - 2 *$retreats);
     $q += 2;
   }
 

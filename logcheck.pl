@@ -188,7 +188,9 @@ sub verify4
   my $lineErrr = 0;
   for (0..$#cs)
   {
-    $curLine = $lastTableStart + $_;
+    use integer;
+    $curLine = $lastTableStart + $_ / 5;
+	no integer;
     my $temp = lc(@cs[$_]);
 	my $q = myloc(@locs[$_]);
 	if (($temp eq @locs[$_]) || (lc($temp) eq lc($q))) { next; } else { print "Mismatch: $temp != $q and $temp != @locs[$_] at line $curLine in $curTab.\n"; $blammo++; $thisRound++; $lineErr = 1; last; }

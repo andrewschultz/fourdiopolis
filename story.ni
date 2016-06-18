@@ -1269,12 +1269,12 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "dejesus"	"Spanish"	"[mark-away]."	suspiciously ordinary door	0
 "deneke"	"German"	"[mark-away]."	suspiciously ordinary door	0
 "dinh"	"Vietnamese"	"[mark-away]."	suspiciously ordinary door	0
-"dinkins"	"New York"	"[mark-away]."	suspiciously ordinary door	0
 "dinwiddie"	"Scottish"	"[mark-away]."	suspiciously ordinary door	0
 "dudek"	"Polish"	"[mark-away]."	suspiciously ordinary door	0
 "eddins"	"None"	"[mark-away]."	suspiciously ordinary door	0
 "ennis"	"Not their 1st name"	"[mark-away]."	suspiciously ordinary door	0
 "eskew"	"None"	"[mark-away]."	suspiciously ordinary door	0
+"heineken"	"Boozy Dutch type"	"You leave a note about how they're so bad at legislating, they might be worse sober."	suspiciously ordinary door	0
 "henke"	"None"	"[mark-away]."	suspiciously ordinary door	0
 "hess"	"German"	"'You'd better believe you made a heck of a mess,' you write, among other things."	suspiciously ordinary door	0
 "hines"	"Only 57% voted for"	"[mark-away]."	suspiciously ordinary door	0
