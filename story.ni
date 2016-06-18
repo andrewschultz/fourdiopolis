@@ -73,6 +73,10 @@ to set-your-table (myt - a table name):
 	if your-table is table of friends:
 		now locom-chars is 2;
 		now hidden-inside is false;
+	let cur-left be binary-solved;
+	repeat through table of solvable tables:
+		now tabsolv entry is whether or not the remainder after dividing cur-left by 2 is 1;
+		now cur-left is cur-left / 2;
 	repeat through your-table:
 		now found entry is 0;
 	repeat through table of scenery:
@@ -113,7 +117,7 @@ to decide whether (n - a number) is wrongo:
 	if n is 0 or n is 31, decide no;
 	decide yes;
 
-to decide which number is old-binary:
+to decide which number is binary-solved:
 	let additive be 1;
 	let total-sum be 0;
 	repeat through table of accomplishments:
@@ -216,7 +220,7 @@ carry out examining the task list:
 	else:
 		say "[line break]You found the place hidden inside to return to. [if score > 14]Maybe you can go there, now[else]But you might not want to go back yet[end if].";
 	if list-exam is false:
-		say "Hmm, you might not want to do these in explicit order. Maybe try and find the nearest ones first to get your feet wet.";
+		say "[line break]Hmm, you might not want to do these in explicit order. Maybe try and find the nearest ones first to get your feet wet.";
 		now list-exam is true;
 	the rule succeeds;
 
@@ -548,8 +552,10 @@ to tally-and-place:
 after printing the locale description:
 	let A be indexed text;
 	now A is your-tally;
-	repeat through table of solvable tables:
-		sweep-up tabname entry;
+	let B be number of characters in your-tally;
+	if B > 2:
+		repeat through table of solvable tables:
+			sweep-up tabname entry;
 	repeat through table of scenery:
 		if A is tally entry in lower case:
 			if found entry is not 1:
@@ -581,6 +587,8 @@ to sweep-up (x - a table name):
 	if x is your-table: [don't clue something that dropped just now]
 		continue the action;
 	if your-table is table of just plain cool stuff and x is not table of last names: [don't clue any of the 3 previous in cool stuff mode]
+		continue the action;
+	if your-table is table of last names:
 		continue the action;
 	choose row with tabname of x in table of solvable tables;
 	if tabsolv entry is true: [don't clue stuff already solved]
@@ -732,7 +740,7 @@ check entering a quasi-entry:
 	repeat through your-table:
 		if your-tally is tally entry:
 			if noun is front door:
-				say "(well, knocking, actually)[line break]";			
+				say "(well, knocking, actually)[line break]";
 			if noun is suspiciously ordinary door:
 				say "Whoah. You're not brave enough to enter. But you'll leave a message.[paragraph break]";
 			if there is a foundit entry:
@@ -815,7 +823,7 @@ to run-the-ending:
 	else if score < 5:
 		say "A few people pat you on the back and say you at least brought people together, which is the most important thing. The compliments only go so far. You wish you could've done a bit more[despite-good].";
 	else if score < 10:
-		say "'Ambivalent whispering all around. Pretty good, they guess. But people have to be at the top of their game to inspire true change. Well, you got friends together, which is the important thing[if old-binary > 1], and a bit more, besides. But it's not easy getting lost the right way[end if].";
+		say "'Ambivalent whispering all around. Pretty good, they guess. But people have to be at the top of their game to inspire true change. Well, you got friends together, which is the important thing[if binary-solved > 1], and a bit more, besides. But it's not easy getting lost the right way[end if].";
 	else if score < 15:
 		say "Someone important-looking says 'Well, it'll do. Good job. But it wasn't a really ELITE run. Maybe find a few more things. Still, you deserve a break.'";
 	if score < 15:
@@ -856,7 +864,7 @@ to say spec-undo:
 		say "EDU";
 
 to say despite-good:
-	say "[if old-binary > 1] despite your good work elsewhere[end if]"
+	say "[if binary-solved > 1] despite your good work elsewhere[end if]"
 
 book what to find
 
@@ -1150,7 +1158,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found	chrs
 "kidniki"	--	"You temporarily feel on guard against the possibility of radical ninjas."	--	0	7
 "kidskin"	--	"You walk by an exotic leather store."	--	0	7
 "kuskunn"	"Magic Candle"	"You see an image of a demon trapped in a bubble, by a candle slowly burning."	--	0	7
-"sissies"	--	"Some self-made tough guys still feel a need to gang up on people weaker than they are. The pain's all over at once that way, amirite?"	--	0	7
+"sissies"	--	"Some self-made tough guys still feel a need to gang up on people weaker than they are. The pain's over sooner than if they went one at a time, amirite?"	--	0	7
 "skidded"	--	"A goverment utility vehicle swerves and almost hits someone about to jaywalk. Funny how one is always around, unless you jaywalk REALLY assertively."	--	0	7
 "weenies"	--	"An old long-abandoned hot dog hut lies between two places of Serious Business. Your grandparents constantly babbled about the misspelled version from THEIR youth being so tasty, and--well--maybe the misspelling did make things tastier."	--	0	7
 "inkiness"	--	"Everything's a bit cloudy, here."	--	0	8
@@ -1259,6 +1267,7 @@ chapter final table
 table of last names [tol]
 tally (text)	descrip (text)	foundit (text)	what-drops	found
 "dejesus"	"Spanish"	"[mark-away]."	suspiciously ordinary door	0
+"deneke"	"German"	"[mark-away]."	suspiciously ordinary door	0
 "dinh"	"Vietnamese"	"[mark-away]."	suspiciously ordinary door	0
 "dinkins"	"New York"	"[mark-away]."	suspiciously ordinary door	0
 "dinwiddie"	"Scottish"	"[mark-away]."	suspiciously ordinary door	0
@@ -1275,7 +1284,6 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "ishii"	"Japanese"	"With no idea how true it is, you mention that this politician is even more 'I, I, I' than most."	suspiciously ordinary door	0
 "jenkins"	"Disruptor"	"As you write up some absurd threat, you can't help but sign your name LEEROY, though you aren't silly enough to try to bust in."	suspiciously ordinary door	0
 "jensen"	"Swedish"	"[mark-away]."	suspiciously ordinary door	0
-"keene"	"None"	"[mark-away]."	suspiciously ordinary door	0
 "keese"	"None"	"Oh, wait, look. There's a weird pixelated bird on the door! As you make your mark, you reflect on the people keeping Fourdiopolis in the past under the guise of sticking with basics."	suspiciously ordinary door	0
 "knudsen"	"Danish"	"[mark-away]."	suspiciously ordinary door	0
 "kuhn"	"German"	"[mark-away]."	suspiciously ordinary door	0
@@ -1285,9 +1293,10 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "nijinski"	"Polish/Russian"	"You write something about how this person is particularly good at dancing around issues, until they aren't. Booyah!"	suspiciously ordinary door	0
 "nweke"	"Nigerian"	"You write something about how things fall apart in simple, powerful, no-nonsense language."	suspiciously ordinary door	0
 "sheen"	"WINNING"	"As much as you distrust politicians who talk about winning, the alternative is...worse? This guy was particularly outrageous, you remember now. Entertaining, but outrageous."	suspiciously ordinary door	0
-"shenn"	"None"	"[mark-away]."	suspiciously ordinary door	0
-"shin"	"Korean"	"[mark-away]."	suspiciously ordinary door	0
 "sisk"	"None"	"[mark-away]."	suspiciously ordinary door	0
+"sundin"	"Swedish"	"[mark-away]."	suspiciously ordinary door	0
+"suskind"	"German"	"[mark-away]."	suspiciously ordinary door	0
+"ueki"	"Japanese, unique"	"[mark-away]. "	suspiciously ordinary door	0
 "weeks"	"takes their time"	"[mark-away]."	suspiciously ordinary door	0
 "weiss"	"German"	"[mark-away]."	suspiciously ordinary door	0
 "whidden"	"almost too close"	"[mark-away]."	suspiciously ordinary door	0
@@ -1762,7 +1771,7 @@ understand "examine" and "x" as examining.
 rule for supplying a missing noun when examining:
 	if number of visible quasi-entries is 1:
 		now the noun is a random visible quasi-entry;
-		say "([the noun], since it's more interesting than your task list at the moment)[line break]";
+		say "([the noun], since it's more interesting than your task list at the moment, though if you need, X LIST will work)[line break]";
 	else:
 		say "(the task list)[line break]";
 		now the noun is the task list;
@@ -2018,7 +2027,7 @@ undomiding is an action applying to one number
 carry out undomiding:
 	if number understood > 4 or number understood < 2:
 		say "Oops, this should never happen, but there's a bug in the I UNDID code. Email me at [email] if you can, to let me know [number understood] got passed." instead;
-	if old-binary is 0 or old-binary is 1:
+	if binary-solved is 0 or binary-solved is 1:
 		say "You don't have any of the three middle scenarios solved, so trying to reset them won't do much[if on-this-table of number understood], especially since you're on the one you're trying to reset[end if]." instead;
 	choose row number understood in table of accomplishments;
 	if solved entry is false:
@@ -2089,9 +2098,9 @@ domiding is an action applying to one number.
 carry out domiding:
 	if number understood > 4 or number understood < 2:
 		say "Oops, this should never happen, but there's a bug in the I UNDID code. Email me at [email] if you can, to let me know [number understood] got passed." instead;
-	if old-binary is 0:
+	if binary-solved is 0:
 		say "You need to get past the friends task-list to try this." instead;
-	if old-binary is 15 or old-binary is 31:
+	if binary-solved is 15 or binary-solved is 31:
 		say "You're already clear of the three middle scenarios." instead;
 	choose row number understood in table of accomplishments;
 	if solved entry is true:
@@ -2100,11 +2109,11 @@ carry out domiding:
 	let said-yet be false;
 	if on-this-table of number understood:
 		now said-yet is true;
-		say "Magically, you realize you already completed this task list and you can move ahead.[if old-binary is 15][line break]";
-		if old-binary is not 15:
+		say "Magically, you realize you already completed this task list and you can move ahead.[if binary-solved is 15][line break]";
+		if binary-solved is not 15:
 			midtable-choose;
 			say "Now you're on the [table-by-num of number understood] task set.";
-	if old-binary is 15:
+	if binary-solved is 15:
 		say "Switching you to the table of cool stuff.";
 		now your-table is table of just plain cool stuff;
 	else:
@@ -2279,7 +2288,7 @@ when play begins (this is the check accomplishments at start rule) :
 		read file of accomplishments into table of accomplishments;
 	else:
 		write file of accomplishments from the table of accomplishments;
-	if old-binary is wrongo:
+	if binary-solved is wrongo:
 		say "Oops! Something happened, and the save file appears to be corrupted. I'm resetting everything, though if you know the semi-secret commands, you can get back to where you were.";
 		repeat through table of accomplishments:
 			now solved entry is false;
@@ -2658,7 +2667,7 @@ carry out wfing:
 		say "That's not a valid number to write to the save file. 0, odd #s from 1 to 15 inclusive, and 31 work. Type -1 for full explanations." instead;
 	now skip-silly-this-turn is true;
 	if number understood is -4:
-		let bin-num be old-binary;
+		let bin-num be binary-solved;
 		if bin-num < 1 or bin-num > 14 or bin-num is wrongo:
 			say "You need to have friends solved and not all the middle tables." instead;
 		midtable-choose;
@@ -2671,7 +2680,7 @@ carry out wfing:
 		the rule succeeds;
 	if number understood is -1:
 		say "0=clear all,31=solve all[line break]1=solve friends only. 2=solve education 4=solve supplies 8=solve marginalized.[paragraph break]Misc values: -1 gives use, -2 shows solved entries, -3 shows current table." instead;
-	say "[bold type]NOTE: this writes to the file. The previous number was [old-binary], if you wish to undo things.[roman type][line break]";
+	say "[bold type]NOTE: this writes to the file. The previous number was [binary-solved], if you wish to undo things.[roman type][line break]";
 	let num-to-div be number understood;
 	let count be 0;
 	repeat through table of accomplishments:
@@ -2766,7 +2775,7 @@ carry out scing:
 
 chapter auto tests
 
-[ * The tests basically consist of plowing through one of the win sheets. FO 1 means to force paper #1. ]
+[ * The tests basically consist of plowing through one of the win sheets. FO 1 means to force paper #1. They have been deprecated by Zarf's automated testing. Plus the names for 6 are out of date. ]
 
 test 1win with "fo 1/dennis/c/eddie/c/enid/c/heidi/c/ike/c/ines/c/isis/c/jed/c/jenni/c/jessie/c/jud/c/jude/c/judi/c/june/c/ken/c/kiki/c/nikki/c/sid/c/susie/c/winnie/c/inside/c"
 

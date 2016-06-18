@@ -10,5 +10,5 @@ I was able to use Zarf's script to do stability testing, which was a big help, a
 --46 silly events, up from 33
 --A(ction) command now reveals TECH, which was guess-the-verb in the Spring Thing version
 --the final scenario is now tilted a bit differently towards the shadow leaders' campaign offices and not their homes. Also, lots of randomized text for names without any specific bad jokes.
---34 last names now, up from 30. Two are short and should help make things a bit easier, or more interesting
+--35 last names now, up from 30. I think they blend a bit better and clue the next one. More nationality clues too.
 --the game now slightly heckles you with a few unreachable locations here and there in random text
