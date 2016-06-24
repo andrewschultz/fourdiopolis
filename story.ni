@@ -934,7 +934,7 @@ chapter middle tables
 
 table of education [toe]
 tally (text)	descrip (text)	foundit (text)	what-drops	found
-"hijinks"	"political subversion"	"You learn tricks to make political rallies and flash mobs work with a minimum of arrests."	edutainment storefront	0
+"hijinks"	"a full loop of political subversions"	"You learn tricks to make political rallies and flash mobs work with a minimum of arrests."	edutainment storefront	0
 "hikes"	"back to almost nature"	"You get a brief virtual reality sample of the unlivable wilds beyond the cities."	edutainment storefront	0
 "issues"	"detailed wonkery"	"You learn not only the important issues but the details--and even how to skewer people who go too far into details."	edutainment storefront	0
 "keen"	"motivation"	"You can never have too much motivation. Unless you spend too much time motivating yourself, you forget to do anything."	edutainment storefront	0
@@ -1515,6 +1515,7 @@ every turn (this is the silly stuff rule):
 table of silly randoms
 silliness
 "Two people discuss the logistics of visiting every sector of Fourdiopolis before they die."
+"Someone grumbles to captive listeners about how New Warp City is cheating, shaped like a frustum to hold more population."
 "A passer-by asks if you're willing to hear a one-minute lecture on how society represses you. You decline, even, or especially, after they say they've condensed it with practice."
 "An older man tries to skip across the street with a pedestrian warning photographed, but the flash-cameras catch him blocking traffic. A younger kid who started earlier makes it."
 "Even pedestrians babble about gas prices these days. Surely they didn't always, when there was only one type of gas, not ten."
@@ -1541,7 +1542,8 @@ silliness
 "A distinguished-looking [if a random chance of 1 in 2 succeeds]wo[end if]man slips a street urchin 1000000 New Scrip for spraying particularly creative pro-government graffiti. The kid is grateful--food for a whole week! Or nutritious food for two days! Whichever."
 "You do some brief math and realize it'd take fifteen--no, [italic type]seventeen[roman type] whole turns to get from the center to the downwestsouth corner."
 "One person proclaims the plight of people living in the upeastnorth, downwestnorth, upwestsouth and downeastsouth corners of Fourdiopolis and how they don't have easy access to efficient teleportation transport."
-"Someone hands out a flyer for the party of the YEAR at sector [unreachable]."
+"Someone argues that AAA may be a better central hub than 000. You need at most 16 blocks or teleports to get anywhere, instead of 17."
+"Someone hands out a flier for the party of the YEAR at sector [unreachable]."
 "You stumble onto some sort of geocaching competition clue that tells you to look around sector [unreachable] next. But that seems a bit too far away."
 "You encounter an old friend who encourages you to visit them in sector [unreachable] when you get the time."
 "You hear mumbles of a secret prison--I mean, detaining area--in [unreachable]."

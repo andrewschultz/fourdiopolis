@@ -7,65 +7,65 @@
 
 >wf 0
 >kuhn
->r
 You feel very cold. Something unknown but oppressive lies nearby, but you don't nearly have the means or skill to see or deal with it, yet.
+>r
 
 >hikes
->r
 You feel like maybe you got a bit ahead of yourself, here, and you should remember this place for a later time.
+>r
 
 >desks
->r
 You feel like maybe you got a bit ahead of yourself, here, and you should remember this place for a later time.
+>r
 
 >inns
->r
 You feel like maybe you got a bit ahead of yourself, here, and you should remember this place for a later time.
+>r
 
 >dukes
->r
 You feel like maybe you got a bit ahead of yourself, here, and you should remember this place for a later time.
+>r
 
 >wf 1
 >fo 2
 >kuhn
->r
 You feel very cold. Something unknown but oppressive lies nearby, but you don't have the means or skill to see or deal with it, yet.
+>r
 
 >hens
->r
 You feel like maybe you got a bit ahead of yourself, here, and you should remember this place for a later time.
+>r
 
 >jedi
->r
 You feel like maybe you got a bit ahead of yourself, here, and you should remember this place for a later time.
+>r
 
 >wf 1
 >fo 3
 
 >skew
->r
 You feel like maybe you got a bit ahead of yourself, here, and you should remember this place for a later time.
+>r
 
 >jedi
->r
 You feel like maybe you got a bit ahead of yourself, here, and you should remember this place for a later time.
+>r
 
 >wf 1
 >fo 4
 
 >skew
->r
 You feel like maybe you got a bit ahead of yourself, here, and you should remember this place for a later time.
+>r
 
 >hens
->r
 You feel like maybe you got a bit ahead of yourself, here, and you should remember this place for a later time.
+>r
 
 >wf 15
 >kuhn
->r
 You feel very cold. Something unknown but oppressive lies nearby, but you don't quite have the means or skill to see or deal with it, yet.
+>r
 
 *unkindness-testing
 
