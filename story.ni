@@ -1731,11 +1731,12 @@ understand the command "about" as something new.
 understand "about" as abouting.
 
 carry out abouting:
-	say "Fourdiopolis is a sequel to Threediopolis. It was inspired by a joke review of Hanon Ondricek in the IFComp 2013 authors['] forum, of an alternate-universe IFComp game called Onediopolis. I posted something like 'Ha ha, of course, if there were a game, it'd be Fourdiopolis, but probably not.'[paragraph break]";
+	say "Fourdiopolis is a sequel to Threediopolis. It was inspired by a joke review Hanon Ondricek wrote in the IFComp 2013 authors['] forum, of an alternate-universe IFComp game called Onediopolis. I posted something like 'Ha ha, of course, if there were a game, it'd be Fourdiopolis, but probably not. It'd be too weird.'[paragraph break]";
 	say "But the idea and the itch were there. The only problem? It really seemed impossible at first. I didn't know what the directions would be, or how or why they were what they were. Unfortunately there was no way to make it as intuitive as Threediopolis, but once I figured you could have several slates of tasks, things began to open up. But unfortunately, anything I got was a list of 100 things to find, which is overload.[paragraph break]";
-	say "I don't strictly want to send out a throwaway game, but sometimes--you have to get your work out there somewhere to move on. And that's the case, here. I learned a lot about organizing stuff. And I'm grateful to Aaron Reed for allowing a Back Garden that allows me to write things like this that might not be home runs, but--they're there, and I want to clear them out somehow for something with more of a real story. So: heavy puzzle, light story, and yes, I should've started coding a lot earlier. It's the old 'I don't want to inflict this on my testers' when it'd be even worse on a larger scale to inflict it on judges.[paragraph break]";
+	say "I don't strictly want to send out a throwaway game, but sometimes--you have to get your work out there somewhere to move on. And that was the case with initially submitting the game. And I'm grateful to Aaron Reed for allowing a Back Garden that allows me to write things like this that might not be home runs, or that some people would just wouldn't like. But--they're there, and I want to clear them out somehow for the next thing. I hit the old 'I don't want to inflict this on my testers' when it'd be even worse on a larger scale to inflict it on judges. All I can say is, I'm pleased with my post-comp work.[paragraph break]";
 	say "So I'd like to encourage others who say 'gee, well, should I?' that, yes, you should. Whether it's too personal, not personal enough, too general or too specific--if you've had doubts for a couple months, you've done enough thinking. Get a draft out there, etc.[paragraph break]";
 	say "People who helped with Fourdiopolis are in CREDITS. If you haven't played Threediopolis, there may be spoilers about more detailed discussion in another auxiliary meta-command called TECH.[paragraph break]";
+	say "Fourdiopolis, despite requiring considerable thought, should be POLITE on the Zarfian cruelty scale. There is one joke death, but it is undoable.[paragraph break]";
 	say "Also, there will not be a Fivediopolis. No way, no how.";
 	the rule succeeds;
 
@@ -1767,6 +1768,7 @@ carry out teching:
 	say "[line break]Eventually I figured how I wanted things to work--and I realized that jumping 2 of each in any direction would give the player some space. Not only that, the player would have a parity problem to figure if you needed an even or odd number of teleporter jumps. The only thing remaining was what the letters should be.";
 	say "[line break]Then I remembered about cross products from calculus or physics or whatever. I, j, k. Rare enough they wouldn't create TOO many extra letters. So--the final one was h or l. I chose h, because I liked the names and numbers better. Plus L stood for look.";
 	say "[line break]But it wasn't a full game until I figured how to break down the lists into serviceable sizes. You'd start with friends, because that helps you get an idea, then you'd move to supplies.";
+	say "[line break]Zarf's Python regression testing suite was critical to making fixes in the post-comp release of Fourdiopolis. It found a lot, and it helped me test random shuffling of solutions. I recommend it, if you are writing an Inform game. Even knowing the simple stuff works, or when it breaks, is a big help.";
 	the rule succeeds;
 
 volume errors/parser
