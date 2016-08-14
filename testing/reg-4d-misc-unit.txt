@@ -3,7 +3,7 @@
 ** game: /home/andrew/prt/debug-fourdiopolis.ulx
 ** interpreter: /home/andrew/prt/glulxe -q
 
-* _meta-commands
+* meta-commands
 
 >wf 0
 
@@ -165,7 +165,7 @@ You've been wandering for too long
 back you go to the center
 Back at Sector 000
 
-* _game text unit tests
+* game text unit tests
 
 
 >wf 7
@@ -203,7 +203,7 @@ looks like the easier of the two
 >
 old fashioned hospitality at B02
 
-* _4d-basic-verbs
+* 4d-basic-verbs
 
 >wf 0
 
@@ -330,8 +330,10 @@ The hideout where you got your tasks from is nearby.
 Yup, you recognize it now. You just need to look carefully--but not too carefully so others get curious.
 
 >x
-Ooh, the hideout to go
+(the hideout, since it's more interesting than your task list at the moment, though if you need, X LIST will work)
 !in explicit order
+>x list
+Ooh, the hideout to go
 >n
 >r
 !You're not sure where to report after reading this
@@ -370,7 +372,7 @@ You can see the countryside
 >w
 An anti-suicide droid pulls you back as you walk close to what you realize is the edge of Fourdiopolis. It reminds you there are cleaner ways to do that, if you know where to look. You're whisked back to the center.
 
-* _4d-return-messages
+* 4d-return-messages
 
 >wf 0
 
@@ -468,7 +470,7 @@ wandering for too long
 >g
 Most of the fun stuff would begin with G, though EGGS and DUNG would be left, which is not so fun
 
-* _4d-quickmode-check
+* 4d-quickmode-check
 
 >wf 0
 
@@ -503,7 +505,7 @@ BA2
 (well, knocking, actually)
 It's Ines!
 
-* _4d-up-down-check
+* 4d-up-down-check
 
 >u
 The hybrid transport tubes/stairs are designed for optimal pedestrian convenience and exercise potential
@@ -511,7 +513,7 @@ The hybrid transport tubes/stairs are designed for optimal pedestrian convenienc
 >u
 !The hybrid transport tubes/stairs are designed for optimal pedestrian convenience and exercise potential
 
-* _4d-comeback-check
+* 4d-comeback-check
 
 >wf 0
 
@@ -535,7 +537,7 @@ You feel very cold
 >dunks
 a bit ahead of yourself
 
-* _4d-suspiciously
+* 4d-suspiciously
 
 >wf 31
 >weiss
@@ -549,7 +551,7 @@ It's a bit easier to recognize the shadow campaign headquarters now. There's ano
 >nweke
 Another suspiciously ordinary
 
-* _4d-score-notes
+* 4d-score-notes
 
 >wf 0
 >fi 0
@@ -601,7 +603,7 @@ You head back to the center of Fourdiopolis, feeling you've done enough, and not
 >c
 The last one's the toughest. You think.
 
-* _4d-scenario-specific-texts
+* 4d-scenario-specific-texts
 
 >wf 11
 >whiskies
@@ -612,7 +614,7 @@ You figure there may be something a bit more restrained at the end of your list-
 >whiskies
 You already got some wines, but whiskies should probably best wait to celebrate a successful revolution
 
-* _4d-amusing
+* 4d-amusing
 
 >wf 0
 >die
@@ -634,7 +636,7 @@ A scenery location at 6FF?
 to visit where I SEEK KEEN?
 !You can still solve more
 
-* _4d-nearlies
+* 4d-nearlies
 
 >wf 0
 >jesse
@@ -808,7 +810,7 @@ On your way back to the center, you wonder if you could've gone a bit farther
 >r
 On your way back to the center, you wonder if you could've gone a bit farther
 
-* _4d-munge-tests
+* 4d-munge-tests
 
 >wf 0
 >i

@@ -214,7 +214,7 @@ carry out examining the task list:
 			say ", ";
 	say "[line break]There's a note scribbled in that you probably have to use a transporter to get to any of these places.";
 	if hideout is visible:
-		say "Ooh, the hideout to go back to is visible![line break]";
+		say "[line break]Ooh, the hideout to go back to is visible![line break]";
 	else if hidden-inside is false:
 		say "[line break]You're not sure where to report after reading this, but it's somewhere hidden inside. Where was it? B15? ED5? Anyway, they apparently had a backup shelter, if one got raided[if score > 14]. You've probably done enough to go back[end if].";
 	else:
@@ -785,17 +785,17 @@ to run-the-ending:
 			say "'Boo! Fink.' they chide you. But they know that with all the supplies ready, they don't need fearmongering anyway. Power to the people, well, hopefully.";
 		else if score  < 7:
 			say "'Well, it's a start. These people are hard to get at. But...we have enough momentum anyway. We hope.'";
-		else if score < 17:
+		else if score < 18:
 			say "'A bit disappointing, but, well, they'll be exposed with time anyway. Maybe those who haven't gotten anything yet will be scared in their own way.'";
-		else if score < 21:
+		else if score < 23:
 			say "'A majority! [if score * 2 is number of rows in table of last names]Well, if we round up. [end if]Perhaps there is some hope that they can be scared to act before we have to. Hm, we might anyway. It'll be fun.'";
 		else if score < 29:
-			say "'Wow! We could hardly have hoped for more!'";
+			say "'Wow! We could hardly have hoped for more! Though--err, well, maybe you could've figured THEM, or...oh, never mind.'";
 		else if score < number of rows in table of last names:
 			say "'Impressive indeed! We're glad you're not on THEIR side. We'd have gotten a lot more threats now than we already have.'";
 		else:
 			say "'All of them? You're almost scaring us. Don't worry. Almost.'";
-		if score > 16:
+		if score * 2 >= number of rows in table of last names:
 			say "[paragraph break]You ask if you can come along for the uprisings, but they assure you your technical skills are far too valuable. You feel sort of ripped off, until you realize that means all-you-can-eat from the supplies you requisitioned earlier.";
 		end-win-with-undo;
 		continue the action;
@@ -1733,8 +1733,8 @@ understand "about" as abouting.
 carry out abouting:
 	say "Fourdiopolis is a sequel to Threediopolis. It was inspired by a joke review Hanon Ondricek wrote in the IFComp 2013 authors['] forum, of an alternate-universe IFComp game called Onediopolis. I posted something like 'Ha ha, of course, if there were a game, it'd be Fourdiopolis, but probably not. It'd be too weird.'[paragraph break]";
 	say "But the idea and the itch were there. The only problem? It really seemed impossible at first. I didn't know what the directions would be, or how or why they were what they were. Unfortunately there was no way to make it as intuitive as Threediopolis, but once I figured you could have several slates of tasks, things began to open up. But unfortunately, anything I got was a list of 100 things to find, which is overload.[paragraph break]";
-	say "I don't strictly want to send out a throwaway game, but sometimes--you have to get your work out there somewhere to move on. And that was the case with initially submitting the game. And I'm grateful to Aaron Reed for allowing a Back Garden that allows me to write things like this that might not be home runs, or that some people would just wouldn't like. But--they're there, and I want to clear them out somehow for the next thing. I hit the old 'I don't want to inflict this on my testers' when it'd be even worse on a larger scale to inflict it on judges. All I can say is, I'm pleased with my post-comp work.[paragraph break]";
-	say "So I'd like to encourage others who say 'gee, well, should I?' that, yes, you should. Whether it's too personal, not personal enough, too general or too specific--if you've had doubts for a couple months, you've done enough thinking. Get a draft out there, etc.[paragraph break]";
+	say "I don't strictly want to send out a throwaway game, but sometimes--you have to get your work out there somewhere to move on. And that was the case with initially submitting the game. And I'm grateful to Aaron Reed for allowing a Back Garden that allows me to write things like this that might not be home runs, or that some people would just wouldn't like. But--they're there, and I want to clear them out somehow for the next thing. I hit the old 'I don't want to inflict this on my testers' when it'd be even worse on a larger scale to inflict it on judges. Overall, though, I'm pleased with my post-comp work.[paragraph break]";
+	say "So I'd like to encourage others who say 'gee, well, should I?' that, yes, you should. Whether it's too personal, not personal enough, too general or too specific--if you've had doubts for a couple months, you've done enough thinking. Get a draft out there, etc. Some people won't like it, and it's okay.[paragraph break]";
 	say "People who helped with Fourdiopolis are in CREDITS. If you haven't played Threediopolis, there may be spoilers about more detailed discussion in another auxiliary meta-command called TECH.[paragraph break]";
 	say "Fourdiopolis, despite requiring considerable thought, should be POLITE on the Zarfian cruelty scale. There is one joke death, but it is undoable.[paragraph break]";
 	say "Also, there will not be a Fivediopolis. No way, no how.";
@@ -1752,6 +1752,7 @@ carry out creditsing:
 	say "I'd like to thank Aaron Reed for providing a space where I can put this game so it doesn't seem like trolling or torture and also for checking with entrants to allow for a bit of cleanup before the first release. I was really conflicted about even putting this game out, because of its difficulty. The thing is--I [italic type]like[roman type] difficult stuff, though that's no excuse not to try to make it accessible to others. In fact, my goal is to make stuff that may seem difficult be a bit more accessible.[paragraph break]";
 	say "I'd like to thank my testers, for putting up with something so confusing in so little time. [bold type]Buster Hudson, Robin Johnson and Teaspoon[roman type]. They found--well, the details would embarrass me. Both technical and aesthetic. I'm very grateful to them.[paragraph break]Also, Wade Clarke mentioned some neat things in-comp. It's not the first game of mine he's helped.[paragraph break]";
 	say "And while I didn't have any personal contact with Zarf over this game, his Python regular-expression tester let me automate a lot of testing for the post-comp version.[paragraph break]";
+	say "Zarf's scripts also helped me do performance testing, which was a big part of release 2. This verified some code of David Kinder's that allowed me not to redraw the status line every time did indeed speed up Fourdiopolis a bit more.[paragraph break]";
 	say "And finally, while it's fishy to list my Threediopolis testers by name so as to beef up my tester list...their thoughts and ideas helped me when I wrote up Fourdiopolis. I appreciate them.[paragraph break]The font in the cover 'art' is Chlorinar.";
 	the rule succeeds;
 

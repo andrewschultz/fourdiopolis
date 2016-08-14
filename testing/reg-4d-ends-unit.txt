@@ -496,9 +496,7 @@ A bit disappointing
 >undo
 >fi 17
 >in
-A majority!
-round up
-uprisings
+!uprisings
 
 >undo
 >fi 18
@@ -521,13 +519,13 @@ uprisings
 >undo
 >fi 21
 >in
-Wow! We could hardly have hoped
+A majority!
 uprisings
 
 >undo
 >fi 22
 >in
-Wow! We could hardly have hoped
+A majority!
 uprisings
 
 >undo
@@ -598,6 +596,12 @@ uprisings
 
 >undo
 >fi 34
+>in
+Impressive indeed!
+uprisings
+
+>undo
+>fi 35
 >in
 All of them? You're almost
 uprisings

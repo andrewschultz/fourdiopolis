@@ -1,5 +1,7 @@
 Fourdiopolis release 2 has a lot of bug fixes and enhancements. The core game is still the same, but I was able to add a few neat things.
 
+The official release date is August 14, 2016.
+
 I was able to use Zarf's script to do stability testing, which was a big help, and it also turned up--and left me freer to look into--small bugs and inconsistencies in the narrative, which I was able to fix.
 
 --the game now detects how you run out of bounds for a more suitable error message.
