@@ -30,7 +30,7 @@ while ($count <= $#ARGV)
   $a = $ARGV[$count];
   $b = "";
   if (defined($ARGV[$count+1])) { $b = $ARGV[$count+1]; }
-  
+
   for ($a)
   {
     /^-3(d?)$/ && do { $inFileSpecified = 1; $inFile = "rtest3.txt"; $count++; next; };
@@ -99,7 +99,7 @@ if ($eraseRandOut)
 if ($iterations)
 {
   for $count (1..$iterations) { writeTestFile($count, $iterations); }
-  print "Final"; 
+  print "Final";
 } else { writeTestFile(""); print "Only"; }
 
 print " file created: $outFile\n";

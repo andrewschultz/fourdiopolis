@@ -2,9 +2,15 @@
 # shows all combos of how to get a certain place
 # also just handy to see the end result location from a certain path.
 
-if (@ARGV[0])
+use strict;
+use warnings;
+
+#globals (error checking mostly)
+my $tempstr;
+
+if (defined($ARGV[0]))
 {
-  for $word (@ARGV) { showPos($word); }
+  for my $word (@ARGV) { showPos($word); }
 }
 else
 {
@@ -15,6 +21,15 @@ showPos("jenkins");
 sub h2k
 {
   my $count=0;
+  my $x;
+  my $y;
+  my $x1;
+  my $x1;
+  my $xd;
+  my $y1;
+  my $yd;
+  my $z1;
+  my $zd;
   my @a;
   for (1..$_[0]) { push (@a, "h"); }
   while (@a[0] ne "l")
@@ -30,7 +45,7 @@ sub h2k
     /j/ && do { $xd-=2; $yd+=2; $zd-=2; next; };
     /k/ && do { $xd-=2; $yd-=2; $zd+=2; next; };
   }
-  $walkleft = abs ($xd - $_[1]) + abs ($yd - $_[2]) + abs ($zd - $_[3]);
+  my $walkleft = abs ($xd - $_[1]) + abs ($yd - $_[2]) + abs ($zd - $_[3]);
   if (($walkleft <= $_[4]) && (($walkleft + $_[4]) % 2 == 0))
   {
     print "@a valid with $tempstr, teleports = $xd $yd $zd.";
@@ -63,15 +78,16 @@ sub h2k
 
 sub showPos
 {
+  my $minWalk;
   my $x = my $y = my $z = 0;
 
   my @a = split(//, $_[0]);
   $tempstr = $_[0];
 
   my $retreats = 0;
-  
+
   if ($a =~ /[A-Z]/) { print "Note that upper case letters mean backwards.\n"; }
-  
+
   for (@a)
   {
     /[UDNSEWHIJK]/ && do { $retreats++; };
@@ -93,9 +109,9 @@ sub showPos
   }
 
   print "OK, position = $x/$y/$z or " . loc4($z) . loc4($y) . loc4($x) . "\n";
-  $parity = length($_[0]) - $x - $y - $z;
+  my $parity = length($_[0]) - $x - $y - $z;
   $parity %= 2;
-  
+
   if (!$parity)
   {
   $minWalk = mins($x) + mins($y) + mins($z);
@@ -104,11 +120,11 @@ sub showPos
   {
   $minWalk = mins($x+2) + mins($y+2) + mins($z+2);
   }
- 
-  $telep = length($_[0]) - $minWalk;
+
+  my $telep = length($_[0]) - $minWalk;
   print "Minimum walk = $minWalk. Possible teleport = $telep.\n";
 
-  $sttel = $telep % 2;
+  my $sttel = $telep % 2;
   if (!$sttel) { $sttel = 2; }
 
   my $q = $sttel;

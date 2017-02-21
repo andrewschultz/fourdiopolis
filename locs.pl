@@ -8,15 +8,19 @@
 #
 #eg locs.pl ididiundid
 
+use strict;
+use warnings;
+
+my $inTable = 0;
+my $myTable = "";
 my $printRes = 0;
 
-if (@ARGV[0]) { $printRes = 1; for $str (@ARGV) { processLine($str); } exit; }
+if (defined($ARGV[0])) { $printRes = 1; for my $str (@ARGV) { processLine($str); } exit; }
 
 open(A, "story.ni") || die ("Need fourdiopolis source.");
 
 while ($a = <A>)
 {
-  $line++;
   if (($a =~ /^table/) && ($a !~ /\t/) && ($a !~ /table of (silly jokes|far blab)/)) { $myTable = $a; $inTable = 1; chomp($myTable); }
   if ($a !~ /[a-z]/) { $inTable = 0; }
   if (($a =~ /^\".*\t/) && ($inTable)) { processLine($a); }
@@ -34,7 +38,7 @@ sub processLine
   if ($a !~ /\"/) { $printRes = 1; }
   $a =~ s/^\"//g;
   $a =~ s/\".*//g;
-  @b = split(//, $a);
+  my @b = split(//, $a);
   for (@b)
   {
     if ($_ eq "d") { $z -= 1; }
@@ -50,12 +54,12 @@ sub processLine
 	else { print "Invalid character $_ in word $_[0].\n"; return; }
     if (($x > 9) || ($y > 9) || ($z > 9) || ($x < -9) || ($y < -9) || ($z < -9))
     {
-      print "$a out of bounds at letter $count, location $x $y $z, table $myTable, line $line.\n";
+      print "$a out of bounds at letter $count, location $x $y $z, table $myTable, line $..\n";
 	  return;
     }
 	$count++;
   }
-  if ($printRes) { print "$a => " . ltr($z) . ltr($y) . ltr($x) . "\n"; }  
+  if ($printRes) { print "$a => " . ltr($z) . ltr($y) . ltr($x) . "\n"; }
 }
 
 sub ltr

@@ -8,9 +8,11 @@
 #no arguments
 #
 
-#stuff not worth it to put in alphabetical order
-@ignore = ("silly randoms", "silly jokes", "far blab", "final question options", "scenery progress", "observies", "stupid jokes");
+use warnings;
+use strict;
 
+#stuff not worth it to put in alphabetical order
+my @ignore = ("silly randoms", "silly jokes", "far blab", "final question options", "scenery progress", "observies", "stupid jokes");
 
 talf("threediopolis");
 talf("fourdiopolis");
