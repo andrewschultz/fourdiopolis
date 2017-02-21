@@ -293,7 +293,7 @@ current wrangling
 >r
 
 >wf 15
->iundidedu 
+>iundidedu
 past wrangling
 
 * undid-junk-scen
@@ -309,7 +309,7 @@ current wrangling
 >r
 
 >wf 15
->iundidjunk 
+>iundidjunk
 past wrangling
 
 * undid-news-scen

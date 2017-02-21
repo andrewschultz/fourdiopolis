@@ -41,70 +41,70 @@ Only four?
 >fi 5
 >in
 not too bad
- ten 
+ ten
 !Good job
 
 >undo
 >fi 6
 >in
 not too bad
- nine 
+ nine
 !Good job
 
 >undo
 >fi 7
 >in
 not too bad
- eight 
+ eight
 !Good job
 
 >undo
 >fi 8
 >in
 not too bad
- seven 
+ seven
 !Good job
 
 >undo
 >fi 9
 >in
 not too bad
- six 
+ six
 !Good job
 
 >undo
 >fi 10
 >in
 not too bad
- five 
+ five
 !Good job
 
 >undo
 >fi 11
 >in
 not too bad
- four 
+ four
 !Good job
 
 >undo
 >fi 12
 >in
 not too bad
- three 
+ three
 !Good job
 
 >undo
 >fi 13
 >in
 not too bad
- two 
+ two
 !Good job
 
 >undo
 >fi 14
 >in
 not too bad
- one 
+ one
 !Good job
 
 >undo

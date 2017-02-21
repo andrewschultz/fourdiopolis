@@ -289,7 +289,7 @@ AE3 seems tricky. How do we get close? There is an odd number of teleportals we 
 
 BC4 has possibilities for one or three transporters. (Five is out because you'd wind up at BB2 or such.) -2, -2, 6 is a possibility for three--and it's the only one. That'd be IIK, with S and 2 W's. But to be alphabetical it'd need to be SII(KWW) which is nonsense. So, BC4 has one transporter. If it's not BB2, then you have 5 N/S walks and an E/W to recover. So...you have an I, with 0, -1, 2 to recover. That's 2 E's and a S. Now this must be between NEIN and SINES. So it starts with N or S.
 
-It's true there's NESSIE but that's a bit of a stretch. NI(ESSE) also gives nothing. (SIIE)(UD) looks improbable, e.g. SI (DEIU) and SE (DIIU) are to vowely. (SIIE)(EW) also has too many vowels. That leaves (SIIE)(NS) and SI(EINS) might get something but SENSEI is a common enough word. 
+It's true there's NESSIE but that's a bit of a stretch. NI(ESSE) also gives nothing. (SIIE)(UD) looks improbable, e.g. SI (DEIU) and SE (DIIU) are to vowely. (SIIE)(EW) also has too many vowels. That leaves (SIIE)(NS) and SI(EINS) might get something but SENSEI is a common enough word.
 
 BC2 (kinda far) must start SIN and from there you can see you don't need any teleporters--there's a S and two contrary directions. NS makes too many consonants, SIN(UDS) gives nothing, but there's SINEWS.
 
