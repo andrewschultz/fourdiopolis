@@ -79,11 +79,17 @@ to set-your-table (myt - a table name):
 		now cur-left is cur-left / 2;
 	repeat through your-table:
 		now found entry is 0;
-	repeat through table of scenery:
-		if found entry is 1:
-			now found entry is 0;
+	reset-scenery 0;
 	now score is 0;
 	now should-rejig is true;
+
+to reset-scenery (x - a number):
+	if x > 1 or x < 0:
+		say "You can only reset to 1 or 0.";
+	repeat with Q running through tablist:
+		repeat through Q:
+			if found entry is 0 or found entry is 1:
+				now found entry is x;
 
 to say email:
 	say "blurglecruncheon@gmail.com"
@@ -308,7 +314,7 @@ check entering transporter:
 	say "That's a bit ambiguous. Try going h, i, j or k, instead." instead;
 
 check examining the transporter for the first time:
-	say "You review the literature on the transporter about the three approved teleport directions: h, i, j and k, and something about quaternions, and something else about how you can't have people passing each other in opposite directions in a teleportal field, or BAM. It's all pretty standard stuff, and if people can't understand it, they look knowledgeable nodding their heads about it."
+	say "You review the literature on the transporter about the four approved teleport directions: h, i, j and k, and something about quaternions, and something else about how you can't have people passing each other in opposite directions in a teleportal field, or BAM. It's all pretty standard stuff, and if people can't understand it, they look knowledgeable nodding their heads about it."
 
 check entering transporter:
 	say "You can just try to go the various directions: h, i, j, or k."
@@ -538,16 +544,14 @@ to tally-and-place:
 					if location of what-drops entry is not outside-area:
 						move what-drops entry to outside-area;
 						continue the action;
-		repeat through table of scenery:
-			if B > chrs entry:
-				next;
+		repeat through your-table:
 			if A is tally entry:
 				if there is a what-drops entry:
 					now found entry is 1;
 					move what-drops entry to outside-area;
 					continue the action;
-			if B < number of characters in tally entry:
-				break;
+
+tablist is a list of table names that varies. tablist is {table of scenery 3, table of scenery 4, table of scenery 5, table of scenery 6, table of scenery 7, table of scenery 8, table of scenery 9, table of scenery 10 }
 
 after printing the locale description:
 	let A be indexed text;
@@ -556,19 +560,20 @@ after printing the locale description:
 	if B > 2:
 		repeat through table of solvable tables:
 			sweep-up tabname entry;
-	repeat through table of scenery:
-		if A is tally entry:
-			if found entry is not 1:
-				increment scenery-found;
-				unless there is a what-drops entry:
-					if debug-state is true:
-						say "DEBUG: Scenery debug check!";
-					say "[foundit entry][line break]";
-					if scenery-found-yet is false:
-						bracket-say "this wasn't critical to the game, but it's just something neat to find. There are [number of rows in table of scenery - 1] more to find, but they're meant to be obscure. Congratulations on finding one, though!";
-						now scenery-found-yet is true;
-					if found entry is 0: [-1 for ISEEKKEEN/etc is a bit of a hack but yeah]
-						now found entry is 1;
+		let mytab be entry (B - 2) in tablist;
+		repeat through mytab:
+			if A is tally entry:
+				if found entry is not 1:
+					increment scenery-found;
+					unless there is a what-drops entry:
+						if debug-state is true:
+							say "DEBUG: Scenery debug check!";
+						say "[foundit entry][line break]";
+						if scenery-found-yet is false:
+							bracket-say "this wasn't critical to the game, but it's just something neat to find. There are [allscenery - 1] more to find, but they're meant to be obscure. Congratulations on finding one, though!";
+							now scenery-found-yet is true;
+						if found entry is 0: [-1 for ISEEKKEEN/etc is a bit of a hack but yeah]
+							now found entry is 1;
 	if your-tally is "hidden" or your-tally is "inside":
 		if hideout is not in outside-area:
 			move hideout to outside-area;
@@ -1086,9 +1091,10 @@ to say worry-undo of (tn - a table name):
 
 to say seek-track:
 	let ln be a list of indexed text;
-	repeat through table of scenery:
-		if found entry is 0:
-			add "[tally entry in upper case]" to ln;
+	repeat with Q running through tablist:
+		repeat through Q:
+			if found entry is 0:
+				add "[tally entry in upper case]" to ln;
 	if debug-state is true:
 		say "DEBUG NOTE found directory.";
 	if number of entries in ln is 0:
@@ -1101,80 +1107,101 @@ to say seek-track:
 	truncate ln to 5 entries;
 	say "You read: [ln]";
 
-table of scenery [tosc]
-tally (text)	descrip (text)	foundit (text)	what-drops	found	chrs
-"die"	"sacrifice yourself"	"Assisted suicide is more rigorous than in Threediopolis. The Death Panels there (not the healthcare kind) give punditary views before you pegged out, but here, you have surveys...quesstionnaires...what would you do better? What do you think authorities would do better? No, no, you are just lashing out because you are suicidal. Ah, yes, even the unsatisfied are satisfied in Fourdiopolis."	ominous door	0	3
-"duh"	--	"Oh, man! You can't believe you missed THAT one. It's obvious now!"	--	0	3
-"dui"	--	"A robot-police runs by and grabs a breath-sample from the air in front of you. 'Proceed,' it says. Hmm.'"	--	0	3
-"eek"	--	"Someone tells a scary story for effect and, well, gets the effect they want."	--	0	3
-"hhh"	"Triple H"	"Someone threatens to bodyslam another person for being utterly evil. Then--bam! You see they actually do! Someone whispers to you, don't worry, it's fake, just entertainment. What is the world coming to?"	--	0	3
-"kkk"	"bad bad people"	"Everyone around here just really, really sucks at life. What else can I say?"	--	0	3 [super extra double for this vs another k word but here there's an opportunity to laugh at people a bit I hope]
-"deke"	--	"You wonder if you faked yourself out going this way."	--	0	4
-"didi"	"Urkel"	"A fellow with oversized glasses and suspenders runs into you, shrugs his shoulders, snort-laughs and then runs away."	--	0	4
-"dike"	--	"In this blocked-off area, people talk about the city water supply."	--	0	4
-"dink"	--	"You're hit by a very very soft nerf ball that runs away. Hmm."	--	0	4
-"ehhs"	--	"People keep asking fellow conversers to repeat themselves, here."	--	0	4
-"heed"	--	"Some police give a particularly stern lecture to a citizen not fully obeying some minor law."	--	0	4
-"hues"	--	"The local color is particularly vibrant in this neighborhood."	--	0	4
-"hush"	--	"Unusually quiet here."	--	0	4
-"ides"	--	"An organized march nearby leaves you feeling wary."	--	0	4
-"juke"	--	"Someone walking towards you tries to get out of your way, and you do the same. But you both pick the same way to go, several times. Awkward!"	--	0	4
-"keds"	--	"[snee]."	--	0	4
-"kwik"	--	"You can just hear the bad spelling as people with more willpower than abstract knowledge exercise their authority."	--	0	4
-"nike"	--	"[snee]."	--	0	4
-"seek"	--	"You spy someone else with a sheet similar to yours. You don't acknowledge them, though. Can't be too careful."	--	0	4
-"shun"	--	"You feel very, very alone. People are more than just giving you your space."	--	0	4
-"uhhs"	--	"Conversation feels a bit slower and dumber than usual for Fourdiopolis, for a second here."	--	0	4
-"uuid"	--	"You are suddenly unable to get the hexadecimal number [b][uuid][r] out of your head!"	--	0	4
-"whew"	--	"You just barely escaped something, there! You don't know what, but it would've been pretty bad."	--	0	4
-"wiki"	--	"You suddenly have an urge to look up some term and follow a chain to all sorts of odd knowledge you may never use but it'll be fun."	--	0	4
-"wind"	--	"You're almost blown off your feet for a second. Air currents in Fourdiopolis are weird--there's no PROOF the government controls them, but..."	--	0	4
-"ennui"	--	"Yyyyyawn. What's the point?"	--	0	5
-"iknew"	--	"Someone covers for looking stupid by explaining they were just being really, really ironic."	--	0	5
-"jesus"	--	"Someone spouting an annoying proof that religions shouldn't exist then asks you to join the personality cult of a smart person dead for a hundred years, who wasn't nice, but they understood algorithms of how to make others nicer. You brush them away."	--	0	5
-"knees"	--	"You grab an old ache for a moment."	--	0	5
-"nisei"	--	"You walk past shops with Japanese signs."	--	0	5
-"nuhuh"	--	"A trivial argument nearby quickly turns emotional."	--	0	5
-"nuked"	--	"A surprisingly empty area. You look for biohazard signs but don't see any. Still, you feel disturbingly tingly."	--	0	5
-"seine"	--	"You feel a hackneyed flavor of, and longing for, Gay Paree."	--	0	5
-"shins"	--	"You grab an old ache for a moment."	--	0	5
-"shush"	--	"'Oh, sure, you can THINK that, just don't SAY it, you know?'"	--	0	5
-"sides"	--	"You feel cornered in here. You're not sure why."	--	0	5
-"undid"	--	"You feel regret for what you've done and regret for that regret. You waste a bit of time fretting over how you've wasted a bit of time no matter which feeling is right."	--	0	5
-"whisk"	--	"You trip on an odd cooking doohickey you forget the name of. People don't have time for making their own meals, with so much virtual reality to experience these days, and machines do it all well enough."	--	0	5
-"dindin"	--	"You feel hungry."	--	0	6
-"heehee"	--	"You think of a silly pun that feels funnier than it has a right to be."	--	0	6
-"hehhuh"	--	"[bnb]"	--	0	6
-"henwen"	"Prydain Chronicles"	"You thought you heard a talking pig just now."	--	0	6
-"huhheh"	--	"[bnb]"	--	0	6
-"nissin"	--	"You step on something. It looks like a chunk of dried noodles. You feel hungry for food you'll regret later."	--	0	6
-"nudies"	--	"You see, and quickly ignore, some disturbing fliers on the ground."	--	0	6
-"shinju"	--	"Hm, looks like a play, in the park. Not quite Romeo and Juliet, but seemes like it just ended the same way."	--	0	6
-"shishe"	--	"You smell evidence people are--gasp--SMOKING. You remember health warnings that a whiff of the good smelling stuff is worse than the bad smelling stuff, and vice versa."	--	0	6
-"unkind"	--	"You hear a name. It's a slur. It's probably old, and maybe people forget why, but the nastiness still remains. It's the sort of thing the ubiquitous video cameras can't catch and report."	--	0	6
-"winded"	--	"You take a break to catch your breath."	--	0	6
-"dejeune"	--	"You sure could use a lunch break right now!"	--	0	7
-"kidniki"	--	"You temporarily feel on guard against the possibility of radical ninjas."	--	0	7
-"kidskin"	--	"You walk by an exotic leather store."	--	0	7
-"kuskunn"	"Magic Candle"	"You see an image of a demon trapped in a bubble, by a candle slowly burning."	--	0	7
-"sissies"	--	"Some self-made tough guys still feel a need to gang up on people weaker than they are. The pain's over sooner than if they went one at a time, amirite?"	--	0	7
-"skidded"	--	"A goverment utility vehicle swerves and almost hits someone about to jaywalk. Funny how one is always around, unless you jaywalk REALLY assertively."	--	0	7
-"swedish"	--	"An ethnic area full of oddly dotted vowels. You know them by their unicode numbers, but you have no clue how to pronounce them."	--	0	7
-"weenies"	--	"An old long-abandoned hot dog hut lies between two places of Serious Business. Your grandparents constantly babbled about the misspelled version from THEIR youth being so tasty, and--well--maybe the misspelling did make things tastier."	--	0	7
-"inkiness"	--	"Everything's a bit cloudy, here."	--	0	8
-"unkissed"	--	"You hear a teen sob about their lack of romantic luck."	--	0	8
-"unwished"	--	"Someone tries to hand you a flyer you really, really don't want."	--	0	8
-"whiskies"	--	"Wow! People seem to be having a rip roaring time, here[whisky-wine]. You don't have time for such carousing at the moment, but it boosts your spirits."	--	0	8
-"iseekkeen"	--	"[seek-track]."	--	-1	9
-"iundidedu"	--	"[worry-undo of table of education]."	--	-1	9
-"jeskiddin"	--	"Someone walks by and notifies you this is a Level 17 restricted area. You quickly hide your to-do list, before they point and laugh that they got you GOOD, and the grocery store's THAT way."	--	0	9
-"seediness"	--	"This area doesn't feel too posh. You don't know why, but it doesn't."	--	0	9
-"skunkweed"	--	"It smells bad here, like it should be illegal."	--	0	9
-"whininess"	--	"You can zone out one complaint or two, but when it's all around, it's like it's contagious and you just won't put up with it! Really, some people! It's just not fair! You'd never...oops."	--	0	9
-"wineskins"	--	"Everything retro is fashionable again, and drinking wine from animal skins was before when retro was a thing, so--that big rich people's gathering in the park is extra nice."	--	0	9
-"iundidjunk"	--	"[worry-undo of table of supplies]."	--	-1	10
-"iundidnews"	--	"[worry-undo of table of marginalized people]."	--	-1	10
-"skinniness"	--	"You are momentarily bombarded with ads for diet plans."	--	0	10
+table of scenery 3 [tosc]
+tally (text)	descrip (text)	foundit (text)	what-drops	found
+"die"	"sacrifice yourself"	"Assisted suicide is more rigorous than in Threediopolis. The Death Panels there (not the healthcare kind) give punditary views before you pegged out, concluding thoughts of profundity before the void. Here, you have surveys...questionnaires...what would you do better? What do you think authorities would do better? No, no, you are just lashing out because you are suicidal, because the juice and cookies over there are not for you (should've organized your OWN last meal) but for the people working hard here. Ah, yes, overall even the unsatisfied are satisfied in Fourdiopolis."	ominous door	0
+"duh"	--	"Oh, man! You can't believe you missed THAT one. It's obvious now!"	--	0
+"dui"	--	"A robot-police runs by and grabs a breath-sample from the air in front of you. 'Proceed,' it says. Hmm.'"	--	0
+"eek"	--	"Someone tells a scary story for effect and, well, gets the effect they want."	--	0
+"hhh"	"Triple H"	"Someone threatens to bodyslam another person for being utterly evil. Then--bam! You see they actually do! Someone whispers to you, don't worry, it's fake, just entertainment. What is the world coming to?"	--	0
+"kkk"	"bad bad people"	"Everyone around here just really, really sucks at life. What else can I say?"	--	0 [super extra double for this vs another k word but here there's an opportunity to laugh at people a bit I hope]
+
+table of scenery 4 [tosc4]
+tally (text)	descrip (text)	foundit (text)	what-drops	found
+"deke"	--	"You wonder if you faked yourself out going this way."	--	0
+"didi"	"Urkel"	"A fellow with oversized glasses and suspenders runs into you, shrugs his shoulders, snort-laughs and then runs away."	--	0
+"dike"	--	"In this blocked-off area, people talk about the city water supply."	--	0
+"dink"	--	"You're hit by a very very soft nerf ball that runs away. Hmm."	--	0
+"ehhs"	--	"People keep asking fellow conversers to repeat themselves, here."	--	0
+"heed"	--	"Some police give a particularly stern lecture to a citizen not fully obeying some minor law."	--	0
+"hues"	--	"The local color is particularly vibrant in this neighborhood."	--	0
+"hush"	--	"Unusually quiet here."	--	0
+"ides"	--	"An organized march nearby leaves you feeling wary."	--	0
+"juke"	--	"Someone walking towards you tries to get out of your way, and you do the same. But you both pick the same way to go, several times. Awkward!"	--	0
+"keds"	--	"[snee]."	--	0
+"kwik"	--	"You can just hear the bad spelling as people with more willpower than abstract knowledge exercise their authority."	--	0
+"nike"	--	"[snee]."	--	0
+"seek"	--	"You spy someone else with a sheet similar to yours. You don't acknowledge them, though. Can't be too careful."	--	0
+"shun"	--	"You feel very, very alone. People are more than just giving you your space."	--	0
+"uhhs"	--	"Conversation feels a bit slower and dumber than usual for Fourdiopolis, for a second here."	--	0
+"uuid"	--	"You are suddenly unable to get the hexadecimal number [b][uuid][r] out of your head!"	--	0
+"whew"	--	"You just barely escaped something, there! You don't know what, but it would've been pretty bad."	--	0
+"wiki"	--	"You suddenly have an urge to look up some term and follow a chain to all sorts of odd knowledge you may never use but it'll be fun."	--	0
+"wind"	--	"You're almost blown off your feet for a second. Air currents in Fourdiopolis are weird--there's no PROOF the government controls them, but..."	--	0
+
+table of scenery 5 [tosc5]
+tally (text)	descrip (text)	foundit (text)	what-drops	found
+"ennui"	--	"Yyyyyawn. What's the point?"	--	0
+"iknew"	--	"Someone covers for looking stupid by explaining they were just being really, really ironic."	--	0
+"jesus"	--	"Someone spouting an annoying proof that religions shouldn't exist then asks you to join the personality cult of a smart person dead for a hundred years, who wasn't nice, but they understood algorithms of how to make others nicer. You brush them away."	--	0
+"knees"	--	"You grab an old ache for a moment."	--	0
+"nisei"	--	"You walk past shops with Japanese signs."	--	0
+"nuhuh"	--	"A trivial argument nearby quickly turns emotional."	--	0
+"nuked"	--	"A surprisingly empty area. You look for biohazard signs but don't see any. Still, you feel disturbingly tingly."	--	0
+"seine"	--	"You feel a hackneyed flavor of, and longing for, Gay Paree."	--	0
+"shins"	--	"You grab an old ache for a moment."	--	0
+"shush"	--	"'Oh, sure, you can THINK that, just don't SAY it, you know?'"	--	0
+"sides"	--	"You feel cornered in here. You're not sure why."	--	0
+"undid"	--	"You feel regret for what you've done and regret for that regret. You waste a bit of time fretting over how you've wasted a bit of time no matter which feeling is right."	--	0
+"whisk"	--	"You trip on an odd cooking doohickey you forget the name of. People don't have time for making their own meals, with so much virtual reality to experience these days, and machines do it all well enough."	--	0
+
+table of scenery 6 [tosc6]
+tally (text)	descrip (text)	foundit (text)	what-drops	found
+"dindin"	--	"You feel hungry."	--	0
+"heehee"	--	"You think of a silly pun that feels funnier than it has a right to be."	--	0
+"hehhuh"	--	"[bnb]"	--	0
+"henwen"	"Prydain Chronicles"	"You thought you heard a talking pig just now."	--	0
+"huhheh"	--	"[bnb]"	--	0
+"nissin"	--	"You step on something. It looks like a chunk of dried noodles. You feel hungry for food you'll regret later."	--	0
+"nudies"	--	"You see, and quickly ignore, some disturbing fliers on the ground."	--	0
+"shinju"	--	"Hm, looks like a play, in the park. Not quite Romeo and Juliet, but seemes like it just ended the same way."	--	0
+"shishe"	--	"You smell evidence people are--gasp--SMOKING. You remember health warnings that a whiff of the good smelling stuff is worse than the bad smelling stuff, and vice versa."	--	0
+"unkind"	--	"You hear a name. It's a slur. It's probably old, and maybe people forget why, but the nastiness still remains. It's the sort of thing the ubiquitous video cameras can't catch and report."	--	0
+"winded"	--	"You take a break to catch your breath."	--	0
+
+table of scenery 7 [tosc7]
+tally (text)	descrip (text)	foundit (text)	what-drops	found
+"dejeune"	--	"You sure could use a lunch break right now!"	--	0
+"kidniki"	--	"You temporarily feel on guard against the possibility of radical ninjas."	--	0
+"kidskin"	--	"You walk by an exotic leather store."	--	0
+"kuskunn"	"Magic Candle"	"You see an image of a demon trapped in a bubble, by a candle slowly burning."	--	0
+"sissies"	--	"Some self-made tough guys still feel a need to gang up on people weaker than they are. The pain's over sooner than if they went one at a time, amirite?"	--	0
+"skidded"	--	"A goverment utility vehicle swerves and almost hits someone about to jaywalk. Funny how one is always around, unless you jaywalk REALLY assertively."	--	0
+"swedish"	--	"An ethnic area full of oddly dotted vowels. You know them by their unicode numbers, but you have no clue how to pronounce them."	--	0
+"weenies"	--	"An old long-abandoned hot dog hut lies between two places of Serious Business. Your grandparents constantly babbled about the misspelled version from THEIR youth being so tasty, and--well--maybe the misspelling did make things tastier."	--	0
+
+table of scenery 8 [tosc8]
+tally (text)	descrip (text)	foundit (text)	what-drops	found
+"inkiness"	--	"Everything's a bit cloudy, here."	--	0
+"unkissed"	--	"You hear a teen sob about their lack of romantic luck."	--	0
+"unwished"	--	"Someone tries to hand you a flyer you really, really don't want."	--	0
+"whiskies"	--	"Wow! People seem to be having a rip roaring time, here[whisky-wine]. You don't have time for such carousing at the moment, but it boosts your spirits."	--	0
+
+table of scenery 9 [tosc9]
+tally (text)	descrip (text)	foundit (text)	what-drops	found
+"iseekkeen"	--	"[seek-track]."	--	-1
+"iundidedu"	--	"[worry-undo of table of education]."	--	-1
+"jeskiddin"	--	"Someone walks by and notifies you this is a Level 17 restricted area. You quickly hide your to-do list, before they point and laugh that they got you GOOD, and the grocery store's THAT way."	--	0
+"seediness"	--	"This area doesn't feel too posh. You don't know why, but it doesn't."	--	0
+"skunkweed"	--	"It smells bad here, like it should be illegal."	--	0
+"whininess"	--	"You can zone out one complaint or two, but when it's all around, it's like it's contagious and you just won't put up with it! Really, some people! It's just not fair! You'd never...oops."	--	0
+"wineskins"	--	"Everything retro is fashionable again, and drinking wine from animal skins was before when retro was a thing, so--that big rich people's gathering in the park is extra nice."	--	0
+
+table of scenery 10 [tosc10]
+tally (text)	descrip (text)	foundit (text)	what-drops	found
+"iundidjunk"	--	"[worry-undo of table of supplies]."	--	-1
+"iundidnews"	--	"[worry-undo of table of marginalized people]."	--	-1
+"skinniness"	--	"You are momentarily bombarded with ads for diet plans."	--	0
 
 to say uuid:
 	(- RAW(); -)
@@ -1543,11 +1570,12 @@ silliness
 "You do some brief math and realize it'd take fifteen--no, [italic type]seventeen[roman type] whole turns to get from the center to the downwestsouth corner."
 "One person proclaims the plight of people living in the upeastnorth, downwestnorth, upwestsouth and downeastsouth corners of Fourdiopolis and how they don't have easy access to efficient teleportation transport."
 "Someone argues that AAA may be a better central hub than 000. You need at most 16 blocks or teleports to get anywhere, instead of 17."
-"Someone hands out a flier for the party of the YEAR at sector [unreachable]."
-"You stumble onto some sort of geocaching competition clue that tells you to look around sector [unreachable] next. But that seems a bit too far away."
-"You encounter an old friend who encourages you to visit them in sector [unreachable] when you get the time."
+"Someone hands out a flier for the party of the YEAR at [unreachable]."
+"You stumble onto some sort of geocaching competition clue that tells you to look around [unreachable] next. But that seems a bit too far away."
+"You encounter an old friend who encourages you to visit them in [unreachable] when you get the time."
 "You hear mumbles of a secret prison--I mean, detaining area--in [unreachable]."
-"A police officer stops and accosts you and claims to remember a 'suspicious incident' from a bit ago in sector [unreachable]. You're pretty sure you haven't been there."
+"You overhear that real estate prices in [unreachable]."
+"A police officer stops and accosts you and claims to remember a 'suspicious incident' from a bit ago in [unreachable]. You're pretty sure you haven't been there."
 "An idealistic youngun tries to plot how many trips it'd take to visit all of Fourdiopolis's main blocks. He uses up so much scratch paper, he's warned and shooed by a Waste Police droid."
 "A fellow pedestrian is fined for having a cracked phone-screen. He is apparently a repeat offender who hasn't gotten it cleared for a whole month."
 "[if score < 2]You wonder how many moves it takes to get from one far corner of the city to the other, and back, and if they're the same[else]In a sudden rush of insight, you realize it will take 31 moves to get from one corner of Fourdiopolis to the other, then 24 to get back[end if]."
@@ -1570,12 +1598,16 @@ to say rd of (myd - a direction):
 		say "[opposite of myd]";
 
 to say unreachable: [this picks something that can only be gotten in 11 moves and throws it to the player]
-	let got-yet be false;
+	say "sector ";
+	let got-yet be false; [there are 418 such locations. 63 pairs of 6 a,b,c and 13 of 3 a,b,c ]
 	while got-yet is false:
 		choose a random row in table of elevensies;
 		now got-yet is true;
-		if a random chance of 1 in 2 succeeds:
-			if x entry is y entry or y entry is z entry:
+		if x entry is y entry and x entry is z entry: [888 may be disproportionately represented without this. Not that 1/77 vs 1/418 is a huge deal, but... just to hit em all evenly...]
+			if a random chance of 1 in 6 succeeds:
+				now got-yet is false;
+		else if x entry is y entry or y entry is z entry: [again probability is 1/231 for AAB without this, 1/418 with it]
+			if a random chance of 1 in 2 succeeds:
 				now got-yet is false;
 	let W be a list of numbers;
 	add x entry to W;
@@ -1584,79 +1616,85 @@ to say unreachable: [this picks something that can only be gotten in 11 moves an
 	sort W in random order;
 	say "[sec of entry 1 of W][sec of entry 2 of W][sec of entry 3 of W]";
 
-table of elevensies
+table of elevensies [this is compacted a bit so that we don't have a lot of annoying repeats: A B C covers all permutations of ABC & unreachable above sorts it]
 x	y	z
--9	-9	-1
--9	-9	1
--9	-8	-4
--9	-8	-2
--9	-7	-2
--9	-7	-1
--9	-6	-4
--9	-6	-3
--9	-5	-5
--9	-5	-3
--9	-1	9
--9	1	7
--9	1	9
--9	2	7
--9	2	8
--9	3	5
--9	3	6
--9	4	6
--9	4	8
--9	5	5
--8	-8	-5
--8	-8	-3
--8	-7	-4
--8	-7	-3
--8	-6	-6
--8	-6	-5
--8	2	9
--8	3	7
--8	3	8
--8	4	7
--8	4	9
--8	5	6
--8	5	8
--8	6	6
--7	-7	-6
--7	-7	-4
--7	-6	-5
--7	-5	-5
--7	1	9
--7	2	9
--7	3	8
--7	4	7
--7	4	8
--7	5	5
--7	5	6
--7	6	7
--6	3	9
--6	4	9
--6	5	7
--6	5	8
--6	6	8
--6	7	7
--5	3	9
--5	5	7
--5	5	9
--5	6	7
--5	6	8
--5	8	8
--4	6	9
--4	7	7
--4	7	8
--4	8	9
--3	5	9
--3	6	9
--3	7	8
--3	8	8
--2	7	9
--2	8	9
--1	7	9
--1	9	9
-1	9	9
+-1	-7	9 [wndhhhiiiji]
+-1	-8	9 [eshhhjjkkkk]
+-1	-9	7 [enuhhiiijij]
+-1	-9	8 [sdhhhjjkkkk]
+-1	6	9 [wnuuhhhhjij]
+-1	7	7 [enuhhhhjkjk]
+-1	7	8 [wdhhhhhijij]
+-1	8	9 [ndhhhhjkjkh]
+-2	-9	9 [wnnuhhiiiji]
+-2	5	9 [enddhhhhjkj]
+-2	6	9 [shhhhhjijij]
+-2	7	8 [ennhhhhkjkj]
+-2	8	8 [wwhhhhijijh]
+-3	3	9 [esdhhhhjjkj]
+-3	4	9 [enhhhhijijj]
+-3	5	7 [wndhhhhjkjk]
+-3	5	8 [euhhhhijijj]
+-3	6	8 [nndhhhhkjkj]
+-3	7	7 [wnuhhhhijij]
+-4	3	9 [wnhhhhjkjkj]
+-4	5	7 [suhhhhijijj]
+-4	5	9 [enhhhhjkjkj]
+-4	6	7 [wwnhhhhijij]
+-4	6	8 [eehhhhjkjkj]
+-4	8	8 [hhhhijijijh]
+-5	2	9 [eendhhhjjkj]
+-5	3	7 [enuhhhiijjj]
+-5	3	8 [wdhhhhjkjkj]
+-5	4	7 [wshhhhijijj]
+-5	4	9 [ndhhhhjkjkj]
+-5	5	6 [wnnuhhhiijj]
+-5	5	8 [edhhhhjkjkj]
+-5	6	6 [ehhhhijijij]
+-6	-9	-9 [wwsijkjkidk]
+-6	1	9 [wwnuhhhijjj]
+-6	2	9 [shhhhjjkjkj]
+-6	3	8 [nnuhhhiijjj]
+-6	4	7 [eenhhhjjkjk]
+-6	4	8 [wwhhhhijijj]
+-6	5	5 [enddhhhjjkk]
+-6	5	6 [dhhhhiijijj]
+-6	6	7 [nhhhhjkjkjk]
+-7	-7	-9 [esiijkjkjid]
+-7	-8	-9 [wwiikjkjkwd]
+-7	0	9 [enhhhiijjjj]
+-7	1	7 [wndhhhjjkjk]
+-7	1	8 [euhhhiijjjj]
+-7	2	8 [nndhhhjkjkj]
+-7	3	5 [wsuhhhiijjj]
+-7	3	7 [endhhhjjkjk]
+-7	4	5 [enhhhiijijj]
+-7	4	6 [eedhhhjjkjk]
+-7	6	6 [dhhhhjkjkjk]
+-8	-8	-8 [ddiijkjkidd]
+-8	1	7 [eshhhjjjkjk]
+-8	1	9 [nuhhhiijjjj]
+-8	2	7 [nddhhhjjkjk]
+-8	2	8 [eehhhjjkjkj]
+-8	3	5 [ndhhhiiijjj]
+-8	3	6 [eddhhhjjkjk]
+-8	4	6 [nnhhhiijijj]
+-8	4	8 [hhhhjkjkjkj]
+-8	5	5 [nuhhhiijijj]
+-9	0	7 [sdhhhjjjkjk]
+-9	0	9 [wnhhhiijjjj]
+-9	1	6 [enndhhjjkjk]
+-9	1	8 [wuhhhiijjjj]
+-9	2	5 [eendhhjjjkk]
+-9	2	6 [ehhhiijijjj]
+-9	3	3 [enuhhjjjkkk]
+-9	3	4 [wdhhhiiijjj]
+-9	4	5 [ndhhhjjkjkk]
+0	7	9 [eshhhhhjkjk]
+0	9	9 [enhhhhjkjkh]
+1	7	9 [wndhhhhhkjk]
+1	8	9 [euhhhhijijh]
+2	9	9 [wwnuhhhhijh]
 
 volume meta-verbs
 
@@ -2257,6 +2295,10 @@ when play begins (this is the set the status line rule):
 	now ns is 0;
 	now ew is 0;
 	now ud is 0;
+	repeat with Q running through tablist:
+		increase allscenery by number of rows in Q;
+
+allscenery is a number that varies.
 
 screen-read is a truth state that varies.
 
@@ -2267,23 +2309,12 @@ when play begins (this is the set table defaults rule):
 		say "Fourdiopolis has some screen reader support. Do you wish to use it?";
 		if the player consents:
 			now screen-read is true;
-	say "Threediopolis was quite a structural and engineering experiment, but it's so last century. There are more people than ever in the world! They need to be packed in further! And Fourdiopolis allows 90% more population density per square feet of land! Land it hasn't sunk into yet!";
-	wfak;
-	say "It's mostly due to the teleporters. They are the key thing. Even foot traffic is too crowded these days! But teleporters can't just go in a standard direction. That'd--interfere. The ley lines or whatever would still go through people walking. They've been calibrated for maximum traffic decrease, and stuff. And they're still kind of expensive to use too much. The common people just aren't happy enough with vertical transporters being free for so long.";
-	wfak;
-	say "And there's a lot of other stuff they're upset about. There's oppression. Oh, lots of it! The oppression is so oppressive, the counter-oppressive forces oppress everyday citizens with new examples of oppression. Of course, if they didn't it'd only get worse. But there is hope.";
-	wfak;
-	say "Someone uncovered the old business files of a fellow named Ed Dunn. He employed runners to find places Internet searches and GPSs couldn't. He made a killing. Apparently, the people working for him were happier and more fulfilled than he was, and they even found places he never could. He'd ask to walk with them, but when he went along, nothing would pop up. You just needed an impractical mind. Sort of like what people accused YOU of having.";
-	wfak;
-	say "And you have gotten social demerits and such. You claimed you didn't mean to do whatever, and the authorities said it's worse that way, what if you mean to one day?";
-	say "It's not going to be like that. It can't be like that. The authorities covered those loopholes. But somehow...you stumbled onto a bunch of nonconformists. They were surprised you found them, then they realized you weren't a government agent, and you didn't even like the government. They gave you a key to the teleporters. And a task list. Of stuff to find. To help them overthrow the government. It's up to you, to find unusual things and people not stamped out yet.";
-	say "[bold type]NOTE: to see commands for Fourdiopolis, type VERBS or VERB, or V for short.[roman type][paragraph break]";
 	repeat through table of name yay:
 		if there is no count entry:
 			now count entry is (1 + number of rows in table of last names) / 2;
 		else if count entry < 1:
 			increase count entry by number of rows in table of last names;
-	wfak;
+
 
 scrange is a list of numbers that varies.
 
@@ -2300,35 +2331,63 @@ when play begins (this is the check accomplishments at start rule) :
 		say "Oops! Something happened, and the save file appears to be corrupted. I'm resetting everything, though if you know the semi-secret commands, you can get back to where you were.";
 		repeat through table of accomplishments:
 			now solved entry is false;
+		wfak;
 	port-solvable;
-	choose row 1 in table of accomplishments;
-	if solved entry is false:
+	let total-solved be 0;
+	repeat through table of solvable tables:
+		if tabsolv entry is true, increment total-solved;
+	if binary-solved is 0:
+		give-intro;
 		if debug-state is true:
 			say "[bold type]DEBUG: test 1w to get through.";
 		set-your-table table of friends;
 		the rule succeeds;
-	else:
+	else if binary-solved is 31:
 		now locom-chars is 1;
-		choose row 5 in table of accomplishments;
-		if solved entry is true and debug-state is false:
-			say "There is only one thing left to do. You must find the shadow councillors--you only have their addresses--and place the mark of the rebellion on their doors. Do you dare risk the intellectual turmoil therein?";
-			if the player consents:
-				set-your-table table of last names;
-				say "Ok. You have [number of rows in your-table] to find.";
-			else:
-				set-your-table table of just plain cool stuff;
-				say "Ok. You will get to try the cool stuff again.";
-			the rule succeeds;
-		else if solved entry is true and debug-state is true:
-			say "You've got all 5 areas solved, so to get to the 6th, type FO 6 then TEST 6W. You'll need to test the yes/no question manually.";
-		else if debug-state is true:
+		if debug-state is true:
+			say "[bold type]DEBUG: You've got all 5 areas solved, so to get to the 6th, type FO 6 then TEST 6W. You'll need to test the yes/no question manually.[roman type][line break]";
+		say "Wow! Hey! You haven't been caught yet! There is only one thing left to do. You must find the shadow councillors--you only have their addresses--and place the mark of the rebellion on their doors. Do you dare risk the intellectual turmoil therein?";
+		if debug-state is false and the player consents:
+			set-your-table table of last names;
+			say "Ok. You have [number of rows in your-table] to find.";
+		else:
+			set-your-table table of just plain cool stuff;
+			say "Ok. You will get to try the cool stuff again.";
+		the rule succeeds;
+	else if binary-solved is 15:
+		if debug-state is true:
 			say "[bold type]DEBUG: test 5w to get through the final bit. Erase fourdiop.glkdata to clear everything, or use WF to change the data file.[roman type][line break]";
+		say "Well, you've covered the practical stuff. It's time for the impractical stuff which, if you think about it, is practical in its own way, because the government is only about helping citizens with strictly practical stuff. They spend a lot of money each year to prove it, too.";
 		if all-else-solved:
 			set-your-table table of just plain cool stuff;
 			if debug-state is true:
 				say "[bold type]DEBUG: test 5w to get through.[roman type][line break]";
+	else:
+		if total-solved is 1:
+			say "You brought everyone together, but without supplies, you can't do much but have a therapy session. Someone hands you some pills to stave off teleporter sickness, and you are told to pick one of three pieces of paper in front of you...";
+			wfak;
+		else if total-solved is 2:
+			say "Nobody else has really stepped up. Since you've already done pretty well, you're given the chance to do more. Someone flips a coin, nods, and hands you a task list...";
+			wfak;
 		else:
-			midtable-choose;
+			say "You feel exhausted, but if you dig deep, you could find the energy for one more round. You're handed one last paper, told (for good luck) not to turn it over until you've left.";
+			wfak;
+		midtable-choose;
+
+to give-intro: [this is for the very start before everything is solved]
+	say "Threediopolis was quite a structural and engineering experiment, but it's so last century. There are more people than ever in the world! They need to be packed in further! And Fourdiopolis allows 90% more population density per square feet of land! Land it hasn't sunk into yet!";
+	wfak;
+	say "That's mostly due to teleporter technology. Their ley lines or whatever can't interfere with walking, and you can't have a teleportal path that goes there and back. hat's been known since 2110, but they weren't safe until 2180--and not cheap until now. Nowhere near free like the vertical transporters, but if you know the right people...";
+	wfak;
+	say "And there's a lot of other stuff they're upset about. There's oppression. Oh, lots of it! The oppression is so oppressive, the counter-oppressive forces oppress everyday citizens with new examples of oppression. There's probably a Nash Equilibrium between oppression and counter-oppression, but it doesn't feel stable.";
+	wfak;
+	say "You've heard rumors of business files of a fellow from last century named Ed Dunn. He employed runners to find places Internet searches and GPSs couldn't. He made a killing. Apparently, the people working for him were happier and more fulfilled than he was, and they even found places he never could. He'd ask to walk with them, but when he went along, nothing would pop up. You just needed an impractical mind. Sort of like what people accused YOU of having.";
+	wfak;
+	say "And you have gotten social demerits and such. You claimed you didn't mean to do whatever, and the authorities said it's worse that way, what if you mean to one day?";
+	wfak;
+	say "It's not going to be like that. It can't be like that. The authorities covered those loopholes. But somehow...you stumbled onto a bunch of nonconformists. They were surprised you found them, then they realized you weren't a government agent, and you didn't even like the government. They gave you a key to the teleporters. And a task list. Of stuff to find. To help them overthrow the government. It's up to you, to find unusual things and people not stamped out yet.";
+	say "[bold type]NOTE: to see commands for Fourdiopolis, type VERBS or VERB, or V for short.[roman type][paragraph break]";
+	wfak;
 
 to port-solvable:
 	repeat with J running from 1 to 5:
@@ -2423,7 +2482,7 @@ to say rhet:
 check requesting the score:
 	say "So far, you've found [the score] of the [number of rows in your-table] locations you needed to[one of]. Note that X, or the status line, may be a better way to keep track of overall progress[or][stopping].";
 	if scenery-found > 0:
-		say "[line break]You've [if score > 0]also [end if]found [scenery-found] of [number of rows in table of scenery] miscellaneous bits of scenery.";
+		say "[line break]You've [if score > 0]also [end if]found [scenery-found] of [allscenery] miscellaneous bits of scenery.";
 	the rule succeeds;
 
 instead of drinking:
@@ -2759,27 +2818,24 @@ understand "sc [number]" as scing.
 
 carry out scing:
 	let my-count be 0;
-	repeat through table of scenery:
-		if there is a found entry and found entry is 1:
-			now found entry is 0;
-	if number understood < 0:
-		repeat through table of scenery:
-			if there is a found entry and found entry is 0:
-				increment my-count;
-				if my-count + number understood > 0:
-					now found entry is 1;
-		say "All but [0 - number understood] sceneries set to 1.";
-	else if number understood is 0:
-		say "All cleared to 0.";
-	else:
-		repeat through table of scenery:
-			if there is a found entry and found entry is 0:
-				now found entry is 1;
-				increment my-count;
-				if my-count is number understood:
-					break;
-		say "[my-count] sceneries set to 1.";
-	the rule succeeds;
+	let toNum be 0;
+	let X be number of rows in table of scenery 4;
+	if the number understood > X or number understood < 0 - X:
+		say "Oops. That's too many to leave undone. You need between -[X] and [X]. 0 resets all to unseen.";
+		the rule succeeds;
+	let max-count be X;
+	if max-count < 0:
+		now max-count is 0 - max-count;
+	if X < 0:
+		now toNum is 1;
+	repeat with Q running through tablist:
+		repeat through Q:
+			if there is a found entry and found entry is not -1:
+				now found entry is toNum;
+	while my-count < max-count: [everything is set to 0/1 except for the ones we need to change]
+		increment my-count;
+		choose row my-count in table of scenery 4;
+		now found entry is 1 - toNum;
 
 chapter auto tests
 
