@@ -265,7 +265,7 @@ to say outside-rand:
 	if a random chance of 2 in 5 succeeds:
 		say "Teleporters, transport tubes, walkways. So ubiquitous, so similar, yet different[edge-check].[no line break]";
 	else:
-		say "[one of]You feel as if you both should and shouldn't know this area[or]There's a [one of]smaller[or]larger[at random] than usual crowd by the [one of]teleports[or]vertical tubes[at random] here. Well, it can't always be constant[or]The sidewalks go from too crowded to too empty to unremarkable[or]You think you see someone from a few blocks ago, coming the opposite way again, but you can't just go up and ASK them[in random order][edge-check].[no line break]";
+		say "[one of]You feel as if you both should and shouldn't know this area[or]There's a [one of]smaller[or]larger[at random] than usual crowd by the [one of]teleports[or]vertical tubes[at random] here. Well, it can't always be constant[or]The sidewalks go from too crowded to too empty to unremarkable as you walk around[or]You think you see someone from a few blocks ago, coming the opposite way again, but you can't just go up and ASK them[or]Suddenly you remember how, as a kid, you wanted to visit every single sector one day[or]Someone complains their map-tracker has led them the wrong way[or]You stop to wonder how confusing old times must have been, when city subsectors had curvy bent borders[or]You wonder what living in a smaller city, one where diagonal streets were legal, would be like[in random order][edge-check].[no line break]";
 
 to say edge-check:
 	if ud is 9:
@@ -974,7 +974,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "desks"	"boring office stuff"	"Well, we all need desks. Desks just aren't exciting. Maybe they can fold up, or have weird shapes, or even have cool drawers. But they're never exciting. At least they're ergonomic and space-efficient these days."	dusty warehouse	0
 "dishes"	"something to eat on"	"Wow! All kinds of dishes! They're all biodegradable, too. They're a bit ugly, but you can't have everything. In a pinch, they can also be broken and thrown as weapons. Not very good weapons, but better than nothing."	beaten-up store	0
 "disused"	"abandoned place to hide and plot"	"Shadow groups can always use a good disused place. Until it gets too dis-dis-used."	abandoned shed	0
-"hens"	"egg farms"	"Well, organic farms are always good. You'll need lots of food."	fake barn	0
+"hens"	"egg farms"	"Well, organic farms are always good. You'll need lots of food. Eggs have always been good and cheap."	fake barn	0
 "hides"	"warm weather clothing"	"Actually, most weather is warmer than it was years ago, but humans['] bodies adapted to be faster and leaner, so they need warm clothes well above freezing now."	upscale store	0
 "juju"	"occult help (or can't-hurt)"	"Juju may not be effective, but it brings people together, and it feels fun. Especially because you get to slap a drum around a bit, and stab a doll representing the Mayor-Overlord."	dusty warehouse	0
 "junk"	"not their treasure"	"You find all kinds of cool junk here. Some was being saved for the right customer--someone who could make anything out of junk. Like people back at headquarters."	beaten-up store	0
@@ -1330,7 +1330,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "wisniewski"	"Polish"	"As you make your mark, you feel a shudder of Loathing at Wisniewski also being The Man."	suspiciously ordinary door	0
 
 to say mark-away:
-	say "You read through your guidelines on rabble rousing literature and write up a short screed describing how [your-tally in title case] [one of]is typical of the whole bunch and one of the worst at the same time[or]doesn't care at all, but cares about themselves[or]is both too powerful and yet powerless to change the PEOPLE[or]doesn't understand common people but sure understands how to manipulate them[or]is the worst and yet controlled by even worse people at the same time[in random order]. You add in some bargle about [one of]how they'll get to spend more time with their lovely family soon[or]disgruntled ex-staffers TALK[or]they'll be the first out when people see all the corruption[or]their rags to riches story being a fraud compared to Ed Dunn[or]their lack of, or excessive, charisma is especially galling[or]Embarrassing Facts you know--ones you can't even write down[or]their lack of traditional values and desire to return Fourdiopolis to the 21st century won't stand[or]their [a random number between 85 and 95]% approval rating is a fraud[or]their getting [a random number between 85 and 95]% of the vote is suspicious[in random order]. Any crank can send an email like that, but few people have the guts to DROP BY. You dust your hands off and sneak away"
+	say "You read through your guidelines on rabble rousing literature and write up a short screed describing how [your-tally in title case] [one of]is typical of the whole bunch and one of the worst at the same time[or]doesn't care at all, but cares about themselves[or]is both too powerful and yet powerless to change the PEOPLE[or]doesn't understand common people but sure understands how to manipulate them[or]is the worst and yet controlled by even worse people at the same time[in random order]. You add in some bargle about [one of]how they'll get to spend more time with their lovely family soon[or]disgruntled ex-staffers TALK[or]they'll be the first out when people see all the corruption[or]their rags to riches story being a fraud compared to Ed Dunn[or]their lack of, or excessive, charisma is especially galling[or]Embarrassing Facts you know--ones you can't even write down[or]their lack of traditional values and desire to return Fourdiopolis to the 22nd or even 21st century won't stand[or]their [a random number between 85 and 95]% approval rating is a fraud[or]their getting [a random number between 85 and 95]% of the vote is suspicious[in random order]. Any crank can send an email like that, but few people have the guts to DROP BY. You dust your hands off and sneak away"
 
 table of name yay
 count	comment
@@ -2679,6 +2679,7 @@ volume testing - not for release
 when play begins (this is the test for written stuff rule):
 	repeat through table of solvable tables:
 		tab-check tabname entry;
+	say "Testing notes:[paragraph break]WF resets the save tables by a binary number (0-31, 1=first).[line break]sc (-14 to 14) changes so we've seen (#) scenery for positive numbers, or still need them for negative. The game tracks scenery from the table of 4-long.";
 
 the test for written stuff rule is not listed in any rulebook. [obviously comment this out if I need to]
 
@@ -2836,6 +2837,12 @@ carry out scing:
 		increment my-count;
 		choose row my-count in table of scenery 4;
 		now found entry is 1 - toNum;
+	now x is number understood;
+	if x < 0:
+		now x is 0 - x;
+	say "Marking found scenery for [if number understood < 0]all but [end if][X] scenery rows.";
+	if your-table is not table of last names:
+		say "This is maybe most effective when you are on the final round, but scenery will still reappear/disappear from Table of Scenery 4.";
 
 chapter auto tests
 
