@@ -1,0 +1,7 @@
+Fourdiopolis release 3 has minor bug fixes and enhancements that piled up. There are no changes in actual puzzles.
+
+The official release date is March 20, 2017.
+
+--minor considerable speedups in traversing (scenery tables are now broken up by how far away everything is)
+--when the game gives you a deliberately unreachable location in the random comments, I'm sure it is, now, and just barely, too
+--the start/restart now check your progress so you don't get the long text from when you start the game
