@@ -516,6 +516,8 @@ to decide which number is new-sec:
 hint-oppo is a truth state that varies.
 
 check going:
+	if number of characters in your-tally is 7 and your-table is table of friends and a random chance of 1 in 3 succeeds:
+		say "You think and hope[one of][or], again, [stopping]that they wouldn't have you wandering THIS far to start.[paragraph break]";
 	if number of characters in your-tally > 10:
 		say "You've been wandering for too long. You get tired, and you figure it's probably best to start over with a clean look on things. You push the button on your teleporter device[if posschars > 11], cancelling the rest of your planned journey[end if], and [if ew is 0 and ns is 0 and ud is 0]everything looks a bit different[else]back you go to the center[end if].[paragraph break]";
 		now ignore-remaining-dirs is true;
@@ -672,14 +674,12 @@ to reset-game:
 		say "You remember hearing that anywhere worth getting to, you had to teleport to. And you didn't, this run.";
 	else:
 		now teleported is false;
-		if add-to > 7 and your-table is table of friends:
-			say "You don't know if they'd make you wander THIS much in order to find something. Perhaps you should stick with as short journeys as possible.";
+		if add-to > 6 and your-table is table of friends:
+			say "You saw a lot of Fourdiopolis this time, but maybe your assigned tasks aren't [if add-to is 7]quite [else if add-to > 8]nearly [end if]as complex (yet) as having to walk THIS much.";
 			continue the action;
 		if add-to >= 8:
 			if score < 5:
 				say "Hmm. If you're having trouble finding things, you may wish to start with stuff that's near first, instead of what's first on your list.";
-		if add-to > 7:
-			now add-to is 7;
 	say "[b]Back at Sector 000[r][line break]";
 
 book beginning

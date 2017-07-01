@@ -2,7 +2,7 @@ Fourdiopolis Logic Document
 
 by Andrew Schultz
 
-This contains spoilers for Fourdiopolis. You may wish to play Threediopolis first. It has a lot less to juggle.
+This contains spoilers for Fourdiopolis *and*, implicitly, for Threediopolis. You may thus wish to play Threediopolis first. It also has a lot less to juggle.
 
 
 
@@ -46,11 +46,11 @@ This contains spoilers for Fourdiopolis. You may wish to play Threediopolis firs
 
 The puzzle here is that you have to find the word your path spells to reach a clue. For instance, to visit the DUDE you might need to go down, up, down and east. That was Threediopolis. But in Fourdiopolis, each location requires you to enter a teleport to get there, because otherwise it'd just be too much of a retread..
 
-Sp the new directions are H, I, J and K. But what do they mean? You'll notice moving affects the sector number.
+So the new directions are H, I, J and K. But what do they mean? If you try each direction, you may see how moving affects the sector number.
 
-Experimentation shows N/S adds or subtracts 1 to the second digit, E/W to the third, and U/D to the first. There's a small catch. A is equivalent to -1, down to I being -9. This is where "90% more population density" in the introduction comes from. Fourdiopolis is actually 585.9% more populous than Threediopolis.
+Experimentation shows N/S adds or subtracts 1 to the second digit, E/W to the third, and U/D to the first. There's a small catch. A is equivalent to -1, down to I being -9. This is where "90% more population density" in the introduction comes from. Fourdiopolis is actually 585.9% more populous than Threediopolis (1.9^3-1^3), but it has 90% more levels.
 
-Also, you are told that you have to use a transporter to get to any location. So what do transporters do? They provide diagonal, nonreversible (or hard to reverse) transport through the city.
+Since you are told that you have to use a transporter to get to any location, it's a good idea to find what transporters do. They provide diagonal, nonreversible (or nontrivial to reverse) transport through the city.
 
 Here is what each teleporter adds or subtracts from a digit, from left to right.
 
@@ -59,13 +59,19 @@ I = -2 -2 +2 (BB2)
 J = -2 +2 -2 (B2B)
 K = +2 -2 -2 (2BB)
 
-These are sort of based on the quaternions, or half of them. That's beyond the discussion of this document, but we can notice some symmetry here, where h+i+j+k=0. Fortunately, you'll rarely need to use that many of these letters. And here's where some mathematical parity elements come in. You sort of need to notice things. And we'll need to establish some terms. They'll make it easier to understand everything, I promise.
+These are sort of based on the quaternions, or half of them. That's beyond the discussion of this document, but we can notice some symmetry here, where h+i+j+k=0. Fortunately, you'll rarely need to use that many of these letters.
+
+And here's where the concept of mathematical parity come in. Don't scream--it's not that bad. If you've ever seen the checkerboard puzzle, this is just an extension.
+
+In the meantime, you sort of need to notice things. And we'll need to establish some terms. They'll make it easier to understand everything, I promise.
 
 First, the DISTANCE-SUM, or SUM, is (net units up) + (net units east) + (net units north). For example, AB1 has a distance-sum of -1 + -2 + 1 = -2. This can tell us a lot. If a distance-sum is very positive, chances are that you hit an H teleport. Its sum is 6. The others are -2.
 
 Second, a word CLOGS if it has too many consonants and SLURS if it has too many vowels. It is also UNALPHABETICAL if it doesn't fit into alphabetical order on your list. This is for the walkthrough proper, but I hope it saves time.
 
-A small detour: we can also see that a "very near" location such as the friend at CC2 probably requires a transporter, and if it is not I (BB2) then it is very close. Then it requires two more walks. So "very near" is 3. We can probably guess that near, kinda near, and so forth get one walking square away. So that should tell us the length of each trip. The game also warns you if you try to go 7 units in friends mode, and that's a clue you're going too far out and can keep it relatively simple. So some of the very near friends should fall logically.
+A small detour: we can also see that a "very near" location such as the friend at CC2 probably requires a transporter, and which transport-jump is this very near? BB2. Then it requires two more walks. So "very near" is 3. The next closest it could be would be DD4 (two I's) and NEUU. That would be six moves. This is technically possible, but it's not very near, and it'd be mean. The game should let you know, in friends mode, that going seven or more squares would be a pretty harsh introductory task.
+
+We can probably guess that each distance increment (near, kinda near, and so forth) pushes the destination one more walking square away. So that should tell us the length of each trip.
 
 Second, we can derive whether we need an even or odd number of teleports. Why is that? Let's assume we got somewhere with no teleporters. If it took an odd number of turns, the distance-sum would be odd. But if it took an even-number, the distance-sum would be even.
 
@@ -77,7 +83,9 @@ IF THE DISTANCE-SUM IS DIFFERENT MOD 2 (E.G. EVEN VS ODD) FROM THE LENGTH OF THE
 
 This is called a parity argument, and there's also another thing to consider. If each displacement is odd (1, 1, 1) then we know we have a vertical move, a horizontal move, and an up/down move, e.g. at least three non-teleport moves, because teleporters can't move from an odd offset to an even one. This doesn't come up much, but when it does, it's another handy shortcut that means we don't have to look for teleporters.
 
-In general you should be as aggressive as possible with using as few teleports as possible. Often you can cut down the normal directions and just scramble the remaining words.
+In general you should be use teleporters less rather than more. Often you can cut down the normal directions and just scramble the remaining words.
+
+A concrete example is as follows: If you go H, then EWEWEW, you are back at sector 000 in 7 moves. You can only go back in 9, 11, 13, etc., as long as you don't touch a teleporter. But if you never touch a teleporter in the first place, you can revisit sector 000 only on moves 2, 4, 6, 8, etc.
 
 But wait! There's more! This is a bit deeper, but it can give results, or find another way to prove we can't have some ghastly number of teleporters like 3 or 4.
 
@@ -131,7 +139,7 @@ JJK = B2F
 JKK = 2BF
 3 k's = 6FF (I wonder if I should've made -this- 666.)
 
-This looks tedious, and it's a pain to memorize, but it's more about the patterns and noting symmetry. For three teleports, we can note 666 and FFF both work--as do subtracting 4 from any 2 digits, or 8 from any one, down from 6. So you can pick off what three-transporter move is near a location you need to visit. You can figure how many H's are needed, probbly, too. The number of H's detemines the distance-sum.
+This looks tedious, and it's a pain to memorize, so I don't recommend that. But it's more about the patterns and noting the symmetry and the only digits that can appear. For three teleports, we can note 666 and FFF both work--as do subtracting 4 from any 2 digits, or 8 from any one, down from 6. So you can pick off what three-transporter move is near a location you need to visit. You can figure how many H's are needed, probbly, too. The number of H's detemines the distance-sum.
 
 Note that four teleportals actually work out pretty nicely. They have to be some combination of the two-portal warps, and they can go
 000,008,00H,044,04D,080,0D4,0DD,0H0,404,40D,440,448,484,4D0,4DH,4HD,800,844,888,8DD,8HH,D04,D0D,D40,D4H,D8D,DD0,DD8,DH4,H00,H4D,H8H,HD4,HH8.
