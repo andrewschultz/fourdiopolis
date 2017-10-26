@@ -103,8 +103,7 @@ to debug-say (x - text):
 		say "[bold type]DEBUG:[roman type] [x][line break]";
 
 to show-accomp:
-	if debug-state is false:
-		continue the action;
+	if debug-state is false, continue the action;
 	let count be 0;
 	repeat through table of accomplishments:
 		increment count;
@@ -117,8 +116,7 @@ section number-counting stubs
 
 to decide whether (n - a number) is wrongo:
 	if the remainder after dividing n by 2 is 1:
-		if n < 16:
-			decide no;
+		if n < 16, decide no;
 	if n is -1 or n is -2 or n is -3 or n is -4, decide no;
 	if n is 0 or n is 31, decide no;
 	decide yes;
@@ -338,20 +336,13 @@ to dirsmack:
 	say "In these efficient days, people find using more than one letter for a direction too flowery.[line break]";
 
 before going (this is the don't waste my time with all those extra letters already now rule):
-	if word number 1 in the player's command in lower case is "go":
-		say "In these sped-up days, the word 'go' is superfluous. Unless you are in charge, like Ed Dunn.'" instead;
-	if the player's command matches the text "north", case insensitively:
-		dirsmack instead;
-	if the player's command matches the text "south", case insensitively:
-		dirsmack instead;
-	if the player's command matches the text "east", case insensitively:
-		dirsmack instead;
-	if the player's command matches the text "west", case insensitively:
-		dirsmack instead;
-	if the player's command matches the text "up", case insensitively:
-		dirsmack instead;
-	if the player's command matches the text "down", case insensitively:
-		dirsmack instead;
+	if word number 1 in the player's command in lower case is "go", say "In these sped-up days, the word 'go' is superfluous. Unless you are in charge, like Ed Dunn.'" instead;
+	if the player's command matches the text "north", case insensitively, dirsmack instead;
+	if the player's command matches the text "south", case insensitively, dirsmack instead;
+	if the player's command matches the text "east", case insensitively, dirsmack instead;
+	if the player's command matches the text "west", case insensitively, dirsmack instead;
+	if the player's command matches the text "up", case insensitively, dirsmack instead;
+	if the player's command matches the text "down", case insensitively, dirsmack instead;
 
 walked-by is a truth state that varies.
 
@@ -365,8 +356,7 @@ to see-if-left (t - a truth state):
 
 check going inside:
 	if word number 1 in the player's command is "in":
-		if score >= 2:
-			dirparse "in" instead;
+		if score >= 2, dirparse "in" instead;
 	say "You don't see anywhere to go in." instead;
 
 check going south:
@@ -411,8 +401,7 @@ check going east:
 
 check going h:
 	now your-tally is "[your-tally]h";
-	if ew > 7 or ns > 7 or ud > 7:
-		say "[no-jump-for-you]." instead;
+	if ew > 7 or ns > 7 or ud > 7, say "[no-jump-for-you]." instead;
 	check-nearlies;
 	increase ew by 2;
 	increase ns by 2;
@@ -426,8 +415,7 @@ check going h:
 
 check going i:
 	now your-tally is "[your-tally]i";
-	if ew > 7 or ns < -7 or ud < -7:
-		say "[no-jump-for-you]." instead;
+	if ew > 7 or ns < -7 or ud < -7, say "[no-jump-for-you]." instead;
 	check-nearlies;
 	increase ew by 2;
 	decrease ns by 2;
@@ -441,8 +429,7 @@ check going i:
 
 check going j:
 	now your-tally is "[your-tally]j";
-	if ew < -7 or ns > 7 or ud < -7:
-		say "[no-jump-for-you]." instead;
+	if ew < -7 or ns > 7 or ud < -7, say "[no-jump-for-you]." instead;
 	check-nearlies;
 	decrease ew by 2;
 	increase ns by 2;
@@ -456,8 +443,7 @@ check going j:
 
 check going k:
 	now your-tally is "[your-tally]k";
-	if ew < -7 or ns < -7 or ud > 7:
-		say "[no-jump-for-you]." instead;
+	if ew < -7 or ns < -7 or ud > 7, say "[no-jump-for-you]." instead;
 	check-nearlies;
 	decrease ew by 2;
 	decrease ns by 2;
@@ -502,12 +488,9 @@ to say up-down-cool:
 	now gone-up-or-down is true;
 
 to decide whether oops:
-	if ew < -9 or ew > 9:
-		decide yes;
-	if ns < -9 or ns > 9:
-		decide yes;
-	if ud < -9 or ud > 9:
-		decide yes;
+	if ew < -9 or ew > 9, decide yes;
+	if ns < -9 or ns > 9, decide yes;
+	if ud < -9 or ud > 9, decide yes;
 	decide no;
 
 to decide which number is new-sec:
@@ -589,17 +572,12 @@ after printing the locale description:
 					now note-found is true;
 
 to sweep-up (x - a table name):
-	if x is table of friends: [never look back]
-		continue the action;
-	if x is your-table: [don't clue something that dropped just now]
-		continue the action;
-	if your-table is table of just plain cool stuff and x is not table of last names: [don't clue any of the 3 previous in cool stuff mode]
-		continue the action;
-	if your-table is table of last names:
-		continue the action;
+	if x is table of friends, continue the action; [never look back]
+	if x is your-table, continue the action; [don't clue something that dropped just now]
+	if your-table is table of just plain cool stuff and x is not table of last names, continue the action; [don't clue any of the 3 previous in cool stuff mode]
+	if your-table is table of last names, continue the action;
 	choose row with tabname of x in table of solvable tables;
-	if tabsolv entry is true: [don't clue stuff already solved]
-		continue the action;
+	if tabsolv entry is true, continue the action; [don't clue stuff already solved]
 	repeat through x:
 		if your-tally is tally entry:
 			if x is table of last names:
@@ -759,8 +737,7 @@ check entering a quasi-entry:
 			check-silly-comments;
 			reset-game;
 			do nothing instead;
-	if hideout is visible:
-		run-the-ending instead;
+	if hideout is visible, run-the-ending instead;
 	say "Oops, should've found something." instead;
 
 to say rand-yay:
@@ -1109,7 +1086,7 @@ to say seek-track:
 
 table of scenery 3 [tosc]
 tally (text)	descrip (text)	foundit (text)	what-drops	found
-"die"	"sacrifice yourself"	"Assisted suicide is more rigorous than in Threediopolis. The Death Panels there (not the healthcare kind) give punditary views before you pegged out, concluding thoughts of profundity before the void. Here, you have surveys...questionnaires...what would you do better? What do you think authorities would do better? No, no, you are just lashing out because you are suicidal, because the juice and cookies over there are not for you (should've organized your OWN last meal) but for the people working hard here. Ah, yes, overall even the unsatisfied are satisfied in Fourdiopolis."	ominous door	0
+"die"	"sacrifice yourself"	"Assisted suicide is more rigorous than in Threediopolis. The Death Panels there (not the healthcare kind) give punditary views before you pegged out, concluding thoughts of profundity before the void. Here, you have surveys...questionnaires...what would you do better? What do you think authorities would do better? Now, now, answer, don't try to beg for the juice and cookies over there. They are not for you (really, you should've PLANNED something as important as a last meal, because there wsn't much TO plan) but for the people working hard here who will NEED the nourishment."	ominous door	0
 "duh"	--	"Oh, man! You can't believe you missed THAT one. It's obvious now!"	--	0
 "dui"	--	"A robot-police runs by and grabs a breath-sample from the air in front of you. 'Proceed,' it says. Hmm.'"	--	0
 "eek"	--	"Someone tells a scary story for effect and, well, gets the effect they want."	--	0
@@ -1222,8 +1199,7 @@ to say whisky-wine:
 chapter nearlies table
 
 to check-nearlies:
-	if your-table is table of last names:
-		continue the action;
+	if your-table is table of last names, continue the action;
 	let mine-yet be false;
 	repeat through table of nearlies:
 		if tname entry is your-table:
@@ -1418,19 +1394,13 @@ after reading a command:
 		now not-parseable-yet is true;
 [		if debug-state is true:
 			say "DEBUG: [locom] [number of characters in locom] vs [locom-chars].";]
-		if number of quasi-entries in outside-area > 0 and the player's command matches "^in$":
-			continue the action;
+		if number of quasi-entries in outside-area > 0 and the player's command matches "^in$", continue the action;
 		if number of characters in locom > locom-chars:
-			if locom is "unkindness":
-				continue the action;
-			if locom is "i did i undid":
-				continue the action;
-			if locom is "i seek keen":
-				continue the action;
-			if locom is "in":
-				continue the action;
-			if locom matches the regular expression "^i (did|undid) (edu|junk|news)$":
-				continue the action;
+			if locom is "unkindness", continue the action;
+			if locom is "i did i undid", continue the action;
+			if locom is "i seek keen", continue the action;
+			if locom is "in", continue the action;
+			if locom matches the regular expression "^i (did|undid) (edu|junk|news)$", continue the action;
 			dirparse locom;
 			consider the silly stuff rule;
 			reject the player's command;
@@ -1707,8 +1677,7 @@ understand the command "unkindness" as something new.
 understand "unkindness" as unkindnessing.
 
 carry out unkindnessing:
-	if your-table is table of last names:
-		say "You're already hunting last names." instead;
+	if your-table is table of last names, say "You're already hunting last names." instead;
 	say "This will skip to the final toughest puzzle. Are you sure?";
 	if debug-state is true or the player consents:
 		say "Ok. Have fun.";
@@ -1846,8 +1815,7 @@ Rule for printing a parser error when the latest parser error is the I beg your 
 			increment total-left;
 		if max-length < number of characters in tally entry:
 			now max-length is number of characters in tally entry;
-	if any-left is false:
-		say "No dawdling! Time to go back to the hideout. Where was it hidden inside, again?" instead;
+	if any-left is false, say "No dawdling! Time to go back to the hideout. Where was it hidden inside, again?" instead;
 	say "You consider what to do next. Hmm, [if total-left > 1]look for the shortest first: [end if]";
 	while cur-length <= max-length:
 		repeat through your-table:
@@ -1885,13 +1853,10 @@ in-place-yet is a truth state that varies.
 
 carry out ring:
 	let ncy be number of characters in your-tally;
-	if ncy is 0:
-		say "You're already at the center, and you haven't wandered since the last time you took a transporter." instead;
+	if ncy is 0, say "You're already at the center, and you haven't wandered since the last time you took a transporter." instead;
 	if score < 2:
-		if ncy is 1:
-			say "You only just left the center. You're a little worried that if you use the transporters TOO frequently, you might get tracked somehow. Maybe with a bit more experience and confidence, you can sneak back quickly." instead;
-		if ncy is 2:
-			say "Maybe explore another block before hitting the transporters--you're not quite experienced or confident enough to do so yet. Using the transporters too frequently raises red flags." instead;
+		if ncy is 1, say "You only just left the center. You're a little worried that if you use the transporters TOO frequently, you might get tracked somehow. Maybe with a bit more experience and confidence, you can sneak back quickly." instead;
+		if ncy is 2, say "Maybe explore another block before hitting the transporters--you're not quite experienced or confident enough to do so yet. Using the transporters too frequently raises red flags." instead;
 	if ncy > number of rows in table of far blab:
 		say "Wow. Enough walking. Back to the center. Funny how the zap back rejuvenates you.";
 	else:
@@ -1924,8 +1889,7 @@ understand the command "c" as something new.
 understand "c" as cing.
 
 carry out cing:
-	if number of visible quasi-entries is 0:
-		say "Nothing to check." instead;
+	if number of visible quasi-entries is 0, say "Nothing to check." instead;
 	try entering a random visible quasi-entry;
 	the rule succeeds;
 
@@ -1997,8 +1961,7 @@ To decide what number is screenh:
 
 carry out fing:
 	if full-view is false:
-		if screenh < 25 or screen width < 90:
-			say "You need a 90x25 character window to make this work. It's currently [screen width] x [screenh]." instead;
+		if screenh < 25 or screen width < 90, say "You need a 90x25 character window to make this work. It's currently [screen width] x [screenh]." instead;
 	else:
 		now should-rejig is true;
 	now full-view is whether or not full-view is false;
@@ -2014,8 +1977,7 @@ understand the command "i seek keen" as something new.
 understand "i seek keen" as keenseeking.
 
 carry out keenseeking:
-	if your-table is not table of friends:
-		say "You already found the revolution's friends, so this isn't the way to skip forward any more[if your-table is not table of last names] besides editing the save file, fourdiop, or fourdiop.glkdata, and setting variables to 1 (done) or 0 (not) as you want[end if]." instead;
+	if your-table is not table of friends, say "You already found the revolution's friends, so this isn't the way to skip forward any more[if your-table is not table of last names] besides editing the save file, fourdiop, or fourdiop.glkdata, and setting variables to 1 (done) or 0 (not) as you want[end if]." instead;
 	choose row 1 in table of accomplishments;
 	now solved entry is true;
 	midtable-choose;
@@ -2033,8 +1995,7 @@ understand "i did i undid" as undiding.
 
 carry out undiding:
 	let count be 0;
-	if your-table is table of friends:
-		say "You're already at the first task set, finding friends, so you can't go back any farther." instead;
+	if your-table is table of friends, say "You're already at the first task set, finding friends, so you can't go back any farther." instead;
 	if your-table is table of just plain cool stuff: [reset to only having table of friends solved]
 		now count is 0;
 		repeat through table of accomplishments:
@@ -2071,13 +2032,10 @@ section undomiding
 undomiding is an action applying to one number
 
 carry out undomiding:
-	if number understood > 4 or number understood < 2:
-		say "Oops, this should never happen, but there's a bug in the I UNDID code. Email me at [email] if you can, to let me know [number understood] got passed." instead;
-	if binary-solved is 0 or binary-solved is 1:
-		say "You don't have any of the three middle scenarios solved, so trying to reset them won't do much[if on-this-table of number understood], especially since you're on the one you're trying to reset[end if]." instead;
+	if number understood > 4 or number understood < 2, say "Oops, this should never happen, but there's a bug in the I UNDID code. Email me at [email] if you can, to let me know [number understood] got passed." instead;
+	if binary-solved is 0 or binary-solved is 1, say "You don't have any of the three middle scenarios solved, so trying to reset them won't do much[if on-this-table of number understood], especially since you're on the one you're trying to reset[end if]." instead;
 	choose row number understood in table of accomplishments;
-	if solved entry is false:
-		say "The [table-by-num of number understood] task set is already unsolved[if on-this-table of number understood], and in fact, it's the one you're currently on[end if]." instead;
+	if solved entry is false, say "The [table-by-num of number understood] task set is already unsolved[if on-this-table of number understood], and in fact, it's the one you're currently on[end if]." instead;
 	now solved entry is false;
 	if your-table is table of last names or your-table is table of just plain cool stuff:
 		choose row 5 in table of accomplishments;
@@ -2142,15 +2100,11 @@ section domiding
 domiding is an action applying to one number.
 
 carry out domiding:
-	if number understood > 4 or number understood < 2:
-		say "Oops, this should never happen, but there's a bug in the I UNDID code. Email me at [email] if you can, to let me know [number understood] got passed." instead;
-	if binary-solved is 0:
-		say "You need to get past the friends task-list to try this." instead;
-	if binary-solved is 15 or binary-solved is 31:
-		say "You're already clear of the three middle scenarios." instead;
+	if number understood > 4 or number understood < 2, say "Oops, this should never happen, but there's a bug in the I UNDID code. Email me at [email] if you can, to let me know [number understood] got passed." instead;
+	if binary-solved is 0, say "You need to get past the friends task-list to try this." instead;
+	if binary-solved is 15 or binary-solved is 31, say "You're already clear of the three middle scenarios." instead;
 	choose row number understood in table of accomplishments;
-	if solved entry is true:
-		say "The [table-by-num of number understood] task set is already solved." instead;
+	if solved entry is true, say "The [table-by-num of number understood] task set is already solved." instead;
 	now solved entry is true;
 	let said-yet be false;
 	if on-this-table of number understood:
@@ -2168,7 +2122,6 @@ carry out domiding:
 	say "If you didn't mean to do this, you can UNDO.";
 	now big-jump is true;
 	the rule succeeds;
-
 
 section i did edu-ing
 
@@ -2286,7 +2239,6 @@ carry out dsing:
 	say "Debug-state is now [debug-state].";
 	the rule succeeds;
 
-
 part main stuff
 
 when play begins (this is the set the status line rule):
@@ -2314,7 +2266,6 @@ when play begins (this is the set table defaults rule):
 			now count entry is (1 + number of rows in table of last names) / 2;
 		else if count entry < 1:
 			increase count entry by number of rows in table of last names;
-
 
 scrange is a list of numbers that varies.
 
@@ -2468,7 +2419,7 @@ carry out ting:
 	say "Silly random events are now [if show-silly is true]on[else]off[end if].";
 	now note-bad is true;
 
-understand "b" as preferring sometimes abbreviated room descriptions;
+understand "b" as preferring sometimes abbreviated room descriptions.
 
 instead of saying yes:
 	say "Not much to say yes to[rhet]."
@@ -2563,8 +2514,7 @@ beta-state is a truth state that varies.
 
 when play begins:
 	now beta-state is true;
-	if debug-state is true:
-		continue the action;
+	if debug-state is true, continue the action;
 	unless currently transcripting:
 		say "Transcripts are a big help to me. Send them to blurglecruncheon@gmail.com. After you press a key, a dialog will appear telling what to save a transcript to. You can preface any comments with a punctuation mark e.g. >*This needs to be implemented[roman type].[paragraph break]Thanks!";
 		wfak;
@@ -2590,8 +2540,7 @@ understand "fo [number]" as foing.
 
 carry out foing:
 	let whichtable be the number understood;
-	if number understood < -6 or number understood > 6:
-		say "1-6 please. 1=friends 2=education 3=supplies 4=marginalized 5=fun 6=last names. Or negative, to clear the table." instead;
+	if number understood < -6 or number understood > 6, say "1-6 please. 1=friends 2=education 3=supplies 4=marginalized 5=fun 6=last names. Or negative, to clear the table." instead;
 	if number understood < 0:
 		now whichtable is 0 - number understood;
 		repeat through table of accomplishments:
@@ -2623,8 +2572,7 @@ understand "fi [number]" as fiing.
 
 carry out fiing:
 	let count be 0;
-	if number understood < 0 or number understood > number of rows in your-table:
-		say "0-[number of rows in your-table] please." instead;
+	if number understood < 0 or number understood > number of rows in your-table, say "0-[number of rows in your-table] please." instead;
 	repeat through your-table:
 		increment count;
 		if count > number understood:
@@ -2672,7 +2620,6 @@ funny-try	need-solved
 "sleeping?"	--
 "A scenery location at 6FF?"	--
 "to visit where I SEEK KEEN?"	--
-
 
 volume testing - not for release
 
@@ -2731,23 +2678,19 @@ carry out wf0ing:
 understand "wf [number]" as wfing.
 
 carry out wfing:
-	if number understood is wrongo:
-		say "That's not a valid number to write to the save file. 0, odd #s from 1 to 15 inclusive, and 31 work. Type -1 for full explanations." instead;
+	if number understood is wrongo, say "That's not a valid number to write to the save file. 0, odd #s from 1 to 15 inclusive, and 31 work. Type -1 for full explanations." instead;
 	now skip-silly-this-turn is true;
 	if number understood is -4:
 		let bin-num be binary-solved;
-		if bin-num < 1 or bin-num > 14 or bin-num is wrongo:
-			say "You need to have friends solved and not all the middle tables." instead;
+		if bin-num < 1 or bin-num > 14 or bin-num is wrongo, say "You need to have friends solved and not all the middle tables." instead;
 		midtable-choose;
 		the rule succeeds;
-	if number understood is -3:
-		say "Current table: [your-table]." instead;
+	if number understood is -3, say "Current table: [your-table]." instead;
 	if number understood is -2:
 		repeat through table of accomplishments:
 			say "[solved entry].";
 		the rule succeeds;
-	if number understood is -1:
-		say "0=clear all,31=solve all[line break]1=solve friends only. 2=solve education 4=solve supplies 8=solve marginalized.[paragraph break]Misc values: -1 gives use, -2 shows solved entries, -3 shows current table." instead;
+	if number understood is -1, say "0=clear all,31=solve all[line break]1=solve friends only. 2=solve education 4=solve supplies 8=solve marginalized.[paragraph break]Misc values: -1 gives use, -2 shows solved entries, -3 shows current table." instead;
 	say "[bold type]NOTE: this writes to the file. The previous number was [binary-solved], if you wish to undo things.[roman type][line break]";
 	let num-to-div be number understood;
 	let count be 0;
@@ -2786,8 +2729,7 @@ understand the command "cx" as something new.
 understand "cx" as cxing.
 
 carry out cxing:
-	if number of visible quasi-entries is 0:
-		say "Nothing to check." instead;
+	if number of visible quasi-entries is 0, say "Nothing to check." instead;
 	try examining the task list;
 	debug-say "Current score is [score].";
 	try entering a random visible quasi-entry;
