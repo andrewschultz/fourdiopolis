@@ -1283,6 +1283,7 @@ tally (text)	descrip (text)	foundit (text)	what-drops	found
 "hines"	"Only 57% voted for"	"[mark-away]."	suspiciously ordinary door	0
 "hsieh"	"Chinese"	"[mark-away]."	suspiciously ordinary door	0
 "hsu"	"Chinese"	"[mark-away]."	suspiciously ordinary door	0
+"huish"	"Welsh"	[mark-away]."	suspiciously ordinary door	0
 "hussein"	"Arabic"	"You get very good mileage indeed writing up a screed with ten different ways to say 'at least you aren't as bad as...' You're worried how easy it is."	suspiciously ordinary door	0
 "ishii"	"Japanese"	"With no idea how true it is, you mention that this politician is even more 'I, I, I' than most."	suspiciously ordinary door	0
 "jenkins"	"Disruptor"	"As you write up some absurd threat, you can't help but sign your name LEEROY, though you aren't silly enough to try to bust in."	suspiciously ordinary door	0
