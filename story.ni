@@ -400,8 +400,8 @@ check going east:
 	see-if-left true;
 
 check going h:
-	now your-tally is "[your-tally]h";
 	if ew > 7 or ns > 7 or ud > 7, say "[no-jump-for-you]." instead;
+	now your-tally is "[your-tally]h";
 	check-nearlies;
 	increase ew by 2;
 	increase ns by 2;
@@ -414,8 +414,8 @@ check going h:
 	see-if-left false;
 
 check going i:
-	now your-tally is "[your-tally]i";
 	if ew > 7 or ns < -7 or ud < -7, say "[no-jump-for-you]." instead;
+	now your-tally is "[your-tally]i";
 	check-nearlies;
 	increase ew by 2;
 	decrease ns by 2;
@@ -428,8 +428,8 @@ check going i:
 	see-if-left false;
 
 check going j:
-	now your-tally is "[your-tally]j";
 	if ew < -7 or ns > 7 or ud < -7, say "[no-jump-for-you]." instead;
+	now your-tally is "[your-tally]j";
 	check-nearlies;
 	decrease ew by 2;
 	increase ns by 2;
@@ -442,8 +442,8 @@ check going j:
 	see-if-left false;
 
 check going k:
-	now your-tally is "[your-tally]k";
 	if ew < -7 or ns < -7 or ud > 7, say "[no-jump-for-you]." instead;
+	now your-tally is "[your-tally]j";
 	check-nearlies;
 	decrease ew by 2;
 	decrease ns by 2;
