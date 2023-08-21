@@ -337,12 +337,19 @@ to dirsmack:
 
 before going (this is the don't waste my time with all those extra letters already now rule):
 	if word number 1 in the player's command in lower case is "go", say "In these sped-up days, the word 'go' is superfluous. Unless you are in charge, like Ed Dunn.'" instead;
-	if the player's command matches the text "north", case insensitively, dirsmack instead;
-	if the player's command matches the text "south", case insensitively, dirsmack instead;
-	if the player's command matches the text "east", case insensitively, dirsmack instead;
-	if the player's command matches the text "west", case insensitively, dirsmack instead;
-	if the player's command matches the text "up", case insensitively, dirsmack instead;
-	if the player's command matches the text "down", case insensitively, dirsmack instead;
+	let XX be "[the player's command in lower case]";
+	if XX matches the text "north", case insensitively:
+		dirsmack instead;
+	if XX matches the text "south", case insensitively:
+		dirsmack instead;
+	if XX matches the text "east", case insensitively:
+		dirsmack instead;
+	if XX matches the text "west", case insensitively:
+		dirsmack instead;
+	if XX matches the text "up", case insensitively:
+		dirsmack instead;
+	if XX matches the text "down", case insensitively:
+		dirsmack instead;
 
 walked-by is a truth state that varies.
 
