@@ -154,7 +154,7 @@ your-table is a table name that varies.
 
 ns is a number that varies. ew is a number that varies. ud is a number that varies.
 
-your-tally is indexed text that varies.
+text-tally is indexed text that varies.
 
 posschars is a number that varies.
 
@@ -235,7 +235,7 @@ to say losted:
 		say "[line break]A small alarm goes off. Law-abiding citizens don't need to be digging beneath Fourdiopolis. Or even looking like they are. A security droid taps you on your left shoulder, and when you turn around, you realize it was on your right. [one of]Snea-kee[or]Fooled again[stopping]! ";
 	else:
 		say "[line break]An anti-suicide droid pulls you back as you walk close to what you realize is the edge of Fourdiopolis. It reminds you there are cleaner ways to do that, if you know where to look. ";
-	say "You're whisked back to the center[if posschars > number of characters in your-tally], and with this interruption, you decide to cancel the rest of your walking plans[end if].";
+	say "You're whisked back to the center[if posschars > number of characters in text-tally], and with this interruption, you decide to cancel the rest of your walking plans[end if].";
 	if bounds-warn is false:
 		say "[line break]You look at your list, and many of the locations are relatively close to the center. Maybe you don't need to venture near the edges that much.";
 		now bounds-warn is true;
@@ -366,18 +366,8 @@ check going inside:
 		if score >= 2, dirparse "in" instead;
 	say "You don't see anywhere to go in." instead;
 
-check going south:
-	now your-tally is "[your-tally]s";
-	check-nearlies;
-	decrement ns;
-	if ns < -9:
-		say "[losted]";
-		reset-game instead;
-	check-nearlies;
-	see-if-left true;
-
 check going north:
-	now your-tally is "[your-tally]n";
+	now text-tally is "[text-tally]n";
 	check-nearlies;
 	increment ns;
 	if ns > 9:
@@ -386,18 +376,18 @@ check going north:
 	check-nearlies;
 	see-if-left true;
 
-check going west:
-	now your-tally is "[your-tally]w";
+check going south:
+	now text-tally is "[text-tally]s";
 	check-nearlies;
-	decrement ew;
-	if ew < -9:
+	decrement ns;
+	if ns < -9:
 		say "[losted]";
 		reset-game instead;
 	check-nearlies;
 	see-if-left true;
 
 check going east:
-	now your-tally is "[your-tally]e";
+	now text-tally is "[text-tally]e";
 	check-nearlies;
 	increment ew;
 	if ew > 9:
@@ -406,9 +396,48 @@ check going east:
 	check-nearlies;
 	see-if-left true;
 
+check going west:
+	now text-tally is "[text-tally]w";
+	check-nearlies;
+	decrement ew;
+	if ew < -9:
+		say "[losted]";
+		reset-game instead;
+	check-nearlies;
+	see-if-left true;
+
+check going up:
+	if gone-up-or-down is false:
+		say "[up-down-cool].";
+	now text-tally is "[text-tally]u";
+	increment ud;
+	now teleported is true;
+	if ud > 9:
+		say "[losted]";
+		reset-game instead;
+	check-nearlies;
+	see-if-left true;
+
+check going down:
+	if gone-up-or-down is false:
+		say "[up-down-cool].";
+	now text-tally is "[text-tally]d";
+	decrement ud;
+	if ud < -9:
+		say "[losted]";
+		reset-game instead;
+	check-nearlies;
+	see-if-left true;
+
+gone-up-or-down is a truth state that varies.
+
+to say up-down-cool:
+	say "The hybrid transport tubes/stairs are designed for optimal pedestrian convenience and exercise potential";
+	now gone-up-or-down is true;
+
 check going h:
 	if ew > 7 or ns > 7 or ud > 7, say "[no-jump-for-you]." instead;
-	now your-tally is "[your-tally]h";
+	now text-tally is "[text-tally]h";
 	check-nearlies;
 	increase ew by 2;
 	increase ns by 2;
@@ -422,7 +451,7 @@ check going h:
 
 check going i:
 	if ew > 7 or ns < -7 or ud < -7, say "[no-jump-for-you]." instead;
-	now your-tally is "[your-tally]i";
+	now text-tally is "[text-tally]i";
 	check-nearlies;
 	increase ew by 2;
 	decrease ns by 2;
@@ -436,7 +465,7 @@ check going i:
 
 check going j:
 	if ew < -7 or ns > 7 or ud < -7, say "[no-jump-for-you]." instead;
-	now your-tally is "[your-tally]j";
+	now text-tally is "[text-tally]j";
 	check-nearlies;
 	decrease ew by 2;
 	increase ns by 2;
@@ -450,7 +479,7 @@ check going j:
 
 check going k:
 	if ew < -7 or ns < -7 or ud > 7, say "[no-jump-for-you]." instead;
-	now your-tally is "[your-tally]j";
+	now text-tally is "[text-tally]k";
 	check-nearlies;
 	decrease ew by 2;
 	decrease ns by 2;
@@ -465,35 +494,6 @@ check going k:
 to say no-jump-for-you:
 	say "The teleporter buzzes ominously--a warning that such a displacement might negatively affect the overall safety rating of Fourdiopolis teleporters. Or let you escape without proper documentation. Whichever";
 
-check going up:
-	if gone-up-or-down is false:
-		say "[up-down-cool].";
-	now your-tally is "[your-tally]u";
-	increment ud;
-	now teleported is true;
-	if ud > 9:
-		say "[losted]";
-		reset-game instead;
-	check-nearlies;
-	see-if-left true;
-
-check going down:
-	if gone-up-or-down is false:
-		say "[up-down-cool].";
-	now your-tally is "[your-tally]d";
-	decrement ud;
-	if ud < -9:
-		say "[losted]";
-		reset-game instead;
-	check-nearlies;
-	see-if-left true;
-
-gone-up-or-down is a truth state that varies.
-
-to say up-down-cool:
-	say "The hybrid transport tubes/stairs are designed for optimal pedestrian convenience and exercise potential";
-	now gone-up-or-down is true;
-
 to decide whether oops:
 	if ew < -9 or ew > 9, decide yes;
 	if ns < -9 or ns > 9, decide yes;
@@ -506,9 +506,9 @@ to decide which number is new-sec:
 hint-oppo is a truth state that varies.
 
 check going:
-	if number of characters in your-tally is 7 and your-table is table of friends and a random chance of 1 in 3 succeeds:
+	if number of characters in text-tally is 7 and your-table is table of friends and a random chance of 1 in 3 succeeds:
 		say "You think and hope[one of][or], again, [stopping]that they wouldn't have you wandering THIS far to start.[paragraph break]";
-	if number of characters in your-tally > 10:
+	if number of characters in text-tally > 10:
 		say "You've been wandering for too long. You get tired, and you figure it's probably best to start over with a clean look on things. You push the button on your teleporter device[if posschars > 11], cancelling the rest of your planned journey[end if], and [if ew is 0 and ns is 0 and ud is 0]everything looks a bit different[else]back you go to the center[end if].[paragraph break]";
 		now ignore-remaining-dirs is true;
 		reset-game instead;
@@ -520,8 +520,8 @@ note-found is a truth state that varies.
 
 to tally-and-place:
 	let A be indexed text;
-	now A is your-tally;
-	let B be number of characters in your-tally;
+	now A is text-tally;
+	let B be number of characters in text-tally;
 	repeat with Q running through things in outside-area:
 		if Q is not player and Q is not transporter:
 			now Q is off-stage;
@@ -547,8 +547,8 @@ tablist is a list of table names that varies. tablist is {table of scenery 3, ta
 
 after printing the locale description:
 	let A be indexed text;
-	now A is your-tally;
-	let B be number of characters in your-tally;
+	now A is text-tally;
+	let B be number of characters in text-tally;
 	if B > 2:
 		repeat through table of solvable tables:
 			sweep-up tabname entry;
@@ -566,7 +566,7 @@ after printing the locale description:
 							now scenery-found-yet is true;
 						if found entry is 0: [-1 for ISEEKKEEN/etc is a bit of a hack but yeah]
 							now found entry is 1;
-	if your-tally is "hidden" or your-tally is "inside":
+	if text-tally is "hidden" or text-tally is "inside":
 		if hideout is not in outside-area:
 			move hideout to outside-area;
 			say "[one of]All right! You think you see it! The hideout where your [if your-table is not table of friends]latest jaunt[else]whole task[end if] started![or]The hideout, again. A bit easier to recognize this time.[stopping]";
@@ -650,8 +650,8 @@ to reset-game:
 	now ew is 0;
 	now ud is 0;
 	now all visible quasi-entries are off-stage; [probably not neccessary to put all the way up here but just in case]
-	let add-to be number of characters in your-tally;
-	now your-tally is "";
+	let add-to be number of characters in text-tally;
+	now text-tally is "";
 	if walked-by is false:
 		consider the plural-almost rule;
 	now walked-by is false;
@@ -1211,10 +1211,10 @@ to check-nearlies:
 	repeat through table of nearlies:
 		if tname entry is your-table:
 			now mine-yet is true;
-			if your-tally is tally entry:
+			if text-tally is tally entry:
 				unless found-yet of mult entry:
 					now found entry is 1;
-			if your-tally is mult entry:
+			if text-tally is mult entry:
 				now found entry is 0;
 		else if mine-yet is true:
 			break;
@@ -1344,7 +1344,7 @@ to end-win-with-undo:
 	end the story finally saying "[msg]";
 
 to say msg:
-	if your-tally is "die":
+	if text-tally is "die":
 		say "Hope you enjoyed the silly death";
 		continue the action;
 	repeat through table of end msgs:
@@ -1431,9 +1431,9 @@ dirparsing is a truth state that varies.
 ignore-remaining-dirs is a truth state that varies.
 
 to dirparse (dirlump - indexed text):
-	if number of characters in dirlump > 2 and number of characters in your-tally > 0:
+	if number of characters in dirlump > 2 and number of characters in text-tally > 0:
 		if debug-state is true:
-			say "DEBUG: [your-tally] and [number of characters in dirlump].";
+			say "DEBUG: [text-tally] and [number of characters in dirlump].";
 		if debug-state is false:
 			say "You aren't starting from the center. Do you still wish to turbo ahead?";
 			if the player consents:
@@ -1453,7 +1453,7 @@ to dirparse (dirlump - indexed text):
 		now ever-fast is true;
 	now dirparsing is true;
 	now ignore-remaining-dirs is false;
-	now posschars is number of characters in your-tally + allchar;
+	now posschars is number of characters in text-tally + allchar;
 	repeat with charnum running from 1 to allchar:
 		unless ignore-remaining-dirs is true:
 			if character number charnum in dirlump is "w":
@@ -1845,7 +1845,7 @@ Rule for printing a parser error when the latest parser error is the not a verb 
 chapter ring
 
 after printing the locale description:
-	if ns is 0 and ew is 0 and ud is 0 and number of characters in your-tally > 1:
+	if ns is 0 and ew is 0 and ud is 0 and number of characters in text-tally > 1:
 		say "You sense you're both at the center and not, at the same time.";
 	continue the action;
 
@@ -1860,7 +1860,7 @@ r-yet is a truth state that varies.
 in-place-yet is a truth state that varies.
 
 carry out ring:
-	let ncy be number of characters in your-tally;
+	let ncy be number of characters in text-tally;
 	if ncy is 0, say "You're already at the center, and you haven't wandered since the last time you took a transporter." instead;
 	if score < 2:
 		if ncy is 1, say "You only just left the center. You're a little worried that if you use the transporters TOO frequently, you might get tracked somehow. Maybe with a bit more experience and confidence, you can sneak back quickly." instead;
@@ -2022,7 +2022,7 @@ carry out undiding:
 	else:
 		set-your-table table of friends;
 		say "Now you are back to searching for friends, with no tasks done[scen-twaddle].";
-	if number of characters in your-tally > 0:
+	if number of characters in text-tally > 0:
 		say "[line break]Oh, I also teleported you back to the center.";
 		now teleported is true; [this is a small hack to quash the "you should have teleported" warning]
 		reset-game;
@@ -2250,7 +2250,7 @@ carry out dsing:
 part main stuff
 
 when play begins (this is the set the status line rule):
-	now your-tally is "";
+	now text-tally is "";
 	now right hand status line is "[score]/[number of rows in your-table]";
 	now ns is 0;
 	now ew is 0;
@@ -2720,7 +2720,7 @@ carry out wfing:
 	else:
 		midtable-choose;
 	say "Current table is [your-table], and it has been reset.";
-	if number of characters in your-tally > 0:
+	if number of characters in text-tally > 0:
 		say "[line break]Oh, I also teleported you back to the center.";
 		now teleported is true; [this is a small hack to quash the "you should have teleported" warning]
 		reset-game;
