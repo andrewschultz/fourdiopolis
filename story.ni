@@ -156,6 +156,8 @@ ns is a number that varies. ew is a number that varies. ud is a number that vari
 
 text-tally is indexed text that varies.
 
+num-tally is a number that varies.
+
 posschars is a number that varies.
 
 bounds-warn is a truth state that varies.
@@ -366,8 +368,13 @@ check going inside:
 		if score >= 2, dirparse "in" instead;
 	say "You don't see anywhere to go in." instead;
 
+to boost-num-tally (q - a number):
+	now num-tally is 10 * num-tally;
+	increase num-tally by q;
+
 check going north:
 	now text-tally is "[text-tally]n";
+	boost-num-tally 0;
 	check-nearlies;
 	increment ns;
 	if ns > 9:
@@ -378,6 +385,7 @@ check going north:
 
 check going south:
 	now text-tally is "[text-tally]s";
+	boost-num-tally 1;
 	check-nearlies;
 	decrement ns;
 	if ns < -9:
@@ -388,6 +396,7 @@ check going south:
 
 check going east:
 	now text-tally is "[text-tally]e";
+	boost-num-tally 2;
 	check-nearlies;
 	increment ew;
 	if ew > 9:
@@ -398,6 +407,7 @@ check going east:
 
 check going west:
 	now text-tally is "[text-tally]w";
+	boost-num-tally 3;
 	check-nearlies;
 	decrement ew;
 	if ew < -9:
@@ -410,6 +420,7 @@ check going up:
 	if gone-up-or-down is false:
 		say "[up-down-cool].";
 	now text-tally is "[text-tally]u";
+	boost-num-tally 4;
 	increment ud;
 	now teleported is true;
 	if ud > 9:
@@ -422,6 +433,7 @@ check going down:
 	if gone-up-or-down is false:
 		say "[up-down-cool].";
 	now text-tally is "[text-tally]d";
+	boost-num-tally 5;
 	decrement ud;
 	if ud < -9:
 		say "[losted]";
@@ -438,6 +450,7 @@ to say up-down-cool:
 check going h:
 	if ew > 7 or ns > 7 or ud > 7, say "[no-jump-for-you]." instead;
 	now text-tally is "[text-tally]h";
+	boost-num-tally 6;
 	check-nearlies;
 	increase ew by 2;
 	increase ns by 2;
@@ -452,6 +465,7 @@ check going h:
 check going i:
 	if ew > 7 or ns < -7 or ud < -7, say "[no-jump-for-you]." instead;
 	now text-tally is "[text-tally]i";
+	boost-num-tally 7;
 	check-nearlies;
 	increase ew by 2;
 	decrease ns by 2;
@@ -466,6 +480,7 @@ check going i:
 check going j:
 	if ew < -7 or ns > 7 or ud < -7, say "[no-jump-for-you]." instead;
 	now text-tally is "[text-tally]j";
+	boost-num-tally 8;
 	check-nearlies;
 	decrease ew by 2;
 	increase ns by 2;
@@ -480,6 +495,7 @@ check going j:
 check going k:
 	if ew < -7 or ns < -7 or ud > 7, say "[no-jump-for-you]." instead;
 	now text-tally is "[text-tally]k";
+	boost-num-tally 9;
 	check-nearlies;
 	decrease ew by 2;
 	decrease ns by 2;
@@ -518,6 +534,13 @@ scenery-found is a number that varies.
 
 note-found is a truth state that varies.
 
+to decide whether got-tally of (itx - indexed text) and (tne - number):
+	if tne > 0:
+		if tne is num-tally, yes;
+		no;
+	if itx is text-tally, yes;
+	no;
+
 to tally-and-place:
 	let A be indexed text;
 	now A is text-tally;
@@ -527,7 +550,7 @@ to tally-and-place:
 			now Q is off-stage;
 	if B > 2:
 		repeat through your-table:
-			if A is tally entry:
+			if got-tally of tally entry and talnum entry:
 				if found entry is not 1:
 					if there is no what-drops entry:
 						move generic door to outside-area;
@@ -537,7 +560,7 @@ to tally-and-place:
 						move what-drops entry to outside-area;
 						continue the action;
 		repeat through your-table:
-			if A is tally entry:
+			if got-tally of tally entry and talnum entry:
 				if there is a what-drops entry:
 					now found entry is 1;
 					move what-drops entry to outside-area;
@@ -554,7 +577,7 @@ after printing the locale description:
 			sweep-up tabname entry;
 		let mytab be entry (B - 2) in tablist;
 		repeat through mytab:
-			if A is tally entry:
+			if got-tally of tally entry and talnum entry:
 				if found entry is not 1:
 					increment scenery-found;
 					unless there is a what-drops entry:
@@ -573,7 +596,7 @@ after printing the locale description:
 			now hidden-inside is true;
 	repeat through your-table:
 		if found entry is 1:
-			if your-tally is tally entry:
+			if got-tally of tally entry and talnum entry:
 				if note-found is false:
 					say "Hm, that place you found before--it's somewhere around here, but you're focused on what to find next.";
 					now note-found is true;
@@ -586,7 +609,7 @@ to sweep-up (x - a table name):
 	choose row with tabname of x in table of solvable tables;
 	if tabsolv entry is true, continue the action; [don't clue stuff already solved]
 	repeat through x:
-		if your-tally is tally entry:
+		if got-tally of tally entry and talnum entry:
 			if x is table of last names:
 				say "You feel very cold. Something unknown but oppressive lies nearby, but you don't [if your-table is table of friends]nearly [else if your-table is table of just plain cool stuff]quite [end if]have the means or skill to see or deal with it, yet.";
 				continue the action;
@@ -652,6 +675,7 @@ to reset-game:
 	now all visible quasi-entries are off-stage; [probably not neccessary to put all the way up here but just in case]
 	let add-to be number of characters in text-tally;
 	now text-tally is "";
+	now num-tally is 0;
 	if walked-by is false:
 		consider the plural-almost rule;
 	now walked-by is false;
@@ -728,7 +752,7 @@ check going inside when a quasi-entry is visible:
 
 check entering a quasi-entry:
 	repeat through your-table:
-		if your-tally is tally entry:
+		if got-tally of tally entry and talnum entry:
 			if noun is front door:
 				say "(well, knocking, actually)[line break]";
 			if noun is suspiciously ordinary door:
@@ -2251,6 +2275,7 @@ part main stuff
 
 when play begins (this is the set the status line rule):
 	now text-tally is "";
+	now num-tally is 0;
 	now right hand status line is "[score]/[number of rows in your-table]";
 	now ns is 0;
 	now ew is 0;
