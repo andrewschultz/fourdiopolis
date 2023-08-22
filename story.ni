@@ -555,7 +555,7 @@ to tally-and-place:
 					if location of what-drops entry is not outside-area:
 						move what-drops entry to outside-area;
 						continue the action;
-		repeat through your-table:
+		repeat through entry (B - 2) in tablist:
 			if got-tally of tally entry and talnum entry:
 				if there is a what-drops entry:
 					now found entry is 1;
