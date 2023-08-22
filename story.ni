@@ -900,28 +900,6 @@ to say sector-num of (i - indexed text):
 	say "[sec of yn]";
 	say "[sec of xn]";
 
-chapter misc table
-
-to say snee:
-	say "You feel a sudden stupid desire to buy overpriced sneakers. Maybe at Payless. But everyone shops at PayWayLess these days"
-
-to say bnb:
-	say "Two fellows in a park, sitting on a couch, commenting stupidly at music videos on an old-school television. What is society coming to? Hah, you said..."
-
-to say worry-undo of (tn - a table name):
-	let j be 2;
-	if tn is table of supplies:
-		now j is 3;
-	else if tn is table of marginalized people:
-		now j is 4;
-	say "You feel a sudden fear your ";
-	if tn is your-table:
-		say "current";
-	else:
-		choose row j in table of accomplishments;
-		say "[if solved entry is true]past[else]future[end if]";
-	say " wrangling may be all for nought and can be wiped out just like that, as if you're part of some big silly game you only understand on the surface";
-
 to say seek-track:
 	let ln be a list of indexed text;
 	repeat with Q running through tablist:
@@ -939,102 +917,6 @@ to say seek-track:
 		say "There must not be much left. ";
 	truncate ln to 5 entries;
 	say "You read: [ln]";
-
-table of scenery 3 [tosc]
-tally (text)	talnum	descrip (text)	foundit (text)	what-drops	found
-"die"	572	"sacrifice yourself"	"Assisted suicide is more rigorous than in Threediopolis. The Death Panels there (not the healthcare kind) give punditary views before you pegged out, concluding thoughts of profundity before the void. Here, you have surveys...questionnaires...what would you do better? What do you think authorities would do better? Now, now, answer, don't try to beg for the juice and cookies over there. They are not for you (really, you should've PLANNED something as important as a last meal, because there wsn't much TO plan) but for the people working hard here who will NEED the nourishment."	ominous door	0
-"duh"	546	--	"Oh, man! You can't believe you missed THAT one. It's obvious now!"	--	0
-"dui"	547	--	"A robot-police runs by and grabs a breath-sample from the air in front of you. 'Proceed,' it says. Hmm.'"	--	0
-"eek"	229	--	"Someone tells a scary story for effect and, well, gets the effect they want."	--	0
-"hhh"	666	"Triple H"	"Someone threatens to bodyslam another person for being utterly evil. Then--bam! You see they actually do! Someone whispers to you, don't worry, it's fake, just entertainment. What is the world coming to?"	--	0
-"kkk"	999	"bad bad people"	"Everyone around here just really, really sucks at life. What else can I say?"	--	0 [super extra double for this vs another k word but here there's an opportunity to laugh at people a bit I hope]
-
-table of scenery 4 [tosc4]
-tally (text)	talnum	descrip (text)	foundit (text)	what-drops	found
-"deke"	5292	--	"You wonder if you faked yourself out going this way."	--	0
-"didi"	5757	"Urkel"	"A fellow with oversized glasses and suspenders runs into you, shrugs his shoulders, snort-laughs and then runs away."	--	0
-"dike"	5792	--	"In this blocked-off area, people talk about the city water supply."	--	0
-"dink"	5709	--	"You're hit by a very very soft nerf ball that runs away. Hmm."	--	0
-"ehhs"	2661	--	"People keep asking fellow conversers to repeat themselves, here."	--	0
-"heed"	6225	--	"Some police give a particularly stern lecture to a citizen not fully obeying some minor law."	--	0
-"hues"	6421	--	"The local color is particularly vibrant in this neighborhood."	--	0
-"hush"	6416	--	"Unusually quiet here."	--	0
-"ides"	7521	--	"An organized march nearby leaves you feeling wary."	--	0
-"juke"	8492	--	"Someone walking towards you tries to get out of your way, and you do the same. But you both pick the same way to go, several times. Awkward!"	--	0
-"keds"	9251	--	"[snee]."	--	0
-"kwik"	9379	--	"You can just hear the bad spelling as people with more willpower than abstract knowledge exercise their authority."	--	0
-"nike"	792	--	"[snee]."	--	0
-"seek"	1229	--	"You spy someone else with a sheet similar to yours. You don't acknowledge them, though. Can't be too careful."	--	0
-"shun"	1640	--	"You feel very, very alone. People are more than just giving you your space."	--	0
-"uhhs"	4661	--	"Conversation feels a bit slower and dumber than usual for Fourdiopolis, for a second here."	--	0
-"uuid"	4475	--	"You are suddenly unable to get the hexadecimal number [b][uuid][r] out of your head!"	--	0
-"whew"	3623	--	"You just barely escaped something, there! You don't know what, but it would've been pretty bad."	--	0
-"wiki"	3797	--	"You suddenly have an urge to look up some term and follow a chain to all sorts of odd knowledge you may never use but it'll be fun."	--	0
-"wind"	3705	--	"You're almost blown off your feet for a second. Air currents in Fourdiopolis are weird--there's no PROOF the government controls them, but..."	--	0
-
-table of scenery 5 [tosc5]
-tally (text)	talnum	descrip (text)	foundit (text)	what-drops	found
-"ennui"	20047	--	"Yyyyyawn. What's the point?"	--	0
-"iknew"	79023	--	"Someone covers for looking stupid by explaining they were just being really, really ironic."	--	0
-"jesus"	82141	--	"Someone spouting an annoying proof that religions shouldn't exist then asks you to join the personality cult of a smart person dead for a hundred years, who wasn't nice, but they understood algorithms of how to make others nicer. You brush them away."	--	0
-"knees"	90221	--	"You grab an old ache for a moment."	--	0
-"nisei"	7127	--	"You walk past shops with Japanese signs."	--	0
-"nuhuh"	4646	--	"A trivial argument nearby quickly turns emotional."	--	0
-"nuked"	4925	--	"A surprisingly empty area. You look for biohazard signs but don't see any. Still, you feel disturbingly tingly."	--	0
-"seine"	12702	--	"You feel a hackneyed flavor of, and longing for, Gay Paree."	--	0
-"shins"	16701	--	"You grab an old ache for a moment."	--	0
-"shush"	16416	--	"'Oh, sure, you can THINK that, just don't SAY it, you know?'"	--	0
-"sides"	17521	--	"You feel cornered in here. You're not sure why."	--	0
-"undid"	40575	--	"You feel regret for what you've done and regret for that regret. You waste a bit of time fretting over how you've wasted a bit of time no matter which feeling is right."	--	0
-"whisk"	36719	--	"You trip on an odd cooking doohickey you forget the name of. People don't have time for making their own meals, with so much virtual reality to experience these days, and machines do it all well enough."	--	0
-
-table of scenery 6 [tosc6]
-tally (text)	talnum	descrip (text)	foundit (text)	what-drops	found
-"dindin"	570570	--	"You feel hungry."	--	0
-"heehee"	622622	--	"You think of a silly pun that feels funnier than it has a right to be."	--	0
-"hehhuh"	626646	--	"[bnb]"	--	0
-"henwen"	620320	"Prydain Chronicles"	"You thought you heard a talking pig just now."	--	0
-"huhheh"	646626	--	"[bnb]"	--	0
-"nissin"	71170	--	"You step on something. It looks like a chunk of dried noodles. You feel hungry for food you'll regret later."	--	0
-"nudies"	45721	--	"You see, and quickly ignore, some disturbing fliers on the ground."	--	0
-"shinju"	167084	--	"Hm, looks like a play, in the park. Not quite Romeo and Juliet, but seemes like it just ended the same way."	--	0
-"shishe"	167162	--	"You smell evidence people are--gasp--SMOKING. You remember health warnings that a whiff of the good smelling stuff is worse than the bad smelling stuff, and vice versa."	--	0
-"unkind"	409705	--	"You hear a name. It's a slur. It's probably old, and maybe people forget why, but the nastiness still remains. It's the sort of thing the ubiquitous video cameras can't catch and report."	--	0
-"winded"	370525	--	"You take a break to catch your breath."	--	0
-
-table of scenery 7 [tosc7]
-tally (text)	talnum	descrip (text)	foundit (text)	what-drops	found
-"dejeune"	5282402	--	"You sure could use a lunch break right now!"	--	0
-"kidniki"	9750797	--	"You temporarily feel on guard against the possibility of radical ninjas."	--	0
-"kidskin"	9751970	--	"You walk by an exotic leather store."	--	0
-"kuskunn"	9419400	"Magic Candle"	"You see an image of a demon trapped in a bubble, by a candle slowly burning."	--	0
-"sissies"	1711721	--	"Some self-made tough guys still feel a need to gang up on people weaker than they are. The pain's over sooner than if they went one at a time, amirite?"	--	0
-"skidded"	1975525	--	"A goverment utility vehicle swerves and almost hits someone about to jaywalk. Funny how one is always around, unless you jaywalk REALLY assertively."	--	0
-"swedish"	1325716	--	"An ethnic area full of oddly dotted vowels. You know them by their unicode numbers, but you have no clue how to pronounce them."	--	0
-"weenies"	3220721	--	"An old long-abandoned hot dog hut lies between two places of Serious Business. Your grandparents constantly babbled about the misspelled version from THEIR youth being so tasty, and--well--maybe the misspelling did make things tastier."	--	0
-
-table of scenery 8 [tosc8]
-tally (text)	talnum	descrip (text)	foundit (text)	what-drops	found
-"inkiness"	70970211	--	"Everything's a bit cloudy, here."	--	0
-"unkissed"	40971125	--	"You hear a teen sob about their lack of romantic luck."	--	0
-"unwished"	40371625	--	"Someone tries to hand you a flyer you really, really don't want."	--	0
-"whiskies"	36719721	--	"Wow! People seem to be having a rip roaring time, here[whisky-wine]. You don't have time for such carousing at the moment, but it boosts your spirits."	--	0
-
-table of scenery 9 [tosc9]
-tally (text)	talnum	descrip (text)	foundit (text)	what-drops	found
-"iseekkeen"	712299220	--	"[seek-track]."	--	-1
-"iundidedu"	740575254	--	"[worry-undo of table of education]."	--	-1
-"jeskiddin"	821975570	--	"Someone walks by and notifies you this is a Level 17 restricted area. You quickly hide your to-do list, before they point and laugh that they got you GOOD, and the grocery store's THAT way."	--	0
-"seediness"	122570211	--	"This area doesn't feel too posh. You don't know why, but it doesn't."	--	0
-"skunkweed"	194093225	--	"It smells bad here, like it should be illegal."	--	0
-"whininess"	367070211	--	"You can zone out one complaint or two, but when it's all around, it's like it's contagious and you just won't put up with it! Really, some people! It's just not fair! You'd never...oops."	--	0
-"wineskins"	370219701	--	"Everything retro is fashionable again, and drinking wine from animal skins was before when retro was a thing, so--that big rich people's gathering in the park is extra nice."	--	0
-
-table of scenery 10 [tosc10]
-tally (text)	talnum	descrip (text)	foundit (text)	what-drops	found
-"iundidjunk"	-1	--	"[worry-undo of table of supplies]."	--	-1
-"iundidnews"	-1	--	"[worry-undo of table of marginalized people]."	--	-1
-"skinniness"	-1	--	"You are momentarily bombarded with ads for diet plans."	--	0
 
 to say uuid:
 	(- RAW(); -)
