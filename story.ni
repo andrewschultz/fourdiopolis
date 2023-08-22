@@ -23,11 +23,21 @@ release along with cover art.
 
 the release number is 2.
 
+[use memory economy.]
+
 section includes
 
-include basic screen effects by Emily Short.
+include Trivial Niceties by Andrew Schultz.
 
-Include (- Switches z; -) after "ICL Commands" in "Output.i6t".
+include Old School Verb Total Carnage by Andrew Schultz.
+
+include Basic Screen Effects by Emily Short.
+
+include Fourdiopolis Tables by Andrew Schultz.
+
+section includes - not for release
+
+[include Fourdiopolis Tests by Andrew Schultz.] [commenting this out saves 0x1000 z-machine space while debugging]
 
 section status line redraw modifier
 
@@ -129,20 +139,6 @@ to decide which number is binary-solved:
 			increase total-sum by additive;
 		now additive is additive * 2;
 	decide on total-sum;
-
-section transcripting stub
-
-Include (-
-[ CheckTranscriptStatus;
-#ifdef TARGET_ZCODE;
-return ((0-->8) & 1);
-#ifnot;
-return (gg_scriptstr ~= 0);
-#endif;
-];
--).
-
-To decide whether currently transcripting: (- CheckTranscriptStatus() -)
 
 book variables
 
