@@ -999,61 +999,6 @@ tally	talnum	mult	tname	found	missage
 "ski"	197	"skis"	table of just plain cool stuff	0	1
 "wink"	3709	"winks"	table of just plain cool stuff	0	1
 
-chapter final table
-
-table of last names [tol]
-tally (text)	talnum	descrip (text)	foundit (text)	what-drops	found
-"dejesus"	5282141	"Spanish"	"[mark-away]."	suspiciously ordinary door	0
-"deneke"	520292	"German"	"[mark-away]."	suspiciously ordinary door	0
-"dinh"	5706	"Vietnamese"	"[mark-away]."	suspiciously ordinary door	0
-"dinwiddie"	570375572	"Scottish"	"[mark-away]."	suspiciously ordinary door	0
-"dudek"	54529	"Polish"	"[mark-away]."	suspiciously ordinary door	0
-"eddins"	255701	"None"	"[mark-away]."	suspiciously ordinary door	0
-"ennis"	20071	"Not their 1st name"	"[mark-away]."	suspiciously ordinary door	0
-"eskew"	21923	"None"	"[mark-away]."	suspiciously ordinary door	0
-"heineken"	62702920	"Boozy Dutch type"	"You leave a note about how they're so bad at legislating, they might be worse sober."	suspiciously ordinary door	0
-"henke"	62092	"None"	"[mark-away]."	suspiciously ordinary door	0
-"hess"	6211	"German"	"'You'd better believe you made a heck of a mess,' you write, among other things."	suspiciously ordinary door	0
-"hines"	67021	"Only 57% voted for"	"[mark-away]."	suspiciously ordinary door	0
-"hsieh"	61726	"Chinese"	"[mark-away]."	suspiciously ordinary door	0
-"hsu"	614	"Chinese"	"[mark-away]."	suspiciously ordinary door	0
-"huish"	64716	"Welsh"	"[mark-away]."	suspiciously ordinary door	0
-"hussein"	6411270	"Arabic"	"You get very good mileage indeed writing up a screed with ten different ways to say 'at least you aren't as bad as...' You're worried how easy it is."	suspiciously ordinary door	0
-"ishii"	71677	"Japanese"	"With no idea how true it is, you mention that this politician is even more 'I, I, I' than most."	suspiciously ordinary door	0
-"jenkins"	8209701	"Disruptor"	"As you write up some absurd threat, you can't help but sign your name LEEROY, though you aren't silly enough to try to bust in."	suspiciously ordinary door	0
-"jensen"	820120	"Swedish"	"[mark-away]."	suspiciously ordinary door	0
-"keese"	92212	"None"	"Oh, wait, look. There's a weird pixelated bird on the door! As you make your mark, you reflect on the people keeping Fourdiopolis in the past under the guise of sticking with basics."	suspiciously ordinary door	0
-"knudsen"	9045120	"Danish"	"[mark-away]."	suspiciously ordinary door	0
-"kuhn"	9460	"German"	"[mark-away]."	suspiciously ordinary door	0
-"neeskens"	2219201	"Dutch"	"You feel an urge to mock this person's athletic ability and deride them as constantly second-best."	suspiciously ordinary door	0
-"nhek"	629	"Cambodian"	"[mark-away]"	suspiciously ordinary door	0
-"niesen"	72120	"Scandinavian"	"[mark-away]."	suspiciously ordinary door	0
-"nijinski"	7870197	"Polish/Russian"	"You write something about how this person is particularly good at dancing around issues, until they aren't. Booyah!"	suspiciously ordinary door	0
-"nweke"	3292	"Nigerian"	"You write something about how things fall apart in simple, powerful, no-nonsense language."	suspiciously ordinary door	0
-"sheen"	16220	"WINNING"	"As much as you distrust politicians who talk about winning, the alternative is...worse? This guy was particularly outrageous, you remember now. Entertaining, but outrageous."	suspiciously ordinary door	0
-"sisk"	1719	"None"	"[mark-away]."	suspiciously ordinary door	0
-"sundin"	140570	"Swedish"	"[mark-away]."	suspiciously ordinary door	0
-"suskind"	1419705	"German"	"[mark-away]."	suspiciously ordinary door	0
-"ueki"	4297	"Japanese, unique"	"[mark-away]. "	suspiciously ordinary door	0
-"weeks"	32291	"takes their time"	"[mark-away]."	suspiciously ordinary door	0
-"weiss"	32711	"German"	"[mark-away]."	suspiciously ordinary door	0
-"whidden"	3675520	"almost too close"	"[mark-away]."	suspiciously ordinary door	0
-"wisniewski"	-1	"Polish"	"As you make your mark, you feel a shudder of Loathing at Wisniewski also being The Man."	suspiciously ordinary door	0
-
-to say mark-away:
-	say "You read through your guidelines on rabble rousing literature and write up a short screed describing how [your-tally in title case] [one of]is typical of the whole bunch and one of the worst at the same time[or]doesn't care at all, but cares about themselves[or]is both too powerful and yet powerless to change the PEOPLE[or]doesn't understand common people but sure understands how to manipulate them[or]is the worst and yet controlled by even worse people at the same time[in random order]. You add in some bargle about [one of]how they'll get to spend more time with their lovely family soon[or]disgruntled ex-staffers TALK[or]they'll be the first out when people see all the corruption[or]their rags to riches story being a fraud compared to Ed Dunn[or]their lack of, or excessive, charisma is especially galling[or]Embarrassing Facts you know--ones you can't even write down[or]their lack of traditional values and desire to return Fourdiopolis to the 22nd or even 21st century won't stand[or]their [a random number between 85 and 95]% approval rating is a fraud[or]their getting [a random number between 85 and 95]% of the vote is suspicious[in random order]. Any crank can send an email like that, but few people have the guts to DROP BY. You dust your hands off and sneak away"
-
-table of name yay
-count	comment
-1	"Well, you are in for it, now. Even doing this once gives some risk."
-3	"You haven't been caught, yet. It's still nervy."
-6	"Rebelling is almost becoming boring."
-10	"You look at the names you have left, and you wonder if focusing on (or not focusing on) ethnic names Says Something About You. Well, it says you're a third of the way there."
---	"Halfway there. You can't believe THAT person--why, they offered token resistance to THAT bill..."
--9	"Three-quarters. That is a lot. You have sent a lesson to enough...or have you?"
--2	"Perhaps one or two should be left, as an example to the others. Or perhaps not."
-0	"That is all. You have done well."
-
 volume undo
 
 include conditional undo by Jesse McGrew.
