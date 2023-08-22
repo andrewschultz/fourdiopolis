@@ -1128,33 +1128,31 @@ to dirparse (dirlump - indexed text):
 	now posschars is number of characters in text-tally + allchar;
 	repeat with charnum running from 1 to allchar:
 		unless ignore-remaining-dirs is true:
-			if character number charnum in dirlump is "w":
-				try going west;
-			if character number charnum in dirlump is "e":
-				try going east;
-			if character number charnum in dirlump is "n":
-				try going north;
-			if character number charnum in dirlump is "s":
-				try going south;
-			if character number charnum in dirlump is "u":
-				try going up;
-			if character number charnum in dirlump is "d":
-				try going down;
-			if character number charnum in dirlump is "h":
-				try going h;
-			if character number charnum in dirlump is "i":
-				try going i;
-			if character number charnum in dirlump is "j":
-				try going j;
-			if character number charnum in dirlump is "k":
-				try going k;
-			if character number charnum in dirlump is ".":
+			let cnc be character number charnum in dirlump;
+			repeat through table of dirmatches:
+				if cnc is let entry:
+					try going dir entry;
+					break;
+			if cnc is ".":
 				bracket-say "ignoring period.";
 			if charnum is allchar - 1:
 				now dirparsing is false;
 	now ignore-remaining-dirs is false;
 	now dirparsing is false;
 	now posschars is 0;
+
+table of dirmatches
+let	dir
+"w"	west
+"e"	east
+"n"	north
+"s"	south
+"u"	up
+"d"	down
+"h"	h
+"i"	i
+"j"	j
+"k"	k
 
 volume random silliness
 
