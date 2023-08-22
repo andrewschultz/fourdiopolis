@@ -72,6 +72,8 @@ Include (-
 
 chapter stubs
 
+to say 3d: say "[i]Threediopolis[r]".
+
 to say 2da:
 	unless screen-read is true:
 		say "--";
@@ -710,7 +712,7 @@ the generic door that needs replacing is a quasi-entry. description is "Boy! It'
 
 the front door is a quasi-entry. description is "There's no name on it, but you can (C)heck if anyone's home.".
 
-the ominous door is a quasi-entry. description is "Boy! It's ominous, all right! It might be a mistake to enter.".
+the ominous door is a quasi-entry. "An ominous door awaits here, to enter if you dare.". description is "Boy! It's ominous, all right! It might be a mistake to enter.".
 
 the tiny schoolhouse is a quasi-entry. description is "All schoolhouses are tiny. Part of the point of education is to say, you don't deserve a big school, but CEO's deserve a big office."
 
@@ -1192,19 +1194,19 @@ silliness
 "Two people discuss the logistics of visiting every sector of Fourdiopolis before they die."
 "Someone grumbles to captive listeners about how New Warp City is cheating, shaped like a frustum to hold more population."
 "A passer-by asks if you're willing to hear a one-minute lecture on how society represses you. You decline, even, or especially, after they say they've condensed it with practice."
-"An older man tries to skip across the street with a pedestrian warning photographed, but the flash-cameras catch him blocking traffic. A younger kid who started earlier makes it."
+"An older man tries to skip across the street despite a pedestrian warning, but the flash-cameras catch him blocking traffic. A younger kid who started earlier makes it."
 "Even pedestrians babble about gas prices these days. Surely they didn't always, when there was only one type of gas, not ten."
 "You try to focus on the less annoying of two conversations about voting for the lesser of two evils."
 "Two activists get into a fight over whether the city should continually pump in instrumental music or heavy metal music on the streets."
 "A kid shows off his trophy for three-dimensional bowling."
-"Some kids voice can't believe their team with the now-extinct mascot lost to the expansion team with the long-extinct mascot."
+"Some kids can't believe their team with the now-extinct mascot lost to the expansion team with the long-extinct mascot."
 "A malcontent grumbles that OF COURSE h and the other transporter directions should go 180 degrees the opposite of how they do."
 "You see a police siren flash by, but you can't hear anything. Must be at a high pitch only teens can hear. You remember the last time you could. You miss it."
 "Someone is ticketed for a broken Reality-Enhancing helmet. Those things are dangerous if they get too inaccurate."
 "A smart-alecky kid remarks how people who can't visualize a hypercube don't deserve to use the transporters."
 "An intense political argument! But both sides make up and agree that they're at least more interesting than the people they're fighting for. Oops. For whom they're fighting."
 "Two gothy looking kids compare their nonconformist permits and wonder how more normal kids scored more flexible ones."
-"A cop warns a kid about transporter joyriding in an HIJK loop. Because kids who say they'll try just one wind up going for all 24 possible combinations. That costs the taxpayer!"
+"A cop warns a kid about transporter joyriding in an HIJK loop. Because kids who say they'll try just one wind up going for all 24 possible combinations. Needless taxpayer costs!"
 "A mini-marathon thunders by. They all have those magnetic bibs that transporters can detect, so, no cheating."
 "An old man recounts the day when all the two-letter country URL codes got used up."
 "A passer-by hawks cemetery real estate. There's some open within five miles of the city, but not for long."
@@ -1222,7 +1224,7 @@ silliness
 "You stumble onto some sort of geocaching competition clue that tells you to look around [unreachable] next. But that seems a bit too far away."
 "You encounter an old friend who encourages you to visit them in [unreachable] when you get the time."
 "You hear mumbles of a secret prison--I mean, detaining area--in [unreachable]."
-"You overhear that real estate prices in [unreachable]."
+"You overhear that real estate prices in [unreachable] are all over the place."
 "A police officer stops and accosts you and claims to remember a 'suspicious incident' from a bit ago in [unreachable]. You're pretty sure you haven't been there."
 "An idealistic youngun tries to plot how many trips it'd take to visit all of Fourdiopolis's main blocks. He uses up so much scratch paper, he's warned and shooed by a Waste Police droid."
 "A fellow pedestrian is fined for having a cracked phone-screen. He is apparently a repeat offender who hasn't gotten it cleared for a whole month."
@@ -1230,7 +1232,7 @@ silliness
 "A robo-dog zips between your legs with quantum-calculated precision. You hate them! If one stands by you too long, you get a weird embarrassing tingling. Apparently organic pets are worse. But you haven't seen many."
 "Someone claiming to have been to Spaceneedleston says sure, it's posh, but it's not PRACTICAL or full of REAL PROGRESS like Fourdiopolis."
 "People ahead of you discuss the politics of urban versus rural gerrymandering and qualifications for moving from half an effective vote to three-quarters, or even a full vote."
-"A cop allows a kid reading an approved book to sit and loiter--if he isn't blocking foot-traffic TOO much."
+"A cop allows a kid reading an approved book to sit and loiter--if they don't block foot-traffic TOO much."
 "An argument erupts between members of the Nerd and Jock political parties, and when someone tries to mediate, he's panned for pretending he has and knows it all."
 "You walk past a cheery pizza vendor droid. Well, it's cheery until someone tries for a prank order. Or even a weird subversive one like half Canadian bacon with pineapple, half artichoke with pesto, and light on the cheese--there are algorithms to check that and alert police."
 "Gang leaders argue whether a disobedient underling should be smacked up or down."
@@ -1416,12 +1418,12 @@ understand the command "about" as something new.
 understand "about" as abouting.
 
 carry out abouting:
-	say "Fourdiopolis is a sequel to Threediopolis. It was inspired by a joke review Hanon Ondricek wrote in the IFComp 2013 authors['] forum, of an alternate-universe IFComp game called Onediopolis. I posted something like 'Ha ha, of course, if there were a game, it'd be Fourdiopolis, but probably not. It'd be too weird.'[paragraph break]";
-	say "But the idea and the itch were there. The only problem? It really seemed impossible at first. I didn't know what the directions would be, or how or why they were what they were. Unfortunately there was no way to make it as intuitive as Threediopolis, but once I figured you could have several slates of tasks, things began to open up. But unfortunately, anything I got was a list of 100 things to find, which is overload.[paragraph break]";
+	say "[this-game] is a sequel to [3d]. It was inspired by a joke review Hanon Ondricek wrote in the IFComp 2013 authors['] forum, of an alternate-universe IFComp game called Onediopolis. I posted something like 'Ha ha, of course, if there were a game, it'd be [this-game], but probably not. It'd be too weird.'[paragraph break]";
+	say "But the idea and the itch were there. The only problem? It really seemed impossible at first. I didn't know what the directions would be, or how or why they were what they were. Unfortunately there was no way to make it as intuitive as [3d], but once I figured you could have several slates of tasks, things began to open up. But unfortunately, any list of things to find went into three digits, which is overload.[paragraph break]";
 	say "I don't strictly want to send out a throwaway game, but sometimes--you have to get your work out there somewhere to move on. And that was the case with initially submitting the game. And I'm grateful to Aaron Reed for allowing a Back Garden that allows me to write things like this that might not be home runs, or that some people would just wouldn't like. But--they're there, and I want to clear them out somehow for the next thing. I hit the old 'I don't want to inflict this on my testers' when it'd be even worse on a larger scale to inflict it on judges. Overall, though, I'm pleased with my post-comp work.[paragraph break]";
 	say "So I'd like to encourage others who say 'gee, well, should I?' that, yes, you should. Whether it's too personal, not personal enough, too general or too specific--if you've had doubts for a couple months, you've done enough thinking. Get a draft out there, etc. Some people won't like it, and it's okay.[paragraph break]";
-	say "People who helped with Fourdiopolis are in CREDITS. If you haven't played Threediopolis, there may be spoilers about more detailed discussion in another auxiliary meta-command called TECH.[paragraph break]";
-	say "Fourdiopolis, despite requiring considerable thought, should be POLITE on the Zarfian cruelty scale. There is one joke death, but it is undoable.[paragraph break]";
+	say "People who helped with [this-game] are in [b]CREDITS[r]. If you haven't played [3d], there may be spoilers about more detailed discussion in another auxiliary meta-command called [b]TECH[r].[paragraph break]";
+	say "[this-game], despite requiring considerable thought, should be POLITE on the Zarfian cruelty scale. There is one joke death, but it is undoable.[paragraph break]";
 	say "Also, there will not be a Fivediopolis. No way, no how.";
 	the rule succeeds;
 
@@ -1438,7 +1440,7 @@ carry out creditsing:
 	say "I'd like to thank my testers, for putting up with something so confusing in so little time. [bold type]Buster Hudson, Robin Johnson and Teaspoon[roman type]. They found--well, the details would embarrass me. Both technical and aesthetic. I'm very grateful to them.[paragraph break]Also, Wade Clarke mentioned some neat things in-comp. It's not the first game of mine he's helped.[paragraph break]";
 	say "And while I didn't have any personal contact with Zarf over this game, his Python regular-expression tester let me automate a lot of testing for the post-comp version.[paragraph break]";
 	say "Zarf's scripts also helped me do performance testing, which was a big part of release 2. This verified some code of David Kinder's that allowed me not to redraw the status line every time did indeed speed up Fourdiopolis a bit more.[paragraph break]";
-	say "And finally, while it's fishy to list my Threediopolis testers by name so as to beef up my tester list...their thoughts and ideas helped me when I wrote up Fourdiopolis. I appreciate them.[paragraph break]The font in the cover 'art' is Chlorinar.";
+	say "And finally, while it's fishy to list my [3d] testers by name so as to beef up my tester list...their thoughts and ideas helped me when I wrote up Fourdiopolis. I appreciate them.[paragraph break]The font in the cover 'art' is Chlorinar.";
 	the rule succeeds;
 
 chapter teching
