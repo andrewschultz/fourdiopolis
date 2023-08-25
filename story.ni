@@ -380,6 +380,7 @@ this is the teleported out of bounds rule:
 		decrease ns by nsgo of noun;
 		decrease ud by udgo of noun;
 		the rule succeeds;
+	now teleported is true;
 
 gone-up-or-down is a truth state that varies.
 
@@ -534,6 +535,11 @@ h is a direction. the opposite of h is i. [ None of these are true! But opposite
 i is a direction. the opposite of i is h.
 j is a direction. the opposite of j is k.
 k is a direction. the opposite of k is j.
+
+outside-area is west of outside-area.
+outside-area is north of outside-area.
+outside-area is up of outside-area.
+outside-area is h of outside-area. [outside-area is i of outside-area. outside-area is j of outside-area.] outside-area is k of outside-area.
 
 udgo of h is 2. ewgo of h is 2. nsgo of h is 2.
 udgo of i is -2. ewgo of i is 2. nsgo of i is -2.
