@@ -33,6 +33,8 @@ include Old School Verb Total Carnage by Andrew Schultz.
 
 include Basic Screen Effects by Emily Short.
 
+include Fourdiopolis Globals by Andrew Schultz.
+
 include Fourdiopolis Definitions by Andrew Schultz.
 
 include Fourdiopolis Tables by Andrew Schultz.
@@ -111,22 +113,6 @@ to decide which number is binary-solved:
 
 book variables
 
-debug-state is a truth state that varies.
-
-beta-state is a truth state that varies.
-
-ns is a number that varies. ew is a number that varies. ud is a number that varies.
-
-text-tally is indexed text that varies.
-
-num-tally is a number that varies.
-
-steps-so-far is a number that varies.
-
-posschars is a number that varies.
-
-bounds-warn is a truth state that varies.
-
 the player carries the task list.
 
 description of task list is "BUG".
@@ -169,10 +155,6 @@ dist-to-txt is a list of text variable. dist-to-txt is {
 "WAY far"
 }
 
-hidden-inside is a truth state that varies.
-
-list-exam is a truth state that varies.
-
 carry out examining the task list:
 	let Q be number of rows in your-table;
 	let Q2 be 0;
@@ -196,9 +178,9 @@ carry out examining the task list:
 		say "[line break]You're not sure where to report after reading this, but it's somewhere hidden inside. Where was it? B15? ED5? Anyway, they apparently had a backup shelter, if one got raided[if score > 14]. You've probably done enough to go back[end if].";
 	else:
 		say "[line break]You found the place hidden inside to return to. [if score > 14]Maybe you can go there, now[else]But you might not want to go back yet[end if].";
-	if list-exam is false:
+	if ever-examined-list is false:
 		say "[line break]Hmm, you might not want to do these in explicit order. Maybe try and find the nearest ones first to get your feet wet.";
-		now list-exam is true;
+		now ever-examined-list is true;
 	the rule succeeds;
 
 to say losted:
@@ -301,8 +283,6 @@ check going (this is the command shortening tip rule):
 		if XX matches the text X, case insensitively:
 			dirsmack instead;
 
-walked-by is a truth state that varies.
-
 to see-if-left:
 	if number of quasi-entries in outside-area > 0:
 		if quick-mode is true:
@@ -342,8 +322,6 @@ this is the teleported out of bounds rule:
 		the rule succeeds;
 	now teleported is true;
 
-gone-up-or-down is a truth state that varies.
-
 to move-player-along:
 	now text-tally is "[text-tally][abbr of noun]"; ["character number 1 in printed name of noun" works but surprisingly takes up more space]
 	boost-num-tally (dirhash of noun);
@@ -370,10 +348,6 @@ check going:
 		now ignore-remaining-dirs is true;
 		reset-game instead;
 	tally-and-place;
-
-scenery-found is a number that varies.
-
-note-found is a truth state that varies.
 
 to decide whether got-tally of (itx - indexed text) and (tne - number):
 	if tne > 0:
@@ -429,9 +403,8 @@ after printing the locale description:
 						if debug-state is true:
 							say "DEBUG: Scenery debug check!";
 						say "[foundit entry][line break]";
-						if scenery-found-yet is false:
+						if scenery-found is 0:
 							bracket-say "this wasn't critical to the game, but it's just something neat to find. There are [allscenery - 1] more to find, but they're meant to be obscure. Congratulations on finding one, though!";
-							now scenery-found-yet is true;
 						if found entry is 0: [-1 for ISEEKKEEN/etc is a bit of a hack but yeah]
 							now found entry is 1;
 	if text-tally is "hidden" or text-tally is "inside":
@@ -442,9 +415,9 @@ after printing the locale description:
 	repeat through your-table:
 		if found entry is 1:
 			if got-tally of tally entry and talnum entry:
-				if note-found is false:
+				if note-previous-found is false:
 					say "Hm, that place you found before--it's somewhere around here, but you're focused on what to find next.";
-					now note-found is true;
+					now note-previous-found is true;
 
 to sweep-up (sc - a scenario):
 	repeat through objectives of sc:
@@ -454,8 +427,6 @@ to sweep-up (sc - a scenario):
 			else:
 				say "You feel like maybe you got a bit ahead of yourself, here, and you should remember this place for a later time.";
 			break;
-
-scenery-found-yet is a truth state that varies.
 
 chapter diagonals
 
@@ -476,14 +447,10 @@ carry out giing:
 		now i-warn is true;
 	try going i instead;
 
-i-warn is a truth state that varies.
-
 to bracket-say (tx - text):
 	say "[italic type][bracket]NOTE: [tx][close bracket][r][line break]";
 
 book whatever
-
-teleported is a truth state that varies.
 
 to reset-game:
 	now ns is 0;
@@ -738,10 +705,6 @@ volume undo
 
 include conditional undo by Jesse McGrew.
 
-story-ended is a truth state that varies.
-
-big-jump is a truth state that varies.
-
 to end-loss-with-undo:
 	now story-ended is true;
 	end the story saying "[msg]";
@@ -777,17 +740,13 @@ to decide which number is mids-solved:
 	decide on retval.
 
 rule for deciding whether to allow undo:
-	if story-ended is true or big-jump is true:
+	if story-ended is true or just-level-warped is true:
 		allow undo;
 	else:
 		say "You can't really quite reverse how and where you walked, or when you teleported[one of]. Worse, Fourdiopolis is no closer to time travel than Threediopolis, but it's a lot closer to proving time travel's impossible[or][stopping].[paragraph break]But don't worry, if you get killed somehow, you will be able to undo. And you can always zap back to the center and retrace your steps.";
 		deny undo;
 
 volume commands
-
-period-warn is a truth state that varies.
-
-locom-chars is a number that varies. locom-chars is 2.
 
 after reading a command:
 	let locom be the player's command in lower case;
@@ -798,7 +757,9 @@ after reading a command:
 			now period-warn is true;
 			wfak;
 	now not-parseable-yet is false;
-	if locom matches the regular expression "^<ewnsudhijk \.>*$":
+	say "1.";
+	now just-level-warped is false;
+	if number of characters in locom > locom-chars and locom matches the regular expression "^<ewnsudhijk \.>*$":
 		now not-parseable-yet is true;
 [		if debug-state is true:
 			say "DEBUG: [locom] [number of characters in locom] vs [locom-chars].";]
@@ -837,12 +798,6 @@ check looking:
 	if dirparsing is true and quick-mode is true:
 		say "[b]Speeding by sector [your-sec][r][line break]";
 		the rule succeeds;
-
-ever-fast is a truth state that varies.
-
-dirparsing is a truth state that varies.
-
-ignore-remaining-dirs is a truth state that varies.
 
 to dirparse (dirlump - indexed text):
 	if number of characters in dirlump > 2 and steps-so-far > 0:
@@ -898,16 +853,6 @@ let	dir
 
 volume random silliness
 
-show-silly is a truth state that varies. show-silly is usually true.
-
-silly-row is a number that varies.
-
-note-bad is a truth state that varies.
-
-cycle-note is a truth state that varies.
-
-skip-silly-this-turn is a truth state that varies.
-
 every turn (this is the silly stuff rule):
 	if skip-silly-this-turn is true:
 		now skip-silly-this-turn is false;
@@ -922,9 +867,9 @@ every turn (this is the silly stuff rule):
 					now cycle-note is true;
 			choose row silly-row in table of silly randoms;
 			say "[silliness entry][line break]";
-			if note-bad is false:
+			if note-t-command is false:
 				bracket-say "You can turn this random text off with T. You don't need to interact with citizens on the street in any way.";
-				now note-bad is true;
+				now note-t-command is true;
 
 to say rd of (myd - a direction):
 	if a random chance of 1 in 2 succeeds:
@@ -963,8 +908,6 @@ carry out xyzzying:
 	the rule succeeds;
 
 chapter wxyzzying
-
-xyzzy-let is a number that varies.
 
 wxyzzying is an action out of world.
 wxyzzyxing is an action out of world.
@@ -1091,8 +1034,6 @@ Rule for printing a parser error when the latest parser error is the I beg your 
 		increment cur-length;
 	say "BUG. Nothing is left.";
 
-not-parseable-yet is a truth state that varies.
-
 Rule for printing a parser error when the latest parser error is the not a verb i recognise error:
 	say "I didn't recognize that verb[if not-parseable-yet is true]. Well, not yet[end if]. You can type A for the actions available. None should be too complex.";
 
@@ -1108,10 +1049,6 @@ ring is an action applying to nothing.
 understand the command "r" as something new.
 
 understand "r" as ring.
-
-r-yet is a truth state that varies.
-
-in-place-yet is a truth state that varies.
 
 carry out ring:
 	let ncy be steps-so-far;
@@ -1135,8 +1072,8 @@ carry out ring:
 	if r-yet is false:
 		now r-yet is true;
 		say "You take one of the public teleporters back to the center. You don't need a special key. They're about the only thing free these days. The government, in a small sop to civil liberties, doesn't even track how many times a person uses it. Small things.[paragraph break]";
-	if ns is 0 and ew is 0 and ud is 0 and in-place-yet is false:
-		now in-place-yet is true;
+	if ns is 0 and ew is 0 and ud is 0 and noted-center-return is false:
+		now noted-center-return is true;
 		say "Hm. Weird. It feels like you didn't go anywhere, and at the same time, you did.[line break]";
 	reset-game;
 	the rule succeeds;
@@ -1161,8 +1098,6 @@ qing is an action applying to nothing.
 understand the command "q" as something new.
 
 understand "q" as qing.
-
-quick-mode is a truth state that varies.
 
 carry out qing:
 	now quick-mode is whether or not quick-mode is false;
@@ -1215,8 +1150,6 @@ understand the command "f" as something new.
 
 understand "f" as fing.
 
-full-view is a truth state that varies.
-
 carry out fing:
 	if full-view is false:
 		if screenh < 25 or screen width < 90, say "You need a 90x25 character window to make this work. It's currently [screen width] x [screenh]." instead;
@@ -1236,7 +1169,7 @@ to seekkeen:
 	now solved entry is true;
 	midtable-choose;
 	say "You're now in the [cur-midtable] task set. You may undo, if you want.";
-	now big-jump is true;
+	now just-level-warped is true;
 
 chapter undiding
 
@@ -1267,7 +1200,7 @@ to didundid:
 		say "[line break]Oh, I also teleported you back to the center.";
 		now teleported is true; [this is a small hack to quash the "you should have teleported" warning]
 		reset-game;
-	now big-jump is true;
+	now just-level-warped is true;
 
 to say scen-twaddle:
 	say ", with no tasks done. Note that the game will not save this reverted status unless you win a task set"
@@ -1297,7 +1230,7 @@ carry out undomiding:
 		say "Unsolving the [cur-midtable] task set and making it the current one. If you didn't mean to do this, you can [b]RESTART[r] or type [b]I SEEK KEEN[r].";
 	else:
 		say "Reverting the [table-by-num of number understood] task set to unsolved.";
-	now big-jump is true;
+	now just-level-warped is true;
 	the rule succeeds;
 
 to say table-by-num of (num - a number):
@@ -1331,7 +1264,7 @@ carry out domiding:
 		if said-yet is false:
 			say "Solving the [table-by-num of number understood] task list, for later.";
 	say "If you didn't mean to do this, you can UNDO.";
-	now big-jump is true;
+	now just-level-warped is true;
 	the rule succeeds;
 
 volume status line
@@ -1340,10 +1273,6 @@ rule for constructing the status line when full-view is false:
 	rejig the status line to 1 rows;
 	center "Sector [your-sec]: [score-of]" at row 1;
 	the rule succeeds;
-
-last-lines is a number that varies. last-lines is usually 15.
-
-should-rejig is a truth state that varies. should-rejig is usually true.
 
 rule for constructing the status line when full-view is true and should-rejig is false:
 	center "Sector [your-sec]: [score-of]" at row 1;
@@ -1404,10 +1333,6 @@ when play begins (this is the set the status line rule):
 	now ud is 0;
 	repeat with Q running through tablist:
 		increase allscenery by number of rows in Q;
-
-allscenery is a number that varies.
-
-screen-read is a truth state that varies.
 
 when play begins (this is the set table defaults rule):
 	shift-scen FRI;
@@ -1555,7 +1480,7 @@ Understand "t" as ting.
 carry out ting:
 	now show-silly is whether or not show-silly is false;
 	say "Silly random events are now [if show-silly is true]on[else]off[end if].";
-	now note-bad is true;
+	now note-t-command is true;
 
 understand "b" as preferring sometimes abbreviated room descriptions.
 
