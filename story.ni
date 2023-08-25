@@ -156,6 +156,8 @@ text-tally is indexed text that varies.
 
 num-tally is a number that varies.
 
+steps-so-far is a number that varies.
+
 posschars is a number that varies.
 
 bounds-warn is a truth state that varies.
@@ -235,7 +237,7 @@ to say losted:
 		say "[line break]A small alarm goes off. Law-abiding citizens don't need to be digging beneath Fourdiopolis. Or even looking like they are. A security droid taps you on your left shoulder, and when you turn around, you realize it was on your right. [one of]Snea-kee[or]Fooled again[stopping]! ";
 	else:
 		say "[line break]An anti-suicide droid pulls you back as you walk close to what you realize is the edge of Fourdiopolis. It reminds you there are cleaner ways to do that, if you know where to look. ";
-	say "You're whisked back to the center[if posschars > number of characters in text-tally], and with this interruption, you decide to cancel the rest of your walking plans[end if].";
+	say "You're whisked back to the center[if posschars > steps-so-far], and with this interruption, you decide to cancel the rest of your walking plans[end if].";
 	if bounds-warn is false:
 		say "[line break]You look at your list, and many of the locations are relatively close to the center. Maybe you don't need to venture near the edges that much.";
 		now bounds-warn is true;
@@ -367,6 +369,7 @@ check going inside:
 	say "You don't see anywhere to go in." instead;
 
 to boost-num-tally (q - a number):
+	increment steps-so-far;
 	now num-tally is 10 * num-tally;
 	increase num-tally by q;
 
@@ -520,9 +523,9 @@ to decide which number is new-sec:
 hint-oppo is a truth state that varies.
 
 check going:
-	if number of characters in text-tally is 7 and your-table is table of friends and a random chance of 1 in 3 succeeds:
+	if steps-so-far is 7 and your-table is table of friends and a random chance of 1 in 3 succeeds:
 		say "You think and hope[one of][or], again, [stopping]that they wouldn't have you wandering THIS far to start.[paragraph break]";
-	if number of characters in text-tally > 10:
+	if steps-so-far > 10:
 		say "You've been wandering for too long. You get tired, and you figure it's probably best to start over with a clean look on things. You push the button on your teleporter device[if posschars > 11], cancelling the rest of your planned journey[end if], and [if ew is 0 and ns is 0 and ud is 0]everything looks a bit different[else]back you go to the center[end if].[paragraph break]";
 		now ignore-remaining-dirs is true;
 		reset-game instead;
@@ -542,7 +545,7 @@ to decide whether got-tally of (itx - indexed text) and (tne - number):
 to tally-and-place:
 	let A be indexed text;
 	now A is text-tally;
-	let B be number of characters in text-tally;
+	let B be steps-so-far;
 	repeat with Q running through things in outside-area:
 		if Q is not player and Q is not transporter:
 			now Q is off-stage;
@@ -569,11 +572,10 @@ tablist is a list of table names that varies. tablist is {table of scenery 3, ta
 after printing the locale description:
 	let A be indexed text;
 	now A is text-tally;
-	let B be number of characters in text-tally;
-	if B > 2:
+	if steps-so-far > 2:
 		repeat through table of solvable tables:
 			sweep-up tabname entry;
-		let mytab be entry (B - 2) in tablist;
+		let mytab be entry (steps-so-far - 2) in tablist;
 		repeat through mytab:
 			if got-tally of tally entry and talnum entry:
 				if found entry is not 1:
@@ -671,22 +673,21 @@ to reset-game:
 	now ew is 0;
 	now ud is 0;
 	now all visible quasi-entries are off-stage; [probably not neccessary to put all the way up here but just in case]
-	let add-to be number of characters in text-tally;
 	now text-tally is "";
 	now num-tally is 0;
 	if walked-by is false:
 		consider the plural-almost rule;
 	now walked-by is false;
 	if teleported is false:
-		say "You remember hearing that anywhere worth getting to, you had to teleport to. And you didn't, this run.";
+		say "You remember hearing that anywhere worth getting to, you had to teleport to. And you didn't, this run.[line break]";
 	else:
 		now teleported is false;
-		if add-to > 6 and your-table is table of friends:
-			say "You saw a lot of Fourdiopolis this time, but maybe your assigned tasks aren't [if add-to is 7]quite [else if add-to > 8]nearly [end if]as complex (yet) as having to walk THIS much.";
-			continue the action;
-		if add-to >= 8:
+		if steps-so-far > 6 and your-table is table of friends:
+			say "You saw a lot of Fourdiopolis this time, but maybe your assigned tasks aren't [if steps-so-far is 7]quite [else if steps-so-far > 8]nearly [end if]as complex (yet) as having to walk THIS much.[line break]"; [skipping 8 is intentional!]
+		if steps-so-far >= 8:
 			if score < 5:
-				say "Hmm. If you're having trouble finding things, you may wish to start with stuff that's near first, instead of what's first on your list.";
+				say "Hmm. If you're having trouble finding things, you may wish to start with stuff that's near first, instead of what's first on your list.[line break]";
+	now steps-so-far is 0;
 	say "[b]Back at Sector 000[r][line break]";
 
 book beginning
@@ -1036,7 +1037,7 @@ dirparsing is a truth state that varies.
 ignore-remaining-dirs is a truth state that varies.
 
 to dirparse (dirlump - indexed text):
-	if number of characters in dirlump > 2 and number of characters in text-tally > 0:
+	if number of characters in dirlump > 2 and steps-so-far > 0:
 		if debug-state is true:
 			say "DEBUG: [text-tally] and [number of characters in dirlump].";
 		if debug-state is false:
@@ -1058,7 +1059,7 @@ to dirparse (dirlump - indexed text):
 		now ever-fast is true;
 	now dirparsing is true;
 	now ignore-remaining-dirs is false;
-	now posschars is number of characters in text-tally + allchar;
+	now posschars is steps-so-far + allchar;
 	repeat with charnum running from 1 to allchar:
 		unless ignore-remaining-dirs is true:
 			let cnc be character number charnum in dirlump;
@@ -1448,7 +1449,7 @@ Rule for printing a parser error when the latest parser error is the not a verb 
 chapter ring
 
 after printing the locale description:
-	if ns is 0 and ew is 0 and ud is 0 and number of characters in text-tally > 1:
+	if ns is 0 and ew is 0 and ud is 0 and steps-so-far > 1:
 		say "You sense you're both at the center and not, at the same time.";
 	continue the action;
 
@@ -1463,7 +1464,7 @@ r-yet is a truth state that varies.
 in-place-yet is a truth state that varies.
 
 carry out ring:
-	let ncy be number of characters in text-tally;
+	let ncy be steps-so-far;
 	if ncy is 0, say "You're already at the center, and you haven't wandered since the last time you took a transporter." instead;
 	if score < 2:
 		if ncy is 1, say "You only just left the center. You're a little worried that if you use the transporters TOO frequently, you might get tracked somehow. Maybe with a bit more experience and confidence, you can sneak back quickly." instead;
@@ -1625,7 +1626,7 @@ carry out undiding:
 	else:
 		set-your-table table of friends;
 		say "Now you are back to searching for friends, with no tasks done[scen-twaddle].";
-	if number of characters in text-tally > 0:
+	if steps-so-far > 0:
 		say "[line break]Oh, I also teleported you back to the center.";
 		now teleported is true; [this is a small hack to quash the "you should have teleported" warning]
 		reset-game;
@@ -2324,7 +2325,7 @@ carry out wfing:
 	else:
 		midtable-choose;
 	say "Current table is [your-table], and it has been reset.";
-	if number of characters in text-tally > 0:
+	if steps-so-far > 0:
 		say "[line break]Oh, I also teleported you back to the center.";
 		now teleported is true; [this is a small hack to quash the "you should have teleported" warning]
 		reset-game;
