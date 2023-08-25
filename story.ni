@@ -400,26 +400,25 @@ check going west:
 	abide by the walked out of bounds rule;
 
 check going up:
-	if gone-up-or-down is false:
-		say "[up-down-cool].";
 	now text-tally is "[text-tally]u";
 	boost-num-tally 4;
 	increment ud;
 	abide by the walked out of bounds rule;
+	check-up-down;
 
 check going down:
-	if gone-up-or-down is false:
-		say "[up-down-cool].";
 	now text-tally is "[text-tally]d";
 	boost-num-tally 5;
 	decrement ud;
 	abide by the walked out of bounds rule;
+	check-up-down;
 
 gone-up-or-down is a truth state that varies.
 
-to say up-down-cool:
-	say "The hybrid transport tubes/stairs are designed for optimal pedestrian convenience and exercise potential";
-	now gone-up-or-down is true;
+to check-up-down:
+	if gone-up-or-down is false:
+		say "The hybrid transport tubes/stairs are designed for optimal pedestrian convenience and exercise potential.";
+		now gone-up-or-down is true;
 
 check going h:
 	if ew > 7 or ns > 7 or ud > 7, say "[no-jump-for-you]." instead;
