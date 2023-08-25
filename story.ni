@@ -138,29 +138,37 @@ to say farness of (x - indexed text):
 	let q be the number of characters in x;
 	if q > 10:
 		say "buggily far";
-	choose row q in table of far blab;
-	say "[dist entry]";
-
-to decide which number is farchar of (x - a number):
-	choose row x in table of far blab;
-	let Y be number of characters in dist entry;
-	decide on Y.
+	else:
+		say "[entry q in dist-to-txt]";
 
 to say bug-near:
 	say "You do a small random shuffle before taking a teleporter back to the center, just to throw off the city's data tracking complex. Not too random, though. You don't want to get picked up on suspicion of intoxication"
 
-table of far blab
-dist	returny
-"buggily near"	"[bug-near]."
-"buggily near"	"[bug-near]."
-"very near"	"Your journey this time was very short, but no point wandering if it's off to a bad start."
-"near"	"A short journey, but maybe you discovered something to do. Or not-do."
-"kinda near"	"A kind of short journey, good for exercise and sightseeing."
-"kinda far"	"A kind of long journey this time."
-"far"	"A long journey. You're glad you're in shape so you can walk this much. Or maybe you've walked so much and you're now in shape. That's the sort of thing you think about during long walks."
-"very far"	"It's been a very long walk indeed."
-"extra far"	"This walk has been extra long. You sense the further you went, the less likely you were to find something."
-"WAY far"	"Man! That was a marathon, but you zapped back to the center before you got too tired."
+return-msgs is a list of text variable. return-msgs is {
+"[bug-near].",
+"[bug-near].",
+"Your journey this time was very short, but no point wandering if it's off to a bad start.",
+"A short journey, but maybe you discovered something to do. Or not-do.",
+"A kind of short journey, good for exercise and sightseeing.",
+"A kind of long journey this time.",
+"A long journey. You're glad you're in shape so you can walk this much. Or maybe you've walked so much and you're now in shape. That's the sort of thing you think about during long walks.",
+"It's been a very long walk indeed.",
+"This walk has been extra long. You sense the further you went, the less likely you were to find something.",
+"Man! That was a marathon, but you zapped back to the center before you got too tired."
+}
+
+dist-to-txt is a list of text variable. dist-to-txt is {
+"buggily near",
+"buggily near",
+"very near",
+"near",
+"kinda near",
+"kinda far",
+"far",
+"very far",
+"extra far",
+"WAY far"
+}
 
 hidden-inside is a truth state that varies.
 
@@ -1273,11 +1281,10 @@ carry out ring:
 	if score < 2:
 		if ncy is 1, say "You only just left the center. You're a little worried that if you use the transporters TOO frequently, you might get tracked somehow. Maybe with a bit more experience and confidence, you can sneak back quickly." instead;
 		if ncy is 2, say "Maybe explore another block before hitting the transporters--you're not quite experienced or confident enough to do so yet. Using the transporters too frequently raises red flags." instead;
-	if ncy > number of rows in table of far blab:
+	if ncy > 10:
 		say "Wow. Enough walking. Back to the center. Funny how the zap back rejuvenates you.";
 	else:
-		choose row ncy in table of far blab;
-		say "[returny entry][paragraph break]";
+		say "[entry ncy in return-msgs][paragraph break]";
 	if number of visible quasi-entries > 0 and hideout is not in outside-area and ominous door is not in outside-area:
 		say "You sure? There's a place you might wish to check.";
 		if the player consents:
@@ -1521,7 +1528,7 @@ rule for constructing the status line when full-view is true and should-rejig is
 		increment tab-row;
 		let cur-length be 0;
 		if found entry is 0:
-			now cur-length is 6 + number of characters in descrip entry + farchar of number of characters in tally entry;
+			now cur-length is 6 + number of characters in descrip entry + number of characters in entry (number of characters in tally entry) of dist-to-txt;
 			unless the remainder after dividing tab-row by 5 is 0:
 				increase cur-length by 2;
 			if cur-length + hpos > screen width - 1:
