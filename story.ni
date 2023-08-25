@@ -393,8 +393,24 @@ definition: a direction (called di) is teleporty:
 	if di is h or di is i or di is j or di is k, yes;
 	no;
 
+to say abbr of (di - a direction):
+	if di is teleporty:
+		say "[di]";
+	else if di is north:
+		say "n";
+	else if di is south:
+		say "s";
+	else if di is east:
+		say "e";
+	else if di is west:
+		say "w";
+	else if di is up:
+		say "u";
+	else if di is down:
+		say "d";
+
 to move-player-along:
-	now text-tally is "[text-tally][abbr of noun]";
+	now text-tally is "[text-tally][abbr of noun]"; ["character number 1 in printed name of noun" works but surprisingly takes up more space]
 	boost-num-tally (dirhash of noun);
 	increase ew by ewgo of noun;
 	increase ns by nsgo of noun;
@@ -406,8 +422,6 @@ to move-player-along:
 	if noun is up or noun is down, check-up-down;
 	check-nearlies;
 	see-if-left;
-
-a direction has text called abbr.
 
 a direction has a number called ewgo. ewgo of west is 1. ewgo of east is -1.
 a direction has a number called nsgo. nsgo of north is 1. nsgo of south is -1.
@@ -545,17 +559,6 @@ udgo of h is 2. ewgo of h is 2. nsgo of h is 2.
 udgo of i is -2. ewgo of i is 2. nsgo of i is -2.
 udgo of j is -2. ewgo of j is -2. nsgo of j is 2.
 udgo of k is 2. ewgo of k is -2. nsgo of k is 2.
-
-abbr of h is "h".
-abbr of i is "i".
-abbr of j is "j".
-abbr of k is "k".
-abbr of north is "n".
-abbr of south is "s".
-abbr of east is "e".
-abbr of west is "w".
-abbr of up is "u".
-abbr of down is "d".
 
 dirhash of south is 1.
 dirhash of east is 2.
