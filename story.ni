@@ -805,13 +805,16 @@ after reading a command:
 		now not-parseable-yet is true;
 [		if debug-state is true:
 			say "DEBUG: [locom] [number of characters in locom] vs [locom-chars].";]
-		if number of quasi-entries in outside-area > 0 and the player's command matches "^in$", continue the action;
+		if locom is "in", continue the action;
 		if number of characters in locom > locom-chars:
-			if locom is "unkindness", continue the action;
-			if locom is "i did i undid", continue the action;
-			if locom is "i seek keen", continue the action;
-			if locom is "in", continue the action;
-			if locom matches the regular expression "^i (did|undid) (edu|junk|news)$", continue the action;
+			if locom is "unkindness":
+				unkindness;
+			else if locom is "i did i undid":
+				didundid;
+			else if locom is "i seek keen":
+				seekkeen;
+			else if locom matches the regular expression "^i (did|undid) (edu|junk|news)$":
+				continue the action;
 			dirparse locom;
 			consider the silly stuff rule;
 			reject the player's command;
@@ -836,8 +839,8 @@ ignore-remaining-dirs is a truth state that varies.
 
 to dirparse (dirlump - indexed text):
 	if number of characters in dirlump > 2 and steps-so-far > 0:
-		if debug-state is true:
-			say "DEBUG: [text-tally] and [number of characters in dirlump].";
+		[if debug-state is true:
+			say "DEBUG: [text-tally] and [number of characters in dirlump].";]
 		if debug-state is false:
 			say "You aren't starting from the center. Do you still wish to turbo ahead?";
 			if the player consents:
@@ -1077,24 +1080,19 @@ volume meta-verbs
 
 chapter unkindnessing
 
-unkindnessing is an action applying to nothing.
-
-understand the command "unkindness" as something new.
-
-understand "unkindness" as unkindnessing.
-
-carry out unkindnessing:
-	if your-table is table of last names, say "You're already hunting last names." instead;
+to unkindness:
+	if your-table is table of last names:
+		say "You're already hunting last names.";
+		continue the action;
 	say "This will skip to the final toughest puzzle. Are you sure?";
 	if debug-state is true or the player consents:
 		say "Ok. Have fun.";
 	else:
 		say "Ok. Back to normal.";
-		the rule succeeds;
+		continue the action;
 	repeat through table of accomplishments:
 		now solved entry is true;
 	set-your-table table of last names;
-	the rule succeeds;
 
 chapter xyzzying
 
@@ -1374,32 +1372,23 @@ carry out fing:
 
 chapter keenseeking
 
-keenseeking is an action applying to nothing.
-
-understand the command "i seek keen" as something new.
-
-understand "i seek keen" as keenseeking.
-
-carry out keenseeking:
-	if your-table is not table of friends, say "You already found the revolution's friends, so this isn't the way to skip forward any more[if your-table is not table of last names] besides editing the save file, fourdiop, or fourdiop.glkdata, and setting variables to 1 (done) or 0 (not) as you want[end if]." instead;
+to seekkeen:
+	if your-table is not table of friends:
+		say "You already found the revolution's friends, so this isn't the way to skip forward any more[if your-table is not table of last names] besides editing the save file, fourdiop, or fourdiop.glkdata, and setting variables to 1 (done) or 0 (not) as you want[end if].";
+		continue the action;
 	choose row 1 in table of accomplishments;
 	now solved entry is true;
 	midtable-choose;
 	say "You're now in the [cur-midtable] task set. You may undo, if you want.";
 	now big-jump is true;
-	the rule succeeds;
 
 chapter undiding
 
-undiding is an action applying to nothing.
-
-understand the command "i did i undid" as something new.
-
-understand "i did i undid" as undiding.
-
-carry out undiding:
+to didundid:
 	let count be 0;
-	if your-table is table of friends, say "You're already at the first task set, finding friends, so you can't go back any farther." instead;
+	if your-table is table of friends:
+		say "You're already at the first task set, finding friends, so you can't go back any farther.";
+		continue the action;
 	if your-table is table of just plain cool stuff: [reset to only having table of friends solved]
 		now count is 0;
 		repeat through table of accomplishments:
@@ -1423,7 +1412,6 @@ carry out undiding:
 		now teleported is true; [this is a small hack to quash the "you should have teleported" warning]
 		reset-game;
 	now big-jump is true;
-	the rule succeeds;
 
 to say scen-twaddle:
 	say ", with no tasks done. Note that the game will not save this reverted status unless you win a task set"
@@ -1436,7 +1424,7 @@ section undomiding
 undomiding is an action applying to one number
 
 carry out undomiding:
-	if number understood > 4 or number understood < 2, say "Oops, this should never happen, but there's a bug in the I UNDID code. Email me at [email] if you can, to let me know [number understood] got passed." instead;
+	if number understood > 4 or number understood < 2, say "Oops, this should never happen, but there's a bug in the [b]I UNDID[r] code. Email me at [email] if you can, to let me know [number understood] got passed." instead;
 	if binary-solved is 0 or binary-solved is 1, say "You don't have any of the three middle scenarios solved, so trying to reset them won't do much[if on-this-table of number understood], especially since you're on the one you're trying to reset[end if]." instead;
 	choose row number understood in table of accomplishments;
 	if solved entry is false, say "The [table-by-num of number understood] task set is already unsolved[if on-this-table of number understood], and in fact, it's the one you're currently on[end if]." instead;
@@ -1446,7 +1434,7 @@ carry out undomiding:
 		if solved entry is true:
 			now solved entry is false;
 		midtable-choose;
-		say "Unsolving the [cur-midtable] task set and making it the current one. If you didn't mean to do this, you can RESTART or type I SEEK KEEN.";
+		say "Unsolving the [cur-midtable] task set and making it the current one. If you didn't mean to do this, you can [b]RESTART[r] or type [b]I SEEK KEEN[r].";
 	else:
 		say "Reverting the [table-by-num of number understood] task set to unsolved.";
 	now big-jump is true;
@@ -1810,7 +1798,7 @@ to midtable-choose:
 
 volume change default verbs
 
-ting is an action out of world
+ting is an action out of world.
 
 understand the command "t" as something new.
 
