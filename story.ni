@@ -314,13 +314,14 @@ check entering transporter:
 
 section location
 
-to say character number (N - a number): (- print (char) {N}; -)
+Include (-
+[ sec ix;
+	if ((ix < -9) || (ix > 9)) { print "X"; }
+	else if (ix >= 0) { print ix; } else { print (char)(64-ix); }
+];
+-).
 
-to say sec of (q - a number):
-	if q < -9 or q > 9:
-		say "X";
-	else:
-		say "[if q < 0][character number 64 - q][else][q][end if]";
+to say sec of (q - a number): (- sec({q}); -)
 
 book going
 
@@ -1007,9 +1008,6 @@ note-bad is a truth state that varies.
 cycle-note is a truth state that varies.
 
 skip-silly-this-turn is a truth state that varies.
-
-to rulesAll: [used to turn rules ALL on at the very start of play]
-	(- RulesAllSub(); -)
 
 every turn (this is the silly stuff rule):
 	if skip-silly-this-turn is true:
