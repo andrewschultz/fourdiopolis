@@ -33,6 +33,8 @@ include Old School Verb Total Carnage by Andrew Schultz.
 
 include Basic Screen Effects by Emily Short.
 
+include Fourdiopolis Definitions by Andrew Schultz.
+
 include Fourdiopolis Tables by Andrew Schultz.
 
 section includes - not for release
@@ -72,12 +74,6 @@ Include (-
 
 chapter stubs
 
-to say 3d: say "[i]Threediopolis[r]".
-
-to say 2da:
-	unless screen-read is true:
-		say "--";
-
 to set-your-table (myt - a table name):
 	now your-table is myt;
 	now hidden-inside is true;
@@ -102,13 +98,6 @@ to reset-scenery (x - a number):
 		repeat through Q:
 			if found entry is 0 or found entry is 1:
 				now found entry is x;
-
-to say email:
-	say "blurglecruncheon@gmail.com"
-
-to wfak:
-	if debug-state is false:
-		wait for any key;
 
 to debug-say (x - text):
 	if debug-state is true:
@@ -384,31 +373,6 @@ this is the teleported out of bounds rule:
 
 gone-up-or-down is a truth state that varies.
 
-to check-up-down:
-	if gone-up-or-down is false:
-		say "The hybrid transport tubes/stairs are designed for optimal pedestrian convenience and exercise potential.";
-		now gone-up-or-down is true;
-
-definition: a direction (called di) is teleporty:
-	if di is h or di is i or di is j or di is k, yes;
-	no;
-
-to say abbr of (di - a direction):
-	if di is teleporty:
-		say "[di]";
-	else if di is north:
-		say "n";
-	else if di is south:
-		say "s";
-	else if di is east:
-		say "e";
-	else if di is west:
-		say "w";
-	else if di is up:
-		say "u";
-	else if di is down:
-		say "d";
-
 to move-player-along:
 	now text-tally is "[text-tally][abbr of noun]"; ["character number 1 in printed name of noun" works but surprisingly takes up more space]
 	boost-num-tally (dirhash of noun);
@@ -422,12 +386,6 @@ to move-player-along:
 	if noun is up or noun is down, check-up-down;
 	check-nearlies;
 	see-if-left;
-
-a direction has a number called ewgo. ewgo of west is 1. ewgo of east is -1.
-a direction has a number called nsgo. nsgo of north is 1. nsgo of south is -1.
-a direction has a number called udgo. udgo of up is 1. udgo of down is -1.
-
-a direction has a number called dirhash.
 
 to say no-jump-for-you:
 	say "The teleporter buzzes ominously--a warning that such a displacement might negatively affect the overall safety rating of Fourdiopolis teleporters. Or let you escape without proper documentation. Whichever";
@@ -529,7 +487,7 @@ scenery-found-yet is a truth state that varies.
 chapter diagonals
 
 check going a diagonal direction:
-	say "You can't cut through buildings on your own. Even with teleporters being all the rage. Well, apparently you could cut through some lobbies years ago, but surveillance and keycard-doors have taken care of that.";
+	say "You can't cut through buildings on your own. Even with teleporters being all the rage. Well, apparently you could cut through some lobbies years ago, but surveillance and keycard-doors have taken care of that." instead;
 
 book directions
 
@@ -544,31 +502,6 @@ carry out giing:
 		bracket-say "just to check, I is a direction, not the command to take inventory. Since you only have one item, X will suffice.";
 		now i-warn is true;
 	try going i instead;
-
-h is a direction. the opposite of h is i. [ None of these are true! But opposites are never used for teleport directions, and Inform (sensibly) demands we define one, because Fourdiopolis is a very odd case indeed. ]
-i is a direction. the opposite of i is h.
-j is a direction. the opposite of j is k.
-k is a direction. the opposite of k is j.
-
-outside-area is west of outside-area.
-outside-area is north of outside-area.
-outside-area is up of outside-area.
-outside-area is h of outside-area. [outside-area is i of outside-area. outside-area is j of outside-area.] outside-area is k of outside-area.
-
-udgo of h is 2. ewgo of h is 2. nsgo of h is 2.
-udgo of i is -2. ewgo of i is 2. nsgo of i is -2.
-udgo of j is -2. ewgo of j is -2. nsgo of j is 2.
-udgo of k is 2. ewgo of k is -2. nsgo of k is 2.
-
-dirhash of south is 1.
-dirhash of east is 2.
-dirhash of west is 3.
-dirhash of up is 4.
-dirhash of down is 5.
-dirhash of h is 6.
-dirhash of i is 7.
-dirhash of j is 8.
-dirhash of k is 9.
 
 i-warn is a truth state that varies.
 
