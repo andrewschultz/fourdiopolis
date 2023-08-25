@@ -245,9 +245,7 @@ volume nearlies
 [ this is for if you get close, especially early on--mostly reserved for "you should try the plural." ]
 
 to check-nearlies:
-	choose row with tabname of your-table in table of solvable tables;
-	if there is no tabnear entry, the rule succeeds;
-	repeat through tabnear entry:
+	repeat through almosts of cur-scen:
 		if text-tally is tally entry:
 			unless found-yet of mult entry:
 				now found entry is 1;
@@ -263,9 +261,7 @@ to decide whether found-yet of (x - indexed text):
 	decide no;
 
 this is the plural-almost rule:
-	choose row with tabname of your-table in table of solvable tables;
-	if there is no tabnear entry, the rule succeeds;
-	repeat through tabnear entry:
+	repeat through almosts of cur-scen:
 		if found entry is 1:
 			if found-yet of mult entry:
 				now found entry is 2;

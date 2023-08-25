@@ -51,20 +51,21 @@ section includes - not for release
 
 chapter stubs
 
-to set-your-table (myt - a table name):
-	now your-table is myt;
+to decide which table name is your-table:
+	decide on objectives of cur-scen;
+
+to shift-scen (sc - a scenario):
 	now hidden-inside is true;
 	now locom-chars is 1;
 	if your-table is table of friends:
 		now locom-chars is 2;
 		now hidden-inside is false;
 	let cur-left be binary-solved;
-	repeat through table of solvable tables:
-		now tabsolv entry is whether or not the remainder after dividing cur-left by 2 is 1;
+	repeat with SC2 running through scenarios:
+		now won of SC2 is whether or not the remainder after dividing cur-left by 2 is 1;
 		now cur-left is cur-left / 2;
 	repeat through your-table:
 		now found entry is 0;
-	reset-scenery 0;
 	now score is 0;
 	now should-rejig is true;
 
@@ -113,8 +114,6 @@ book variables
 debug-state is a truth state that varies.
 
 beta-state is a truth state that varies.
-
-your-table is a table name that varies.
 
 ns is a number that varies. ew is a number that varies. ud is a number that varies.
 
@@ -407,12 +406,20 @@ to tally-and-place:
 
 tablist is a list of table names that varies. tablist is {table of scenery 3, table of scenery 4, table of scenery 5, table of scenery 6, table of scenery 7, table of scenery 8, table of scenery 9, table of scenery 10 }
 
+definition: a scenario (called SC) is ahead:
+	if SC is cur-scen, no;
+	if SC is FRI, no; [never look back]
+	if SC is not LAS and cur-scen is STU, no; [don't clue any of the 3 previous in cool stuff mode]
+	if won of SC is true, no;
+	if cur-scen is LAS, no;
+	yes;
+
 after printing the locale description:
 	let A be indexed text;
 	now A is text-tally;
 	if steps-so-far > 2:
-		repeat through table of solvable tables:
-			sweep-up tabname entry;
+		repeat with SC running through ahead scenarios:
+			sweep-up SC;
 		let mytab be entry (steps-so-far - 2) in tablist;
 		repeat through mytab:
 			if got-tally of tally entry and talnum entry:
@@ -439,20 +446,14 @@ after printing the locale description:
 					say "Hm, that place you found before--it's somewhere around here, but you're focused on what to find next.";
 					now note-found is true;
 
-to sweep-up (x - a table name):
-	if x is table of friends, continue the action; [never look back]
-	if x is your-table, continue the action; [don't clue something that dropped just now]
-	if your-table is table of just plain cool stuff and x is not table of last names, continue the action; [don't clue any of the 3 previous in cool stuff mode]
-	if your-table is table of last names, continue the action;
-	choose row with tabname of x in table of solvable tables;
-	if tabsolv entry is true, continue the action; [don't clue stuff already solved]
-	repeat through x:
+to sweep-up (sc - a scenario):
+	repeat through objectives of sc:
 		if got-tally of tally entry and talnum entry:
-			if x is table of last names:
+			if sc is LAS:
 				say "You feel very cold. Something unknown but oppressive lies nearby, but you don't [if your-table is table of friends]nearly [else if your-table is table of just plain cool stuff]quite [end if]have the means or skill to see or deal with it, yet.";
-				continue the action;
-			say "You feel like maybe you got a bit ahead of yourself, here, and you should remember this place for a later time.";
-			continue the action;
+			else:
+				say "You feel like maybe you got a bit ahead of yourself, here, and you should remember this place for a later time.";
+			break;
 
 scenery-found-yet is a truth state that varies.
 
@@ -947,7 +948,7 @@ to unkindness:
 		continue the action;
 	repeat through table of accomplishments:
 		now solved entry is true;
-	set-your-table table of last names;
+	shift-scen LAS;
 
 chapter xyzzying
 
@@ -1257,10 +1258,10 @@ to didundid:
 	else if your-table is table of last names:
 		choose row 5 in table of accomplishments;
 		now solved entry is false;
-		set-your-table table of just plain cool stuff;
+		shift-scen STU;
 		say "Now you're back to the last official task, the random cool stuff[scen-twaddle][extra-twiddle].";
 	else:
-		set-your-table table of friends;
+		shift-scen FRI;
 		say "Now you are back to searching for friends, with no tasks done[scen-twaddle].";
 	if steps-so-far > 0:
 		say "[line break]Oh, I also teleported you back to the center.";
@@ -1299,11 +1300,6 @@ carry out undomiding:
 	now big-jump is true;
 	the rule succeeds;
 
-to decide whether on-this-table of (nm - a number):
-	choose row nm in table of solvable tables;
-	if tabname entry is your-table, decide yes;
-	decide no;
-
 to say table-by-num of (num - a number):
 	say "[if num is 2]education[else if num is 3]supply finding[else]ally finding[end if]"
 
@@ -1322,7 +1318,7 @@ carry out domiding:
 	if solved entry is true, say "The [table-by-num of number understood] task set is already solved." instead;
 	now solved entry is true;
 	let said-yet be false;
-	if on-this-table of number understood:
+	if cur-scen is entry (number understood) of scenario-list:
 		now said-yet is true;
 		say "Magically, you realize you already completed this task list and you can move ahead.[if binary-solved is 15][line break]";
 		if binary-solved is not 15:
@@ -1330,7 +1326,7 @@ carry out domiding:
 			say "Now you're on the [table-by-num of number understood] task set.";
 	if binary-solved is 15:
 		say "Switching you to the table of cool stuff.";
-		now your-table is table of just plain cool stuff;
+		shift-scen STU;
 	else:
 		if said-yet is false:
 			say "Solving the [table-by-num of number understood] task list, for later.";
@@ -1414,7 +1410,7 @@ allscenery is a number that varies.
 screen-read is a truth state that varies.
 
 when play begins (this is the set table defaults rule):
-	set-your-table table of friends;
+	shift-scen FRI;
 	sort the table of silly randoms in random order;
 	if debug-state is false:
 		say "Fourdiopolis has some screen reader support. Do you wish to use it?";
@@ -1444,13 +1440,13 @@ when play begins (this is the check accomplishments at start rule) :
 		wfak;
 	port-solvable;
 	let total-solved be 0;
-	repeat through table of solvable tables:
-		if tabsolv entry is true, increment total-solved;
+	repeat with SC running through scenarios:
+		if won of SC is true, increment total-solved;
 	if binary-solved is 0:
 		give-intro;
 		if debug-state is true:
 			say "[bold type]DEBUG: test 1w to get through.";
-		set-your-table table of friends;
+		shift-scen FRI;
 		the rule succeeds;
 	else if binary-solved is 31:
 		now locom-chars is 1;
@@ -1458,10 +1454,10 @@ when play begins (this is the check accomplishments at start rule) :
 			say "[bold type]DEBUG: You've got all 5 areas solved, so to get to the 6th, type FO 6 then TEST 6W. You'll need to test the yes/no question manually.[roman type][line break]";
 		say "Wow! Hey! You haven't been caught yet! There is only one thing left to do. You must find the shadow councillors--you only have their addresses--and place the mark of the rebellion on their doors. Do you dare risk the intellectual turmoil therein?";
 		if debug-state is false and the player consents:
-			set-your-table table of last names;
+			shift-scen LAS;
 			say "Ok. You have [number of rows in your-table] to find.";
 		else:
-			set-your-table table of just plain cool stuff;
+			shift-scen STU;
 			say "Ok. You will get to try the cool stuff again.";
 		the rule succeeds;
 	else if binary-solved is 15:
@@ -1469,7 +1465,7 @@ when play begins (this is the check accomplishments at start rule) :
 			say "[bold type]DEBUG: test 5w to get through the final bit. Erase fourdiop.glkdata to clear everything, or use WF to change the data file.[roman type][line break]";
 		say "Well, you've covered the practical stuff. It's time for the impractical stuff which, if you think about it, is practical in its own way, because the government is only about helping citizens with strictly practical stuff. They spend a lot of money each year to prove it, too.";
 		if all-else-solved:
-			set-your-table table of just plain cool stuff;
+			shift-scen STU;
 			if debug-state is true:
 				say "[bold type]DEBUG: test 5w to get through.[roman type][line break]";
 	else:
@@ -1502,9 +1498,7 @@ to give-intro: [this is for the very start before everything is solved]
 to port-solvable:
 	repeat with J running from 1 to 5:
 		choose row J in table of accomplishments;
-		let temp be solved entry;
-		choose row J in table of solvable tables;
-		now tabsolv entry is temp;
+		now won of (entry J in scenario-list) is solved entry;
 
 to decide whether all-else-solved:
 	let Q be 2;
@@ -1514,30 +1508,16 @@ to decide whether all-else-solved:
 		increment Q;
 	decide yes;
 
-table of solvable tables
-tabname	tabsolv	tabcomment	tabnear
-table of friends	false	table of friend yay	table of friend nearlies
-table of education	false	table of education yay	table of education nearlies
-table of supplies	false	table of sup yay	table of supplies nearlies
-table of marginalized people	false	table of people yay	table of marginalized nearlies
-table of just plain cool stuff	false	table of stuff yay	table of cool stuff nearlies
-table of last names	false	table of name yay	--
-
 to check-silly-comments:
-	repeat through table of solvable tables:
-		if tabname entry is your-table:
-			comment-mine tabcomment entry;
-	if score is 2 and your-table is table of friends:
-		now locom-chars is 1;
-		say "[line break][if ever-fast is true]You've already been munging directions together into one word, and there's no reason to stop[else]Now that you've got the hang of things, you can just munge directions together. Like DUDES instead of D, U, D, E, S[end if].";
-
-to comment-mine (j - a table name):
-	repeat through j:
+	repeat through comments of cur-scen:
 		if count entry is score:
 			if there is no comment entry:
 				say "BUG there should be a comment entry!";
 			else:
 				say "[line break][comment entry][line break]";
+	if score is 2 and cur-scen is FRI:
+		now locom-chars is 1;
+		say "[line break][if ever-fast is true]You've already been munging directions together into one word, and there's no reason to stop[else]Now that you've got the hang of things, you can just munge directions together. Like DUDES instead of D, U, D, E, S[end if].";
 
 table of accomplishments
 solved
@@ -1549,7 +1529,7 @@ false
 
 to midtable-choose:
 	if all-else-solved:
-		set-your-table table of just plain cool stuff;
+		shift-scen STU;
 		the rule succeeds;
 	let Q be a random number between 2 and 4;
 	let Q2 be a random number between 1 and 2;
@@ -1560,10 +1540,9 @@ to midtable-choose:
 			now Q is Q - 3;
 		choose row Q in table of accomplishments;
 		let X be solved entry;
-	choose row Q in table of solvable tables;
+	shift-scen entry Q of scenario-list;
 	if debug-state is true:
-		say "[bold type]DEBUG: [Q]: [tabname entry]. test [Q]w to get through.[roman type][line break]";
-	set-your-table tabname entry;
+		say "[bold type]DEBUG: [Q]: [objectives of cur-scen]. test [Q]w to get through.[roman type][line break]";
 
 volume change default verbs
 

@@ -41,10 +41,9 @@ carry out foing:
 		now whichtable is number understood;
 	if number understood is 0:
 		say "Choosing friends.";
-		set-your-table the table of friends;
+		shift-scen FRI;
 	else:
-		choose row whichtable in table of solvable tables;
-		set-your-table tabname entry;
+		shift-scen entry whichtable of scenario-list;
 	repeat through your-table:
 		now found entry is 0;
 	say "Your new table is [your-table]. You may wish to X to see the list again. Also, all 'found' entries are cleared.";

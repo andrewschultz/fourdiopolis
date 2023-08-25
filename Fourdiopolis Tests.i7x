@@ -113,11 +113,11 @@ carry out wfing:
 		now num-to-div is num-to-div / 2;
 	write file of accomplishments from the table of accomplishments;
 	if number understood is 0:
-		set-your-table table of friends;
+		shift-scen FRI;
 	else if number understood is 15:
-		set-your-table table of just plain cool stuff;
+		shift-scen STU;
 	else if number understood is 31:
-		set-your-table table of last names;
+		shift-scen LAS;
 	else:
 		midtable-choose;
 	say "Current table is [your-table], and it has been reset.";
