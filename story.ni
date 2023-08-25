@@ -343,12 +343,12 @@ before going (this is the don't waste my time with all those extra letters alrea
 
 walked-by is a truth state that varies.
 
-to see-if-left (t - a truth state):
+to see-if-left:
 	if number of quasi-entries in outside-area > 0:
 		if quick-mode is true:
 			say "You're vaguely worried you missed something, but you have somewhere to be. You think. You hope.";
 			continue the action;
-		say "As you [if t is true]walk[else]blip[end if] away, you reflect you can always find [if hideout is in outside-area]the hideout[else]that place[end if] later, if you want.";
+		say "As you [if noun is teleporty]blip[else]walk[end if] away, you reflect you can always find [if hideout is in outside-area]the hideout[else]that place[end if] later, if you want.";
 		now walked-by is true;
 
 check going inside:
@@ -365,53 +365,21 @@ definition: a number (called nu) is outofbounds:
 	if nu > 9 or nu < -9, yes;
 	no;
 
+to decide whether broke-boundary:
+	if ns is outofbounds or ew is outofbounds or ud is outofbounds, yes;
+	no;
+
 this is the walked out of bounds rule:
-	if ns is outofbounds or ew is outofbounds or ud is outofbounds:
+	if broke-boundary:
 		say "[losted]";
 		reset-game instead;
-	check-nearlies;
-	see-if-left true;
 
-check going north:
-	now text-tally is "[text-tally]n";
-	boost-num-tally 0;
-	increment ns;
-	abide by the walked out of bounds rule;
-
-check going south:
-	now text-tally is "[text-tally]s";
-	boost-num-tally 1;
-	check-nearlies;
-	decrement ns;
-	abide by the walked out of bounds rule;
-
-check going east:
-	now text-tally is "[text-tally]e";
-	boost-num-tally 2;
-	check-nearlies;
-	increment ew;
-	abide by the walked out of bounds rule;
-
-check going west:
-	now text-tally is "[text-tally]w";
-	boost-num-tally 3;
-	check-nearlies;
-	decrement ew;
-	abide by the walked out of bounds rule;
-
-check going up:
-	now text-tally is "[text-tally]u";
-	boost-num-tally 4;
-	increment ud;
-	abide by the walked out of bounds rule;
-	check-up-down;
-
-check going down:
-	now text-tally is "[text-tally]d";
-	boost-num-tally 5;
-	decrement ud;
-	abide by the walked out of bounds rule;
-	check-up-down;
+this is the teleported out of bounds rule:
+	if broke-boundary:
+		decrease ew by ewgo of noun;
+		decrease ns by nsgo of noun;
+		decrease ud by udgo of noun;
+		the rule succeeds;
 
 gone-up-or-down is a truth state that varies.
 
@@ -420,62 +388,37 @@ to check-up-down:
 		say "The hybrid transport tubes/stairs are designed for optimal pedestrian convenience and exercise potential.";
 		now gone-up-or-down is true;
 
-to teleport-cleanup:
-	now teleported is true;
+definition: a direction (called di) is teleporty:
+	if di is h or di is i or di is j or di is k, yes;
+	no;
+
+to move-player-along:
+	now text-tally is "[text-tally][abbr of noun]";
+	boost-num-tally (dirhash of noun);
+	increase ew by ewgo of noun;
+	increase ns by nsgo of noun;
+	increase ud by udgo of noun;
+	if noun is teleporty:
+		abide by the teleported out of bounds rule;
+	else:
+		abide by the walked out of bounds rule;
+	if noun is up or noun is down, check-up-down;
 	check-nearlies;
-	see-if-left false;
+	see-if-left;
 
-check going h:
-	if ew > 7 or ns > 7 or ud > 7, say "[no-jump-for-you]." instead;
-	now text-tally is "[text-tally]h";
-	boost-num-tally 6;
-	increase ew by 2;
-	increase ns by 2;
-	increase ud by 2;
-	teleport-cleanup;
+a direction has text called abbr.
 
-check going i:
-	if ew > 7 or ns < -7 or ud < -7, say "[no-jump-for-you]." instead;
-	now text-tally is "[text-tally]i";
-	boost-num-tally 7;
-	increase ew by 2;
-	decrease ns by 2;
-	decrease ud by 2;
-	teleport-cleanup;
+a direction has a number called ewgo. ewgo of west is 1. ewgo of east is -1.
+a direction has a number called nsgo. nsgo of north is 1. nsgo of south is -1.
+a direction has a number called udgo. udgo of up is 1. udgo of down is -1.
 
-check going j:
-	if ew < -7 or ns > 7 or ud < -7, say "[no-jump-for-you]." instead;
-	now text-tally is "[text-tally]j";
-	boost-num-tally 8;
-	decrease ew by 2;
-	increase ns by 2;
-	decrease ud by 2;
-	check-nearlies;
-
-check going k:
-	if ew < -7 or ns < -7 or ud > 7, say "[no-jump-for-you]." instead;
-	now text-tally is "[text-tally]k";
-	boost-num-tally 9;
-	decrease ew by 2;
-	decrease ns by 2;
-	increase ud by 2;
-	check-nearlies;
+a direction has a number called dirhash.
 
 to say no-jump-for-you:
 	say "The teleporter buzzes ominously--a warning that such a displacement might negatively affect the overall safety rating of Fourdiopolis teleporters. Or let you escape without proper documentation. Whichever";
 
-to decide whether oops:
-	if ew < -9 or ew > 9, decide yes;
-	if ns < -9 or ns > 9, decide yes;
-	if ud < -9 or ud > 9, decide yes;
-	decide no;
-
-to decide which number is new-sec:
-	decide on ew * 20 + ns * 20 + ud * 20;
-
-hint-oppo is a truth state that varies.
-
 check going:
+	move-player-along;
 	if steps-so-far is 7 and your-table is table of friends and a random chance of 1 in 3 succeeds:
 		say "You think and hope[one of][or], again, [stopping]that they wouldn't have you wandering THIS far to start.[paragraph break]";
 	if steps-so-far > 10:
@@ -496,13 +439,10 @@ to decide whether got-tally of (itx - indexed text) and (tne - number):
 	no;
 
 to tally-and-place:
-	let A be indexed text;
-	now A is text-tally;
-	let B be steps-so-far;
 	repeat with Q running through things in outside-area:
 		if Q is not player and Q is not transporter:
 			now Q is off-stage;
-	if B > 2:
+	if steps-so-far > 2:
 		repeat through your-table:
 			if got-tally of tally entry and talnum entry:
 				if found entry is not 1:
@@ -513,7 +453,7 @@ to tally-and-place:
 					if location of what-drops entry is not outside-area:
 						move what-drops entry to outside-area;
 						continue the action;
-		repeat through entry (B - 2) in tablist:
+		repeat through entry (steps-so-far - 2) in tablist:
 			if got-tally of tally entry and talnum entry:
 				if there is a what-drops entry:
 					now found entry is 1;
@@ -582,9 +522,7 @@ outside-area is west of outside-area.
 outside-area is north of outside-area.
 outside-area is up of outside-area.
 outside-area is h of outside-area.
-outside-area is i of outside-area.
 outside-area is j of outside-area.
-outside-area is k of outside-area.
 
 instead of diaging:
 	say "You can't cut through buildings on your own. Even with teleporters being all the rage. Well, apparently you could cut through some lobbies years ago, but surveillance and keycard-doors have taken care of that.";
@@ -600,17 +538,42 @@ understand "i" as giing.
 carry out giing:
 	try going i instead;
 
-h is a direction. the opposite of h is i.
+h is a direction. the opposite of h is i. [ None of these are true! But opposites are never used for teleport directions, and Inform (sensibly) demands we define one, because Fourdiopolis is a very odd case indeed. ]
 i is a direction. the opposite of i is h.
 j is a direction. the opposite of j is k.
 k is a direction. the opposite of k is j.
 
-i-warn is a truth state that varies.
+udgo of h is 2. ewgo of h is 2. nsgo of h is 2.
+udgo of i is -2. ewgo of i is 2. nsgo of i is -2.
+udgo of j is -2. ewgo of j is -2. nsgo of j is 2.
+udgo of k is 2. ewgo of k is -2. nsgo of k is 2.
+
+abbr of h is "h".
+abbr of i is "i".
+abbr of j is "j".
+abbr of k is "k".
+abbr of north is "n".
+abbr of south is "s".
+abbr of east is "e".
+abbr of west is "w".
+abbr of up is "u".
+abbr of down is "d".
+
+dirhash of south is 1.
+dirhash of east is 2.
+dirhash of west is 3.
+dirhash of up is 4.
+dirhash of down is 5.
+dirhash of h is 6.
+dirhash of i is 7.
+dirhash of j is 8.
+dirhash of k is 9.
 
 check going i when i-warn is false:
 	if word number 1 in the player's command is "i":
 		bracket-say "just to check, I is a direction, not the command to take inventory. Since you only have one item, X will suffice.";
 		now i-warn is true;
+i-warn is a truth state that varies.
 
 to bracket-say (tx - text):
 	say "[italic type][bracket]NOTE: [tx][close bracket][r][line break]";
