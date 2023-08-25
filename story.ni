@@ -806,7 +806,8 @@ after reading a command:
 [		if debug-state is true:
 			say "DEBUG: [locom] [number of characters in locom] vs [locom-chars].";]
 		if locom is "in", continue the action;
-		if number of characters in locom > locom-chars:
+		let ncl be number of characters in locom;
+		if ncl >= 10:
 			if locom is "unkindness":
 				unkindness;
 			else if locom is "i did i undid":
@@ -814,10 +815,19 @@ after reading a command:
 			else if locom is "i seek keen":
 				seekkeen;
 			else if locom matches the regular expression "^i (did|undid) (edu|junk|news)$":
-				continue the action;
-			dirparse locom;
-			consider the silly stuff rule;
-			reject the player's command;
+				let my-num be 2;
+				if locom matches the text "junk":
+					now my-num is 3;
+				else if locom matches the text "news":
+					now my-num is 4;
+				if locom matches the text "undid":
+					try undomiding my-num;
+				else:
+					try domiding my-num;
+			the rule succeeds;
+		dirparse locom;
+		consider the silly stuff rule;
+		reject the player's command;
 
 lplaining is an action applying to nothing.
 understand "l" as lplaining.
@@ -1421,13 +1431,17 @@ to say extra-twiddle:
 
 section undomiding
 
-undomiding is an action applying to one number
+undomiding is an action applying to one number.
+
+to decide whether already-here:
+	if cur-scen is entry (number understood) of scenario-list, yes;
+	no;
 
 carry out undomiding:
 	if number understood > 4 or number understood < 2, say "Oops, this should never happen, but there's a bug in the [b]I UNDID[r] code. Email me at [email] if you can, to let me know [number understood] got passed." instead;
-	if binary-solved is 0 or binary-solved is 1, say "You don't have any of the three middle scenarios solved, so trying to reset them won't do much[if on-this-table of number understood], especially since you're on the one you're trying to reset[end if]." instead;
+	if binary-solved is 0 or binary-solved is 1, say "You don't have any of the three middle scenarios solved, so trying to reset them won't do much[if already-here], especially since you're on the one you're trying to reset[end if]." instead;
 	choose row number understood in table of accomplishments;
-	if solved entry is false, say "The [table-by-num of number understood] task set is already unsolved[if on-this-table of number understood], and in fact, it's the one you're currently on[end if]." instead;
+	if solved entry is false, say "The [table-by-num of number understood] task set is already unsolved[if already-here], and in fact, it's the one you're currently on[end if]." instead;
 	now solved entry is false;
 	if your-table is table of last names or your-table is table of just plain cool stuff:
 		choose row 5 in table of accomplishments;
@@ -1450,42 +1464,6 @@ to say table-by-num of (num - a number):
 
 to say cur-midtable:
 	say "[if your-table is table of education]education[else if your-table is table of supplies]supply finding[else]ally finding";
-
-section i undid edu-ing
-
-undideduing is an action out of world.
-
-understand the command "i undid edu" as something new.
-
-understand "i undid edu" as undideduing.
-
-carry out undideduing:
-	try undomiding 2;
-	the rule succeeds;
-
-section i undid junk-ing
-
-undidjunking is an action out of world.
-
-understand the command "i undid junk" as something new.
-
-understand "i undid junk" as undidjunking.
-
-carry out undidjunking:
-	try undomiding 3;
-	the rule succeeds;
-
-section i undid news-ing
-
-undidnewsing is an action out of world.
-
-understand the command "i undid news" as something new.
-
-understand "i undid news" as undidnewsing.
-
-carry out undidnewsing:
-	try undomiding 4;
-	the rule succeeds;
 
 section domiding
 
@@ -1513,42 +1491,6 @@ carry out domiding:
 			say "Solving the [table-by-num of number understood] task list, for later.";
 	say "If you didn't mean to do this, you can UNDO.";
 	now big-jump is true;
-	the rule succeeds;
-
-section i did edu-ing
-
-dideduing is an action out of world.
-
-understand the command "i did edu" as something new.
-
-understand "i did edu" as dideduing.
-
-carry out dideduing:
-	try domiding 2;
-	the rule succeeds;
-
-section i did junk-ing
-
-didjunking is an action out of world.
-
-understand the command "i did junk" as something new.
-
-understand "i did junk" as didjunking.
-
-carry out didjunking:
-	try domiding 3;
-	the rule succeeds;
-
-section i did news-ing
-
-didnewsing is an action out of world.
-
-understand the command "i did news" as something new.
-
-understand "i did news" as didnewsing.
-
-carry out didnewsing:
-	try domiding 4;
 	the rule succeeds;
 
 volume status line
