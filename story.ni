@@ -420,65 +420,46 @@ to check-up-down:
 		say "The hybrid transport tubes/stairs are designed for optimal pedestrian convenience and exercise potential.";
 		now gone-up-or-down is true;
 
+to teleport-cleanup:
+	now teleported is true;
+	check-nearlies;
+	see-if-left false;
+
 check going h:
 	if ew > 7 or ns > 7 or ud > 7, say "[no-jump-for-you]." instead;
 	now text-tally is "[text-tally]h";
 	boost-num-tally 6;
-	check-nearlies;
 	increase ew by 2;
 	increase ns by 2;
 	increase ud by 2;
-	now teleported is true;
-	if oops:
-		say "[losted]";
-		reset-game instead;
-	check-nearlies;
-	see-if-left false;
+	teleport-cleanup;
 
 check going i:
 	if ew > 7 or ns < -7 or ud < -7, say "[no-jump-for-you]." instead;
 	now text-tally is "[text-tally]i";
 	boost-num-tally 7;
-	check-nearlies;
 	increase ew by 2;
 	decrease ns by 2;
 	decrease ud by 2;
-	now teleported is true;
-	if oops:
-		say "[losted]";
-		reset-game instead;
-	check-nearlies;
-	see-if-left false;
+	teleport-cleanup;
 
 check going j:
 	if ew < -7 or ns > 7 or ud < -7, say "[no-jump-for-you]." instead;
 	now text-tally is "[text-tally]j";
 	boost-num-tally 8;
-	check-nearlies;
 	decrease ew by 2;
 	increase ns by 2;
 	decrease ud by 2;
-	now teleported is true;
-	if oops:
-		say "[losted]";
-		reset-game instead;
 	check-nearlies;
-	see-if-left false;
 
 check going k:
 	if ew < -7 or ns < -7 or ud > 7, say "[no-jump-for-you]." instead;
 	now text-tally is "[text-tally]k";
 	boost-num-tally 9;
-	check-nearlies;
 	decrease ew by 2;
 	decrease ns by 2;
 	increase ud by 2;
-	now teleported is true;
-	if oops:
-		say "[losted]";
-		reset-game instead;
 	check-nearlies;
-	see-if-left false;
 
 to say no-jump-for-you:
 	say "The teleporter buzzes ominously--a warning that such a displacement might negatively affect the overall safety rating of Fourdiopolis teleporters. Or let you escape without proper documentation. Whichever";
