@@ -236,7 +236,7 @@ to say losted:
 
 book the room
 
-outside-area is a privately-named room. printed name of outside-area is "Sector [sec of ud][sec of ns][sec of ew]". "[outside-rand]"
+outside-area is a privately-named room. printed name of outside-area is "Sector [your-sec]". "[outside-rand]"
 
 to say outside-rand:
 	unless set to unabbreviated room descriptions:
@@ -874,7 +874,7 @@ check lplaining:
 
 check looking:
 	if dirparsing is true and quick-mode is true:
-		say "[bold type]Speeding by sector [sec of ud][sec of ns][sec of ew][roman type][line break]";
+		say "[b]Speeding by sector [your-sec][r][line break]";
 		the rule succeeds;
 
 ever-fast is a truth state that varies.
@@ -1619,7 +1619,7 @@ volume status line
 
 rule for constructing the status line when full-view is false:
 	rejig the status line to 1 rows;
-	center "Sector [sec of ud][sec of ns][sec of ew]: [score]/[number of rows in your-table]" at row 1;
+	center "Sector [your-sec]: [score]/[number of rows in your-table]" at row 1;
 	the rule succeeds;
 
 last-lines is a number that varies. last-lines is usually 15.
@@ -1627,11 +1627,11 @@ last-lines is a number that varies. last-lines is usually 15.
 should-rejig is a truth state that varies. should-rejig is usually true.
 
 rule for constructing the status line when full-view is true and should-rejig is false:
-	center "Sector [sec of ud][sec of ns][sec of ew]: [score]/[number of rows in your-table]" at row 1;
+	center "Sector [your-sec]: [score]/[number of rows in your-table]" at row 1;
 
 rule for constructing the status line when full-view is true and should-rejig is true:
 	deepen the status line to last-lines rows;
-	center "Sector [sec of ud][sec of ns][sec of ew]: [score]/[number of rows in your-table]" at row 1;
+	center "Sector [your-sec]: [score]/[number of rows in your-table]" at row 1;
 	now should-rejig is false;
 	let total-lines be 2;
 	move the cursor to 2;

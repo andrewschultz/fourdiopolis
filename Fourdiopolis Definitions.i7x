@@ -82,6 +82,8 @@ to say 2da:
 
 to say email: say "blurglecruncheon@gmail.com"
 
+to say your-sec: say "[sec of ud][sec of ns][sec of ew]"
+
 Fourdiopolis Definitions ends here.
 
 ---- DOCUMENTATION ----
