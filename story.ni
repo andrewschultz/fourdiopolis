@@ -37,6 +37,10 @@ include Fourdiopolis Definitions by Andrew Schultz.
 
 include Fourdiopolis Tables by Andrew Schultz.
 
+include Oops Zapper by Andrew Schultz.
+
+include Again Zapper by Andrew Schultz.
+
 section includes - not for release
 
 [include Fourdiopolis Tests by Andrew Schultz.] [commenting this out saves 0x1000 z-machine space while debugging]
@@ -150,8 +154,6 @@ steps-so-far is a number that varies.
 posschars is a number that varies.
 
 bounds-warn is a truth state that varies.
-
-ignore-remaining-dirs is a truth state that varies.
 
 the player carries the task list.
 
@@ -862,10 +864,6 @@ after reading a command:
 			dirparse locom;
 			consider the silly stuff rule;
 			reject the player's command;
-	let w1 be word number 1 in locom;
-	if the w1 is "g" or w1 is "again":
-		say "That would actually make getting around in Fourdiopolis more complex. Because you can't really move from there to here, again, or not that way[if score < 3 and your-table is table of friends]. You'll understand once you find a few things--it'd just allow all kinds of extra crazy [italic type]guesses[roman type][else]. Most of the fun stuff would begin with G, though EGGS and DUNG would be left, which is not so fun[end if]. Using one-word directions should be quick enough.";
-		reject the player's command;
 
 check looking (this is the if command says L rule) :
 	if the player's command matches the regular expression "^(l|look)\b":
@@ -1894,78 +1892,9 @@ check requesting the score:
 
 check drinking: say "There are hydration stations all around Fourdiopolis. You're nowhere near an inexpensive one." instead;
 
-volume silly coding tricks
-
-chapter negate OOPS
-
-Include (-
-
-[ Keyboard  a_buffer a_table  nw i w w2 x1 x2;
-	sline1 = score; sline2 = turns;
-
-	while (true) {
-		! Save the start of the buffer, in case "oops" needs to restore it
-		for (i=0 : i<64 : i++) oops_workspace->i = a_buffer->i;
-
-		! In case of an array entry corruption that shouldn't happen, but would be
-		! disastrous if it did:
-		#Ifdef TARGET_ZCODE;
-		a_buffer->0 = INPUT_BUFFER_LEN;
-		a_table->0 = 15;  ! Allow to split input into this many words
-		#Endif; ! TARGET_
-
-		! Print the prompt, and read in the words and dictionary addresses
-		PrintPrompt();
-		DrawStatusLine();
-		KeyboardPrimitive(a_buffer, a_table);
-
-		! Set nw to the number of words
-		#Ifdef TARGET_ZCODE; nw = a_table->1; #Ifnot; nw = a_table-->0; #Endif;
-
-		! If the line was blank, get a fresh line
-		if (nw == 0) {
-			@push etype; etype = BLANKLINE_PE;
-			players_command = 100;
-			BeginActivity(PRINTING_A_PARSER_ERROR_ACT);
-			if (ForActivity(PRINTING_A_PARSER_ERROR_ACT) == false) L__M(##Miscellany,10);
-			EndActivity(PRINTING_A_PARSER_ERROR_ACT);
-			@pull etype;
-			continue;
-		}
-
-		! Unless the opening word was OOPS, return
-		! Conveniently, a_table-->1 is the first word on both the Z-machine and Glulx
-
-		w = a_table-->1;
-		! Undo handling
-
-		if ((w == UNDO1__WD or UNDO3__WD) && (nw==1)) {
-			Perform_Undo();
-			continue;
-		}
-		i = VM_Save_Undo();
-		#ifdef PREVENT_UNDO; undo_flag = 0; #endif;
-		#ifndef PREVENT_UNDO; undo_flag = 2; #endif;
-		if (i == -1) undo_flag = 0;
-		if (i == 0) undo_flag = 1;
-		if (i == 2) {
-			VM_RestoreWindowColours();
-			VM_Style(SUBHEADER_VMSTY);
-			SL_Location(); print "^";
-			! print (name) location, "^";
-			VM_Style(NORMAL_VMSTY);
-			L__M(##Miscellany, 13);
-			continue;
-		}
-		return nw;
-	}
-];
-
--) instead of "Reading the Command" in "Parser.i6t"
+volume i6 coding magic
 
 volume beta testing - not for release
-
-beta-state is a truth state that varies.
 
 when play begins:
 	now beta-state is true;
