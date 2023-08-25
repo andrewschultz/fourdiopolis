@@ -41,8 +41,8 @@ volume programmed-in tests, shortcuts, and so forth
 volume testing - not for release
 
 when play begins (this is the test for written stuff rule):
-	repeat through table of solvable tables:
-		tab-check tabname entry;
+	repeat with SC running through scenarios:
+		tab-check objectives of SC;
 	say "Testing notes:[paragraph break]WF resets the save tables by a binary number (0-31, 1=first).[line break]sc (-14 to 14) changes so we've seen (#) scenery for positive numbers, or still need them for negative. The game tracks scenery from the table of 4-long.";
 
 the test for written stuff rule is not listed in any rulebook. [obviously comment this out if I need to]
@@ -72,9 +72,9 @@ chapter wfing
 
 [* this writes specific true/false items to a file & changes the game as randomly as you'd expect]
 
-wf0ing is an action applying to nothing.
+wf0ing is an action out of world.
 
-wfing is an action applying to one number.
+wfing is an action out of world applying to one number.
 
 understand the command "wf" as something new.
 
@@ -88,7 +88,6 @@ understand "wf [number]" as wfing.
 
 carry out wfing:
 	if number understood is wrongo, say "That's not a valid number to write to the save file. 0, odd #s from 1 to 15 inclusive, and 31 work. Type -1 for full explanations." instead;
-	now skip-silly-this-turn is true;
 	if number understood is -4:
 		let bin-num be binary-solved;
 		if bin-num < 1 or bin-num > 14 or bin-num is wrongo, say "You need to have friends solved and not all the middle tables." instead;

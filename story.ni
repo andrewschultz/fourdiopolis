@@ -854,9 +854,6 @@ let	dir
 volume random silliness
 
 every turn (this is the silly stuff rule):
-	if skip-silly-this-turn is true:
-		now skip-silly-this-turn is false;
-		the rule succeeds;
 	if show-silly is true:
 		if a random chance of 1 in 2 succeeds:
 			increment silly-row;

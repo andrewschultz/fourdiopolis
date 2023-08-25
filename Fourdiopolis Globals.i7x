@@ -24,6 +24,7 @@ silly-row is a number that varies. cycle-note is a truth state that varies. [sil
 
 volume game state
 
+bounds-warn is a truth state that varies. [did a policeman warn you?]
 ever-examined-list is a truth state that varies. [X LIST, ever?]
 ever-fast is a truth state that varies. [we give a hint if you didn't go fast when you go to a certain point]
 i-warn is a truth state that varies. [if the user types "only" i, we warn about inventory]
@@ -34,6 +35,7 @@ not-parseable-yet is a truth state that varies. [this is a flag for if people tr
 note-previous-found is a truth state that varies. [if you go to one location then revisit it, this flag is tripped with a message]
 noted-center-return is a truth state that varies. [have you crossed back to 0 0 0 yet? First time, you get a hint.]
 period-warn is a truth state that varies. [A.B is not ncessary]
+posschars is a number that varies. [detects if you might get too tired e.g. WWWW WWWW WWWW]
 r-yet is a truth state that varies. [has the player typed R yet? First time we do, we get a message]
 scenery-found is a number that varies. [you get a note when you first find scenery]
 story-ended is a truth state that varies. just-level-warped is a truth state that varies. [if you died or won, or if you warped, you may undo. Otherwise, no]
@@ -58,10 +60,5 @@ volume testing stuff
 beta-state is a truth state that varies. [ affects typing A ]
 
 Fourdiopolis Globals ends here.
-
-posschars is a number that varies. [detects if you might get too tired e.g. WWWW WWWW WWWW]
-bounds-warn is a truth state that varies. [did a policeman warn you?]
-
-skip-silly-this-turn is a truth state that varies. [mostly so I don't get a weird something or other during testing]
 
 ---- DOCUMENTATION ----
