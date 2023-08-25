@@ -865,9 +865,14 @@ after reading a command:
 			consider the silly stuff rule;
 			reject the player's command;
 
-check looking (this is the if command says L rule) :
-	if the player's command matches the regular expression "^(l|look)\b":
-		say "You look around, hoping for some weird fifth dimension, or eleventh direction, to look for something significant. You don't find it.";
+lplaining is an action applying to nothing.
+understand "l" as lplaining.
+
+check lplaining:
+	say "You look around, hoping for some weird fifth dimension, or eleventh direction, to look for something significant. You don't find it.";
+	try looking instead;
+
+check looking:
 	if dirparsing is true and quick-mode is true:
 		say "[bold type]Speeding by sector [sec of ud][sec of ns][sec of ew][roman type][line break]";
 		the rule succeeds;
