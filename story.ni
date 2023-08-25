@@ -232,28 +232,16 @@ carry out examining the task list:
 
 to say losted:
 	if ud > 9:
-		say "[line break]A security droid whizzes behind you--you might get too much sun if you go any higher, and the ozone layer isn't healed yet! ";
+		say "A security droid whizzes behind you--you might get too much sun if you go any higher, and the ozone layer isn't healed yet! ";
 	else if ud < -9:
-		say "[line break]A small alarm goes off. Law-abiding citizens don't need to be digging beneath Fourdiopolis. Or even looking like they are. A security droid taps you on your left shoulder, and when you turn around, you realize it was on your right. [one of]Snea-kee[or]Fooled again[stopping]! ";
+		say "A small alarm goes off. Law-abiding citizens don't need to be digging beneath Fourdiopolis. Or even looking like they are. A security droid taps you on your left shoulder, and when you turn around, you realize it was on your right. [one of]Snea-kee[or]Fooled again[stopping]! ";
 	else:
-		say "[line break]An anti-suicide droid pulls you back as you walk close to what you realize is the edge of Fourdiopolis. It reminds you there are cleaner ways to do that, if you know where to look. ";
+		say "An anti-suicide droid pulls you back as you walk close to what you realize is the edge of Fourdiopolis. It reminds you there are cleaner ways to do that, if you know where to look. ";
 	say "You're whisked back to the center[if posschars > steps-so-far], and with this interruption, you decide to cancel the rest of your walking plans[end if].";
 	if bounds-warn is false:
 		say "[line break]You look at your list, and many of the locations are relatively close to the center. Maybe you don't need to venture near the edges that much.";
 		now bounds-warn is true;
-	say "[line break]";
 	now ignore-remaining-dirs is true;
-
-chapter stubs
-
-to say it: [i is a direction]
-	say "[italic type]";
-
-to say b:
-	say "[bold type]";
-
-to say r:
-	say "[roman type]";
 
 book the room
 
@@ -668,10 +656,10 @@ to reset-game:
 	else:
 		now teleported is false;
 		if steps-so-far > 6 and your-table is table of friends:
-			say "You saw a lot of Fourdiopolis this time, but maybe your assigned tasks aren't [if steps-so-far is 7]quite [else if steps-so-far > 8]nearly [end if]as complex (yet) as having to walk THIS much.[line break]"; [skipping 8 is intentional!]
+			say "You saw a lot of Fourdiopolis this time, but maybe your assigned tasks aren't [if steps-so-far is 7]quite [else if steps-so-far > 8]nearly [end if]as complex (yet) as having to walk THIS much.[paragraph break]"; [skipping 8 is intentional!]
 		if steps-so-far >= 8:
 			if score < 5:
-				say "Hmm. If you're having trouble finding things, you may wish to start with stuff that's near first, instead of what's first on your list.[line break]";
+				say "Hmm. If you're having trouble finding things, you may wish to start with stuff that's near first, instead of what's first on your list.[paragraph break]";
 	now steps-so-far is 0;
 	say "[b]Back at Sector 000[r][line break]";
 
