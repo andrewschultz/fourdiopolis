@@ -72,6 +72,71 @@ to say abbr of (di - a direction):
 	else if di is down:
 		say "d";
 
+volume i6
+
+chapter redrawing status line
+
+Include (-
+[ DrawStatusLine width posb;
+	@push say__p; @push say__pc;
+	BeginActivity(CONSTRUCTING_STATUS_LINE_ACT);
+	VM_MoveCursorInStatusLine(1, 1);
+	if (statuswin_current) {
+		width = VM_ScreenWidth(); posb = width-15;
+		spaces width;
+		ClearParagraphing();
+		if (ForActivity(CONSTRUCTING_STATUS_LINE_ACT) == false) {
+			VM_MoveCursorInStatusLine(1, 2);
+			switch(metaclass(left_hand_status_line)) {
+				String: print (string) left_hand_status_line;
+				Routine: left_hand_status_line();
+			}
+			VM_MoveCursorInStatusLine(1, posb);
+			switch(metaclass(right_hand_status_line)) {
+				String: print (string) right_hand_status_line;
+				Routine: right_hand_status_line();
+			}
+		}
+		VM_MoveCursorInStatusLine(1, 1); VM_MainWindow();
+	}
+	ClearParagraphing();
+	EndActivity(CONSTRUCTING_STATUS_LINE_ACT);
+	@pull say__pc; @pull say__p;
+];
+-) before "Printing.i6t".
+
+chapter screen and header queries
+
+to rejig the status line to (depth - a number) rows:
+	(- VM_StatusLineHeight({depth}); -);
+
+To decide what number is screenh:
+	(- VM_ScreenHeight() -);
+
+chapter location printing stubs
+
+Include (-
+[ sec ix;
+	if ((ix < -9) || (ix > 9)) { print "X"; }
+	else if (ix >= 0) { print ix; } else { print (char)(64-ix); }
+];
+-).
+
+to say sec of (q - a number): (- sec({q}); -)
+
+chapter uuid stub for silly random text
+
+to say uuid:
+	(- RAW(); -)
+
+Include (-
+
+[ RAW ix;
+	for (ix=8: ix <= UUID_ARRAY->0 - 2: ix++) print (char) UUID_ARRAY->ix;
+];
+
+-).
+
 volume printing stubs
 
 to say 3d: say "[i]Threediopolis[r]".

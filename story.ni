@@ -49,37 +49,6 @@ section includes - not for release
 
 [include Fourdiopolis Tests by Andrew Schultz.] [commenting this out saves 0x1000 z-machine space while debugging]
 
-section status line redraw modifier
-
-Include (-
-[ DrawStatusLine width posb;
-	@push say__p; @push say__pc;
-	BeginActivity(CONSTRUCTING_STATUS_LINE_ACT);
-	VM_MoveCursorInStatusLine(1, 1);
-	if (statuswin_current) {
-		width = VM_ScreenWidth(); posb = width-15;
-		spaces width;
-		ClearParagraphing();
-		if (ForActivity(CONSTRUCTING_STATUS_LINE_ACT) == false) {
-			VM_MoveCursorInStatusLine(1, 2);
-			switch(metaclass(left_hand_status_line)) {
-				String: print (string) left_hand_status_line;
-				Routine: left_hand_status_line();
-			}
-			VM_MoveCursorInStatusLine(1, posb);
-			switch(metaclass(right_hand_status_line)) {
-				String: print (string) right_hand_status_line;
-				Routine: right_hand_status_line();
-			}
-		}
-		VM_MoveCursorInStatusLine(1, 1); VM_MainWindow();
-	}
-	ClearParagraphing();
-	EndActivity(CONSTRUCTING_STATUS_LINE_ACT);
-	@pull say__pc; @pull say__p;
-];
--) before "Printing.i6t".
-
 chapter stubs
 
 to set-your-table (myt - a table name):
@@ -306,17 +275,6 @@ check examining the transporter for the first time:
 
 check entering transporter:
 	say "You can just try to go the various directions: h, i, j, or k."
-
-section location
-
-Include (-
-[ sec ix;
-	if ((ix < -9) || (ix > 9)) { print "X"; }
-	else if (ix >= 0) { print ix; } else { print (char)(64-ix); }
-];
--).
-
-to say sec of (q - a number): (- sec({q}); -)
 
 book going
 
@@ -766,17 +724,6 @@ to say seek-track:
 		say "There must not be much left. ";
 	truncate ln to 5 entries;
 	say "You read: [ln]";
-
-to say uuid:
-	(- RAW(); -)
-
-Include (-
-
-[ RAW ix;
-	for (ix=8: ix <= UUID_ARRAY->0 - 2: ix++) print (char) UUID_ARRAY->ix;
-];
-
--).
 
 to say whisky-wine:
 	if your-table is table of supplies:
@@ -1416,9 +1363,6 @@ understand "f" as fing.
 
 full-view is a truth state that varies.
 
-To decide what number is screenh:
-	(- VM_ScreenHeight() -);
-
 carry out fing:
 	if full-view is false:
 		if screenh < 25 or screen width < 90, say "You need a 90x25 character window to make this work. It's currently [screen width] x [screenh]." instead;
@@ -1675,9 +1619,6 @@ rule for constructing the status line when full-view is true and should-rejig is
 	rejig the status line to total-lines rows;
 	now last-lines is total-lines;
 	the rule succeeds;
-
-to rejig the status line to (depth - a number) rows:
-	(- VM_StatusLineHeight({depth}); -);
 
 volume when play begins
 
