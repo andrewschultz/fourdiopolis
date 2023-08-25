@@ -1877,13 +1877,13 @@ to decide whether all-else-solved:
 	decide yes;
 
 table of solvable tables
-tabname	tabsolv	tabcomment
-table of friends	false	table of friend yay
-table of education	false	table of education yay
-table of supplies	false	table of sup yay
-table of marginalized people	false	table of people yay
-table of just plain cool stuff	false	table of stuff yay
-table of last names	false	table of name yay
+tabname	tabsolv	tabcomment	tabnear
+table of friends	false	table of friend yay	table of friend nearlies
+table of education	false	table of education yay	table of education nearlies
+table of supplies	false	table of sup yay	table of supplies nearlies
+table of marginalized people	false	table of people yay	table of marginalized nearlies
+table of just plain cool stuff	false	table of stuff yay	table of cool stuff nearlies
+table of last names	false	table of name yay	--
 
 to check-silly-comments:
 	repeat through table of solvable tables:

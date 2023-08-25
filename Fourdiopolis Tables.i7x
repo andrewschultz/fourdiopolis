@@ -245,18 +245,15 @@ volume nearlies
 [ this is for if you get close, especially early on--mostly reserved for "you should try the plural." ]
 
 to check-nearlies:
-	if your-table is table of last names, continue the action;
-	let mine-yet be false;
-	repeat through table of nearlies:
-		if tname entry is your-table:
-			now mine-yet is true;
-			if text-tally is tally entry:
-				unless found-yet of mult entry:
-					now found entry is 1;
-			if text-tally is mult entry:
-				now found entry is 0;
-		else if mine-yet is true:
-			break;
+	choose row with tabname of your-table in table of solvable tables;
+	if there is no tabnear entry, the rule succeeds;
+	repeat through tabnear entry:
+		if text-tally is tally entry:
+			unless found-yet of mult entry:
+				now found entry is 1;
+		if text-tally is mult entry:
+			now found entry is 0;
+		break;
 
 to decide whether found-yet of (x - indexed text):
 	repeat through your-table:
@@ -266,50 +263,64 @@ to decide whether found-yet of (x - indexed text):
 	decide no;
 
 this is the plural-almost rule:
-	repeat through table of nearlies:
+	choose row with tabname of your-table in table of solvable tables;
+	if there is no tabnear entry, the rule succeeds;
+	repeat through tabnear entry:
 		if found entry is 1:
 			if found-yet of mult entry:
 				now found entry is 2;
 			else:
 				say "On your way back to the center, you wonder if you could've gone [if missage entry is 1]a bit farther[else if missage entry is 2]a small way along[else if missage entry is 3]a good bit ahead[else]down a small detour[end if] to find something. Or things. You felt like you were close.[paragraph break]";
 				now found entry is 0;
-				the rule succeeds;
+			break;
 	the rule succeeds;
 
-table of nearlies [ton]
-tally	talnum	mult	tname	found	missage
-"jesse"	82112	"jessie"	table of friends	0	4
-"dis"	571	"disses"	table of marginalized people	0	3
-"duke"	5492	"dukes"	table of marginalized people	0	1
-"hunk"	6409	"hunks"	table of marginalized people	0	1
-"indie"	70572	"indies"	table of marginalized people	0	1
-"junkie"	840972	"junkies"	table of marginalized people	0	1
-"kid"	975	"kids"	table of marginalized people	0	1
-"sheikh"	162796	"sheikhs"	table of marginalized people	0	1
-"hijink"	678709	"hijinks"	table of education	0	1
-"hike"	6792	"hikes"	table of education	0	1
-"issue"	71142	"issues"	table of education	0	1
-"sine"	1702	"sines"	table of education	0	1
-"sin"	170	"sins"	table of education	0	1
-"desk"	5219	"desks"	table of supplies	0	1
-"dish"	5716	"dishes"	table of supplies	0	2
-"hen"	620	"hens"	table of supplies	0	1
-"kiwi"	9737	"kiwis"	table of supplies	0	1
-"nuke"	492	"nukes"	table of supplies	0	1
-"shed"	1625	"sheds"	table of supplies	0	1
-"skunk"	19409	"skunks"	table of supplies	0	1
-"undie"	40572	"undies"	table of supplies	0	1
-"wine"	3702	"wines"	table of supplies	0	1
-"wish"	3716	"wishes"	table of supplies	0	2
-"dunk"	5409	"dunks"	table of just plain cool stuff	0	1
-"hiss"	6711	"hisses"	table of just plain cool stuff	0	2
-"husk"	6419	"husks"	table of just plain cool stuff	0	1
-"husk"	6419	"huskies"	table of just plain cool stuff	0	3
-"kiss"	9711	"kisses"	table of just plain cool stuff	0	2
-"shine"	16702	"shininess"	table of just plain cool stuff	0	4
-"skink"	19709	"skinks"	table of just plain cool stuff	0	1
-"ski"	197	"skis"	table of just plain cool stuff	0	1
-"wink"	3709	"winks"	table of just plain cool stuff	0	1
+table of friend nearlies
+tally	talnum	mult	found	missage
+"jesse"	82112	"jessie"	0	4
+
+table of marginalized nearlies
+tally	talnum	mult	found	missage
+"dis"	571	"disses"	0	3
+"duke"	5492	"dukes"	0	1
+"hunk"	6409	"hunks"	0	1
+"indie"	70572	"indies"	0	1
+"junkie"	840972	"junkies"	0	1
+"kid"	975	"kids"	0	1
+"sheikh"	162796	"sheikhs"	0	1
+
+table of education nearlies
+tally	talnum	mult	found	missage
+"hijink"	678709	"hijinks"	0	1
+"hike"	6792	"hikes"	0	1
+"issue"	71142	"issues"	0	1
+"sine"	1702	"sines"	0	1
+"sin"	170	"sins"	0	1
+
+table of supplies nearlies
+tally	talnum	mult	found	missage
+"desk"	5219	"desks"	0	1
+"dish"	5716	"dishes"	0	2
+"hen"	620	"hens"	0	1
+"kiwi"	9737	"kiwis"	0	1
+"nuke"	492	"nukes"	0	1
+"shed"	1625	"sheds"	0	1
+"skunk"	19409	"skunks"	0	1
+"undie"	40572	"undies"	0	1
+"wine"	3702	"wines"	0	1
+"wish"	3716	"wishes"	0	2
+
+table of cool stuff nearlies
+tally	talnum	mult	found	missage
+"dunk"	5409	"dunks"	0	1
+"hiss"	6711	"hisses"	0	2
+"husk"	6419	"husks"	0	1
+"husk"	6419	"huskies"	0	3
+"kiss"	9711	"kisses"	0	2
+"shine"	16702	"shininess"	0	4
+"skink"	19709	"skinks"	0	1
+"ski"	197	"skis"	0	1
+"wink"	3709	"winks"	0	1
 
 volume tables of scenery
 
