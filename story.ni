@@ -332,21 +332,14 @@ check exiting: say "Out? Of Fourdiopolis? You don't have proper documentation. A
 to dirsmack:
 	say "In these efficient days, people find using more than one letter for a direction too flowery.[line break]";
 
-before going (this is the don't waste my time with all those extra letters already now rule):
+the command shortening tip rule is listed first in the check going rules.
+
+check going (this is the command shortening tip rule):
 	if word number 1 in the player's command in lower case is "go", say "In these sped-up days, the word 'go' is superfluous. Unless you are in charge, like Ed Dunn.'" instead;
 	let XX be "[the player's command in lower case]";
-	if XX matches the text "north", case insensitively:
-		dirsmack instead;
-	if XX matches the text "south", case insensitively:
-		dirsmack instead;
-	if XX matches the text "east", case insensitively:
-		dirsmack instead;
-	if XX matches the text "west", case insensitively:
-		dirsmack instead;
-	if XX matches the text "up", case insensitively:
-		dirsmack instead;
-	if XX matches the text "down", case insensitively:
-		dirsmack instead;
+	repeat with X running through { "north", "south", "east", "west", "up", "down" }:
+		if XX matches the text X, case insensitively:
+			dirsmack instead;
 
 walked-by is a truth state that varies.
 
