@@ -753,10 +753,9 @@ to say msg:
 	if text-tally is "die":
 		say "Hope you enjoyed the silly death";
 		continue the action;
-	repeat through table of end msgs:
-		if mytab entry is your-table:
-			say "[if score > 14][winmsg entry][else][losemsg entry][end if]";
-			continue the action;
+	if lose-msg of cur-scen is not empty:
+		say "[if score > 14][win-msg of cur-scen][else][lose-msg of cur-scen][end if]";
+		continue the action;
 	let q be mids-solved;
 	if q is 3:
 		say "From the randomized...to the random";
@@ -775,12 +774,6 @@ to decide which number is mids-solved:
 		if solved entry is true:
 			increment retval;
 	decide on retval.
-
-table of end msgs
-mytab	losemsg	winmsg
-table of friends	"Maybe next time"	"First task done"
-table of just plain cool stuff	"[if score < 10]Still a way to go[else]Close, but...[end if]"	"All over except the last round"
-table of last names	"Well, it was meant to be tough"	"Very impressive indeed"
 
 rule for deciding whether to allow undo:
 	if story-ended is true or big-jump is true:

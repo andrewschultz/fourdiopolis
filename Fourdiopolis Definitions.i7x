@@ -2,6 +2,27 @@ Version 1/230825 of Fourdiopolis Definitions by Andrew Schultz begins here.
 
 "This encompasses small stubs, particularly <to decide which> and <definition> that would clutter up the main code and be hard to find otherwise. You can see what could or should be sent here with def.py. It also includes Fourdiopolis's custom directions and weird operations on them"
 
+volume scenarios
+
+a scenario is a kind of thing. a scenario has a table name called objectives. a scenario has a table name called comments. a scenario has a table name called almosts. a scenario has a truth state called won. a scenario has indexed text called lose-msg. a scenario has indexed text called win-msg.
+
+FRI is a scenario. objectives of FRI is table of friends. comments of FRI is table of friend yay. almosts of FRI is table of friend nearlies. lose-msg of FRI is "Alone in the big metropolis". win-msg of FRI is "Wow, there's friends out there".
+
+EDU is a scenario. objectives of EDU is table of education. comments of EDU is table of education yay. almosts of EDU is table of marginalized nearlies.
+
+SUP is a scenario. objectives of SUP is table of supplies. comments of SUP is table of sup yay. almosts of SUP is table of education nearlies.
+
+PEO is a scenario. objectives of PEO is table of marginalized people. comments of PEO is table of people yay. almosts of PEO is table of supplies nearlies.
+
+STU is a scenario. objectives of STU is table of just plain cool stuff. comments of STU is table of stuff yay. almosts of STU is table of cool stuff nearlies. lose-msg of STU is "[if score < 10]Still a way to go[else]Close, but...[end if]". win-msg of STU is "All over except the last round".
+
+
+LAS is a scenario. objectives of LAS is table of last names. comments of LAS is table of name yay. [almosts of LAS is nonexistent.] lose-msg of LAS is "Well, it was meant to be tough". win-msg of LAS is "Very impressive indeed".
+
+scenario-list is a list of scenarios variable. scenario-list is { FRI, EDU, SUP, PEO, STU, LAS }.
+
+cur-scen is a scenario that varies. cur-scen is FRI.
+
 volume mostly about directions
 
 h is a direction. the opposite of h is i. [ None of these are true! But opposites are never used for teleport directions, and Inform (sensibly) demands we define one, because Fourdiopolis is a very odd case indeed. ]
