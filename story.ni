@@ -373,49 +373,43 @@ to boost-num-tally (q - a number):
 	now num-tally is 10 * num-tally;
 	increase num-tally by q;
 
-check going north:
-	now text-tally is "[text-tally]n";
-	boost-num-tally 0;
-	check-nearlies;
-	increment ns;
-	if ns > 9:
+definition: a number (called nu) is outofbounds:
+	if nu > 9 or nu < -9, yes;
+	no;
+
+this is the walked out of bounds rule:
+	if ns is outofbounds or ew is outofbounds or ud is outofbounds:
 		say "[losted]";
 		reset-game instead;
 	check-nearlies;
 	see-if-left true;
+
+check going north:
+	now text-tally is "[text-tally]n";
+	boost-num-tally 0;
+	increment ns;
+	abide by the walked out of bounds rule;
 
 check going south:
 	now text-tally is "[text-tally]s";
 	boost-num-tally 1;
 	check-nearlies;
 	decrement ns;
-	if ns < -9:
-		say "[losted]";
-		reset-game instead;
-	check-nearlies;
-	see-if-left true;
+	abide by the walked out of bounds rule;
 
 check going east:
 	now text-tally is "[text-tally]e";
 	boost-num-tally 2;
 	check-nearlies;
 	increment ew;
-	if ew > 9:
-		say "[losted]";
-		reset-game instead;
-	check-nearlies;
-	see-if-left true;
+	abide by the walked out of bounds rule;
 
 check going west:
 	now text-tally is "[text-tally]w";
 	boost-num-tally 3;
 	check-nearlies;
 	decrement ew;
-	if ew < -9:
-		say "[losted]";
-		reset-game instead;
-	check-nearlies;
-	see-if-left true;
+	abide by the walked out of bounds rule;
 
 check going up:
 	if gone-up-or-down is false:
@@ -423,12 +417,7 @@ check going up:
 	now text-tally is "[text-tally]u";
 	boost-num-tally 4;
 	increment ud;
-	now teleported is true;
-	if ud > 9:
-		say "[losted]";
-		reset-game instead;
-	check-nearlies;
-	see-if-left true;
+	abide by the walked out of bounds rule;
 
 check going down:
 	if gone-up-or-down is false:
@@ -436,11 +425,7 @@ check going down:
 	now text-tally is "[text-tally]d";
 	boost-num-tally 5;
 	decrement ud;
-	if ud < -9:
-		say "[losted]";
-		reset-game instead;
-	check-nearlies;
-	see-if-left true;
+	abide by the walked out of bounds rule;
 
 gone-up-or-down is a truth state that varies.
 
