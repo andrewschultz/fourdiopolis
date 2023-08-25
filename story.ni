@@ -263,38 +263,43 @@ to say edge-check:
 	else if ud is -9:
 		say ". The tubes down here seem less, well, open";
 
-instead of waiting:
-	say "Loitering is a serious offense in Fourdiopolis. Officers often patrol for them. Often undercover. Which creates confusion, which makes loitering an even more serious offense.";
+check waiting:
+	say "Loitering is a serious offense in Fourdiopolis. Officers often patrol for it. Often undercover. Which creates confusion, which makes loitering an even more serious offense." instead;
 
 to say u-a:
 	say "No need to attract undue attention"
 
-instead of jumping:
-	say "[u-a].";
+understand the command "wake" as something new.
+understand the command "think" as something new.
 
-instead of waving:
-	say "[u-a].";
+check burning: say "[u-a]." instead;
+check jumping: say "[u-a]." instead;
+check waving: say "[u-a]." instead;
+check waving hands: say "[u-a]." instead;
 
-instead of waving hands:
-	say "[u-a].";
+the block attacking rule is not listed in any rulebook.
+the block burning rule is not listed in any rulebook.
+the block kissing rule is not listed in any rulebook.
+the block waving hands rule is not listed in any rulebook.
+the block sleeping rule is not listed in any rulebook.
+the block swearing obscenely rule is not listed in any rulebook.
+the block swearing mildly rule is not listed in any rulebook.
+the block sleeping rule is not listed in any rulebook.
 
-instead of sleeping:
-	say "There's laws against that. Well, there are no laws against sleeping, but sleeping in possession of valuables encourages criminals. Sleeping without them is vagrancy.";
+check sleeping:
+	say "There's laws against that. Well, there are no laws against sleeping, but sleeping in possession of valuables encourages criminals. Sleeping without them is vagrancy." instead;
 
-instead of swearing obscenely:
-	say "The old swear words have a certain charm, even though a language commission established new previously nonsensical words as more neurologically effective."
+check swearing obscenely:
+	say "The old swear words have a certain charm, even though a language commission established new previously nonsensical words as more neurologically effective." instead;
 
-instead of swearing mildly:
-	say "The government approves of such restraint in frustration."
+check swearing mildly:
+	say "The government approves of such restraint in frustration." instead;
 
-instead of kissing:
-	say "That both is and isn't appropriate in Fourdiopolis."
+check kissing:
+	say "That both is and isn't appropriate in Fourdiopolis." instead;
 
-instead of burning:
-	say "[u-a].";
-
-instead of attacking:
-	say "Violence? In this surveilled day and age? Never!"
+check attacking:
+	say "Violence? In this surveilled day and age? Never!" instead;
 
 the transporter is scenery in outside-area. "The transporter--well, the details are inside, and they're not important. It has the letters I, J, K and H in a rough circle, or maybe they're vertices of a pyramid, or something. Anyway, you can probably just go h, i, j or k, and it'll understand that. No need for red tape."
 
@@ -319,8 +324,9 @@ to say sec of (q - a number):
 
 book going
 
-instead of exiting:
-	say "Out? Of Fourdiopolis? You don't have proper documentation. And you can't get it. Well, not in this game.";
+the can't exit when not inside anything rule is not listed in any rulebook.
+
+check exiting: say "Out? Of Fourdiopolis? You don't have proper documentation. And you can't get it. Well, not in this game.";
 
 to dirsmack:
 	say "In these efficient days, people find using more than one letter for a direction too flowery.[line break]";
@@ -513,12 +519,7 @@ scenery-found-yet is a truth state that varies.
 
 chapter diagonals
 
-going southwest is diaging.
-going northwest is diaging.
-going southeast is diaging.
-going northeast is diaging.
-
-instead of diaging:
+check going a diagonal direction:
 	say "You can't cut through buildings on your own. Even with teleporters being all the rage. Well, apparently you could cut through some lobbies years ago, but surveillance and keycard-doors have taken care of that.";
 
 book directions
@@ -1941,11 +1942,13 @@ carry out ting:
 
 understand "b" as preferring sometimes abbreviated room descriptions.
 
-instead of saying yes:
-	say "Not much to say yes to[rhet]."
+the block drinking rule is not listed in any rulebook.
+the block saying yes rule is not listed in any rulebook.
+the block saying no rule is not listed in any rulebook.
 
-instead of saying no:
-	say "Not much to say no to[rhet]."
+check saying yes: say "Not much to say yes to[rhet]." instead;
+
+check saying no: say "Not much to say no to[rhet]." instead;
 
 to say rhet:
 	say "[one of]--rhetorical questions are for narrative purposes, and yes/no questions will be specifically prompted that way[or][stopping]"
@@ -1956,8 +1959,7 @@ check requesting the score:
 		say "[line break]You've [if score > 0]also [end if]found [scenery-found] of [allscenery] miscellaneous bits of scenery.";
 	the rule succeeds;
 
-instead of drinking:
-	say "There are hydration stations all around Fourdiopolis. You're nowhere near an inexpensive one."
+check drinking: say "There are hydration stations all around Fourdiopolis. You're nowhere near an inexpensive one." instead;
 
 volume silly coding tricks
 
