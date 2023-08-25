@@ -518,12 +518,6 @@ going northwest is diaging.
 going southeast is diaging.
 going northeast is diaging.
 
-outside-area is west of outside-area.
-outside-area is north of outside-area.
-outside-area is up of outside-area.
-outside-area is h of outside-area.
-outside-area is j of outside-area.
-
 instead of diaging:
 	say "You can't cut through buildings on your own. Even with teleporters being all the rage. Well, apparently you could cut through some lobbies years ago, but surveillance and keycard-doors have taken care of that.";
 
@@ -536,6 +530,9 @@ understand the command "i" as something new.
 understand "i" as giing.
 
 carry out giing:
+	if i-warn is false:
+		bracket-say "just to check, I is a direction, not the command to take inventory. Since you only have one item, X will suffice.";
+		now i-warn is true;
 	try going i instead;
 
 h is a direction. the opposite of h is i. [ None of these are true! But opposites are never used for teleport directions, and Inform (sensibly) demands we define one, because Fourdiopolis is a very odd case indeed. ]
@@ -569,16 +566,10 @@ dirhash of i is 7.
 dirhash of j is 8.
 dirhash of k is 9.
 
-check going i when i-warn is false:
-	if word number 1 in the player's command is "i":
-		bracket-say "just to check, I is a direction, not the command to take inventory. Since you only have one item, X will suffice.";
-		now i-warn is true;
 i-warn is a truth state that varies.
 
 to bracket-say (tx - text):
 	say "[italic type][bracket]NOTE: [tx][close bracket][r][line break]";
-
-chapter adjust the
 
 book whatever
 
