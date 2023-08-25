@@ -701,19 +701,14 @@ to say sector-num of (i - indexed text):
 	let xn be number of times q matches the text "e" - the number of times q matches the text "w";
 	let yn be number of times q matches the text "n" - the number of times q matches the text "s";
 	let zn be number of times q matches the text "u" - the number of times q matches the text "d";
-	let hh be number of times q matches the text "h" * 2;
-	let ii be number of times q matches the text "i" * 2;
-	let jj be number of times q matches the text "j" * 2;
-	let kk be number of times q matches the text "k" * 2;
-	now xn is xn + hh + ii - jj;
-	now xn is xn - kk;
-	let yn be yn + hh + jj - kk;
-	now yn is yn - ii;
-	let zn be zn + hh + kk - jj;
-	now zn is zn - ii;
-	say "[sec of zn]";
-	say "[sec of yn]";
-	say "[sec of xn]";
+	let hh be number of times q matches the text "h";
+	let ii be number of times q matches the text "i";
+	let jj be number of times q matches the text "j";
+	let kk be number of times q matches the text "k";
+	now xn is xn + 2 * (hh + ii - (jj + kk));
+	let yn be yn + 2 * (hh + jj - (kk + ii));
+	let zn be zn + 2 * (hh + kk - (jj + ii));
+	say "[sec of zn][sec of yn][sec of xn]";
 
 to say seek-track:
 	let ln be a list of indexed text;
