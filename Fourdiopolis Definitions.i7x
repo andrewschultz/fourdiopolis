@@ -84,6 +84,8 @@ to say email: say "blurglecruncheon@gmail.com"
 
 to say your-sec: say "[sec of ud][sec of ns][sec of ew]"
 
+to say score-of: say "[score]/[number of rows in your-table]"
+
 Fourdiopolis Definitions ends here.
 
 ---- DOCUMENTATION ----

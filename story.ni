@@ -1619,7 +1619,7 @@ volume status line
 
 rule for constructing the status line when full-view is false:
 	rejig the status line to 1 rows;
-	center "Sector [your-sec]: [score]/[number of rows in your-table]" at row 1;
+	center "Sector [your-sec]: [score-of]" at row 1;
 	the rule succeeds;
 
 last-lines is a number that varies. last-lines is usually 15.
@@ -1627,11 +1627,11 @@ last-lines is a number that varies. last-lines is usually 15.
 should-rejig is a truth state that varies. should-rejig is usually true.
 
 rule for constructing the status line when full-view is true and should-rejig is false:
-	center "Sector [your-sec]: [score]/[number of rows in your-table]" at row 1;
+	center "Sector [your-sec]: [score-of]" at row 1;
 
 rule for constructing the status line when full-view is true and should-rejig is true:
 	deepen the status line to last-lines rows;
-	center "Sector [your-sec]: [score]/[number of rows in your-table]" at row 1;
+	center "Sector [your-sec]: [score-of]" at row 1;
 	now should-rejig is false;
 	let total-lines be 2;
 	move the cursor to 2;
@@ -1700,7 +1700,7 @@ part main stuff
 when play begins (this is the set the status line rule):
 	now text-tally is "";
 	now num-tally is 0;
-	now right hand status line is "[score]/[number of rows in your-table]";
+	now right hand status line is "[score-of]";
 	now ns is 0;
 	now ew is 0;
 	now ud is 0;
