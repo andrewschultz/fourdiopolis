@@ -21,7 +21,7 @@ release along with an interpreter.
 
 release along with cover art.
 
-the release number is 2.
+the release number is 3.
 
 [use memory economy.]
 
@@ -994,7 +994,7 @@ to say unreachable: [this picks something that can only be gotten in 11 moves an
 		choose a random row in table of elevensies;
 		now got-yet is true;
 		if x entry is y entry and x entry is z entry: [888 may be disproportionately represented without this. Not that 1/77 vs 1/418 is a huge deal, but... just to hit em all evenly...]
-			if a random chance of 1 in 6 succeeds:
+			if a random chance of 5 in 6 succeeds:
 				now got-yet is false;
 		else if x entry is y entry or y entry is z entry: [again probability is 1/231 for AAB without this, 1/418 with it]
 			if a random chance of 1 in 2 succeeds:
@@ -1159,6 +1159,8 @@ carry out abouting:
 	say "So I'd like to encourage others who say 'gee, well, should I?' that, yes, you should. Whether it's too personal, not personal enough, too general or too specific--if you've had doubts for a couple months, you've done enough thinking. Get a draft out there, etc. Some people won't like it, and it's okay.[paragraph break]";
 	say "People who helped with [this-game] are in [b]CREDITS[r]. If you haven't played [3d], there may be spoilers about more detailed discussion in another auxiliary meta-command called [b]TECH[r].[paragraph break]";
 	say "[this-game], despite requiring considerable thought, should be POLITE on the Zarfian cruelty scale. There is one joke death, but it is undoable.[paragraph break]";
+	say "Release 2 on August 14, 2016 cleared up some of the bigger bugs. This verified some code of David Kinder's that allowed me not to redraw the status line every time did indeed speed up Fourdiopolis a bit more.[paragraph break]";
+	say "Release 3 was on XX X, 2023. It allowed for a Z-Machine version and fixed a lot of bugs.[paragraph break]";
 	say "Also, there will not be a Fivediopolis. No way, no how.";
 	the rule succeeds;
 
@@ -1173,8 +1175,7 @@ understand "credits" as creditsing.
 carry out creditsing:
 	say "I'd like to thank Aaron Reed for providing a space where I can put this game so it doesn't seem like trolling or torture and also for checking with entrants to allow for a bit of cleanup before the first release. I was really conflicted about even putting this game out, because of its difficulty. The thing is--I [italic type]like[roman type] difficult stuff, though that's no excuse not to try to make it accessible to others. In fact, my goal is to make stuff that may seem difficult be a bit more accessible.[paragraph break]";
 	say "I'd like to thank my testers, for putting up with something so confusing in so little time. [bold type]Buster Hudson, Robin Johnson and Teaspoon[roman type]. They found--well, the details would embarrass me. Both technical and aesthetic. I'm very grateful to them.[paragraph break]Also, Wade Clarke mentioned some neat things in-comp. It's not the first game of mine he's helped.[paragraph break]";
-	say "And while I didn't have any personal contact with Zarf over this game, his Python regular-expression tester let me automate a lot of testing for the post-comp version.[paragraph break]";
-	say "Zarf's scripts also helped me do performance testing, which was a big part of release 2. This verified some code of David Kinder's that allowed me not to redraw the status line every time did indeed speed up Fourdiopolis a bit more.[paragraph break]";
+	say "And while I didn't have any personal contact with Zarf over this game, his Python regular-expression tester let me automate a lot of testing for post-comp versions.[paragraph break]";
 	say "And finally, while it's fishy to list my [3d] testers by name so as to beef up my tester list...their thoughts and ideas helped me when I wrote up Fourdiopolis. I appreciate them.[paragraph break]The font in the cover 'art' is Chlorinar.";
 	the rule succeeds;
 
@@ -1191,7 +1192,7 @@ carry out teching:
 	say "[line break]Eventually I figured how I wanted things to work--and I realized that jumping 2 of each in any direction would give the player some space. Not only that, the player would have a parity problem to figure if you needed an even or odd number of teleporter jumps. The only thing remaining was what the letters should be.";
 	say "[line break]Then I remembered about cross products from calculus or physics or whatever. I, j, k. Rare enough they wouldn't create TOO many extra letters. So--the final one was h or l. I chose h, because I liked the names and numbers better. Plus L stood for look.";
 	say "[line break]But it wasn't a full game until I figured how to break down the lists into serviceable sizes. You'd start with friends, because that helps you get an idea, then you'd move to supplies.";
-	say "[line break]Zarf's Python regression testing suite was critical to making fixes in the post-comp release of Fourdiopolis. It found a lot, and it helped me test random shuffling of solutions. I recommend it, if you are writing an Inform game. Even knowing the simple stuff works, or when it breaks, is a big help.";
+	say "[line break]Zarf's Python regression testing suite was critical to making fixes in the post-comp release of Fourdiopolis. It found a lot, and it helped me test random shuffling of solutions. I recommend it, if you are writing an Inform game. Even knowing the simple stuff works, or when it breaks, is a big help. Testing can be tiring--your work or others[']!";
 	the rule succeeds;
 
 volume errors/parser
@@ -1551,24 +1552,6 @@ rule for constructing the status line when full-view is true and should-rejig is
 	the rule succeeds;
 
 volume when play begins
-
-section debug - not for release
-
-when play begins (this is the debug true rule):
-	now debug-state is true;
-
-chapter dsing
-
-dsing is an action out of world.
-
-understand the command "ds" as something new.
-
-understand "ds" as dsing.
-
-carry out dsing:
-	now debug-state is whether or not debug-state is false;
-	say "Debug-state is now [debug-state].";
-	the rule succeeds;
 
 part main stuff
 
