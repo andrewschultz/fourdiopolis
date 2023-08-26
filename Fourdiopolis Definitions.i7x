@@ -77,21 +77,8 @@ to check-up-down:
 		say "The hybrid transport tubes/stairs are designed for optimal pedestrian convenience and exercise potential.";
 		now gone-up-or-down is true;
 
-to say abbr of (di - a direction):
-	if di is teleporty:
-		say "[di]";
-	else if di is north:
-		say "n";
-	else if di is south:
-		say "s";
-	else if di is east:
-		say "e";
-	else if di is west:
-		say "w";
-	else if di is up:
-		say "u";
-	else if di is down:
-		say "d";
+to say abbr of (di - a direction): [ Thanks to OtisTDog on intfiction.org for this code! ]
+	(- print (address) {di}.&name-->1; -)
 
 volume i6
 

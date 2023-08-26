@@ -323,7 +323,7 @@ this is the teleported out of bounds rule:
 	now teleported is true;
 
 to move-player-along:
-	now text-tally is "[text-tally][abbr of noun]"; ["character number 1 in printed name of noun" works but surprisingly takes up more space]
+	now text-tally is "[text-tally][if noun is teleporty][noun][else][abbr of noun][end if]"; ["character number 1 in printed name of noun" works but surprisingly takes up more space]
 	boost-num-tally (dirhash of noun);
 	increase ew by ewgo of noun;
 	increase ns by nsgo of noun;
