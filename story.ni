@@ -165,7 +165,7 @@ carry out examining the task list:
 		if found entry is 1:
 			say "[bold type][if your-table is table of friends][tally entry in title case][else if your-table is table of last names][tally entry in upper case][else][tally entry][end if][roman type]";
 		else:
-			say "[descrip entry] @ [sector-num of tally entry] ";
+			say "[descrip entry] @ [cityloc entry] ";
 			say "([farness of tally entry])";
 		if the remainder after dividing Q2 by 5 is 0 or Q2 is number of rows in your-table:
 			say ".";
@@ -296,10 +296,18 @@ check going inside:
 		if score >= 2, dirparse "in" instead;
 	say "You don't see anywhere to go in." instead;
 
-to boost-num-tally (q - a number):
+to boost-num-tally:
+	let q be dirhash of noun;
 	increment steps-so-far;
-	now num-tally is 10 * num-tally;
-	increase num-tally by q;
+	if steps-so-far >= 8:
+		now walk-short-1 is 11 * walk-short-1;
+		increase walk-short-1 by q;
+	else if steps-so-far >= 4:
+		now walk-short-2 is 11 * walk-short-2;
+		increase walk-short-2 by q;
+	else:
+		now walk-short-3 is 11 * walk-short-3;
+		increase walk-short-3 by q;
 
 definition: a number (called nu) is outofbounds:
 	if nu > 9 or nu < -9, yes;
@@ -323,8 +331,6 @@ this is the teleported out of bounds rule:
 	now teleported is true;
 
 to move-player-along:
-	now text-tally is "[text-tally][if noun is teleporty][noun][else][abbr of noun][end if]"; ["character number 1 in printed name of noun" works but surprisingly takes up more space]
-	boost-num-tally (dirhash of noun);
 	increase ew by ewgo of noun;
 	increase ns by nsgo of noun;
 	increase ud by udgo of noun;
@@ -349,20 +355,17 @@ check going:
 		reset-game instead;
 	tally-and-place;
 
-to decide whether got-tally of (itx - indexed text) and (tne - number):
-	if tne > 0:
-		if tne is num-tally, yes;
-		no;
-	if itx is text-tally, yes;
-	no;
-
 to tally-and-place:
 	repeat with Q running through things in outside-area:
 		if Q is not player and Q is not transporter:
 			now Q is off-stage;
+	say "[walk-short-1] [walk-short-2] [walk-short-3] [steps-so-far].";
 	if steps-so-far > 2:
 		repeat through your-table:
-			if got-tally of tally entry and talnum entry:
+			if walk-short-1 is hash1 entry and walk-short-2 is hash2 entry and walk-short-3 is hash3 entry:
+				say "[walk-short-1] vs [hash1 entry].";
+				say "[walk-short-2] vs [hash2 entry].";
+				say "[walk-short-3] vs [hash3 entry].";
 				if found entry is not 1:
 					if there is no what-drops entry:
 						move generic door to outside-area;
@@ -372,7 +375,7 @@ to tally-and-place:
 						move what-drops entry to outside-area;
 						continue the action;
 		repeat through entry (steps-so-far - 2) in tablist:
-			if got-tally of tally entry and talnum entry:
+			if walk-short-1 is hash1 entry and walk-short-2 is hash2 entry and walk-short-3 is hash3 entry:
 				if there is a what-drops entry:
 					now found entry is 1;
 					move what-drops entry to outside-area;
@@ -388,15 +391,16 @@ definition: a scenario (called SC) is ahead:
 	if cur-scen is LAS, no;
 	yes;
 
+to decide whether around-hideout:
+	no;
+
 after printing the locale description:
-	let A be indexed text;
-	now A is text-tally;
 	if steps-so-far > 2:
 		repeat with SC running through ahead scenarios:
 			sweep-up SC;
 		let mytab be entry (steps-so-far - 2) in tablist;
 		repeat through mytab:
-			if got-tally of tally entry and talnum entry:
+			if walk-short-1 is hash1 entry and walk-short-2 is hash2 entry and walk-short-3 is hash3 entry:
 				if found entry is not 1:
 					increment scenery-found;
 					unless there is a what-drops entry:
@@ -407,21 +411,21 @@ after printing the locale description:
 							bracket-say "this wasn't critical to the game, but it's just something neat to find. There are [allscenery - 1] more to find, but they're meant to be obscure. Congratulations on finding one, though!";
 						if found entry is 0: [-1 for ISEEKKEEN/etc is a bit of a hack but yeah]
 							now found entry is 1;
-	if text-tally is "hidden" or text-tally is "inside":
+	if around-hideout:
 		if hideout is not in outside-area:
 			move hideout to outside-area;
 			say "[one of]All right! You think you see it! The hideout where your [if your-table is not table of friends]latest jaunt[else]whole task[end if] started![or]The hideout, again. A bit easier to recognize this time.[stopping]";
 			now hidden-inside is true;
 	repeat through your-table:
 		if found entry is 1:
-			if got-tally of tally entry and talnum entry:
+			if walk-short-1 is hash1 entry and walk-short-2 is hash2 entry and walk-short-3 is hash3 entry:
 				if note-previous-found is false:
 					say "Hm, that place you found before--it's somewhere around here, but you're focused on what to find next.";
 					now note-previous-found is true;
 
 to sweep-up (sc - a scenario):
 	repeat through objectives of sc:
-		if got-tally of tally entry and talnum entry:
+		if walk-short-1 is hash1 entry and walk-short-2 is hash2 entry and walk-short-3 is hash3 entry:
 			if sc is LAS:
 				say "You feel very cold. Something unknown but oppressive lies nearby, but you don't [if your-table is table of friends]nearly [else if your-table is table of just plain cool stuff]quite [end if]have the means or skill to see or deal with it, yet.";
 			else:
@@ -457,8 +461,9 @@ to reset-game:
 	now ew is 0;
 	now ud is 0;
 	now all visible quasi-entries are off-stage; [probably not neccessary to put all the way up here but just in case]
-	now text-tally is "";
-	now num-tally is 0;
+	now walk-short-1 is 0;
+	now walk-short-2 is 0;
+	now walk-short-3 is 0;
 	if walked-by is false:
 		consider the plural-almost rule;
 	now walked-by is false;
@@ -535,13 +540,15 @@ check going inside when a quasi-entry is visible:
 
 check entering a quasi-entry:
 	repeat through your-table:
-		if got-tally of tally entry and talnum entry:
+		if walk-short-1 is hash1 entry and walk-short-2 is hash2 entry and walk-short-3 is hash3 entry:
 			if noun is front door:
 				say "(well, knocking, actually)[line break]";
 			if noun is suspiciously ordinary door:
 				say "Whoah. You're not brave enough to enter. But you'll leave a message.[paragraph break]";
 			if there is a foundit entry:
 				say "[foundit entry][line break]";
+			else if cur-scen is LAS:
+				say "You read through your guidelines on rabble-rousing literature and write up a short screed describing how [tally entry in title case] [one of]is typical of the whole bunch and one of the worst at the same time[or]doesn't care at all, but cares about themselves[or]is both too powerful and yet powerless to change the PEOPLE[or]doesn't understand common people but sure understands how to manipulate them[or]is the worst and yet controlled by even worse people at the same time[in random order]. You add in some bargle about [one of]how they'll get to spend more time with their lovely family soon[or]disgruntled ex-staffers TALK[or]they'll be the first out when people see all the corruption[or]their rags to riches story being a fraud compared to Ed Dunn[or]their lack of, or excessive, charisma is especially galling[or]Embarrassing Facts you know--ones you can't even write down[or]their lack of traditional values and desire to return Fourdiopolis to the 22nd or even 21st century won't stand[or]their [a random number between 85 and 95]% approval rating is a fraud[or]their getting [a random number between 85 and 95]% of the vote is suspicious[in random order]. Any crank can send an email like that, but few people have the guts to DROP BY. You dust your hands off and sneak away";
 			else:
 				say "BUG I forgot to say something clever here.";
 			now found entry is 1;
@@ -664,20 +671,6 @@ to say despite-good:
 
 book what to find
 
-to say sector-num of (i - indexed text):
-	let q be i in lower case;
-	let xn be number of times q matches the text "e" - the number of times q matches the text "w";
-	let yn be number of times q matches the text "n" - the number of times q matches the text "s";
-	let zn be number of times q matches the text "u" - the number of times q matches the text "d";
-	let hh be number of times q matches the text "h";
-	let ii be number of times q matches the text "i";
-	let jj be number of times q matches the text "j";
-	let kk be number of times q matches the text "k";
-	now xn is xn + 2 * (hh + ii - (jj + kk));
-	let yn be yn + 2 * (hh + jj - (kk + ii));
-	let zn be zn + 2 * (hh + kk - (jj + ii));
-	say "[sec of zn][sec of yn][sec of xn]";
-
 to say seek-track:
 	let ln be a list of indexed text;
 	repeat with Q running through tablist:
@@ -714,7 +707,7 @@ to end-win-with-undo:
 	end the story finally saying "[msg]";
 
 to say msg:
-	if text-tally is "die":
+	if walk-short-1 is 817: [ "die" ]
 		say "Hope you enjoyed the silly death";
 		continue the action;
 	if lose-msg of cur-scen is not empty:
@@ -1025,7 +1018,7 @@ Rule for printing a parser error when the latest parser error is the I beg your 
 					if there is no descrip entry:
 						say "(needs descrip entry).";
 					else:
-						say "[bold type][descrip entry] at [sector-num of tally entry][roman type] [if total-left is 1]is the last task[else if total-left is 2]looks like the easier of the two[else]seems potentially the easiest[end if].";
+						say "[bold type][descrip entry] at [cityloc entry][roman type] [if total-left is 1]is the last task[else if total-left is 2]looks like the easier of the two[else]seems potentially the easiest[end if].";
 					the rule succeeds;
 		increment cur-length;
 	say "BUG. Nothing is left.";
@@ -1293,7 +1286,7 @@ rule for constructing the status line when full-view is true and should-rejig is
 				say "[line break]  ";
 				increment total-lines;
 				now hpos is 2;
-			say "[descrip entry]([sector-num of tally entry]/[farness of tally entry])";
+			say "[descrip entry]([cityloc entry]/[farness of tally entry])";
 			now hpos is hpos + cur-length;
 		else:
 			now cur-length is number of characters in tally entry;
@@ -1321,8 +1314,9 @@ volume when play begins
 part main stuff
 
 when play begins (this is the set the status line rule):
-	now text-tally is "";
-	now num-tally is 0;
+	now walk-short-1 is 0;
+	now walk-short-2 is 0;
+	now walk-short-3 is 0;
 	now right hand status line is "[score-of]";
 	now ns is 0;
 	now ew is 0;

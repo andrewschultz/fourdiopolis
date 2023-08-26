@@ -4,10 +4,11 @@ Version 1/230825 of Fourdiopolis Globals by Andrew Schultz begins here.
 
 volume super critical stuff
 
-text-tally is indexed text that varies. [ yeah this is kind of big ]
+walk-short-1 is a number that varies. [keeps track of hashes]
+walk-short-2 is a number that varies. [keeps track of hashes]
+walk-short-3 is a number that varies. [keeps track of hashes]
 
-num-tally is a number that varies. [keeps track of hashes]
-steps-so-far is a number that varies.
+steps-so-far is a number that varies. [time saver so we don't have to go through scenery tables more than once]
 
 dirparsing is a truth state that varies. [are we running through a command?]
 ignore-remaining-dirs is a truth state that varies. [cut off commands if you type in too much]

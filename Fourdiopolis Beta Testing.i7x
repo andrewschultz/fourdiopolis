@@ -43,7 +43,9 @@ carry out foing:
 		say "Choosing friends.";
 		shift-scen FRI;
 	else:
-		shift-scen entry whichtable of scenario-list;
+		let tmp be entry whichtable of scenario-list;
+		say "Switching to [tmp].";
+		shift-scen tmp;
 	repeat through your-table:
 		now found entry is 0;
 	say "Your new table is [your-table]. You may wish to X to see the list again. Also, all 'found' entries are cleared.";

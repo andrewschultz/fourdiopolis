@@ -7,27 +7,27 @@ volume main scenario tables
 chapter friends (scenario 1)
 
 table of friends
-tally (text)	talnum	descrip (text)	foundit (text)	what-drops	found
-"dennis"	520071	"skipper or jumper too"	"He begins telling you about his wonderful friend Jonathan and Jonathan's lovely future wife Elizabeth before getting serious and scared and asking if Christopher has been by yet. Eh, better than some creep describing a system for manipulating girls."	front door	0 [dennis hopper?]
-"eddie"	25572	"crazy friend"	"He stashes some absurdly low-priced appliances into a closet before running out."	front door	0
-"enid"	2075	"friend of five"	"Enid listens as she makes proofreading marks on a book with a bunch of kids running around on the cover."	front door	0
-"heidi"	62757	"Alpine friend"	"Thankfully, you hear no yodeling as the door opens."	front door	0
-"ike"	792	"cross, iron friend"	"'I'm ready to take down the sprawling military-industrial complex,' Ike says."	front door	0
-"ines"	7021	"Spanish friend"	"It's Ines! She [says-hi]."	front door	0
-"isis"	7171	"friend from Egypt"	"It's Isis! She [says-hi]."	front door	0
-"jed"	825	"friend"	"It's Jed! He [says-hi]."	front door	0
-"jenni"	82007	"friend who says why not"	"It's Jenni! She [says-hi]."	front door	0 [because it's an i and not a y]
-"jessie"	821172	"has desirable girl/guy"	"[either-gender]."	front door	0
-"jud"	845	"hey, a friend, almost"	"It's Jud! He [says-hi]."	front door	0
-"jude"	8452	"hey, a friend"	"He says 'Oh, I was trying to make a sad song better, but never mind.'"	front door	0
-"judi"	8457	"hey, a friend's female twin"	"It's Judi! She [says-hi]."	front door	0
-"june"	8402	"fair-weather friend"	"She springs into action on hearing why you're here."	front door	0
-"ken"	920	"solves number puzzles halfway"	"It's Ken! He [says-hi]."	front door	0
-"kiki"	9797	"friend who can deliver us"	"She gives a bit too sugary speech on how you can do anything you can put your mind to, but it's better than the opposite."	front door	0
-"nikki"	7997	"loud friend 6"	"It's Nikki! She [says-hi]."	front door	0
-"sid"	175	"not a vicious seizer"	"'In, Sid? [']E IS!' he roars."	front door	0
-"susie"	14172	"friend with weird boyfriend"	"'No, they DON'T need a transmogrifier!' Susie booms to someone you can't see. 'Not even one that works!'"	front door	0
-"winnie"	370072	"doesn't miss Ke*in"	"Talking with Winnie you feel nostalgia and remember some growing pains."	front door	0
+tally (text)	cityloc	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
+"dennis"	"A3C"	8361	90	0	"skipper or jumper too"	"He begins telling you about his wonderful friend Jonathan and Jonathan's lovely future wife Elizabeth before getting serious and scared and asking if Christopher has been by yet. Eh, better than some creep describing a system for manipulating girls."	front door	0 [dennis hopper?]
+"eddie"	"B4D"	4793	3	0	"crazy friend"	"He stashes some absurdly low-priced appliances into a closet before running out."	front door	0
+"enid"	"A3C"	4208	0	0	"friend of five"	"Enid listens as she makes proofreading marks on a book with a bunch of kids running around on the cover."	front door	0
+"heidi"	"B7C"	9774	8	0	"Alpine friend"	"Thankfully, you hear no yodeling as the door opens."	front door	0
+"ike"	"D10"	1081	0	0	"cross, iron friend"	"'I'm ready to take down the sprawling military-industrial complex,' Ike says."	front door	0
+"ines"	"B3B"	10804	0	0	"Spanish friend"	"Ines almost seems to be expecting you. She [says-hi]."	front door	0
+"isis"	"F4D"	10980	0	0	"friend from Egypt"	"Isis walks over, removes her bangles and [says-hi]."	front door	0
+"jed"	"2AC"	1128	0	0	"friend"	"Jed nods, then [says-hi]."	front door	0
+"jenni"	"21D"	12354	8	0	"friend who says why not"	"Jenni sighs. 'No, this is 867-5349.' She then looks up from her phone, and [says-hi]."	front door	0 [because it's an i and not a y]
+"jessie"	"B2D"	12366	91	0	"has desirable girl/guy"	"[either-gender]."	front door	0
+"jud"	"2BB"	1150	0	0	"hey, a friend, almost"	"Jud is ready to go. [says-hi]."	front door	0
+"jude"	"2AB"	12653	0	0	"hey, a friend"	"He says 'Oh, I was trying to make a sad song better, but never mind.'"	front door	0
+"judi"	"00D"	12658	0	0	"hey, a friend's female twin"	"It's Judi! 'Oh, why not?'[paragraph break]She [says-hi]."	front door	0
+"june"	"3AA"	12598	0	0	"fair-weather friend"	"She springs into action on hearing why you're here."	front door	0
+"ken"	"AA2"	1244	0	0	"solves number puzzles halfway"	"Ken crumples his latest puzzle (paper, so wasteful) then [says-hi]."	front door	0
+"kiki"	"H00"	14396	0	0	"friend who can deliver us"	"She gives a bit too sugary speech on how you can do anything you can put your mind to, but it's better than the opposite."	front door	0
+"nikki"	"G00"	2419	8	0	"loud friend 6"	"It's Nikki! She [says-hi]."	front door	0
+"sid"	"C2C"	336	0	0	"not a vicious seizer"	"'In, Sid? [']E IS!' he roars."	front door	0
+"susie"	"D3A"	3297	3	0	"friend with weird boyfriend"	"'No, they DON'T need a transmogrifier!' Susie booms to someone you can't see. 'Not even one that works!'"	front door	0
+"winnie"	"B4D"	6304	91	0	"doesn't miss Ke*in"	"Talking with Winnie you feel nostalgia and remember some growing pains."	front door	0
 
 to say says-hi:
 	say "[one of]looks around a bit. You give the secret handshake and secret phrase I can't even tell you, it's so secret. 'They need you...uh...'[paragraph break]'Yeah. There.' You look up. They're gone already[or]doesn't have much to say, but hey, if everyone were talkative, nothing'd get done[or]booms 'IT IS TIME!' then apologizes for getting ironically carried away, there[or]engages in a minute's thumb-twiddling before bursting out the door[or]almost tearily pats a potted plant on the windowsill[or]checks the latest whateverball scores before saying, yup, let's get going[or]strikes a few random karate poses, then looks all serious[or]worries briefly that if YOU found this place--no disrespect, but yeah--they're probably safer not at home[in random order]"
@@ -52,27 +52,27 @@ book middle tables
 chapter education (scenario 2)
 
 table of education
-tally (text)	talnum	descrip (text)	foundit (text)	what-drops	found
-"hijinks"	6787091	"a full loop of political subversions"	"You learn tricks to make political rallies and flash mobs work with a minimum of arrests."	edutainment storefront	0
-"hikes"	67921	"back to almost nature"	"You get a brief virtual reality sample of the unlivable wilds beyond the cities."	edutainment storefront	0
-"issues"	711421	"detailed wonkery"	"You learn not only the important issues but the details--and even how to skewer people who go too far into details."	edutainment storefront	0
-"keen"	9220	"motivation"	"You can never have too much motivation. Unless you spend too much time motivating yourself, you forget to do anything."	edutainment storefront	0
-"kind"	9705	"decency"	"You learn not only how to be nice but how to fool people into thinking you're nice enough they better like you and if they're doubting that, they feel guilty. You'll only use the second in an emergency. You hope."	edutainment storefront	0
-"kinesis"	9702171	"mobility"	"You learn how to sneak around authorities even if you're not naturally nimble."	edutainment storefront	0
-"nein"	270	"foreign languages, or not"	"You learn useful things to say in different languages: yes, no, please, and Dude, Whatever."	edutainment storefront	0
-"sensei"	120127	"Eastern wisdom"	"You put up with perhaps a bit more mumbo-jumbo terminology than you want, but the break from extreme capitalism, while heretical, is surprisingly soothing."	edutainment storefront	0
-"sines"	17021	"advanced math lesson"	"You endure a very useful trigonometry lesson, you think. You remember which is sine and which is cosine, but now you've knocked out secant and cosecant."	tiny schoolhouse	0
-"sinews"	170231	"proper physical health"	"You get a quick work-course in physiology, necessary for protestors and operatives who need stamina."	edutainment storefront	0
-"sins"	1701	"what authorities do wrong"	"You get a lecture on things you didn't even know were wrong with Fourdiopolis. It's short on charisma, but that's somewhere else."	edutainment storefront	0
-"sinus"	17041	"breathing techniques"	"You ace the course on breathing techniques and get a 10% off coupon for snoring surgery. Wait, you know you missed that one question...are you being suckered, here? Surgery's expensive!"	edutainment storefront	0
-"skew"	1923	"emphasizing the right parts of the truth"	"You learn several ways to embarrass people into a corner even when you don't need to. Because if you don't first, they will."	edutainment storefront	0
-"skies"	19721	"how to look up"	"Ah! The sky! You don't get to see much of it. Only 1/19 of Fourdiopolis residents do. Well, less, because the people at the top have big sprawling mansions. Still, it's a source of inspiration."	edutainment storefront	0
-"uhhuh"	46646	"intuition and persuasivity"	"You learn about tone of voice and gestures, and how different words that sound the same aren't."	edutainment storefront	0
-"undenied"	40520725	"never giving up"	"You're stuck watching heroic dramatic clips from ancient sports like American football (too violent) and un-American football (too scoreless). They're more inspiring than you'd have guessed!"	edutainment storefront	0
-"whenwewin"	362032370	"planning for post-victory"	"You learn the optimum amount of planning in advance so you're actually confident, but not overconfident. You're confident you understand, but not too confident."	edutainment storefront	0
-"whine"	36702	"learning to complain right"	"You learn the best subtleties in voice inflection when working on, err, with individuals, small crowds, or large crowds. It seems so obvious now!"	edutainment storefront	0
-"wise"	3712	"general smartitude"	"You learn not only generalities to make you feel clever but generalities to make you seem clever to others! Oh boy!"	edutainment storefront	0
-"wushu"	34164	"martial arts"	"You hear some blather about martial arts, not a sport, or some game that requires no mental commitment."	edutainment storefront	0
+tally (text)	cityloc	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
+"hijinks"	"B2B"	10392	233	0	"a full loop of political subversions"	"You learn tricks to make political rallies and flash mobs work with a minimum of arrests."	edutainment storefront	0
+"hikes"	"C32"	10398	2	0	"back to almost nature"	"You get a brief virtual reality sample of the unlivable wilds beyond the cities."	edutainment storefront	0
+"issues"	"E3A"	10917	35	0	"detailed wonkery"	"You learn not only the important issues but the details--and even how to skewer people who go too far into details."	edutainment storefront	0
+"keen"	"A02"	13707	0	0	"motivation"	"You can never have too much motivation. Unless you spend too much time motivating yourself, you forget to do anything."	edutainment storefront	0
+"kind"	"C0A"	14295	0	0	"decency"	"You learn not only how to be nice but how to fool people into thinking you're nice enough they better like you and if they're doubting that, they feel guilty. You'll only use the second in an emergency. You hope."	edutainment storefront	0
+"kinesis"	"G3B"	14292	332	0	"mobility"	"You learn how to sneak around authorities even if you're not naturally nimble."	edutainment storefront	0
+"nein"	"03B"	1783	0	0	"foreign languages, or not"	"You learn useful things to say in different languages: yes, no, please, and Dude, Whatever."	edutainment storefront	0
+"sensei"	"C4B"	3038	41	0	"Eastern wisdom"	"You put up with perhaps a bit more mumbo-jumbo terminology than you want, but the break from extreme capitalism, while heretical, is surprisingly soothing."	edutainment storefront	0
+"sines"	"C3B"	3644	2	0	"advanced math lesson"	"You endure a very useful trigonometry lesson, you think. You remember which is sine and which is cosine, but now you've knocked out secant and cosecant."	tiny schoolhouse	0
+"sinews"	"C2B"	3644	46	0	"proper physical health"	"You get a quick work-course in physiology, necessary for protestors and operatives who need stamina."	edutainment storefront	0
+"sins"	"C2B"	3643	0	0	"what authorities do wrong"	"You get a lecture on things you didn't even know were wrong with Fourdiopolis. It's short on charisma, but that's somewhere else."	edutainment storefront	0
+"sinus"	"C2A"	3646	2	0	"breathing techniques"	"You ace the course on breathing techniques and get a 10% off coupon for snoring surgery. Wait, you know you missed that one question...are you being suckered, here? Surgery's expensive!"	edutainment storefront	0
+"skew"	"CB2"	3909	0	0	"emphasizing the right parts of the truth"	"You learn several ways to embarrass people into a corner even when you don't need to. Because if you don't first, they will."	edutainment storefront	0
+"skies"	"F10"	3963	2	0	"how to look up"	"Ah! The sky! You don't get to see much of it. Only 1/19 of Fourdiopolis residents do. Well, less, because the people at the top have big sprawling mansions. Still, it's a source of inspiration."	edutainment storefront	0
+"uhhuh"	"668"	7584	7	0	"intuition and persuasivity"	"You learn about tone of voice and gestures, and how different words that sound the same aren't."	edutainment storefront	0
+"undenied"	"04C"	6845	2338	0	"never giving up"	"You're stuck watching heroic dramatic clips from ancient sports like American football (too violent) and un-American football (too scoreless). They're more inspiring than you'd have guessed!"	edutainment storefront	0
+"whenwewin"	"230"	6205	5739	1	"planning for post-victory"	"You learn the optimum amount of planning in advance so you're actually confident, but not overconfident. You're confident you understand, but not too confident."	edutainment storefront	0
+"whine"	"140"	6260	3	0	"learning to complain right"	"You learn the best subtleties in voice inflection when working on, err, with individuals, small crowds, or large crowds. It seems so obvious now!"	edutainment storefront	0
+"wise"	"C2B"	6317	0	0	"general smartitude"	"You learn not only generalities to make you feel clever but generalities to make you seem clever to others! Oh boy!"	edutainment storefront	0
+"wushu"	"114"	5958	5	0	"martial arts"	"You hear some blather about martial arts, not a sport, or some game that requires no mental commitment."	edutainment storefront	0
 
 table of education yay
 count	comment
@@ -86,27 +86,27 @@ count	comment
 chapter supplies (scenario 3)
 
 table of supplies
-tally (text)	talnum	descrip (text)	foundit (text)	what-drops	found
-"desks"	52191	"boring office stuff"	"Well, we all need desks. Desks just aren't exciting. Maybe they can fold up, or have weird shapes, or even have cool drawers. But they're never exciting. At least they're ergonomic and space-efficient these days."	dusty warehouse	0
-"dishes"	571621	"something to eat on"	"Wow! All kinds of dishes! They're all biodegradable, too. They're a bit ugly, but you can't have everything. In a pinch, they can also be broken and thrown as weapons. Not very good weapons, but better than nothing."	beaten-up store	0
-"disused"	5714125	"abandoned place to hide and plot"	"Shadow groups can always use a good disused place. Until it gets too dis-dis-used."	abandoned shed	0
-"hens"	6201	"egg farms"	"Well, organic farms are always good. You'll need lots of food. Eggs have always been good and cheap."	fake barn	0
-"hides"	67521	"warm weather clothing"	"Actually, most weather is warmer than it was years ago, but humans['] bodies adapted to be faster and leaner, so they need warm clothes well above freezing now."	upscale store	0
-"juju"	8484	"occult help (or can't-hurt)"	"Juju may not be effective, but it brings people together, and it feels fun. Especially because you get to slap a drum around a bit, and stab a doll representing the Mayor-Overlord."	dusty warehouse	0
-"junk"	8409	"not their treasure"	"You find all kinds of cool junk here. Some was being saved for the right customer--someone who could make anything out of junk. Like people back at headquarters."	beaten-up store	0
-"kiwis"	97371	"fruit"	"Oh, hey! It's the genetically modified kind where you don't have to pit the ends out! With edible stickers! Well, everything has edible stickers, but you're a sticker connoiseur."	grocery store	0
-"nines"	7021	"super swank clothes"	"Of course, none of the rebels would own any of this for themselves. But it's still fun to have the chance to wear stuff like this, once. You notice a tag: please shower immediately before and after wearing."	upscale store	0
-"nukes"	4921	"only if we're desperate or MAD"	"Fortunately, you can't just trip over a nuke and set it off. But unfortunately, every good subversive organization has to have one, even the nonviolent ones. Especially the nonviolents!"	abandoned shed	0
-"sheds"	16251	"storage"	"A fellow named Arthur makes a purchase ahead of you and gets far too excited he has three now, so people can stop laughing at him."	abandoned shed	0
-"skein"	19270	"more yarn than we'll ever need"	"All types and colors of yarn here--synthetic, real, thick, thin."	upscale store	0
-"skunks"	194091	"stink bomb raw materials"	"Organic chemists have still not found anything as offensive yet harmless as a skunk scent. Someone proved the near-impossibility of that back in 2150, but people still try."	fake barn	0
-"swine"	13702	"porcine stuff"	"It doesn't smell too good in here, and you've never been able to reconcile that with just how good bacon smells. Or you remember bacon smells. Which is even better than bacon bits!"	fake barn	0
-"undies"	405721	"unseeable wearables"	"All sizes of underwear! All clean! The underwear is recycled from holey socks, and the holey underwear will be recycled back into socks. The circle of life!"	beaten-up store	0
-"unhewn"	406230	"rock to carve"	"You're not sure how the big dolmen or menhir or whatever i's going to be teleported back to headquarters--there's still a weight limit, though it's higher than it needs to be--or why it's here. But, you're in execution, not planning."	dusty warehouse	0
-"unis"	4071	"clothes to have pride in"	"Man! These uniforms look spiffy. You're a bit worried they'd kind of expose the revolution, but--they're reversible into plain and boring! Woo!"	dusty warehouse	0
-"win"	370	"stupid pro-government buttons for cover"	"'So! Ready to whip inflation now?' The--the guy seems serious. You look horrified. 'Ah, good, just a test. If that didn't upset you, you might be one of the bad guys.'"	dusty warehouse	0
-"wines"	37021	"alcoholic beverages"	"Oh man! Not just the freeze-dried stuff, but the really bubbly stuff!"	beaten-up store	0
-"wishes"	371621	"stuff to look forward to"	"You look down at your list. 'Yes,' you think to yourself. '[if score > 18]Celebrating with the people hidden inside[else]A few of these[end if] will be more fun to go through than this one.'"	surprisingly churchy looking place	0
+tally (text)	cityloc	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
+"desks"	"DA1"	8381	2	0	"boring office stuff"	"Well, we all need desks. Desks just aren't exciting. Maybe they can fold up, or have weird shapes, or even have cool drawers. But they're never exciting. At least they're ergonomic and space-efficient these days."	dusty warehouse	0
+"dishes"	"B5A"	8983	35	0	"something to eat on"	"Wow! All kinds of dishes! They're all biodegradable, too. They're a bit ugly, but you can't have everything. In a pinch, they can also be broken and thrown as weapons. Not very good weapons, but better than nothing."	beaten-up store	0
+"disused"	"D3C"	8981	281	0	"abandoned place to hide and plot"	"Shadow groups can always use a good disused place. Until it gets too dis-dis-used."	abandoned shed	0
+"hens"	"232"	9693	0	0	"egg farms"	"Well, organic farms are always good. You'll need lots of food. Eggs have always been good and cheap."	fake barn	0
+"hides"	"A5A"	10354	2	0	"warm weather clothing"	"Actually, most weather is warmer than it was years ago, but humans['] bodies adapted to be faster and leaner, so they need warm clothes well above freezing now."	upscale store	0
+"juju"	"4DB"	12688	0	0	"occult help (or can't-hurt)"	"Juju may not be effective, but it brings people together, and it feels fun. Especially because you get to slap a drum around a bit, and stab a doll representing the Mayor-Overlord."	dusty warehouse	0
+"junk"	"1D1"	12605	0	0	"not their treasure"	"You find all kinds of cool junk here. Some was being saved for the right customer--someone who could make anything out of junk. Like people back at headquarters."	beaten-up store	0
+"kiwis"	"G1B"	14330	2	0	"fruit"	"Oh, hey! It's the genetically modified kind where you don't have to pit the ends out! With edible stickers! Well, everything has edible stickers, but you're a sticker connoiseur."	grocery store	0
+"nines"	"A3B"	2313	2	0	"super swank clothes"	"Of course, none of the rebels would own any of this for themselves. But it's still fun to have the chance to wear stuff like this, once. You notice a tag: please shower immediately before and after wearing."	upscale store	0
+"nukes"	"BA3"	2049	2	0	"only if we're desperate or MAD"	"Fortunately, you can't just trip over a nuke and set it off. But unfortunately, every good subversive organization has to have one, even the nonviolent ones. Especially the nonviolents!"	abandoned shed	0
+"sheds"	"031"	3548	2	0	"storage"	"A fellow named Arthur makes a purchase ahead of you and gets far too excited he has three now, so people can stop laughing at him."	abandoned shed	0
+"skein"	"D10"	3913	1	0	"more yarn than we'll ever need"	"All types and colors of yarn here--synthetic, real, thick, thin."	upscale store	0
+"skunks"	"ED5"	3928	112	0	"stink bomb raw materials"	"Organic chemists have still not found anything as offensive yet harmless as a skunk scent. Someone proved the near-impossibility of that back in 2150, but people still try."	fake barn	0
+"swine"	"B2B"	3235	3	0	"porcine stuff"	"It doesn't smell too good in here, and you've never been able to reconcile that with just how good bacon smells. Or you remember bacon smells. Which is even better than bacon bits!"	fake barn	0
+"undies"	"B3B"	6850	35	0	"unseeable wearables"	"All sizes of underwear! All clean! The underwear is recycled from holey socks, and the holey underwear will be recycled back into socks. The circle of life!"	beaten-up store	0
+"unhewn"	"423"	6856	45	0	"rock to carve"	"You're not sure how the big dolmen or menhir or whatever i's going to be teleported back to headquarters--there's still a weight limit, though it's higher than it needs to be--or why it's here. But, you're in execution, not planning."	dusty warehouse	0
+"unis"	"B2A"	6866	0	0	"clothes to have pride in"	"Man! These uniforms look spiffy. You're a bit worried they'd kind of expose the revolution, but--they're reversible into plain and boring! Woo!"	dusty warehouse	0
+"win"	"A1B"	573	0	0	"stupid pro-government buttons for cover"	"'So! Ready to whip inflation now?' The--the guy seems serious. You look horrified. 'Ah, good, just a test. If that didn't upset you, you might be one of the bad guys.'"	dusty warehouse	0
+"wines"	"B2B"	6306	2	0	"alcoholic beverages"	"Oh man! Not just the freeze-dried stuff, but the really bubbly stuff!"	beaten-up store	0
+"wishes"	"B40"	6321	35	0	"stuff to look forward to"	"You look down at your list. 'Yes,' you think to yourself. '[if score > 18]Celebrating with the people hidden inside[else]A few of these[end if] will be more fun to go through than this one.'"	surprisingly churchy looking place	0
 
 table of sup yay
 count	comment
@@ -120,27 +120,27 @@ count	comment
 chapter people (scenario 4)
 
 table of marginalized people
-tally (text)	talnum	descrip (text)	foundit (text)	what-drops	found
-"denied"	520725	"folks rejected by society or health plans"	"There are always disgruntled people to bring to a cause."	hovel	0
-"disses"	571121	"comedy insult club"	"Many people here applaud you for getting them to join the fight to freely insult the powerful as well as the poor -- even if you might not be able to formulate an insult yourself."	neon	0
-"djinn"	58700	"bottled up powerful ally"	"You--you don't really believe in magic. But still, that smoky looking bottle has got to help someone. You just hope whoever uses it is up on their wishing theory and doesn't get rooked."	warehouse	0
-"dukes"	54921	"right neighborly fellers from Kentucky"	"Hoo-wee! You learn some good lessons about loving your oppressive neighbors, knowing it could be worse, but not fearing what could be worse. You aren't so big on owning an orange vehicle, or that flag on the side of it, though."	fake barn	0
-"hunks"	64091	"guys unnecessarily muscular"	"If you're muscular and don't have a physical job and aren't in the army, Fourdiopolis frowns on that. Sure, it's not illegal...but...it's even worse if you keep your body AND mind in shape just for your own sake."	gymnasium	0
-"huns"	6401	"allegedly barbarous, but we can't all be gentle"	"You need some people who have, sadly, been pigeonholed for their ancestry. They know others have it worse, but still..." 	hovel	0
-"hussies"	6411721	"unfairly labeled women"	"Oh, sure, men get boxed in for talking back. It just still seems to happen more frequently to women. And these women would like to change that."	hovel	0
-"indies"	705721	"non-mainstream art"	"You persuade the people here that their art will get more exposure with the Fourdiopolis power structure down. But don't worry, you won't become totally mainstream!"	hovel	0
-"inked"	70925	"tattooed tough guys"	"Tattoos are illegal now unless they're government-enforced. Okay, if you manage to hide them certain places...but some people have had enough."	warehouse	0
-"jedi"	8257	"star wars fans"	"You learn some cool mind tricks, like melding concentration and intuition, and some awesome classic movie trivia. It's sad that people can't enjoy their own favorite movies."	movie house	0
-"jejune"	828402	"political pranksters"	"You run into people who want to commit political pranks in support of being able to commit more political pranks. It's sure better than power for power's sake."	hovel	0
-"jeune"	82402	"young idealistic foreigners"	"Kids from another land talk about all the stuff they don't have to beg for. You almost feel guilty wanting it, too."	tiny schoolhouse	0
-"junkies"	8409721	"people hooked on caffeine NOT from overpriced coffee"	"Apparently there is a whole repository of places to get caffeine. All kinds of rainbow colored pop! And worse, Well, that certainly seems worth fighting for."	hovel	0
-"kids"	9751	"useful idealists"	"Some kids aren't 'practical' enough to accept the reality of life in Fourdiopolis. Their views are refreshing. They remind you of questions you had and thought you, or society, answered or dismissed. And if not all the questions are worth asking, there are a lot of really big ones."	tiny schoolhouse	0
-"kink"	9709	"illicit pleasure joint"	"Oh dear! You're not sure what's going on here. You're not sure you want to look. But these people are pro-freedom, for sure. You gain a few recruits."	warehouse	0
-"ninnies"	700721	"disparaged as stupid"	"Wow! You're impressed. Some people make a bad first impression because they don't seem as smart as they should...[italic type]but they have spent more time becoming smart than looking smart[r]. Wow!"	hovel	0
-"sheikhs"	1627961	"foreign aid"	"The geopolitical blah blah has people from foreign countries under the thumb of city-states like Fourdiopolis. They have power in their own country--but they're concerned emigrants to Fourdiopolis have been treated poorly."	hovel	0
-"sike"	1792	"purveyors of annoying slang"	"All annoying slang eventually becomes cool again. And besides, it might annoy the right people, done right. You learn a bit from them."	hovel	0
-"snide"	10752	"beyond confidence"	"These people aren't arrested for being snide but for being snide about the wrong things. No--no, they're being snide about the right things, right? You're pretty convinced by this. They're less obnoxious than government propaganda, and sometimes it's not enough to say 'It's not fair.'"	hovel	0
-"swiss"	13711	"people totally not neutral any more"	"Fourdiopolis officials have played the game of 'oh, even neutral people can see we're right...' but here are some neutral people who feel differently!"	hovel	0
+tally (text)	cityloc	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
+"denied"	"A4D"	8368	39	0	"folks rejected by society or health plans"	"There are always disgruntled people to bring to a cause."	hovel	0
+"disses"	"E3C"	8978	35	0	"comedy insult club"	"Many people here applaud you for getting them to join the fight to freely insult the powerful as well as the poor -- even if you might not be able to formulate an insult yourself."	neon	0
+"djinn"	"20E"	9164	1	0	"bottled up powerful ally"	"You--you don't really believe in magic. But still, that smoky looking bottle has got to help someone. You just hope whoever uses it is up on their wishing theory and doesn't get rooked."	warehouse	0
+"dukes"	"CA2"	8704	2	0	"right neighborly fellers from Kentucky"	"Hoo-wee! You learn some good lessons about loving your oppressive neighbors, knowing it could be worse, but not fearing what could be worse. You aren't so big on owning an orange vehicle, or that flag on the side of it, though."	fake barn	0
+"hunks"	"005"	9943	2	0	"guys unnecessarily muscular"	"If you're muscular and don't have a physical job and aren't in the army, Fourdiopolis frowns on that. Sure, it's not illegal...but...it's even worse if you keep your body AND mind in shape just for your own sake."	gymnasium	0
+"huns"	"223"	9935	0	0	"allegedly barbarous, but we can't all be gentle"	"You need some people who have, sadly, been pigeonholed for their ancestry. They know others have it worse, but still..." 	hovel	0
+"hussies"	"C51"	9946	1003	0	"unfairly labeled women"	"Oh, sure, men get boxed in for talking back. It just still seems to happen more frequently to women. And these women would like to change that."	hovel	0
+"indies"	"D5E"	10843	35	0	"non-mainstream art"	"You persuade the people here that their art will get more exposure with the Fourdiopolis power structure down. But don't worry, you won't become totally mainstream!"	hovel	0
+"inked"	"C1A"	10882	6	0	"tattooed tough guys"	"Tattoos are illegal now unless they're government-enforced. Okay, if you manage to hide them certain places...but some people have had enough."	warehouse	0
+"jedi"	"01E"	12416	0	0	"star wars fans"	"You learn some cool mind tricks, like melding concentration and intuition, and some awesome classic movie trivia. It's sad that people can't enjoy their own favorite movies."	movie house	0
+"jejune"	"5BC"	12446	14	0	"political pranksters"	"You run into people who want to commit political pranks in support of being able to commit more political pranks. It's sure better than power for power's sake."	hovel	0
+"jeune"	"30A"	12398	3	0	"young idealistic foreigners"	"Kids from another land talk about all the stuff they don't have to beg for. You almost feel guilty wanting it, too."	tiny schoolhouse	0
+"junkies"	"BAA"	12605	1003	0	"people hooked on caffeine NOT from overpriced coffee"	"Apparently there is a whole repository of places to get caffeine. All kinds of rainbow colored pop! And worse, Well, that certainly seems worth fighting for."	hovel	0
+"kids"	"E0A"	14346	0	0	"useful idealists"	"Some kids aren't 'practical' enough to accept the reality of life in Fourdiopolis. Their views are refreshing. They remind you of questions you had and thought you, or society, answered or dismissed. And if not all the questions are worth asking, there are a lot of really big ones."	tiny schoolhouse	0
+"kink"	"EB2"	14299	0	0	"illicit pleasure joint"	"Oh dear! You're not sure what's going on here. You're not sure you want to look. But these people are pro-freedom, for sure. You gain a few recruits."	warehouse	0
+"ninnies"	"B5D"	2311	1003	0	"disparaged as stupid"	"Wow! You're impressed. Some people make a bad first impression because they don't seem as smart as they should...[italic type]but they have spent more time becoming smart than looking smart[r]. Wow!"	hovel	0
+"sheikhs"	"B54"	3550	1289	0	"foreign aid"	"The geopolitical blah blah has people from foreign countries under the thumb of city-states like Fourdiopolis. They have power in their own country--but they're concerned emigrants to Fourdiopolis have been treated poorly."	hovel	0
+"sike"	"E10"	3743	0	0	"purveyors of annoying slang"	"All annoying slang eventually becomes cool again. And besides, it might annoy the right people, done right. You learn a bit from them."	hovel	0
+"snide"	"B3C"	2877	3	0	"beyond confidence"	"These people aren't arrested for being snide but for being snide about the wrong things. No--no, they're being snide about the right things, right? You're pretty convinced by this. They're less obnoxious than government propaganda, and sometimes it's not enough to say 'It's not fair.'"	hovel	0
+"swiss"	"E1B"	3236	2	0	"people totally not neutral any more"	"Fourdiopolis officials have played the game of 'oh, even neutral people can see we're right...' but here are some neutral people who feel differently!"	hovel	0
 
 table of people yay
 count	comment
@@ -154,27 +154,27 @@ count	comment
 chapter stuff table (scenario 5)
 
 table of just plain cool stuff [toj]
-tally (text)	talnum	descrip (text)	foundit (text)	what-drops	found
-"dunks"	54091	"basketball show #1"	"Oh man! The old ten-foot rims are cheating a bit, but it's still fun to watch. You forget when dunking was outlawed on national television, or why, or when Basketball Drones overtook Basketball Jones."	gymnasium	0
-"dusk"	5419	"a beautiful sunset, or a close enough rendition"	"Oh wow! That's beautiful! You catch yourself thinking what range of RGB colors is in the sunset, before realizing you're missing the point."	climate-controlled building	0
-"hisses"	671121	"snake exhibit"	"Well, not all snakes are poisonous, though the ones outside of cities are. Still, it's neat to see. For free. I mean, there are zoos and private forest preserves, but it'd be neat to have this."	fake barn	0
-"huskies"	6419721	"cool dogs"	"Pet ownership isn't really a thing any more. The planet is eating up resources fast enough!"	fake barn	0
-"husks"	64191	"corn and its uses"	"So many recipes and things to do with corn are secret now. Or you are arrested if the government catches you without paying a recycling tax. You've seen a lot before, but it's good to see people doing so almost out in the open."	fake barn	0
-"inn"	700	"old fashioned hospitality"	"There are plenty of cheap places to eat if you finish your food within five minutes, but you enjoy just sitting and...oops, other people are waiting. It's been a half-hour."	cozy place with a neon sign	0
-"kisses"	971121	"love for all"	"You don't have time for this, but it's nice to see people not being charged for a cuddle or whatever."	cozy place with a neon sign	0
-"newsdesk"	2315219	"old propaganda center"	"It's fun to laugh at the old stuff. Even though, really, the new stuff is just the old stuff packaged up better. It's hard to remember, though, with how flashy it is."	museum	0
-"sheesh"	162216	"silliness"	"Even nonsense has been formulated as optionally enjoyable these days. And it's hard to break from that formula, or break from the formula to break from the formula. You just let it all out here. And you feel you helped others do so, too, somehow."	cozy place with a neon sign	0
-"shininess"	167070211	"pretty and bright"	"Life is dingy, except for commercials. It's nice to see something shiny that doesn't make you feel indebted."	museum	0
-"skinks"	197091	"cool odd animals"	"Apparently there are going to be new species in the wild by 2400. You don't have that long, even with increased life expectancy. Fortunately, enough weird ones are still left."	fake barn	0
-"skis"	1971	"fake snow, no fake fun"	"You spend fifteen minutes in a weird tumbling machine with little white flakes coming down on you. They'll be back in ten years, people say, once the anti-global warming measures come back. But some skeptics worry the temperature will keep dropping, and that's not good."	climate-controlled building	0
-"sunk"	1409	"replica of the Titanic"	"Such splendor, despite a song playing in the background that makes you cringe."	museum	0
-"sunshine"	14016702	"general cheeriness"	"There are lucky places on the sides and edges of Fourdiopolis where you can get sun. Maybe you can sneak back to the center from a teleport, or teleport out to get there. But it's risky! Here, well, the miracles of optics let you get real sunlight without the UV rays."	climate-controlled building	0
-"swish"	13716	"basketball show #2"	"Here, unathletic people drain twenty three-pointers in a row, or a hundred free-throws, and laugh about how their favorite players can't to the same."	gymnasium	0
-"unwind"	403705	"where and how to relax"	"Oh my goodness! A chair that leans back? And it's comfy and ergonomic? And just anyone can sit in it? And they don't have to do hard thinking work? Why? Just because? Well, okay..."	cozy place with a neon sign	0
-"weekend"	3229205	"(former) time of rest"	"You imagine having two whole days of getting paid without doing anything--per week! Not that you have two whole days, now. You only remember being fined for not taking vacation because maybe you were trying to guilt trip your employers. But it seems a bit less awful now."	cozy place with a neon sign	0
-"whee"	3622	"fun fun fun"	"Hyperspace technology allows roller coasters to fit in a very small space indeed."	cozy place with a neon sign	0
-"whinnies"	36700721	"horsies"	"The horses look a bit sad, as if they'd like somewhere to run. But they nuzzle you and all that. What if there were places they could walk around more? Places everyone could still see them?"	fake barn	0
-"winks"	37091	"flirty place"	"Of course there are mating rituals, but there's a certain amount of rigor in them. You get looekd at funny if you break too many rules. But here, a wink needs no excuses. It's not just about romantic stuff, either."	cozy place with a neon sign	0
+tally (text)	cityloc	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
+"dunks"	"BB2"	8612	2	0	"basketball show #1"	"Oh man! The old ten-foot rims are cheating a bit, but it's still fun to watch. You forget when dunking was outlawed on national television, or why, or when Basketball Drones overtook Basketball Jones."	gymnasium	0
+"dusk"	"CB2"	8623	0	0	"a beautiful sunset, or a close enough rendition"	"Oh wow! That's beautiful! You catch yourself thinking what range of RGB colors is in the sunset, before realizing you're missing the point."	climate-controlled building	0
+"hisses"	"C50"	10309	35	0	"snake exhibit"	"Well, not all snakes are poisonous, though the ones outside of cities are. Still, it's neat to see. For free. I mean, there are zoos and private forest preserves, but it'd be neat to have this."	fake barn	0
+"huskies"	"D33"	9954	1003	0	"cool dogs"	"Pet ownership isn't really a thing any more. The planet is eating up resources fast enough!"	fake barn	0
+"husks"	"B05"	9954	2	0	"corn and its uses"	"So many recipes and things to do with corn are secret now. Or you are arrested if the government catches you without paying a recycling tax. You've seen a lot before, but it's good to see people doing so almost out in the open."	fake barn	0
+"inn"	"02B"	980	0	0	"old fashioned hospitality"	"There are plenty of cheap places to eat if you finish your food within five minutes, but you enjoy just sitting and...oops, other people are waiting. It's been a half-hour."	cozy place with a neon sign	0
+"kisses"	"G10"	14302	35	0	"love for all"	"You don't have time for this, but it's nice to see people not being charged for a cuddle or whatever."	cozy place with a neon sign	0
+"newsdesk"	"CA1"	1740	8381	0	"old propaganda center"	"It's fun to laugh at the old stuff. Even though, really, the new stuff is just the old stuff packaged up better. It's hard to remember, though, with how flashy it is."	museum	0
+"sheesh"	"264"	3545	29	0	"silliness"	"Even nonsense has been formulated as optionally enjoyable these days. And it's hard to break from that formula, or break from the formula to break from the formula. You just let it all out here. And you feel you helped others do so, too, somehow."	cozy place with a neon sign	0
+"shininess"	"C7B"	3598	10804	2	"pretty and bright"	"Life is dingy, except for commercials. It's nice to see something shiny that doesn't make you feel indebted."	museum	0
+"skinks"	"GB2"	3961	112	0	"cool odd animals"	"Apparently there are going to be new species in the wild by 2400. You don't have that long, even with increased life expectancy. Fortunately, enough weird ones are still left."	fake barn	0
+"skis"	"F00"	3962	0	0	"fake snow, no fake fun"	"You spend fifteen minutes in a weird tumbling machine with little white flakes coming down on you. They'll be back in ten years, people say, once the anti-global warming measures come back. But some skeptics worry the temperature will keep dropping, and that's not good."	climate-controlled building	0
+"sunk"	"BB3"	3288	0	0	"replica of the Titanic"	"Such splendor, despite a song playing in the background that makes you cringe."	museum	0
+"sunshine"	"051"	3280	10299	0	"general cheeriness"	"There are lucky places on the sides and edges of Fourdiopolis where you can get sun. Maybe you can sneak back to the center from a teleport, or teleport out to get there. But it's risky! Here, well, the miracles of optics let you get real sunlight without the UV rays."	climate-controlled building	0
+"swish"	"B30"	3236	7	0	"basketball show #2"	"Here, unathletic people drain twenty three-pointers in a row, or a hundred free-throws, and laugh about how their favorite players can't to the same."	gymnasium	0
+"unwind"	"01B"	6828	17	0	"where and how to relax"	"Oh my goodness! A chair that leans back? And it's comfy and ergonomic? And just anyone can sit in it? And they don't have to do hard thinking work? Why? Just because? Well, okay..."	cozy place with a neon sign	0
+"weekend"	"A01"	5730	380	0	"(former) time of rest"	"You imagine having two whole days of getting paid without doing anything--per week! Not that you have two whole days, now. You only remember being fined for not taking vacation because maybe you were trying to guilt trip your employers. But it seems a bit less awful now."	cozy place with a neon sign	0
+"whee"	"232"	6207	0	0	"fun fun fun"	"Hyperspace technology allows roller coasters to fit in a very small space indeed."	cozy place with a neon sign	0
+"whinnies"	"A6B"	6260	2334	0	"horsies"	"The horses look a bit sad, as if they'd like somewhere to run. But they nuzzle you and all that. What if there were places they could walk around more? Places everyone could still see them?"	fake barn	0
+"winks"	"DA0"	6313	2	0	"flirty place"	"Of course there are mating rituals, but there's a certain amount of rigor in them. You get looekd at funny if you break too many rules. But here, a wink needs no excuses. It's not just about romantic stuff, either."	cozy place with a neon sign	0
 
 table of stuff yay
 count	comment
@@ -188,46 +188,43 @@ count	comment
 chapter final table
 
 table of last names [tol]
-tally (text)	talnum	descrip (text)	foundit (text)	what-drops	found
-"dejesus"	5282141	"Spanish"	"[mark-away]."	suspiciously ordinary door	0
-"deneke"	520292	"German"	"[mark-away]."	suspiciously ordinary door	0
-"dinh"	5706	"Vietnamese"	"[mark-away]."	suspiciously ordinary door	0
-"dinwiddie"	570375572	"Scottish"	"[mark-away]."	suspiciously ordinary door	0
-"dudek"	54529	"Polish"	"[mark-away]."	suspiciously ordinary door	0
-"eddins"	255701	"None"	"[mark-away]."	suspiciously ordinary door	0
-"ennis"	20071	"Not their 1st name"	"[mark-away]."	suspiciously ordinary door	0
-"eskew"	21923	"None"	"[mark-away]."	suspiciously ordinary door	0
-"heineken"	62702920	"Boozy Dutch type"	"You leave a note about how they're so bad at legislating, they might be worse sober."	suspiciously ordinary door	0
-"henke"	62092	"None"	"[mark-away]."	suspiciously ordinary door	0
-"hess"	6211	"German"	"'You'd better believe you made a heck of a mess,' you write, among other things."	suspiciously ordinary door	0
-"hines"	67021	"Only 57% voted for"	"[mark-away]."	suspiciously ordinary door	0
-"hsieh"	61726	"Chinese"	"[mark-away]."	suspiciously ordinary door	0
-"hsu"	614	"Chinese"	"[mark-away]."	suspiciously ordinary door	0
-"huish"	64716	"Welsh"	"[mark-away]."	suspiciously ordinary door	0
-"hussein"	6411270	"Arabic"	"You get very good mileage indeed writing up a screed with ten different ways to say 'at least you aren't as bad as...' You're worried how easy it is."	suspiciously ordinary door	0
-"ishii"	71677	"Japanese"	"With no idea how true it is, you mention that this politician is even more 'I, I, I' than most."	suspiciously ordinary door	0
-"jenkins"	8209701	"Disruptor"	"As you write up some absurd threat, you can't help but sign your name LEEROY, though you aren't silly enough to try to bust in."	suspiciously ordinary door	0
-"jensen"	820120	"Swedish"	"[mark-away]."	suspiciously ordinary door	0
-"keese"	92212	"None"	"Oh, wait, look. There's a weird pixelated bird on the door! As you make your mark, you reflect on the people keeping Fourdiopolis in the past under the guise of sticking with basics."	suspiciously ordinary door	0
-"knudsen"	9045120	"Danish"	"[mark-away]."	suspiciously ordinary door	0
-"kuhn"	9460	"German"	"[mark-away]."	suspiciously ordinary door	0
-"neeskens"	2219201	"Dutch"	"You feel an urge to mock this person's athletic ability and deride them as constantly second-best."	suspiciously ordinary door	0
-"nhek"	629	"Cambodian"	"[mark-away]"	suspiciously ordinary door	0
-"niesen"	72120	"Scandinavian"	"[mark-away]."	suspiciously ordinary door	0
-"nijinski"	7870197	"Polish/Russian"	"You write something about how this person is particularly good at dancing around issues, until they aren't. Booyah!"	suspiciously ordinary door	0
-"nweke"	3292	"Nigerian"	"You write something about how things fall apart in simple, powerful, no-nonsense language."	suspiciously ordinary door	0
-"sheen"	16220	"WINNING"	"As much as you distrust politicians who talk about winning, the alternative is...worse? This guy was particularly outrageous, you remember now. Entertaining, but outrageous."	suspiciously ordinary door	0
-"sisk"	1719	"None"	"[mark-away]."	suspiciously ordinary door	0
-"sundin"	140570	"Swedish"	"[mark-away]."	suspiciously ordinary door	0
-"suskind"	1419705	"German"	"[mark-away]."	suspiciously ordinary door	0
-"ueki"	4297	"Japanese, unique"	"[mark-away]. "	suspiciously ordinary door	0
-"weeks"	32291	"takes their time"	"[mark-away]."	suspiciously ordinary door	0
-"weiss"	32711	"German"	"[mark-away]."	suspiciously ordinary door	0
-"whidden"	3675520	"almost too close"	"[mark-away]."	suspiciously ordinary door	0
-"wisniewski"	-1	"Polish"	"As you make your mark, you feel a shudder of Loathing at Wisniewski also being The Man."	suspiciously ordinary door	0
-
-to say mark-away:
-	say "You read through your guidelines on rabble-rousing literature and write up a short screed describing how [text-tally in title case] [one of]is typical of the whole bunch and one of the worst at the same time[or]doesn't care at all, but cares about themselves[or]is both too powerful and yet powerless to change the PEOPLE[or]doesn't understand common people but sure understands how to manipulate them[or]is the worst and yet controlled by even worse people at the same time[in random order]. You add in some bargle about [one of]how they'll get to spend more time with their lovely family soon[or]disgruntled ex-staffers TALK[or]they'll be the first out when people see all the corruption[or]their rags to riches story being a fraud compared to Ed Dunn[or]their lack of, or excessive, charisma is especially galling[or]Embarrassing Facts you know--ones you can't even write down[or]their lack of traditional values and desire to return Fourdiopolis to the 22nd or even 21st century won't stand[or]their [a random number between 85 and 95]% approval rating is a fraud[or]their getting [a random number between 85 and 95]% of the vote is suspicious[in random order]. Any crank can send an email like that, but few people have the guts to DROP BY. You dust your hands off and sneak away"
+tally (text)	cityloc	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
+"dejesus"	"00B"	8451	299	0	"Spanish"	--	suspiciously ordinary door	0
+"deneke"	"A11"	8363	113	0	"German"	--	suspiciously ordinary door	0
+"dinh"	"14A"	8972	0	0	"Vietnamese"	--	suspiciously ordinary door	0
+"dinwiddie"	"E6I"	8969	11448	3	"Scottish"	--	suspiciously ordinary door	0
+"dudek"	"BA1"	8660	10	0	"Polish"	--	suspiciously ordinary door	0
+"eddins"	"B3D"	4793	13	0	"None"	--	suspiciously ordinary door	0
+"ennis"	"A3B"	4133	2	0	"Not their 1st name"	--	suspiciously ordinary door	0
+"eskew"	"CA2"	4348	4	0	"None"	--	suspiciously ordinary door	0
+"heineken"	"052"	9769	5237	0	"Boozy Dutch type"	"You leave a note about how they're so bad at legislating, they might be worse sober."	suspiciously ordinary door	0
+"henke"	"124"	9701	3	0	"None"	--	suspiciously ordinary door	0
+"hess"	"032"	9704	0	0	"German"	"'You'd better believe you made a heck of a mess,' you write, among other things."	suspiciously ordinary door	0
+"hines"	"050"	10299	2	0	"Only 57% voted for"	--	suspiciously ordinary door	0
+"hsieh"	"172"	9650	7	0	"Chinese"	--	suspiciously ordinary door	0
+"hsu"	"123"	874	0	0	"Chinese"	--	suspiciously ordinary door	0
+"huish"	"163"	10012	7	0	"Welsh"	--	suspiciously ordinary door	0
+"hussein"	"A51"	9946	452	0	"Arabic"	"You get very good mileage indeed writing up a screed with ten different ways to say 'at least you aren't as bad as...' You're worried how easy it is."	suspiciously ordinary door	0
+"ishii"	"E8D"	10975	8	0	"Japanese"	"With no idea how true it is, you mention that this politician is even more 'I, I, I' than most."	suspiciously ordinary door	0
+"jenkins"	"AAB"	12363	981	0	"Disruptor"	"As you write up some absurd threat, you can't help but sign your name LEEROY, though you aren't silly enough to try to bust in."	suspiciously ordinary door	0
+"jensen"	"30B"	12355	34	0	"Swedish"	--	suspiciously ordinary door	0
+"keese"	"C12"	13708	3	0	"None"	"Oh, wait, look. There's a weird pixelated bird on the door! As you make your mark, you reflect on the people keeping Fourdiopolis in the past under the guise of sticking with basics."	suspiciously ordinary door	0
+"knudsen"	"AA2"	13492	276	0	"Danish"	--	suspiciously ordinary door	0
+"kuhn"	"105"	13993	0	0	"German"	--	suspiciously ordinary door	0
+"neeskens"	"B12"	1729	13686	0	"Dutch"	"You feel an urge to mock this person's athletic ability and deride them as constantly second-best."	suspiciously ordinary door	0
+"nhek"	"114"	2221	0	0	"Cambodian"	--	suspiciously ordinary door	0
+"niesen"	"A4B"	2334	34	0	"Scandinavian"	--	suspiciously ordinary door	0
+"nijinski"	"E2F"	2406	1691	0	"Polish/Russian"	"You write something about how this person is particularly good at dancing around issues, until they aren't. Booyah!"	suspiciously ordinary door	0
+"nweke"	"AA2"	1858	3	0	"Nigerian"	"You write something about how things fall apart in simple, powerful, no-nonsense language."	suspiciously ordinary door	0
+"sheen"	"242"	3545	1	0	"WINNING"	"As much as you distrust politicians who talk about winning, the alternative is...worse? This guy was particularly outrageous, you remember now. Entertaining, but outrageous."	suspiciously ordinary door	0
+"sisk"	"F00"	3662	0	0	"None"	--	suspiciously ordinary door	0
+"sundin"	"A2B"	3284	89	0	"Swedish"	--	suspiciously ordinary door	0
+"suskind"	"E00"	3299	985	0	"German"	--	suspiciously ordinary door	0
+"ueki"	"D11"	7136	0	0	"Japanese, unique"	--	suspiciously ordinary door	0
+"weeks"	"CA2"	5730	2	0	"takes their time"	--	suspiciously ordinary door	0
+"weiss"	"D2B"	5777	2	0	"German"	--	suspiciously ordinary door	0
+"whidden"	"14B"	6265	760	0	"almost too close"	--	suspiciously ordinary door	0
+"wisniewski"	"I3D"	6315	11057	118	"Polish"	"As you make your mark, you feel a shudder of Loathing at Wisniewski also being The Man."	suspiciously ordinary door	0
 
 table of name yay
 count	comment
@@ -245,13 +242,12 @@ volume nearlies
 [ this is for if you get close, especially early on--mostly reserved for "you should try the plural." ]
 
 to check-nearlies:
+	say "[almosts of cur-scen].";
 	repeat through almosts of cur-scen:
-		if text-tally is tally entry:
+		say "[tally entry] [walk-short-1] [hash1 entry] [walk-short-2] [hash2 entry] [walk-short-3] [hash3 entry].";
+		if walk-short-1 is hash1 entry and walk-short-2 is hash2 entry and walk-short-3 is hash3 entry:
 			unless found-yet of mult entry:
 				now found entry is 1;
-		if text-tally is mult entry:
-			now found entry is 0;
-		break;
 
 to decide whether found-yet of (x - indexed text):
 	repeat through your-table:
@@ -272,151 +268,151 @@ this is the plural-almost rule:
 	the rule succeeds;
 
 table of friend nearlies
-tally	talnum	mult	found	missage
-"jesse"	82112	"jessie"	0	4
-
-table of marginalized nearlies
-tally	talnum	mult	found	missage
-"dis"	571	"disses"	0	3
-"duke"	5492	"dukes"	0	1
-"hunk"	6409	"hunks"	0	1
-"indie"	70572	"indies"	0	1
-"junkie"	840972	"junkies"	0	1
-"kid"	975	"kids"	0	1
-"sheikh"	162796	"sheikhs"	0	1
+tally	hash1	hash2	hash3	mult	found	missage
+"jesse"	12366	3	0	"jessie"	0	4
 
 table of education nearlies
-tally	talnum	mult	found	missage
-"hijink"	678709	"hijinks"	0	1
-"hike"	6792	"hikes"	0	1
-"issue"	71142	"issues"	0	1
-"sine"	1702	"sines"	0	1
-"sin"	170	"sins"	0	1
+tally	hash1	hash2	hash3	mult	found	missage
+"hijink"	10392	21	0	"hijinks"	0	1
+"hike"	10398	0	0	"hikes"	0	1
+"issue"	10917	3	0	"issues"	0	1
+"sine"	3644	0	0	"sines"	0	1
+"sin"	331	0	0	"sins"	0	1
 
 table of supplies nearlies
-tally	talnum	mult	found	missage
-"desk"	5219	"desks"	0	1
-"dish"	5716	"dishes"	0	2
-"hen"	620	"hens"	0	1
-"kiwi"	9737	"kiwis"	0	1
-"nuke"	492	"nukes"	0	1
-"shed"	1625	"sheds"	0	1
-"skunk"	19409	"skunks"	0	1
-"undie"	40572	"undies"	0	1
-"wine"	3702	"wines"	0	1
-"wish"	3716	"wishes"	0	2
+tally	hash1	hash2	hash3	mult	found	missage
+"desk"	8381	0	0	"desks"	0	1
+"dish"	8983	0	0	"dishes"	0	2
+"hen"	881	0	0	"hens"	0	1
+"kiwi"	14330	0	0	"kiwis"	0	1
+"nuke"	2049	0	0	"nukes"	0	1
+"shed"	3548	0	0	"sheds"	0	1
+"skunk"	3928	10	0	"skunks"	0	1
+"undie"	6850	3	0	"undies"	0	1
+"wine"	6306	0	0	"wines"	0	1
+"wish"	6321	0	0	"wishes"	0	2
+
+table of people nearlies
+tally	hash1	hash2	hash3	mult	found	missage
+"dis"	816	0	0	"disses"	0	3
+"duke"	8704	0	0	"dukes"	0	1
+"hunk"	9943	0	0	"hunks"	0	1
+"indie"	10843	3	0	"indies"	0	1
+"junkie"	12605	91	0	"junkies"	0	1
+"kid"	1304	0	0	"kids"	0	1
+"sheikh"	3550	117	0	"sheikhs"	0	1
 
 table of cool stuff nearlies
-tally	talnum	mult	found	missage
-"dunk"	5409	"dunks"	0	1
-"hiss"	6711	"hisses"	0	2
-"husk"	6419	"husks"	0	1
-"husk"	6419	"huskies"	0	3
-"kiss"	9711	"kisses"	0	2
-"shine"	16702	"shininess"	0	4
-"skink"	19709	"skinks"	0	1
-"ski"	197	"skis"	0	1
-"wink"	3709	"winks"	0	1
+tally	hash1	hash2	hash3	mult	found	missage
+"dunk"	8612	0	0	"dunks"	0	1
+"hiss"	10309	0	0	"hisses"	0	2
+"husk"	9954	0	0	"husks"	0	1
+"husk"	9954	0	0	"huskies"	0	3
+"kiss"	14302	0	0	"kisses"	0	2
+"shine"	3598	3	0	"shininess"	0	4
+"skink"	3961	10	0	"skinks"	0	1
+"ski"	360	0	0	"skis"	0	1
+"wink"	6313	0	0	"winks"	0	1
 
 volume tables of scenery
 
 [these are divided up by length to save processing time. When you've made X moves, you only check Table of Scenery X. This is all quite optional.]
 
 table of scenery 3 [tosc]
-tally (text)	talnum	descrip (text)	foundit (text)	what-drops	found
-"die"	572	"sacrifice yourself"	"Assisted suicide is more rigorous than in Threediopolis. The Death Panels there (not the healthcare kind) give punditary views before you pegged out, concluding thoughts of profundity before the void. Here, you have surveys...questionnaires...what would you do better? What do you think authorities would do better? Now, now, answer, don't try to beg for the juice and cookies over there. They are not for you (really, you should've PLANNED something as important as a last meal, because there wsn't much TO plan) but for the people working hard here who will NEED the nourishment."	ominous door	0
-"duh"	546	--	"Oh, man! You can't believe you missed THAT one. It's obvious now!"	--	0
-"dui"	547	--	"A robot-police runs by and grabs a breath-sample from the air in front of you. 'Proceed,' it says. Hmm.'"	--	0
-"eek"	229	--	"Someone tells a scary story for effect and, well, gets the effect they want."	--	0
-"hhh"	666	"Triple H"	"Someone threatens to bodyslam another person for being utterly evil. Then--bam! You see they actually do! Someone whispers to you, don't worry, it's fake, just entertainment. What is the world coming to?"	--	0
-"kkk"	999	"bad bad people"	"Everyone around here just really, really sucks at life. What else can I say?"	--	0 [super extra double for this vs another k word but here there's an opportunity to laugh at people a bit I hope]
+tally (text)	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
+"die"	817	0	0	"sacrifice yourself"	"Assisted suicide is more rigorous than in Threediopolis. The Death Panels there (not the healthcare kind) give punditary views before you pegged out, concluding thoughts of profundity before the void. Here, you have surveys...questionnaires...what would you do better? What do you think authorities would do better? Now, now, answer, don't try to beg for the juice and cookies over there. They are not for you (really, you should've PLANNED something as important as a last meal, because there wsn't much TO plan) but for the people working hard here who will NEED the nourishment."	ominous door	0
+"duh"	788	0	0	--	"Oh, man! You can't believe you missed THAT one. It's obvious now!"	--	0
+"dui"	789	0	0	--	"A robot-police runs by and grabs a breath-sample from the air in front of you. 'Proceed,' it says. Hmm.'"	--	0
+"eek"	406	0	0	--	"Someone tells a scary story for effect and, well, gets the effect they want."	--	0
+"hhh"	931	0	0	"Triple H"	"Someone threatens to bodyslam another person for being utterly evil. Then--bam! You see they actually do! Someone whispers to you, don't worry, it's fake, just entertainment. What is the world coming to?"	--	0
+"kkk"	1330	0	0	"bad bad people"	"Everyone around here just really, really sucks at life. What else can I say?"	--	0 [super extra double for this vs another k word but here there's an opportunity to laugh at people a bit I hope]
 
 table of scenery 4 [tosc4]
-tally (text)	talnum	descrip (text)	foundit (text)	what-drops	found
-"deke"	5292	--	"You wonder if you faked yourself out going this way."	--	0
-"didi"	5757	"Urkel"	"A fellow with oversized glasses and suspenders runs into you, shrugs his shoulders, denies any fault, snort-laughs and then runs away."	--	0
-"dike"	5792	--	"In this blocked-off area, people talk about the city water supply."	--	0
-"dink"	5709	--	"You're hit by a very very soft nerf ball that runs away. Hmm."	--	0
-"ehhs"	2661	--	"People keep asking fellow conversers to repeat themselves, here."	--	0
-"heed"	6225	--	"Some police give a particularly stern lecture to a citizen not fully obeying some minor law."	--	0
-"hues"	6421	--	"The local color is particularly vibrant in this neighborhood."	--	0
-"hush"	6416	--	"Unusually quiet here."	--	0
-"ides"	7521	--	"An organized march nearby leaves you feeling wary."	--	0
-"juke"	8492	--	"Someone walking towards you tries to get out of your way, and you do the same. But you both pick the same way to go, several times. Awkward!"	--	0
-"keds"	9251	--	"[snee]."	--	0
-"kwik"	9379	--	"You can just hear the bad spelling as people with more willpower than abstract knowledge exercise their authority."	--	0
-"nike"	792	--	"[snee]."	--	0
-"seek"	1229	--	"You spy someone else with a sheet similar to yours. You don't acknowledge them, though. Can't be too careful."	--	0
-"shun"	1640	--	"You feel very, very alone. People are more than just giving you your space."	--	0
-"uhhs"	4661	--	"Conversation feels a bit slower and dumber than usual for Fourdiopolis, for a second here."	--	0
-"uuid"	4475	--	"You are suddenly unable to get the hexadecimal number [b][uuid][r] out of your head!"	--	0
-"whew"	3623	--	"You just barely escaped something, there! You don't know what, but it would've been pretty bad."	--	0
-"wiki"	3797	--	"You suddenly have an urge to look up some term and follow a chain to all sorts of odd knowledge you may never use but it'll be fun."	--	0
-"wind"	3705	--	"You're almost blown off your feet for a second. Air currents in Fourdiopolis are weird--there's no PROOF the government controls them, but..."	--	0
+tally (text)	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
+"deke"	8462	0	0	--	"You wonder if you faked yourself out going this way."	--	0
+"didi"	9028	0	0	"Urkel"	"A fellow with oversized glasses and suspenders runs into you, shrugs his shoulders, denies any fault, snort-laughs and then runs away."	--	0
+"dike"	9067	0	0	--	"In this blocked-off area, people talk about the city water supply."	--	0
+"dink"	8975	0	0	--	"You're hit by a very very soft nerf ball that runs away. Hmm."	--	0
+"ehhs"	4919	0	0	--	"People keep asking fellow conversers to repeat themselves, here."	--	0
+"heed"	9719	0	0	--	"Some police give a particularly stern lecture to a citizen not fully obeying some minor law."	--	0
+"hues"	9957	0	0	--	"The local color is particularly vibrant in this neighborhood."	--	0
+"hush"	9951	0	0	--	"Unusually quiet here."	--	0
+"ides"	11409	0	0	--	"An organized march nearby leaves you feeling wary."	--	0
+"juke"	12697	0	0	--	"Someone walking towards you tries to get out of your way, and you do the same. But you both pick the same way to go, several times. Awkward!"	--	0
+"keds"	13741	0	0	--	"[snee]."	--	0
+"kwik"	13892	0	0	--	"You can just hear the bad spelling as people with more willpower than abstract knowledge exercise their authority."	--	0
+"nike"	2412	0	0	--	"[snee]."	--	0
+"seek"	3068	0	0	--	"You spy someone else with a sheet similar to yours. You don't acknowledge them, though. Can't be too careful."	--	0
+"shun"	3565	0	0	--	"You feel very, very alone. People are more than just giving you your space."	--	0
+"uhhs"	7581	0	0	--	"Conversation feels a bit slower and dumber than usual for Fourdiopolis, for a second here."	--	0
+"uuid"	7354	0	0	--	"You are suddenly unable to get the hexadecimal number [b][uuid][r] out of your head!"	--	0
+"whew"	6208	0	0	--	"You just barely escaped something, there! You don't know what, but it would've been pretty bad."	--	0
+"wiki"	6410	0	0	--	"You suddenly have an urge to look up some term and follow a chain to all sorts of odd knowledge you may never use but it'll be fun."	--	0
+"wind"	6309	0	0	--	"You're almost blown off your feet for a second. Air currents in Fourdiopolis are weird--there's no PROOF the government controls them, but..."	--	0
 
 table of scenery 5 [tosc5]
-tally (text)	talnum	descrip (text)	foundit (text)	what-drops	found
-"ennui"	20047	--	"Yyyyyawn. What's the point?"	--	0
-"iknew"	79023	--	"Someone covers for looking stupid by explaining they were just being really, really ironic."	--	0
-"jesus"	82141	--	"Someone spouting an annoying proof that religions shouldn't exist then asks you to join the personality cult of a smart person dead for a hundred years, who wasn't nice, but they understood algorithms of how to make others nicer. You brush them away."	--	0
-"knees"	90221	--	"You grab an old ache for a moment."	--	0
-"nisei"	7127	--	"You walk past shops with Japanese signs."	--	0
-"nuhuh"	4646	--	"A trivial argument nearby quickly turns emotional."	--	0
-"nuked"	4925	--	"A surprisingly empty area. You look for biohazard signs but don't see any. Still, you feel disturbingly tingly."	--	0
-"seine"	12702	--	"You feel a hackneyed flavor of, and longing for, Gay Paree."	--	0
-"shins"	16701	--	"You grab an old ache for a moment."	--	0
-"shush"	16416	--	"'Oh, sure, you can THINK that, just don't SAY it, you know?'"	--	0
-"sides"	17521	--	"You feel cornered in here. You're not sure why."	--	0
-"undid"	40575	--	"You feel regret for what you've done and regret for that regret. You waste a bit of time fretting over how you've wasted a bit of time no matter which feeling is right."	--	0
-"whisk"	36719	--	"You trip on an odd cooking doohickey you forget the name of. People don't have time for making their own meals, with so much virtual reality to experience these days, and machines do it all well enough."	--	0
+tally (text)	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
+"ennui"	4130	8	0	--	"Yyyyyawn. What's the point?"	--	0
+"iknew"	11872	4	0	--	"Someone covers for looking stupid by explaining they were just being really, really ironic."	--	0
+"jesus"	12369	2	0	--	"Someone spouting an annoying proof that religions shouldn't exist then asks you to join the personality cult of a smart person dead for a hundred years, who wasn't nice, but they understood algorithms of how to make others nicer. You brush them away."	--	0
+"knees"	13467	2	0	--	"You grab an old ache for a moment."	--	0
+"nisei"	2324	8	0	--	"You walk past shops with Japanese signs."	--	0
+"nuhuh"	2018	7	0	--	"A trivial argument nearby quickly turns emotional."	--	0
+"nuked"	2049	6	0	--	"A surprisingly empty area. You look for biohazard signs but don't see any. Still, you feel disturbingly tingly."	--	0
+"seine"	3114	3	0	--	"You feel a hackneyed flavor of, and longing for, Gay Paree."	--	0
+"shins"	3598	2	0	--	"You grab an old ache for a moment."	--	0
+"shush"	3566	7	0	--	"'Oh, sure, you can THINK that, just don't SAY it, you know?'"	--	0
+"sides"	3699	2	0	--	"You feel cornered in here. You're not sure why."	--	0
+"undid"	6850	6	0	--	"You feel regret for what you've done and regret for that regret. You waste a bit of time fretting over how you've wasted a bit of time no matter which feeling is right."	--	0
+"whisk"	6261	10	0	--	"You trip on an odd cooking doohickey you forget the name of. People don't have time for making their own meals, with so much virtual reality to experience these days, and machines do it all well enough."	--	0
 
 table of scenery 6 [tosc6]
-tally (text)	talnum	descrip (text)	foundit (text)	what-drops	found
-"dindin"	570570	--	"You feel hungry."	--	0
-"heehee"	622622	--	"You think of a silly pun that feels funnier than it has a right to be."	--	0
-"hehhuh"	626646	--	"[bnb]"	--	0
-"henwen"	620320	"Prydain Chronicles"	"You thought you heard a talking pig just now."	--	0
-"huhheh"	646626	--	"[bnb]"	--	0
-"nissin"	71170	--	"You step on something. It looks like a chunk of dried noodles. You feel hungry for food you'll regret later."	--	0
-"nudies"	45721	--	"You see, and quickly ignore, some disturbing fliers on the ground."	--	0
-"shinju"	167084	--	"Hm, looks like a play, in the park. Not quite Romeo and Juliet, but seemes like it just ended the same way."	--	0
-"shishe"	167162	--	"You smell evidence people are--gasp--SMOKING. You remember health warnings that a whiff of the good smelling stuff is worse than the bad smelling stuff, and vice versa."	--	0
-"unkind"	409705	--	"You hear a name. It's a slur. It's probably old, and maybe people forget why, but the nastiness still remains. It's the sort of thing the ubiquitous video cameras can't catch and report."	--	0
-"winded"	370525	--	"You take a break to catch your breath."	--	0
+tally (text)	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
+"dindin"	8971	89	0	--	"You feel hungry."	--	0
+"heehee"	9720	36	0	--	"You think of a silly pun that feels funnier than it has a right to be."	--	0
+"hehhuh"	9764	62	0	--	"[bnb]"	--	0
+"henwen"	9695	34	0	"Prydain Chronicles"	"You thought you heard a talking pig just now."	--	0
+"huhheh"	10006	40	0	--	"[bnb]"	--	0
+"nissin"	2323	89	0	--	"You step on something. It looks like a chunk of dried noodles. You feel hungry for food you'll regret later."	--	0
+"nudies"	2010	35	0	--	"You see, and quickly ignore, some disturbing fliers on the ground."	--	0
+"shinju"	3598	104	0	--	"Hm, looks like a play, in the park. Not quite Romeo and Juliet, but seemes like it just ended the same way."	--	0
+"shishe"	3599	80	0	--	"You smell evidence people are--gasp--SMOKING. You remember health warnings that a whiff of the good smelling stuff is worse than the bad smelling stuff, and vice versa."	--	0
+"unkind"	6894	17	0	--	"You hear a name. It's a slur. It's probably old, and maybe people forget why, but the nastiness still remains. It's the sort of thing the ubiquitous video cameras can't catch and report."	--	0
+"winded"	6309	39	0	--	"You take a break to catch your breath."	--	0
 
 table of scenery 7 [tosc7]
-tally (text)	talnum	descrip (text)	foundit (text)	what-drops	found
-"dejeune"	5282402	--	"You sure could use a lunch break right now!"	--	0
-"kidniki"	9750797	--	"You temporarily feel on guard against the possibility of radical ninjas."	--	0
-"kidskin"	9751970	--	"You walk by an exotic leather store."	--	0
-"kuskunn"	9419400	"Magic Candle"	"You see an image of a demon trapped in a bubble, by a candle slowly burning."	--	0
-"sissies"	1711721	--	"Some self-made tough guys still feel a need to gang up on people weaker than they are. The pain's over sooner than if they went one at a time, amirite?"	--	0
-"skidded"	1975525	--	"A goverment utility vehicle swerves and almost hits someone about to jaywalk. Funny how one is always around, unless you jaywalk REALLY assertively."	--	0
-"swedish"	1325716	--	"An ethnic area full of oddly dotted vowels. You know them by their unicode numbers, but you have no clue how to pronounce them."	--	0
-"weenies"	3220721	--	"An old long-abandoned hot dog hut lies between two places of Serious Business. Your grandparents constantly babbled about the misspelled version from THEIR youth being so tasty, and--well--maybe the misspelling did make things tastier."	--	0
+tally (text)	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
+"dejeune"	8451	619	0	--	"You sure could use a lunch break right now!"	--	0
+"kidniki"	14345	1086	0	--	"You temporarily feel on guard against the possibility of radical ninjas."	--	0
+"kidskin"	14346	1299	0	--	"You walk by an exotic leather store."	--	0
+"kuskunn"	13947	617	0	"Magic Candle"	"You see an image of a demon trapped in a bubble, by a candle slowly burning."	--	0
+"sissies"	3654	1003	0	--	"Some self-made tough guys still feel a need to gang up on people weaker than they are. The pain's over sooner than if they went one at a time, amirite?"	--	0
+"skidded"	3966	765	0	--	"A goverment utility vehicle swerves and almost hits someone about to jaywalk. Funny how one is always around, unless you jaywalk REALLY assertively."	--	0
+"swedish"	3185	997	0	--	"An ethnic area full of oddly dotted vowels. You know them by their unicode numbers, but you have no clue how to pronounce them."	--	0
+"weenies"	5721	1003	0	--	"An old long-abandoned hot dog hut lies between two places of Serious Business. Your grandparents constantly babbled about the misspelled version from THEIR youth being so tasty, and--well--maybe the misspelling did make things tastier."	--	0
 
 table of scenery 8 [tosc8]
-tally (text)	talnum	descrip (text)	foundit (text)	what-drops	found
-"inkiness"	70970211	--	"Everything's a bit cloudy, here."	--	0
-"unkissed"	40971125	--	"You hear a teen sob about their lack of romantic luck."	--	0
-"unwished"	40371625	--	"Someone tries to hand you a flyer you really, really don't want."	--	0
-"whiskies"	36719721	--	"Wow! People seem to be having a rip roaring time, here[whisky-wine]. You don't have time for such carousing at the moment, but it boosts your spirits."	--	0
+tally (text)	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
+"inkiness"	10887	1718	0	--	"Everything's a bit cloudy, here."	--	0
+"unkissed"	6894	2943	0	--	"You hear a teen sob about their lack of romantic luck."	--	0
+"unwished"	6828	3548	0	--	"Someone tries to hand you a flyer you really, really don't want."	--	0
+"whiskies"	6261	14313	0	--	"Wow! People seem to be having a rip roaring time, here[whisky-wine]. You don't have time for such carousing at the moment, but it boosts your spirits."	--	0
 
 table of scenery 9 [tosc9]
-tally (text)	talnum	descrip (text)	foundit (text)	what-drops	found
-"iseekkeen"	712299220	--	"[seek-track]."	--	-1
-"iundidedu"	740575254	--	"[worry-undo of table of education]."	--	-1
-"jeskiddin"	821975570	--	"Someone walks by and notifies you this is a Level 17 restricted area. You quickly hide your to-do list, before they point and laugh that they got you GOOD, and the grocery store's THAT way."	--	0
-"seediness"	122570211	--	"This area doesn't feel too posh. You don't know why, but it doesn't."	--	0
-"skunkweed"	194093225	--	"It smells bad here, like it should be illegal."	--	0
-"whininess"	367070211	--	"You can zone out one complaint or two, but when it's all around, it's like it's contagious and you just won't put up with it! Really, some people! It's just not fair! You'd never...oops."	--	0
-"wineskins"	370219701	--	"Everything retro is fashionable again, and drinking wine from animal skins was before when retro was a thing, so--that big rich people's gathering in the park is extra nice."	--	0
+tally (text)	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
+"iseekkeen"	10926	14556	1	--	"[seek-track]."	--	-1
+"iundidedu"	11270	11413	5	--	"[worry-undo of table of education]."	--	-1
+"jeskiddin"	12374	11448	1	--	"Someone walks by and notifies you this is a Level 17 restricted area. You quickly hide your to-do list, before they point and laugh that they got you GOOD, and the grocery store's THAT way."	--	0
+"seediness"	3064	10804	2	--	"This area doesn't feel too posh. You don't know why, but it doesn't."	--	0
+"skunkweed"	3928	13830	6	--	"It smells bad here, like it should be illegal."	--	0
+"whininess"	6260	10804	2	--	"You can zone out one complaint or two, but when it's all around, it's like it's contagious and you just won't put up with it! Really, some people! It's just not fair! You'd never...oops."	--	0
+"wineskins"	6306	3961	2	--	"Everything retro is fashionable again, and drinking wine from animal skins was before when retro was a thing, so--that big rich people's gathering in the park is extra nice."	--	0
 
 table of scenery 10 [tosc10]
-tally (text)	talnum	descrip (text)	foundit (text)	what-drops	found
-"iundidjunk"	-1	--	"[worry-undo of table of supplies]."	--	-1
-"iundidnews"	-1	--	"[worry-undo of table of marginalized people]."	--	-1
-"skinniness"	-1	--	"You are momentarily bombarded with ads for diet plans."	--	0
+tally (text)	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
+"iundidjunk"	11270	11478	21	--	"[worry-undo of table of supplies]."	--	-1
+"iundidnews"	11270	11388	46	--	"[worry-undo of table of marginalized people]."	--	-1
+"skinniness"	3961	2313	24	--	"You are momentarily bombarded with ads for diet plans."	--	0
 
 volume very random indeed
 

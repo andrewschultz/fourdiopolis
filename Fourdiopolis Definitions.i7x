@@ -10,11 +10,11 @@ a scenario is a kind of thing. a scenario has a table name called objectives. a 
 
 FRI is a scenario. objectives of FRI is table of friends. comments of FRI is table of friend yay. almosts of FRI is table of friend nearlies. lose-msg of FRI is "Alone in the big metropolis". win-msg of FRI is "Wow, there's friends out there".
 
-EDU is a scenario. objectives of EDU is table of education. comments of EDU is table of education yay. almosts of EDU is table of marginalized nearlies.
+EDU is a scenario. objectives of EDU is table of education. comments of EDU is table of education yay. almosts of EDU is table of education nearlies.
 
-SUP is a scenario. objectives of SUP is table of supplies. comments of SUP is table of sup yay. almosts of SUP is table of education nearlies.
+SUP is a scenario. objectives of SUP is table of supplies. comments of SUP is table of sup yay. almosts of SUP is table of supplies nearlies.
 
-PEO is a scenario. objectives of PEO is table of marginalized people. comments of PEO is table of people yay. almosts of PEO is table of supplies nearlies.
+PEO is a scenario. objectives of PEO is table of marginalized people. comments of PEO is table of people yay. almosts of PEO is table of people nearlies.
 
 STU is a scenario. objectives of STU is table of just plain cool stuff. comments of STU is table of stuff yay. almosts of STU is table of cool stuff nearlies. lose-msg of STU is "[if score < 10]Still a way to go[else]Close, but...[end if]". win-msg of STU is "All over except the last round".
 
@@ -59,15 +59,16 @@ chapter dirhashes
 
 a direction has a number called dirhash.
 
-dirhash of south is 1.
-dirhash of east is 2.
-dirhash of west is 3.
-dirhash of up is 4.
-dirhash of down is 5.
-dirhash of h is 6.
-dirhash of i is 7.
-dirhash of j is 8.
-dirhash of k is 9.
+dirhash of north is 1.
+dirhash of south is 2.
+dirhash of east is 3.
+dirhash of west is 4.
+dirhash of up is 5.
+dirhash of down is 6.
+dirhash of h is 7.
+dirhash of i is 8.
+dirhash of j is 9.
+dirhash of k is 10.
 
 chapter definitions
 

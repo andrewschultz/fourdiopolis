@@ -1,8 +1,17 @@
-Fourdiopolis release 3 has minor bug fixes and enhancements that piled up. There is one actual puzzle added, to the last names.
+Fourdiopolis release 3 has minor bug fixes and enhancements that piled up. There is one actual puzzle added, to the last names. It was, apparently, originally slated for November 20, 2017. Missed it by thaaaaat much!
 
-The official release date is November 20, 2017.
+The official release date is August/September ??, 2023
 
---minor considerable speedups in traversing (scenery tables are now broken up by how far away everything is).
---when the game gives you a deliberately unreachable location in the random comments, I'm sure it is, now, and just barely, too.
+There are no very new features here. This was more of a maintenance release. It fixed a lot of small bugs and allowed for some performance upgrades. The biggest development was a Z-machine version, which features the ability (in theory) to write your progress to an external file without using the SAVE command. This was done because Z-machine can be faster than Glulx. It was not done earlier because Z-machine has no clear way to write data to a file outside of SAVE. The progress it writes is "You finished these scenarios."
+
+--minor considerable speedups in traversing
+  --scenarios are now divided into actual variables called scenarios. You can see the details in Fourdiopolis Definitions.i7x.
+  --scenery tables are now broken up by how far away everything is. That means fewer steps through if you are X away.
+  --"almosts" are broken up by scenario. Before, they were in one large table. Now ther are split up
+--Odd new commands and hidden places
+--code refactoring under the hood (this may not seem very tangible, but it decreases the likelihood of bugs)
+  --the most obvious example is dividing story.ni into several *.i7x files. It strikes me that I started to do this before Fourdiopolis, but I figured it wasn't big enough. However, once I used header files, so much fell out quickly.
+--when the game gives you a deliberately unreachable location in the random comments, I'm sure it really is, now (some were actually visitable!) All such locations take 11 moves to get to.
 --the start/restart now check your progress so you don't get the long text from when you start the game.
 --as mentioned, an extra puzzle added to the last names.
+--more standard verbs squashed so as not to give odd responses.
