@@ -13,18 +13,18 @@ tally (text)	talnum	descrip (text)	foundit (text)	what-drops	found
 "enid"	2075	"friend of five"	"Enid listens as she makes proofreading marks on a book with a bunch of kids running around on the cover."	front door	0
 "heidi"	62757	"Alpine friend"	"Thankfully, you hear no yodeling as the door opens."	front door	0
 "ike"	792	"cross, iron friend"	"'I'm ready to take down the sprawling military-industrial complex,' Ike says."	front door	0
-"ines"	7021	"Spanish friend"	"It's [text-tally in title case]! She [says-hi]."	front door	0
-"isis"	7171	"friend from Egypt"	"It's [text-tally in title case]! She [says-hi]."	front door	0
-"jed"	825	"friend"	"It's [text-tally in title case]! He [says-hi]."	front door	0
-"jenni"	82007	"friend who says why not"	"It's [text-tally in title case]! She [says-hi]."	front door	0
+"ines"	7021	"Spanish friend"	"It's Ines! She [says-hi]."	front door	0
+"isis"	7171	"friend from Egypt"	"It's Isis! She [says-hi]."	front door	0
+"jed"	825	"friend"	"It's Jed! He [says-hi]."	front door	0
+"jenni"	82007	"friend who says why not"	"It's Jenni! She [says-hi]."	front door	0 [because it's an i and not a y]
 "jessie"	821172	"has desirable girl/guy"	"[either-gender]."	front door	0
-"jud"	845	"hey, a friend, almost"	"It's [text-tally in title case]! He [says-hi]."	front door	0
+"jud"	845	"hey, a friend, almost"	"It's Jud! He [says-hi]."	front door	0
 "jude"	8452	"hey, a friend"	"He says 'Oh, I was trying to make a sad song better, but never mind.'"	front door	0
-"judi"	8457	"hey, a friend's female twin"	"It's [text-tally in title case]! She [says-hi]."	front door	0
+"judi"	8457	"hey, a friend's female twin"	"It's Judi! She [says-hi]."	front door	0
 "june"	8402	"fair-weather friend"	"She springs into action on hearing why you're here."	front door	0
-"ken"	920	"solves number puzzles halfway"	"It's [text-tally in title case]! He [says-hi]."	front door	0
+"ken"	920	"solves number puzzles halfway"	"It's Ken! He [says-hi]."	front door	0
 "kiki"	9797	"friend who can deliver us"	"She gives a bit too sugary speech on how you can do anything you can put your mind to, but it's better than the opposite."	front door	0
-"nikki"	7997	"loud friend 6"	"It's [text-tally in title case]! She [says-hi]."	front door	0
+"nikki"	7997	"loud friend 6"	"It's Nikki! She [says-hi]."	front door	0
 "sid"	175	"not a vicious seizer"	"'In, Sid? [']E IS!' he roars."	front door	0
 "susie"	14172	"friend with weird boyfriend"	"'No, they DON'T need a transmogrifier!' Susie booms to someone you can't see. 'Not even one that works!'"	front door	0
 "winnie"	370072	"doesn't miss Ke*in"	"Talking with Winnie you feel nostalgia and remember some growing pains."	front door	0
@@ -62,7 +62,7 @@ tally (text)	talnum	descrip (text)	foundit (text)	what-drops	found
 "nein"	270	"foreign languages, or not"	"You learn useful things to say in different languages: yes, no, please, and Dude, Whatever."	edutainment storefront	0
 "sensei"	120127	"Eastern wisdom"	"You put up with perhaps a bit more mumbo-jumbo terminology than you want, but the break from extreme capitalism, while heretical, is surprisingly soothing."	edutainment storefront	0
 "sines"	17021	"advanced math lesson"	"You endure a very useful trigonometry lesson, you think. You remember which is sine and which is cosine, but now you've knocked out secant and cosecant."	tiny schoolhouse	0
-"sinews"	170231	"proper physical health"	"You get a quick work-couse in physiology, necessary for protestors and operatives who need stamina."	edutainment storefront	0
+"sinews"	170231	"proper physical health"	"You get a quick work-course in physiology, necessary for protestors and operatives who need stamina."	edutainment storefront	0
 "sins"	1701	"what authorities do wrong"	"You get a lecture on things you didn't even know were wrong with Fourdiopolis. It's short on charisma, but that's somewhere else."	edutainment storefront	0
 "sinus"	17041	"breathing techniques"	"You ace the course on breathing techniques and get a 10% off coupon for snoring surgery. Wait, you know you missed that one question...are you being suckered, here? Surgery's expensive!"	edutainment storefront	0
 "skew"	1923	"emphasizing the right parts of the truth"	"You learn several ways to embarrass people into a corner even when you don't need to. Because if you don't first, they will."	edutainment storefront	0
@@ -227,7 +227,7 @@ tally (text)	talnum	descrip (text)	foundit (text)	what-drops	found
 "wisniewski"	-1	"Polish"	"As you make your mark, you feel a shudder of Loathing at Wisniewski also being The Man."	suspiciously ordinary door	0
 
 to say mark-away:
-	say "You read through your guidelines on rabble rousing literature and write up a short screed describing how [text-tally in title case] [one of]is typical of the whole bunch and one of the worst at the same time[or]doesn't care at all, but cares about themselves[or]is both too powerful and yet powerless to change the PEOPLE[or]doesn't understand common people but sure understands how to manipulate them[or]is the worst and yet controlled by even worse people at the same time[in random order]. You add in some bargle about [one of]how they'll get to spend more time with their lovely family soon[or]disgruntled ex-staffers TALK[or]they'll be the first out when people see all the corruption[or]their rags to riches story being a fraud compared to Ed Dunn[or]their lack of, or excessive, charisma is especially galling[or]Embarrassing Facts you know--ones you can't even write down[or]their lack of traditional values and desire to return Fourdiopolis to the 22nd or even 21st century won't stand[or]their [a random number between 85 and 95]% approval rating is a fraud[or]their getting [a random number between 85 and 95]% of the vote is suspicious[in random order]. Any crank can send an email like that, but few people have the guts to DROP BY. You dust your hands off and sneak away"
+	say "You read through your guidelines on rabble-rousing literature and write up a short screed describing how [text-tally in title case] [one of]is typical of the whole bunch and one of the worst at the same time[or]doesn't care at all, but cares about themselves[or]is both too powerful and yet powerless to change the PEOPLE[or]doesn't understand common people but sure understands how to manipulate them[or]is the worst and yet controlled by even worse people at the same time[in random order]. You add in some bargle about [one of]how they'll get to spend more time with their lovely family soon[or]disgruntled ex-staffers TALK[or]they'll be the first out when people see all the corruption[or]their rags to riches story being a fraud compared to Ed Dunn[or]their lack of, or excessive, charisma is especially galling[or]Embarrassing Facts you know--ones you can't even write down[or]their lack of traditional values and desire to return Fourdiopolis to the 22nd or even 21st century won't stand[or]their [a random number between 85 and 95]% approval rating is a fraud[or]their getting [a random number between 85 and 95]% of the vote is suspicious[in random order]. Any crank can send an email like that, but few people have the guts to DROP BY. You dust your hands off and sneak away"
 
 table of name yay
 count	comment
