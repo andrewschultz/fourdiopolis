@@ -757,7 +757,6 @@ after reading a command:
 			now period-warn is true;
 			wfak;
 	now not-parseable-yet is false;
-	say "1.";
 	now just-level-warped is false;
 	if number of characters in locom > locom-chars and locom matches the regular expression "^<ewnsudhijk \.>*$":
 		now not-parseable-yet is true;

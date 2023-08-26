@@ -2,6 +2,8 @@ Version 1/230825 of Fourdiopolis Definitions by Andrew Schultz begins here.
 
 "This encompasses small stubs, particularly <to decide which> and <definition> that would clutter up the main code and be hard to find otherwise. You can see what could or should be sent here with def.py. It also includes Fourdiopolis's custom directions and weird operations on them"
 
+[note the big point of positive vectors: I is east, J is north, K is up.]
+
 volume scenarios
 
 a scenario is a kind of thing. a scenario has a table name called objectives. a scenario has a table name called comments. a scenario has a table name called almosts. a scenario has a truth state called won. a scenario has indexed text called lose-msg. a scenario has indexed text called win-msg.
@@ -41,14 +43,17 @@ a direction has a number called ewgo.
 a direction has a number called nsgo.
 a direction has a number called udgo.
 
-ewgo of west is 1. ewgo of east is -1.
-nsgo of north is 1. nsgo of south is -1.
-udgo of up is 1. udgo of down is -1.
+nsgo of north is 1.
+nsgo of south is -1.
+ewgo of east is 1.
+ewgo of west is -1.
+udgo of up is 1.
+udgo of down is -1.
 
-udgo of h is 2. ewgo of h is 2. nsgo of h is 2.
-udgo of i is -2. ewgo of i is 2. nsgo of i is -2.
-udgo of j is -2. ewgo of j is -2. nsgo of j is 2.
-udgo of k is 2. ewgo of k is -2. nsgo of k is 2.
+ewgo of h is  2. nsgo of h is  2. udgo of h is  2.
+ewgo of i is  2. nsgo of i is -2. udgo of i is -2.
+ewgo of j is -2. nsgo of j is  2. udgo of j is -2.
+ewgo of k is -2. nsgo of k is -2. udgo of k is  2.
 
 chapter dirhashes
 
