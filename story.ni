@@ -96,12 +96,11 @@ section number-counting stubs
 
 [originally in debug only but useful for release]
 
-to decide whether (n - a number) is wrongo:
-	if the remainder after dividing n by 2 is 1:
-		if n < 16, decide no;
-	if n is -1 or n is -2 or n is -3 or n is -4, decide no;
-	if n is 0 or n is 31, decide no;
-	decide yes;
+to decide whether (n - a number) is bad-save-val:
+	if n is 0 or n is 31, no;
+	if n > 15, yes;
+	if the remainder after dividing n by 2 is 0, yes;
+	no;
 
 to decide which number is binary-solved:
 	let additive be 1;
@@ -1349,7 +1348,7 @@ when play begins (this is the check accomplishments at start rule) :
 		read file of accomplishments into table of accomplishments;
 	else:
 		write file of accomplishments from the table of accomplishments;
-	if binary-solved is wrongo:
+	if binary-solved is bad-save-val:
 		say "Oops! Something happened, and the save file appears to be corrupted. I'm resetting everything, though if you know the semi-secret commands, you can get back to where you were.";
 		repeat through table of accomplishments:
 			now solved entry is false;
