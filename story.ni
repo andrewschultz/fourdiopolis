@@ -689,11 +689,6 @@ to say seek-track:
 	truncate ln to 5 entries;
 	say "You read: [ln]";
 
-to say whisky-wine:
-	if your-table is table of supplies:
-		choose row with tally of "wines" in your-table;
-		say ". [if found entry is 0]You figure there may be something a bit more restrained at the end of your list--a different way to imbibe[else]You already got some wines, but whiskies should probably best wait to celebrate a successful revolution[end if]"
-
 volume undo
 
 include conditional undo by Jesse McGrew.

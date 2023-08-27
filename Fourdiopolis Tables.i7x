@@ -16,21 +16,21 @@ tally (text)	cityloc	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	
 "ines"	"B3B"	10804	0	0	"Spanish friend"	"Ines almost seems to be expecting you. She [says-hi]."	front door	0
 "isis"	"F4D"	10980	0	0	"friend from Egypt"	"Isis walks over, removes her bangles and [says-hi]."	front door	0
 "jed"	"2AC"	1128	0	0	"friend"	"Jed nods, then [says-hi]."	front door	0
-"jenni"	"21D"	12354	8	0	"friend who says why not"	"Jenni sighs. 'No, this is 867-5349.' She then looks up from her phone, and [says-hi]."	front door	0 [because it's an i and not a y]
+"jenni"	"21D"	12354	8	0	"friend who says why not"	"Jenni sighs. 'No, this is 867-5349.' She then looks up from her phone and [says-hi]."	front door	0 [because it's an i and not a y]
 "jessie"	"B2D"	12366	91	0	"has desirable girl/guy"	"[either-gender]."	front door	0
-"jud"	"2BB"	1150	0	0	"hey, a friend, almost"	"Jud is ready to go. [says-hi]."	front door	0
+"jud"	"2BB"	1150	0	0	"hey, a friend, almost"	"Jud thuds his forehead at all Fourdiopolis's problems. Then, he [says-hi]."	front door	0
 "jude"	"2AB"	12653	0	0	"hey, a friend"	"He says 'Oh, I was trying to make a sad song better, but never mind.'"	front door	0
-"judi"	"00D"	12658	0	0	"hey, a friend's female twin"	"It's Judi! 'Oh, why not?'[paragraph break]She [says-hi]."	front door	0
-"june"	"3AA"	12598	0	0	"fair-weather friend"	"She springs into action on hearing why you're here."	front door	0
+"judi"	"00D"	12658	0	0	"hey, a friend's female twin"	"Judi says 'Oh, why not?'[paragraph break]She [says-hi]."	front door	0
+"june"	"3AA"	12598	0	0	"fair-weather friend"	"June springs into action on hearing why you're here."	front door	0
 "ken"	"AA2"	1244	0	0	"solves number puzzles halfway"	"Ken crumples his latest puzzle (paper, so wasteful) then [says-hi]."	front door	0
 "kiki"	"H00"	14396	0	0	"friend who can deliver us"	"She gives a bit too sugary speech on how you can do anything you can put your mind to, but it's better than the opposite."	front door	0
-"nikki"	"G00"	2419	8	0	"loud friend 6"	"It's Nikki! She [says-hi]."	front door	0
+"nikki"	"G00"	2419	8	0	"loud friend 6"	"'Quick, before Dr. Feelgood gets here.' She [says-hi]."	front door	0
 "sid"	"C2C"	336	0	0	"not a vicious seizer"	"'In, Sid? [']E IS!' he roars."	front door	0
 "susie"	"D3A"	3297	3	0	"friend with weird boyfriend"	"'No, they DON'T need a transmogrifier!' Susie booms to someone you can't see. 'Not even one that works!'"	front door	0
 "winnie"	"B4D"	6304	91	0	"doesn't miss Ke*in"	"Talking with Winnie you feel nostalgia and remember some growing pains."	front door	0
 
 to say says-hi:
-	say "[one of]looks around a bit. You give the secret handshake and secret phrase I can't even tell you, it's so secret. 'They need you...uh...'[paragraph break]'Yeah. There.' You look up. They're gone already[or]doesn't have much to say, but hey, if everyone were talkative, nothing'd get done[or]booms 'IT IS TIME!' then apologizes for getting ironically carried away, there[or]engages in a minute's thumb-twiddling before bursting out the door[or]almost tearily pats a potted plant on the windowsill[or]checks the latest whateverball scores before saying, yup, let's get going[or]strikes a few random karate poses, then looks all serious[or]worries briefly that if YOU found this place--no disrespect, but yeah--they're probably safer not at home[in random order]"
+	say "[one of]looks around a bit. You give the secret handshake and secret phrase I can't even tell you, it's so secret. 'They need you...uh...'[paragraph break]'Yeah. There.' You look up. They're gone already[or]doesn't have much to say, but hey, if everyone were talkative, nothing'd get done[or]booms 'IT IS TIME!' then apologizes for getting ironically carried away, there[or]engages in a minute's thumb-twiddling before bursting out the door[or]almost tearily pats a potted plant on the windowsill[or]checks the latest whateverball scores before saying, yup, let's get going[or]strikes a few random karate poses, then looks all serious[or]worries briefly that if YOU found this place--no disrespect, but yeah--it's probably safer not to be at home[in random order]"
 
 to say either-gender:
 	let female be false;
@@ -56,7 +56,7 @@ tally (text)	cityloc	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	
 "hijinks"	"B2B"	10392	233	0	"a full loop of political subversions"	"You learn tricks to make political rallies and flash mobs work with a minimum of arrests."	edutainment storefront	0
 "hikes"	"C32"	10398	2	0	"back to almost nature"	"You get a brief virtual reality sample of the unlivable wilds beyond the cities."	edutainment storefront	0
 "issues"	"E3A"	10917	35	0	"detailed wonkery"	"You learn not only the important issues but the details--and even how to skewer people who go too far into details."	edutainment storefront	0
-"keen"	"A02"	13707	0	0	"motivation"	"You can never have too much motivation. Unless you spend too much time motivating yourself, you forget to do anything."	edutainment storefront	0
+"keen"	"A02"	13707	0	0	"motivation"	"You can never have too much motivation. Unless you spend so much time motivating yourself, you forget to do anything."	edutainment storefront	0
 "kind"	"C0A"	14295	0	0	"decency"	"You learn not only how to be nice but how to fool people into thinking you're nice enough they better like you and if they're doubting that, they feel guilty. You'll only use the second in an emergency. You hope."	edutainment storefront	0
 "kinesis"	"G3B"	14292	332	0	"mobility"	"You learn how to sneak around authorities even if you're not naturally nimble."	edutainment storefront	0
 "nein"	"03B"	1783	0	0	"foreign languages, or not"	"You learn useful things to say in different languages: yes, no, please, and Dude, Whatever."	edutainment storefront	0
@@ -320,19 +320,19 @@ volume tables of scenery
 
 table of scenery 3 [tosc]
 tally (text)	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
-"die"	817	0	0	"sacrifice yourself"	"Assisted suicide is more rigorous than in Threediopolis. The Death Panels there (not the healthcare kind) give punditary views before you pegged out, concluding thoughts of profundity before the void. Here, you have surveys...questionnaires...what would you do better? What do you think authorities would do better? Now, now, answer, don't try to beg for the juice and cookies over there. They are not for you (really, you should've PLANNED something as important as a last meal, because there wsn't much TO plan) but for the people working hard here who will NEED the nourishment."	ominous door	0
+"die"	817	0	0	"sacrifice yourself"	"Assisted suicide is more rigorous here than in Threediopolis. The Death Panels (not the health-care kind, silly) give punditary views before you peg out, concluding thoughts of profundity before the void. Here, you have surveys... questionnaires... what would you do better? What do you think authorities would do better? Perhaps there were things you should have done better, so you didn't wind up here? More than perhaps, perhaps? Now, now, answer, don't try to beg for the juice and cookies over there. They are not for you (really, you should've PLANNED something as important as a last meal, because there wasn't much TO plan) but for the people working hard here who will NEED the nourishment later."	ominous door	0
 "duh"	788	0	0	--	"Oh, man! You can't believe you missed THAT one. It's obvious now!"	--	0
 "dui"	789	0	0	--	"A robot-police runs by and grabs a breath-sample from the air in front of you. 'Proceed,' it says. Hmm.'"	--	0
 "eek"	406	0	0	--	"Someone tells a scary story for effect and, well, gets the effect they want."	--	0
-"hhh"	931	0	0	"Triple H"	"Someone threatens to bodyslam another person for being utterly evil. Then--bam! You see they actually do! Someone whispers to you, don't worry, it's fake, just entertainment. What is the world coming to?"	--	0
+"hhh"	931	0	0	"Triple H"	"Someone threatens to body-slam another person for being utterly evil. Then--bam! You see they actually do! Someone whispers to you, don't worry, it's fake, just entertainment. What is the world coming to?"	--	0
 "kkk"	1330	0	0	"bad bad people"	"Everyone around here just really, really sucks at life. What else can I say?"	--	0 [super extra double for this vs another k word but here there's an opportunity to laugh at people a bit I hope]
 
 table of scenery 4 [tosc4]
 tally (text)	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
 "deke"	8462	0	0	--	"You wonder if you faked yourself out going this way."	--	0
-"didi"	9028	0	0	"Urkel"	"A fellow with oversized glasses and suspenders runs into you, shrugs his shoulders, denies any fault, snort-laughs and then runs away."	--	0
+"didi"	9028	0	0	"Urkel"	"A fellow with over-sized glasses and suspenders runs into you, shrugs his shoulders, denies any fault, snort-laughs and then runs away."	--	0
 "dike"	9067	0	0	--	"In this blocked-off area, people talk about the city water supply."	--	0
-"dink"	8975	0	0	--	"You're hit by a very very soft nerf ball that runs away. Hmm."	--	0
+"dink"	8975	0	0	--	"You're hit by a very very soft Nerf ball that quickly bounces away. Hmm."	--	0
 "ehhs"	4919	0	0	--	"People keep asking fellow conversers to repeat themselves, here."	--	0
 "heed"	9719	0	0	--	"Some police give a particularly stern lecture to a citizen not fully obeying some minor law."	--	0
 "hues"	9957	0	0	--	"The local color is particularly vibrant in this neighborhood."	--	0
@@ -375,7 +375,7 @@ tally (text)	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
 "huhheh"	10006	40	0	--	"[bnb]"	--	0
 "nissin"	2323	89	0	--	"You step on something. It looks like a chunk of dried noodles. You feel hungry for food you'll regret later."	--	0
 "nudies"	2010	35	0	--	"You see, and quickly ignore, some disturbing fliers on the ground."	--	0
-"shinju"	3598	104	0	--	"Hm, looks like a play, in the park. Not quite Romeo and Juliet, but seemes like it just ended the same way."	--	0
+"shinju"	3598	104	0	--	"Hmm, looks like a play, in the park. Not quite Romeo and Juliet, but seems like it just ended the same way."	--	0
 "shishe"	3599	80	0	--	"You smell evidence people are--gasp--SMOKING. You remember health warnings that a whiff of the good smelling stuff is worse than the bad smelling stuff, and vice versa."	--	0
 "unkind"	6894	17	0	--	"You hear a name. It's a slur. It's probably old, and maybe people forget why, but the nastiness still remains. It's the sort of thing the ubiquitous video cameras can't catch and report."	--	0
 "winded"	6309	39	0	--	"You take a break to catch your breath."	--	0
@@ -387,8 +387,8 @@ tally (text)	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
 "kidskin"	14346	1299	0	--	"You walk by an exotic leather store."	--	0
 "kuskunn"	13947	617	0	"Magic Candle"	"You see an image of a demon trapped in a bubble, by a candle slowly burning."	--	0
 "sissies"	3654	1003	0	--	"Some self-made tough guys still feel a need to gang up on people weaker than they are. The pain's over sooner than if they went one at a time, amirite?"	--	0
-"skidded"	3966	765	0	--	"A goverment utility vehicle swerves and almost hits someone about to jaywalk. Funny how one is always around, unless you jaywalk REALLY assertively."	--	0
-"swedish"	3185	997	0	--	"An ethnic area full of oddly dotted vowels. You know them by their unicode numbers, but you have no clue how to pronounce them."	--	0
+"skidded"	3966	765	0	--	"A government utility vehicle swerves and almost hits someone about to jaywalk. Funny how one is always around, unless you jaywalk REALLY assertively."	--	0
+"swedish"	3185	997	0	--	"An ethnic area full of oddly dotted vowels. You know them by their Unicode numbers, but you have no clue how to pronounce them."	--	0
 "weenies"	5721	1003	0	--	"An old long-abandoned hot dog hut lies between two places of Serious Business. Your grandparents constantly babbled about the misspelled version from THEIR youth being so tasty, and--well--maybe the misspelling did make things tastier."	--	0
 
 table of scenery 8 [tosc8]
@@ -396,7 +396,12 @@ tally (text)	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
 "inkiness"	10887	1718	0	--	"Everything's a bit cloudy, here."	--	0
 "unkissed"	6894	2943	0	--	"You hear a teen sob about their lack of romantic luck."	--	0
 "unwished"	6828	3548	0	--	"Someone tries to hand you a flyer you really, really don't want."	--	0
-"whiskies"	6261	14313	0	--	"Wow! People seem to be having a rip roaring time, here[whisky-wine]. You don't have time for such carousing at the moment, but it boosts your spirits."	--	0
+"whiskies"	6261	14313	0	--	"Wow! People seem to be having a rip-roaring time, here[whisky-wine]. You don't have time for such carousing at the moment, but it boosts your spirits."	--	0
+
+to say whisky-wine:
+	if your-table is table of supplies:
+		choose row with tally of "wines" in your-table;
+		say ". [if found entry is 0]You figure there may be something a bit more restrained at the end of your list--a different way to imbibe[else]You already got some wines, but whiskies should probably best wait to celebrate a successful revolution[end if]"
 
 table of scenery 9 [tosc9]
 tally (text)	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
