@@ -1,0 +1,494 @@
+## file name: reg-4d-lone-scenery.txt
+## test file for fourdiopolis scenery found in scenery* files
+** game: /home/andrew/prt/debug-fourdiopolis.ulx
+** interpreter: /home/andrew/prt/glulxe -q
+
+* main
+
+#Here, test stuff that has conditional text, before the main sweep-through.
+
+#testcase-scenery-table-of-scenery-8-whiskies
+>whiskies
+Wow! People seem to be having a rip-roaring time, here. You don't have time for such carousing at the moment, but it boosts your spirits.
+
+>r
+
+#testcase-scenery-table-of-scenery-9-iseekkeen
+>iseekkeen
+You find a weird written directory. It's well-hidden enough, you might be able to come back and see it. You read: 
+
+>r
+
+#+testcase-scenery-table-of-scenery-9-iseekkeen
+>iseekkeen
+You find more odd hints and places to go. You read:
+
+>r
+
+#+testcase-scenery-table-of-scenery-9-iseekkeen
+>iseekkeen
+You go to the well again, and it's still not dry. You read:
+
+>r
+
+#+testcase-scenery-table-of-scenery-9-iseekkeen
+>iseekkeen
+You go to the well again, and it's still not dry. You read:
+
+>sc
+
+>r
+
+#testcase-scenery-table-of-scenery-3-die
+>die
+ominous door
+
+>in
+Assisted suicide is more rigorous and refined here and now than with Threediopolis's pilot program. A hundred years ago, the Death Panels there (not the healthcare kind, silly!) only gave punditly views on the how and why before you pegged out, but--the authorities realized nobody asked YOU! The person of the moment!
+You're given surveys...questionnaires...what would you do better? What do you think authorities would do better? No, no, you are just lashing out because you are suicidal.  No, those free striped lollipops are for employees, not clients. You had plenty of time for a last meal before you walked in! Perhaps a moment to reconsider your one complaint here? If you're not in a rush? Ah, yes, you are not the first. Realizing others appreciate Fourdiopolis more than you could, and leaving more of its resources to them. Ah, yes, even the unsatisfied are satisfied in Fourdiopolis!
+
+>undo
+
+>r
+
+#testcase-scenery-table-of-scenery-3-duh
+>duh
+Oh, man! You can't believe you missed THAT one. It's obvious now!
+
+>r
+
+#testcase-scenery-table-of-scenery-3-dui
+>dui
+A robot-police runs by and grabs a breath-sample from the air in front of you. "Proceed," it says. Hmm.
+
+>r
+
+#testcase-scenery-table-of-scenery-3-eek
+>eek
+Someone tells a scary story for effect and, well, gets the effect they want.
+
+>r
+
+#testcase-scenery-table-of-scenery-3-hhh
+>hhh
+Someone threatens to body-slam another person for being utterly evil. Then--bam! You see they actually do! Someone whispers to you, don't worry, it's fake, just entertainment. What is the world coming to?
+
+>r
+
+#testcase-scenery-table-of-scenery-3-kkk
+>kkk
+Everyone around here just really, really sucks at life. What else can I say?
+
+>r
+
+#testcase-scenery-table-of-scenery-4-deke
+>deke
+You wonder if you faked yourself out going this way.
+
+>r
+
+#testcase-scenery-table-of-scenery-4-didi
+>didi
+A fellow with over-sized glasses and suspenders runs into you, shrugs his shoulders, denies any fault, snort-laughs and then runs away.
+
+>r
+
+#testcase-scenery-table-of-scenery-4-dike
+>dike
+In this blocked-off area, people talk about the city water supply.
+
+>r
+
+#testcase-scenery-table-of-scenery-4-dink
+>dink
+You're hit by a very very soft Nerf ball that quickly bounces away. Hmm.
+
+>r
+
+#testcase-scenery-table-of-scenery-4-ehhs
+>ehhs
+People keep asking fellow conversers to repeat themselves, here.
+
+>r
+
+#testcase-scenery-table-of-scenery-4-heed
+>heed
+Some police give a particularly stern lecture to a citizen not fully obeying some minor law.
+
+>r
+
+#testcase-scenery-table-of-scenery-4-hues
+>hues
+The local color is particularly vibrant in this neighborhood.
+
+>r
+
+#testcase-scenery-table-of-scenery-4-hush
+>hush
+Unusually quiet here.
+
+>r
+
+#testcase-scenery-table-of-scenery-4-ides
+>ides
+An organized march nearby leaves you feeling wary.
+
+>r
+
+#testcase-scenery-table-of-scenery-4-juke
+>juke
+Someone walking towards you tries to get out of your way, and you do the same. But you both pick the same way to go, several times. Awkward!
+
+>r
+
+#testcase-scenery-table-of-scenery-4-keds
+>keds
+You feel a sudden stupid desire to buy overpriced sneakers. Maybe at Payless. But everyone shops at PayWayLess these days.
+
+>r
+
+#testcase-scenery-table-of-scenery-4-kwik
+>kwik
+You can just hear the bad spelling as people with more willpower than abstract knowledge exercise their authority.
+
+>r
+
+#testcase-scenery-table-of-scenery-4-nike
+>nike
+You feel a sudden stupid desire to buy overpriced sneakers. Maybe at Payless. But everyone shops at PayWayLess these days.
+
+>r
+
+#testcase-scenery-table-of-scenery-4-seek
+>seek
+You spy someone else with a sheet similar to yours. You don't acknowledge them, though. Can't be too careful.
+
+>r
+
+#testcase-scenery-table-of-scenery-4-shun
+>shun
+You feel very, very alone. People are more than just giving you your space.
+
+>r
+
+#testcase-scenery-table-of-scenery-4-uhhs
+>uhhs
+Conversation feels a bit slower and dumber than usual for Fourdiopolis, for a second here.
+
+>r
+
+#testcase-scenery-table-of-scenery-4-uuid
+>uuid
+You are suddenly unable to get the hexadecimal number 92F9CB12-41F0-402D-B42D-36F2FDD4EBF5 out of your head!
+
+>r
+
+#testcase-scenery-table-of-scenery-4-whew
+>whew
+You just barely escaped something, there! You don't know what, but it would've been pretty bad.
+
+>r
+
+#testcase-scenery-table-of-scenery-4-wiki
+>wiki
+You suddenly have an urge to look up some term and follow a chain to all sorts of odd knowledge you may never use but it'll be fun.
+
+>r
+
+#testcase-scenery-table-of-scenery-4-wind
+>wind
+You're almost blown off your feet for a second. Air currents in Fourdiopolis are weird--there's no PROOF the government controls them, but...
+
+>r
+
+#testcase-scenery-table-of-scenery-5-iknew
+>iknew
+Someone covers for looking stupid by explaining they were just being really, really ironic.
+
+>r
+
+#testcase-scenery-table-of-scenery-5-jesus
+>jesus
+Someone spouting an annoying proof that religions shouldn't exist then asks you to join the personality cult of a smart person dead for a hundred years, who wasn't nice, but they understood algorithms of how to make others nicer. You brush them away.
+
+>r
+
+#testcase-scenery-table-of-scenery-5-knees
+>knees
+You grab an old ache for a moment.
+
+>r
+
+#testcase-scenery-table-of-scenery-5-nisei
+>nisei
+You walk past shops with Japanese signs.
+
+>r
+
+#testcase-scenery-table-of-scenery-5-nuhuh
+>nuhuh
+A trivial argument nearby quickly turns emotional.
+
+>r
+
+#testcase-scenery-table-of-scenery-5-nuked
+>nuked
+A surprisingly empty area. You look for biohazard signs but don't see any. Still, you feel disturbingly tingly.
+
+>r
+
+#testcase-scenery-table-of-scenery-5-seine
+>seine
+You feel a hackneyed flavor of, and longing for, Gay Paree.
+
+>r
+
+#testcase-scenery-table-of-scenery-5-shins
+>shins
+You grab an old ache for a moment.
+
+>r
+
+#testcase-scenery-table-of-scenery-5-shush
+>shush
+"Oh, sure, you can THINK that, just don't SAY it, you know?"
+
+>r
+
+#testcase-scenery-table-of-scenery-5-sides
+>sides
+You feel cornered in here. You're not sure why.
+
+>r
+
+#testcase-scenery-table-of-scenery-5-undid
+>undid
+You feel regret for what you've done and regret for that regret. You waste a bit of time fretting over how you've wasted a bit of time no matter which feeling is right.
+
+>r
+
+#testcase-scenery-table-of-scenery-5-whisk
+>whisk
+You trip on an odd cooking doohickey you forget the name of. People don't have time for making their own meals, with so much virtual reality to experience these days, and machines do it all well enough.
+
+>r
+
+#testcase-scenery-table-of-scenery-5-ennui
+>ennui
+Yyyyyawn. What's the point?
+
+>r
+
+#testcase-scenery-table-of-scenery-6-dindin
+>dindin
+You feel hungry.
+
+>r
+
+#testcase-scenery-table-of-scenery-6-heehee
+>heehee
+You think of a silly pun that feels funnier than it has a right to be.
+
+>r
+
+#testcase-scenery-table-of-scenery-6-hehhuh
+>hehhuh
+Two fellows in a park, sitting on a couch, commenting stupidly at music videos on an old-school television. What is society coming to? Hah, you said...
+
+>r
+
+#testcase-scenery-table-of-scenery-6-henwen
+>henwen
+You thought you heard a talking pig just now.
+
+>r
+
+#testcase-scenery-table-of-scenery-6-huhheh
+>huhheh
+Two fellows in a park, sitting on a couch, commenting stupidly at music videos on an old-school television. What is society coming to? Hah, you said...
+
+>r
+
+#testcase-scenery-table-of-scenery-6-nissin
+>nissin
+You step on something. It looks like a chunk of dried noodles. You feel hungry for food you'll regret later.
+
+>r
+
+#testcase-scenery-table-of-scenery-6-nudies
+>nudies
+You see, and quickly ignore, some disturbing fliers on the ground.
+
+>r
+
+#testcase-scenery-table-of-scenery-6-shinju
+>shinju
+Hmm, looks like a play, in the park. Not quite Romeo and Juliet, but seems like it just ended the same way.
+
+>r
+
+#testcase-scenery-table-of-scenery-6-shishe
+>shishe
+You smell evidence people are--gasp--SMOKING. You remember health warnings that a whiff of the good smelling stuff is worse than the bad smelling stuff, and vice versa.
+
+>r
+
+#testcase-scenery-table-of-scenery-6-unkind
+>unkind
+You hear a name. It's a slur. It's probably old, and maybe people forget why, but the nastiness still remains. It's the sort of thing the ubiquitous video cameras can't catch and report.
+
+>r
+
+#testcase-scenery-table-of-scenery-6-winded
+>winded
+You take a break to catch your breath.
+
+>r
+
+#testcase-scenery-table-of-scenery-7-dejeune
+>dejeune
+You sure could use a lunch break right now!
+
+>r
+
+#testcase-scenery-table-of-scenery-7-kidniki
+>kidniki
+You temporarily feel on guard against the possibility of radical ninjas.
+
+>r
+
+#testcase-scenery-table-of-scenery-7-kidskin
+>kidskin
+You walk by an exotic leather store.
+
+>r
+
+#testcase-scenery-table-of-scenery-7-kuskunn
+>kuskunn
+You see an image of a demon trapped in a bubble, by a candle slowly burning.
+
+>r
+
+#testcase-scenery-table-of-scenery-7-sissies
+>sissies
+Some self-made tough guys still feel a need to gang up on people weaker than they are. The pain's over sooner than if they went one at a time, amirite?
+
+>r
+
+#testcase-scenery-table-of-scenery-7-skidded
+>skidded
+A government utility vehicle swerves and almost hits someone about to jaywalk. Funny how one is always around, unless you jaywalk REALLY assertively.
+
+>r
+
+#testcase-scenery-table-of-scenery-7-swedish
+>swedish
+An ethnic area full of oddly dotted vowels. You know them by their Unicode numbers, but you have no clue how to pronounce them.
+
+>r
+
+#testcase-scenery-table-of-scenery-7-weenies
+>weenies
+An old long-abandoned hot dog hut lies between two places of Serious Business. Your grandparents constantly babbled about the misspelled version from THEIR youth being so tasty, and--well--maybe the misspelling did make things tastier.
+
+>r
+
+#testcase-scenery-table-of-scenery-8-inkiness
+>inkiness
+Everything's a bit cloudy, here.
+
+>r
+
+#testcase-scenery-table-of-scenery-8-unkissed
+>unkissed
+You hear a teen sob about their lack of romantic luck.
+
+>r
+
+#testcase-scenery-table-of-scenery-8-unwished
+>unwished
+Someone tries to hand you a flyer you really, really don't want.
+
+>r
+
+#+testcase-scenery-table-of-scenery-8-whiskies
+>whiskies
+Wow! People seem to be having a rip-roaring time, here. You don't have time for such carousing at the moment, but it boosts your spirits.
+
+>r
+
+#testcase-scenery-table-of-scenery-9-iundidedu
+>iundidedu
+You feel a sudden fear your past wrangling may be all for nought and can be wiped out just like that, as if you're part of some big silly game you only understand on the surface.
+
+>r
+
+>fo 2
+
+#+testcase-scenery-table-of-scenery-9-iundidedu
+>iundidedu
+You feel a sudden fear your current wrangling may be all for nought and can be wiped out just like that, as if you're part of some big silly game you only understand on the surface.
+
+>r
+
+#testcase-scenery-table-of-scenery-9-jeskiddin
+>jeskiddin
+Someone walks by and notifies you this is a Level 17 restricted area. You quickly hide your to-do list, before they point and laugh that they got you GOOD, and the grocery store's THAT way.
+
+>r
+
+#testcase-scenery-table-of-scenery-9-seediness
+>seediness
+This area doesn't feel too posh. You don't know why, but it doesn't.
+
+>r
+
+#testcase-scenery-table-of-scenery-9-skunkweed
+>skunkweed
+It smells bad here, like it should be illegal.
+
+>r
+
+#testcase-scenery-table-of-scenery-9-whininess
+>whininess
+You can zone out one complaint or two, but when it's all around, it's like it's contagious and you just won't put up with it! Really, some people! It's just not fair! You'd never...oops.
+
+>r
+
+#testcase-scenery-table-of-scenery-9-wineskins
+>wineskins
+Everything retro is fashionable again, and drinking wine from animal skins was before when retro was a thing, so--that big rich people's gathering in the park is extra nice.
+
+>r
+
+#testcase-scenery-table-of-scenery-10-iundidjunk
+>iundidjunk
+You feel a sudden fear your past wrangling may be all for nought and can be wiped out just like that, as if you're part of some big silly game you only understand on the surface.
+
+>r
+
+>fo 3
+
+#+testcase-scenery-table-of-scenery-10-iundidjunk
+>iundidjunk
+You feel a sudden fear your current wrangling may be all for nought and can be wiped out just like that, as if you're part of some big silly game you only understand on the surface.
+
+>r
+
+#testcase-scenery-table-of-scenery-10-iundidnews
+>iundidnews
+You feel a sudden fear your past wrangling may be all for nought and can be wiped out just like that, as if you're part of some big silly game you only understand on the surface.
+
+>fo 4
+
+>r
+
+#+testcase-scenery-table-of-scenery-10-iundidnews
+>iundidnews
+You feel a sudden fear your current wrangling may be all for nought and can be wiped out just like that, as if you're part of some big silly game you only understand on the surface.
+
+>r
+
+#testcase-scenery-table-of-scenery-10-skinniness
+>skinniness
+You are momentarily bombarded with ads for diet plans.
