@@ -49,7 +49,7 @@ include Fourdiopolis Beta Testing by Andrew Schultz.
 
 section includes - not for release
 
-[include Fourdiopolis Tests by Andrew Schultz.] [commenting this out saves 0x1000 z-machine space while debugging]
+include Fourdiopolis Tests by Andrew Schultz. [commenting this out saves 0x1000 z-machine space while debugging]
 
 chapter stubs
 
@@ -385,7 +385,7 @@ definition: a scenario (called SC) is ahead:
 	if SC is FRI, no; [never look back]
 	if SC is not LAS and cur-scen is STU, no; [don't clue any of the 3 previous in cool stuff mode]
 	if won of SC is true, no;
-	if cur-scen is LAS, no;
+	if cur-scen is las, no;
 	yes;
 
 to decide whether around-hideout:
@@ -481,8 +481,6 @@ to reset-game:
 	now steps-so-far is 0;
 	say "[b]Back at Sector 000[r][line break]";
 
-book beginning
-
 book entries
 
 a quasi-entry is a kind of thing.
@@ -549,7 +547,7 @@ check entering a quasi-entry:
 				say "Whoah. You're not brave enough to enter. But you'll leave a message.[paragraph break]";
 			if there is a foundit entry:
 				say "[foundit entry][line break]";
-			else if cur-scen is LAS:
+			else if cur-scen is las:
 				say "You read through your guidelines on rabble-rousing literature and write up a short screed describing how [tally entry in title case] [one of]is typical of the whole bunch and one of the worst at the same time[or]doesn't care at all, but cares about themselves[or]is both too powerful and yet powerless to change the PEOPLE[or]doesn't understand common people but sure understands how to manipulate them[or]is the worst and yet controlled by even worse people at the same time[in random order]. You add in some bargle about [one of]how they'll get to spend more time with their lovely family soon[or]disgruntled ex-staffers TALK[or]they'll be the first out when people see all the corruption[or]their rags to riches story being a fraud compared to Ed Dunn[or]their lack of, or excessive, charisma is especially galling[or]Embarrassing Facts you know--ones you can't even write down[or]their lack of traditional values and desire to return Fourdiopolis to the 22nd or even 21st century won't stand[or]their [a random number between 85 and 95]% approval rating is a fraud[or]their getting [a random number between 85 and 95]% of the vote is suspicious[in random order]. Any crank can send an email like that, but few people have the guts to DROP BY. You dust your hands off and sneak away";
 			else:
 				say "BUG I forgot to say something clever here.";
@@ -560,69 +558,85 @@ check entering a quasi-entry:
 			check-silly-comments;
 			reset-game;
 			do nothing instead;
-	if hideout is visible, run-the-ending instead;
+	if hideout is visible:
+		abide by the win-rule of cur-scen;
+		end-win-with-undo;
+		the rule succeeds;
 	say "Oops, should've found something." instead;
 
 to say rand-yay:
 	say "[one of]especially clever about that one[or]like maybe you can see a missing location you couldn't figure before[or]confident, but not cocky[or]focused, sensible, and logical--but not TOO much[or]happy to know the city's full of secrets[or]like you'd like to tell someone about that, but you'd probably get in trouble[in random order]"
 
-to run-the-ending:
-	if cur-scen is fri:
-		if score < 5:
-			say "'[if score is 0]None at all[else]Only [score in words][end if]? That simply won't do. We need someone who can do a bit more... well, have a nice life.' But you don't. A month later, though, you're arrested at 2 AM as an associate of the potential rebels. You wonder if they reported you, for doing so relatively little for them.";
-			now story-ended is true;
-			end the story saying "Well, you can always undo and retry";
-			the rule succeeds;
-		if score < 15:
-			say "'Well, not too bad, but not quite good enough.' You go on your way, and every month or so, you walk by where you thought the hideout was, but you can never quite find it.";
-			now story-ended is true;
-			end the story saying "Find [15 - score in words] more and open a new puzzle";
-			the rule succeeds;
-		say "'Good job! That's [if score < 18]enough to be promoted to a general runner[else if score is 20]perfect[else]even better than we hoped[end if]! There's...a few more task lists. We're short of people. Some get lost, and captured. Can you do a bit more?'";
-		bracket-say "You can RESTART and you'll have access to a new puzzle. There are five more--three chosen in random order, then a 'final' one, then an extra-difficult one. You can also type I DID I UNDID to reset your accomplishments and try this again. Or, if you lose your save file, I SEEK KEEN will jump over finding the friends.[paragraph break]But even if this was more than enough for you, getting through this list is an accomplishment. Go take some time to feel good about yourself. Fourdiopolis is not an easy game!";
-		choose row 1 in table of accomplishments;
+book ending rules
+
+this is the fri-win rule:
+	if score < 5:
+		say "'[if score is 0]None at all[else]Only [score in words][end if]? That simply won't do. We need someone who can do a bit more... well, have a nice life.' But you don't. A month later, though, you're arrested at 2 AM as an associate of the potential rebels. You wonder if they reported you, for doing so relatively little for them.";
+		now story-ended is true;
+		end the story saying "Well, you can always undo and retry";
+		the rule succeeds;
+	if score < 15:
+		say "'Well, not too bad, but not quite good enough.' You go on your way, and every month or so, you walk by where you thought the hideout was, but you can never quite find it.";
+		now story-ended is true;
+		end the story saying "Find [15 - score in words] more and open a new puzzle";
+		the rule succeeds;
+	say "'Good job! That's [if score < 18]enough to be promoted to a general runner[else if score is 20]perfect[else]even better than we hoped[end if]! There's...a few more task lists. We're short of people. Some get lost, and captured. Can you do a bit more?'";
+	bracket-say "You can RESTART and you'll have access to a new puzzle. There are five more--three chosen in random order, then a 'final' one, then an extra-difficult one. You can also type I DID I UNDID to reset your accomplishments and try this again. Or, if you lose your save file, I SEEK KEEN will jump over finding the friends.[paragraph break]But even if this was more than enough for you, getting through this list is an accomplishment. Go take some time to feel good about yourself. Fourdiopolis is not an easy game!";
+	choose row 1 in table of accomplishments;
+	now solved entry is true;
+	write file of accomplishments from the table of accomplishments;
+
+definition: a scenario (called sc) is finished:
+	if sc is las, no;
+	if won of sc is true, yes;
+	no;
+
+this is the mid-win rule:
+	abide by the gen-score-end-check rule;
+	choose row (scidx of cur-scen) in table of accomplishments;
+	now solved entry is true;
+	write file of accomplishments from the table of accomplishments;
+	let nfs be number of finished scenarios;
+	if nfs is 4:
+		say "You've gotten all the supplies the rebels need! Now, for the final challenge: find fun stuff that will make a revolution worthwhile. There's--well, we don't know much about having fun, but we're sure other people do.";
+	else:
+		say "'You did [if score is 20]a perfect job[else]such a good job. [score in words] of 20 is impressive[end if]! But hey! There's still a bit more. We're--well, even shorter of competent people like you to find stuff. There's just [4 - nfs in words] other big twenty-item task[if 4 - nfs > 1]s[end if] left to do, but--it'll be about the same challenge as what you already found.'";
+	bracket-say "if you wish to undo this specific task set, you can type I UNDID [spec-undo]. This will be in the A command, if you forget.";
+
+this is the stu-win rule:
+	abide by the gen-score-end-check rule;
+	if score < 10:
+		say "'You know, the substance over style shtick can only be pulled off if you HAVE a certain amount of style. Hey, we don't like it either, but that's the real world. Well, maybe the facts will be good enough, if we yell loud enough.'";
+	else if score < 15:
+		say "'Hm, well, that'll make Fourdiopolis cool enough for now. Maybe we can like do the rest AFTER the revolution. Guess we have to be practical.'";
+	else:
+		say "'Wow! That's a lot of cool hidden stuff we need more of[if score > 18]! Too much, if that were possible[end if]! That's what we stand for, and what we'll give to the people! Or at least try to! They'll love us! There's just one more thing--we can strike terror into the hearts of the shadow councillors that help run this city. Their names are closely protected--but we know the sectors they live in, and you're just the person to find their shadow campaign headquarters.'";
+		say "Congratulations! You've unlocked a final FINAL puzzle. You will be prompted to see if you'd like to go for it on restart. It's thirty, not twenty, and it's meant to be difficult can search out.[paragraph break]There's also a hidden command you can use at any time: type UNKINDNESS to get to the final bit.";
+		choose row 5 in table of accomplishments;
 		now solved entry is true;
 		write file of accomplishments from the table of accomplishments;
-		end-win-with-undo;
+
+this is the las-win rule:
+	if score is 0:
+		say "'Boo! Fink.' they chide you. But they know that with all the supplies ready, they don't need fearmongering anyway. Power to the people, well, hopefully.";
+	else if score  < 7:
+		say "'Well, it's a start. These people are hard to get at. But...we have enough momentum anyway. We hope.'";
+	else if score < 18:
+		say "'A bit disappointing, but, well, they'll be exposed with time anyway. Maybe those who haven't gotten anything yet will be scared in their own way.'";
+	else if score < 23:
+		say "'A majority! [if score * 2 is last-scen-rows]Well, if we round up. [end if]Perhaps there is some hope that they can be scared to act before we have to. Hm, we might anyway. It'll be fun.'";
+	else if score < 29:
+		say "'Wow! We could hardly have hoped for more! Though--err, well, maybe you could've figured THEM, or...oh, never mind.'";
+	else if score < last-scen-rows:
+		say "'Impressive indeed! We're glad you're not on THEIR side. We'd have gotten a lot more threats now than we already have.'";
+	else:
+		say "'All of them? You're almost scaring us. Don't worry. Almost.'";
+	if score * 2 >= last-scen-rows:
+		say "[paragraph break]You ask if you can come along for the uprisings, but they assure you your technical skills are far too valuable. You feel sort of ripped off, until you realize that means all-you-can-eat from the supplies you requisitioned earlier.";
 		continue the action;
-	else if cur-scen is las:
-		if score is 0:
-			say "'Boo! Fink.' they chide you. But they know that with all the supplies ready, they don't need fearmongering anyway. Power to the people, well, hopefully.";
-		else if score  < 7:
-			say "'Well, it's a start. These people are hard to get at. But...we have enough momentum anyway. We hope.'";
-		else if score < 18:
-			say "'A bit disappointing, but, well, they'll be exposed with time anyway. Maybe those who haven't gotten anything yet will be scared in their own way.'";
-		else if score < 23:
-			say "'A majority! [if score * 2 is last-scen-rows]Well, if we round up. [end if]Perhaps there is some hope that they can be scared to act before we have to. Hm, we might anyway. It'll be fun.'";
-		else if score < 29:
-			say "'Wow! We could hardly have hoped for more! Though--err, well, maybe you could've figured THEM, or...oh, never mind.'";
-		else if score < last-scen-rows:
-			say "'Impressive indeed! We're glad you're not on THEIR side. We'd have gotten a lot more threats now than we already have.'";
-		else:
-			say "'All of them? You're almost scaring us. Don't worry. Almost.'";
-		if score * 2 >= last-scen-rows:
-			say "[paragraph break]You ask if you can come along for the uprisings, but they assure you your technical skills are far too valuable. You feel sort of ripped off, until you realize that means all-you-can-eat from the supplies you requisitioned earlier.";
-		end-win-with-undo;
-		continue the action;
-	else if cur-scen is stu:
-		if score < 10:
-			say "'You know, the substance over style shtick can only be pulled off if you HAVE a certain amount of style. Hey, we don't like it either, but that's the real world. Well, maybe the facts will be good enough, if we yell loud enough.'";
-		else if score < 15:
-			say "'Hm, well, that'll make Fourdiopolis cool enough for now. Maybe we can like do the rest AFTER the revolution. Guess we have to be practical.'";
-		else:
-			say "'Wow! That's a lot of cool hidden stuff we need more of[if score > 18]! Too much, if that were possible[end if]! That's what we stand for, and what we'll give to the people! Or at least try to! They'll love us! There's just one more thing--we can strike terror into the hearts of the shadow councillors that help run this city. Their names are closely protected--but we know the sectors they live in, and you're just the person to find their shadow campaign headquarters.'";
-			say "Congratulations! You've unlocked a final FINAL puzzle. You will be prompted to see if you'd like to go for it on restart. It's thirty, not twenty, and it's meant to be difficult can search out.[paragraph break]There's also a hidden command you can use at any time: type UNKINDNESS to get to the final bit.";
-			choose row 5 in table of accomplishments;
-			now solved entry is true;
-			write file of accomplishments from the table of accomplishments;
-		end-win-with-undo;
-		continue the action;
-	let lists-done be 0;
-	let table-count be 0;
-	repeat through table of accomplishments:
-		increment table-count;
-		if table-count <= 5 and solved entry is true:
-			increment lists-done;
+	the rule succeeds;
+
+this is the gen-score-end-check rule:
 	if score is 0:
 		say "Murmurs of dismay come back as people, including some of the friends you had a particularly tough time rescuing, are upset you weren't able to do anything[despite-good]. Harsh!";
 	else if score < 5:
@@ -634,31 +648,7 @@ to run-the-ending:
 	if score < 15:
 		now story-ended is true;
 		end the story saying "[if score > 9]Just[else]Find[end if] [15 - score in words] [if score > 0]more [end if]to open a new puzzle";
-		continue the action;
-	debug-say "Completed [your-table].";
-	if cur-scen is edu:
-		choose row 2 in table of accomplishments;
-		debug-say "Chose row 2.";
-	else if cur-scen is sup:
-		choose row 3 in table of accomplishments;
-		debug-say "Chose row 3.";
-	else if cur-scen is peo:
-		choose row 4 in table of accomplishments;
-		debug-say "Chose row 4.";
-	else:
-		say "Uh oh. This should not happen. You solved a table you should not have: [your-table]. If you can send [your-table] ";
-		repeat through table of accomplishments:
-			say "[solved entry] ";
-		say "to [email], I'd appreciate that so I can fix this bug.";
-		choose row 4 in table of accomplishments;
-	now solved entry is true;
-	write file of accomplishments from the table of accomplishments;
-	if lists-done is 4:
-		say "You've gotten all the supplies the rebels need! Now, for the final challenge: find fun stuff that will make a revolution worthwhile. There's--well, we don't know much about having fun, but we're sure other people do.";
-	else:
-		say "'You did [if score is 20]a perfect job[else]such a good job. [score in words] of 20 is impressive[end if]! But hey! There's still a bit more. We're--well, even shorter of competent people like you to find stuff. There's just [4 - lists-done in words] other big twenty-item task[if 4 - lists-done > 1]s[end if] left to do, but--it'll be about the same challenge as what you already found.'";
-	bracket-say "if you wish to undo this specific task set, you can type I UNDID [spec-undo]. This will be in the A command, if you forget.";
-	end-win-with-undo;
+		the rule succeeds;
 
 to say spec-undo:
 	if cur-scen is peo:

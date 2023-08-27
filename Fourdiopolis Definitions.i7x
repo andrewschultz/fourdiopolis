@@ -6,20 +6,20 @@ Version 1/230825 of Fourdiopolis Definitions by Andrew Schultz begins here.
 
 volume scenarios
 
-a scenario is a kind of thing. a scenario has a table name called objectives. a scenario has a table name called milestones. a scenario has a table name called nearmisses. a scenario has a truth state called won. a scenario has indexed text called lose-msg. a scenario has indexed text called win-msg.
+a scenario is a kind of thing. a scenario has a number called scidx. a scenario has a table name called objectives. a scenario has a table name called milestones. a scenario has a table name called nearmisses. a scenario has a truth state called won. a scenario has a rule called win-rule. a scenario has indexed text called lose-msg. a scenario has indexed text called win-msg.
 
-FRI is a scenario. objectives of FRI is table of fri finds. milestones of FRI is table of fri milestones. nearmisses of FRI is table of fri near misses. lose-msg of FRI is "Alone in the big metropolis". win-msg of FRI is "Wow, there's friends out there".
+FRI is a scenario. scidx of FRI is 1. objectives of FRI is table of fri finds. milestones of FRI is table of fri milestones. nearmisses of FRI is table of fri near misses. win-rule of FRI is fri-win rule. lose-msg of FRI is "Alone in the big metropolis". win-msg of FRI is "Wow, there's friends out there".
 
-EDU is a scenario. objectives of EDU is table of edu finds. milestones of EDU is table of edu milestones. nearmisses of EDU is table of edu near misses.
+EDU is a scenario. scidx of EDU is 2. objectives of EDU is table of edu finds. milestones of EDU is table of edu milestones. nearmisses of EDU is table of edu near misses. win-rule of EDU is mid-win rule.
 
-SUP is a scenario. objectives of SUP is table of sup finds. milestones of SUP is table of sup milestones. nearmisses of SUP is table of sup near misses.
+SUP is a scenario. scidx of SUP is 3. objectives of SUP is table of sup finds. milestones of SUP is table of sup milestones. nearmisses of SUP is table of sup near misses. win-rule of SUP is mid-win rule.
 
-PEO is a scenario. objectives of PEO is table of peo finds. milestones of PEO is table of peo milestones. nearmisses of PEO is table of peo near misses.
+PEO is a scenario. scidx of PEO is 4. objectives of PEO is table of peo finds. milestones of PEO is table of peo milestones. nearmisses of PEO is table of peo near misses. win-rule of PEO is mid-win rule.
 
-STU is a scenario. objectives of STU is table of stu finds. milestones of STU is table of stu milestones. nearmisses of STU is table of stu near misses. lose-msg of STU is "[if score < 10]Still a way to go[else]Close, but...[end if]". win-msg of STU is "All over except the last round".
+STU is a scenario. scidx of STU is 5. objectives of STU is table of stu finds. milestones of STU is table of stu milestones. nearmisses of STU is table of stu near misses. win-rule of STU is stu-win rule. lose-msg of STU is "[if score < 10]Still a way to go[else]Close, but...[end if]". win-msg of STU is "All over except the last round".
 
 
-LAS is a scenario. objectives of LAS is table of las finds. milestones of LAS is table of las milestones.[nearmisses of LAS is table of las near misses.]lose-msg of LAS is "Well, it was meant to be tough". win-msg of LAS is "Very impressive indeed".
+LAS is a scenario. scidx of LAS is 6. objectives of LAS is table of las finds. milestones of LAS is table of las milestones.[nearmisses of LAS is table of las near misses.]lose-msg of LAS is "Well, it was meant to be tough". win-msg of LAS is "Very impressive indeed".
 
 scenario-list is a list of scenarios variable. scenario-list is { FRI, EDU, SUP, PEO, STU, LAS }.
 
