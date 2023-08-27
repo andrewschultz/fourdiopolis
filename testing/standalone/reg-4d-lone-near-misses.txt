@@ -1,0 +1,448 @@
+## file name: reg-4d-lone-hidden-inside.txt
+## test file for testing the various ends, successful or otherwise
+** game: /home/andrew/prt/debug-fourdiopolis.ulx
+** interpreter: /home/andrew/prt/glulxe -q
+
+* near misses
+
+>fo 1
+
+#testcase-near-misses-table-of-fri-near-misses-jesse-jessie
+>jesse
+>r
+On your way back to the center, you wonder if you could've gone down a small detour to find something. Or things. You felt like you were close.
+
+#+testcase-near-misses-table-of-fri-near-misses-jesse-jessie
+>jesse
+>r
+On your way back to the center, you wonder if you could've gone down a small detour to find something. Or things. You felt like you were close.
+
+>jessie
+>c
+
+#+testcase-near-misses-table-of-fri-near-misses-jesse-jessie
+>jesse
+>r
+!On your way back to the center, you wonder if you could've gone down a small detour to find something. Or things. You felt like you were close.
+
+>fo 2
+
+#testcase-near-misses-table-of-edu-near-misses-hijink-hijinks
+>hijink
+>r
+On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+>hijinks
+>c
+
+#+testcase-near-misses-table-of-edu-near-misses-hijink-hijinks
+>hijink
+>r
+!On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+#testcase-near-misses-table-of-edu-near-misses-hike-hikes
+>hike
+>r
+On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+>hikes
+>c
+
+#+testcase-near-misses-table-of-edu-near-misses-hike-hikes
+>hike
+>r
+!On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+#testcase-near-misses-table-of-edu-near-misses-issue-issues
+>issue
+>r
+On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+>issues
+>c
+
+#+testcase-near-misses-table-of-edu-near-misses-issue-issues
+>issue
+>r
+!On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+#testcase-near-misses-table-of-edu-near-misses-sin-sins
+>sin
+>r
+On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+>sins
+>c
+
+#+testcase-near-misses-table-of-edu-near-misses-sin-sins
+>sin
+>r
+!On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+#testcase-near-misses-table-of-edu-near-misses-sine-sines
+>sine
+>r
+On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+>sines
+>c
+
+#+testcase-near-misses-table-of-edu-near-misses-sine-sines
+>sine
+>r
+!On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+>fo 4
+
+#testcase-near-misses-table-of-peo-near-misses-dis-disses
+>dis
+>r
+On your way back to the center, you wonder if you could've gone a good bit ahead to find something. Or things. You felt like you were close.
+
+>disses
+>c
+
+#+testcase-near-misses-table-of-peo-near-misses-dis-disses
+>dis
+>r
+!On your way back to the center, you wonder if you could've gone a good bit ahead to find something. Or things. You felt like you were close.
+
+#testcase-near-misses-table-of-peo-near-misses-duke-dukes
+>duke
+>r
+On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+>dukes
+>c
+
+#+testcase-near-misses-table-of-peo-near-misses-duke-dukes
+>duke
+>r
+!On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+#testcase-near-misses-table-of-peo-near-misses-hunk-hunks
+>hunk
+>r
+On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+>hunks
+>c
+
+#+testcase-near-misses-table-of-peo-near-misses-hunk-hunks
+>hunk
+>r
+!On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+#testcase-near-misses-table-of-peo-near-misses-indie-indies
+>indie
+>r
+On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+>indies
+>c
+
+#+testcase-near-misses-table-of-peo-near-misses-indie-indies
+>indie
+>r
+!On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+#testcase-near-misses-table-of-peo-near-misses-junkie-junkies
+>junkie
+>r
+On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+>junkies
+>c
+
+#+testcase-near-misses-table-of-peo-near-misses-junkie-junkies
+>junkie
+>r
+!On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+#testcase-near-misses-table-of-peo-near-misses-kid-kids
+>kid
+>r
+On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+>kids
+>c
+
+#+testcase-near-misses-table-of-peo-near-misses-kid-kids
+>kid
+>r
+!On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+#testcase-near-misses-table-of-peo-near-misses-sheikh-sheikhs
+>sheikh
+>r
+On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+>sheikhs
+>c
+
+#+testcase-near-misses-table-of-peo-near-misses-sheikh-sheikhs
+>sheikh
+>r
+!On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+>fo 5
+
+#testcase-near-misses-table-of-stu-near-misses-dunk-dunks
+>dunk
+>r
+On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+>dunks
+>c
+
+#+testcase-near-misses-table-of-stu-near-misses-dunk-dunks
+>dunk
+>r
+!On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+#testcase-near-misses-table-of-stu-near-misses-hiss-hisses
+>hiss
+>r
+On your way back to the center, you wonder if you could've gone a small way along to find something. Or things. You felt like you were close.
+
+>hisses
+>c
+
+#+testcase-near-misses-table-of-stu-near-misses-hiss-hisses
+>hiss
+>r
+!On your way back to the center, you wonder if you could've gone a small way along to find something. Or things. You felt like you were close.
+
+#testcase-near-misses-table-of-stu-near-misses-husk-husks
+>husk
+>r
+On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+>husks
+>c
+
+#+testcase-near-misses-table-of-stu-near-misses-husk-husks
+>husk
+>r
+!On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+#testcase-near-misses-table-of-stu-near-misses-husk-huskies
+>husk
+>r
+On your way back to the center, you wonder if you could've gone a good bit ahead to find something. Or things. You felt like you were close.
+
+>huskies
+>c
+
+#+testcase-near-misses-table-of-stu-near-misses-husk-huskies
+>husk
+>r
+!On your way back to the center, you wonder if you could've gone a good bit ahead to find something. Or things. You felt like you were close.
+
+#testcase-near-misses-table-of-stu-near-misses-kiss-kisses
+>kiss
+>r
+On your way back to the center, you wonder if you could've gone a small way along to find something. Or things. You felt like you were close.
+
+>kisses
+>c
+
+#+testcase-near-misses-table-of-stu-near-misses-kiss-kisses
+>kiss
+>r
+!On your way back to the center, you wonder if you could've gone a small way along to find something. Or things. You felt like you were close.
+
+#testcase-near-misses-table-of-stu-near-misses-shine-shininess
+>shine
+>r
+On your way back to the center, you wonder if you could've gone down a small detour to find something. Or things. You felt like you were close.
+
+>shininess
+>c
+
+#+testcase-near-misses-table-of-stu-near-misses-shine-shininess
+>shine
+>r
+!On your way back to the center, you wonder if you could've gone down a small detour to find something. Or things. You felt like you were close.
+
+#testcase-near-misses-table-of-stu-near-misses-ski-skis
+>ski
+>r
+On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+>skis
+>c
+
+#+testcase-near-misses-table-of-stu-near-misses-ski-skis
+>ski
+>r
+!On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+#testcase-near-misses-table-of-stu-near-misses-skink-skinks
+>skink
+>r
+On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+>skinks
+>c
+
+#+testcase-near-misses-table-of-stu-near-misses-skink-skinks
+>skink
+>r
+!On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+#testcase-near-misses-table-of-stu-near-misses-wink-winks
+>wink
+>r
+On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+>winks
+>c
+
+#+testcase-near-misses-table-of-stu-near-misses-wink-winks
+>wink
+>r
+!On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+* unpassed
+
+>fo 3
+
+#testcase-near-misses-table-of-sup-near-misses-desk-desks
+>desk
+>r
+On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+>desks
+>c
+
+#+testcase-near-misses-table-of-sup-near-misses-desk-desks
+>desk
+>r
+!On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+#testcase-near-misses-table-of-sup-near-misses-dish-dishes
+>dish
+>r
+On your way back to the center, you wonder if you could've gone a small way along to find something. Or things. You felt like you were close.
+
+>dishes
+>c
+
+#+testcase-near-misses-table-of-sup-near-misses-dish-dishes
+>dish
+>r
+!On your way back to the center, you wonder if you could've gone a small way along to find something. Or things. You felt like you were close.
+
+#testcase-near-misses-table-of-sup-near-misses-hen-hens
+>hen
+>r
+On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+>hens
+>c
+
+#+testcase-near-misses-table-of-sup-near-misses-hen-hens
+>hen
+>r
+!On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+#testcase-near-misses-table-of-sup-near-misses-kiwi-kiwis
+>kiwi
+>r
+On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+>kiwis
+>c
+
+#+testcase-near-misses-table-of-sup-near-misses-kiwi-kiwis
+>kiwi
+>r
+!On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+#testcase-near-misses-table-of-sup-near-misses-nuke-nukes
+>nuke
+>r
+On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+>nukes
+>c
+
+#+testcase-near-misses-table-of-sup-near-misses-nuke-nukes
+>nuke
+>r
+!On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+#testcase-near-misses-table-of-sup-near-misses-shed-sheds
+>shed
+>r
+On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+>sheds
+>c
+
+#+testcase-near-misses-table-of-sup-near-misses-shed-sheds
+>shed
+>r
+!On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+#testcase-near-misses-table-of-sup-near-misses-skunk-skunks
+>skunk
+>r
+On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+>skunks
+>c
+
+#+testcase-near-misses-table-of-sup-near-misses-skunk-skunks
+>skunk
+>r
+!On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+#testcase-near-misses-table-of-sup-near-misses-undie-undies
+>undie
+>r
+On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+>undies
+>c
+
+#+testcase-near-misses-table-of-sup-near-misses-undie-undies
+>undie
+>r
+!On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+#testcase-near-misses-table-of-sup-near-misses-wine-wines
+>wine
+>r
+!On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+>win
+>c
+
+#+testcase-near-misses-table-of-sup-near-misses-wine-wines
+>wine
+>r
+On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+>wines
+>c
+
+#+testcase-near-misses-table-of-sup-near-misses-wine-wines
+>wine
+>r
+!On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
+
+#testcase-near-misses-table-of-sup-near-misses-wish-wishes
+>wish
+>r
+On your way back to the center, you wonder if you could've gone a small way along to find something. Or things. You felt like you were close.
+
+>wishes
+>c
+
+#+testcase-near-misses-table-of-sup-near-misses-wish-wishes
+>wish
+>r
+!On your way back to the center, you wonder if you could've gone a small way along to find something. Or things. You felt like you were close.
+
