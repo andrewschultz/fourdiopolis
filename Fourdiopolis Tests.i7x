@@ -87,10 +87,10 @@ carry out wf0ing:
 understand "wf [number]" as wfing.
 
 carry out wfing:
-	if number understood is wrongo, say "That's not a valid number to write to the save file. 0, odd #s from 1 to 15 inclusive, and 31 work. Type -1 for full explanations." instead;
+	if number understood is bad-save-val, say "That's not a valid number to write to the save file. 0, odd #s from 1 to 15 inclusive, and 31 work. Type -1 for full explanations." instead;
 	if number understood is -4:
 		let bin-num be binary-solved;
-		if bin-num < 1 or bin-num > 14 or bin-num is wrongo, say "You need to have friends solved and not all the middle tables." instead;
+		if bin-num < 1 or bin-num > 14 or bin-num is bad-save-val, say "You need to have friends solved and not all the middle tables." instead;
 		midtable-choose;
 		the rule succeeds;
 	if number understood is -3, say "Current table: [your-table]." instead;
@@ -161,13 +161,13 @@ chapter scing
 
 [* this changes how much scenery we see]
 
-scing is an action applying to one number.
+scfinding is an action applying to one number.
 
-understand the command "sc" as something new.
+understand the command "scfind" as something new.
 
-understand "sc [number]" as scing.
+understand "scfind [number]" as scfinding.
 
-carry out scing:
+carry out scfinding:
 	let my-count be 0;
 	let toNum be 0;
 	let X be number of rows in table of scenery 4;
