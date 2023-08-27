@@ -57,6 +57,7 @@ to decide which table name is your-table:
 	decide on objectives of cur-scen;
 
 to shift-scen (sc - a scenario):
+	now cur-scen is sc;
 	now hidden-inside is true;
 	now locom-chars is 1;
 	if your-table is table of friends:
@@ -298,16 +299,16 @@ check going inside:
 
 to boost-num-tally:
 	let q be dirhash of noun;
-	increment steps-so-far;
 	if steps-so-far >= 8:
-		now walk-short-1 is 11 * walk-short-1;
-		increase walk-short-1 by q;
+		now walk-short-3 is 11 * walk-short-3;
+		increase walk-short-3 by q;
 	else if steps-so-far >= 4:
 		now walk-short-2 is 11 * walk-short-2;
 		increase walk-short-2 by q;
 	else:
-		now walk-short-3 is 11 * walk-short-3;
-		increase walk-short-3 by q;
+		now walk-short-1 is 11 * walk-short-1;
+		increase walk-short-1 by q;
+	increment steps-so-far;
 
 definition: a number (called nu) is outofbounds:
 	if nu > 9 or nu < -9, yes;
@@ -339,7 +340,6 @@ to move-player-along:
 	else:
 		abide by the walked out of bounds rule;
 	if noun is up or noun is down, check-up-down;
-	check-nearlies;
 	see-if-left;
 
 to say no-jump-for-you:
@@ -354,18 +354,16 @@ check going:
 		now ignore-remaining-dirs is true;
 		reset-game instead;
 	tally-and-place;
+	check-nearlies;
 
 to tally-and-place:
+	boost-num-tally;
 	repeat with Q running through things in outside-area:
 		if Q is not player and Q is not transporter:
 			now Q is off-stage;
-	say "[walk-short-1] [walk-short-2] [walk-short-3] [steps-so-far].";
-	if steps-so-far > 2:
+	if steps-so-far > 2 and steps-so-far < 11:
 		repeat through your-table:
 			if walk-short-1 is hash1 entry and walk-short-2 is hash2 entry and walk-short-3 is hash3 entry:
-				say "[walk-short-1] vs [hash1 entry].";
-				say "[walk-short-2] vs [hash2 entry].";
-				say "[walk-short-3] vs [hash3 entry].";
 				if found entry is not 1:
 					if there is no what-drops entry:
 						move generic door to outside-area;
@@ -479,7 +477,7 @@ to reset-game:
 		if steps-so-far > 6 and your-table is table of friends:
 			say "You saw a lot of Fourdiopolis this time, but maybe your assigned tasks aren't [if steps-so-far is 7]quite [else if steps-so-far > 8]nearly [end if]as complex (yet) as having to walk THIS much.[paragraph break]"; [skipping 8 is intentional!]
 		if steps-so-far >= 8:
-			if score < 5:
+			if your-table is not table of last names and score < 5:
 				say "Hmm. If you're having trouble finding things, you may wish to start with stuff that's near first, instead of what's first on your list.[paragraph break]";
 	now steps-so-far is 0;
 	say "[b]Back at Sector 000[r][line break]";
@@ -496,7 +494,7 @@ the otherwise unremarkable hovel is a quasi-entry. description is "It's a bit to
 
 the edutainment storefront is a quasi-entry. "You recognize an edutainment storefront by the brain hologram.". description is "You can't tell what's inside. Perhaps you should (C)heck."
 
-the suspiciously ordinary door is a quasi-entry. description is "The door is too clean and smooth. The wind blows by it with a nothing-to-see-here whistle.". "[if score is 0]Is it? Isn't it? Yes...no...it's an entry to a shadow campaign headquarters! Not that campaigns ever fail, for those who want to be elected.A suspiciously ordinary door leads in.[else if score is 1]It's a bit easier to recognize the shadow campaign headquarters now. There's another![else if score is 2]Another suspiciously ordinary door. You're sure, trying to underpin how the 'leaders' are just like regular people except for being hooked on powers.[else][another-door]. You wonder how you never recognized this sort of thing before.[end if]"
+the suspiciously ordinary door is a quasi-entry. description is "The door is too clean and smooth. The wind blows by it with a nothing-to-see-here whistle.". "[if score is 0]Is it? Isn't it? Yes...no...it's an entry to a shadow campaign headquarters! Not that campaigns ever fail, for those who want to be elected. A suspiciously ordinary door leads in.[else if score is 1]It's a bit easier to recognize the shadow campaign headquarters now. There's another![else if score is 2]Another suspiciously ordinary door. You're sure, trying to underpin how the 'leaders' are just like regular people except for being hooked on powers.[else][another-door]. You wonder how you never recognized this sort of thing before.[end if]"
 
 to say another-door:
 	say "[one of]And here's another 'plain' door[or]Hey! You found another one[or]You feel clever at having found another secret door[or]Another suspiciously ordinary door, [one of]less suspicious than[or]as suspicious as[at random] the last, but that's suspicious in its own way[or]A door so plain, you wonder if it was ever opened[at random]"
@@ -774,7 +772,10 @@ after reading a command:
 					try undomiding my-num;
 				else:
 					try domiding my-num;
-			the rule succeeds;
+				reject the player's command;
+			else if ncl > 10:
+				say "Too long a walk to contemplate.";
+				reject the player's command;
 		dirparse locom;
 		consider the silly stuff rule;
 		reject the player's command;

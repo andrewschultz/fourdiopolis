@@ -242,9 +242,7 @@ volume nearlies
 [ this is for if you get close, especially early on--mostly reserved for "you should try the plural." ]
 
 to check-nearlies:
-	say "[almosts of cur-scen].";
 	repeat through almosts of cur-scen:
-		say "[tally entry] [walk-short-1] [hash1 entry] [walk-short-2] [hash2 entry] [walk-short-3] [hash3 entry].";
 		if walk-short-1 is hash1 entry and walk-short-2 is hash2 entry and walk-short-3 is hash3 entry:
 			unless found-yet of mult entry:
 				now found entry is 1;
