@@ -81,6 +81,22 @@ carry out fiing:
 	now score is number understood;
 	the rule succeeds;
 
+chapter scing
+
+scing is an action out of world.
+
+understand the command "sc" as something new.
+
+understand "sc" as scing.
+
+carry out scing:
+	repeat with this-tab running through scenery-tables:
+		repeat through this-tab:
+			if found entry is not -1:
+				now found entry is 0;
+	say "Scenery cleared.";
+	the rule succeeds;
+
 Fourdiopolis Beta Testing ends here.
 
 ---- DOCUMENTATION ----
