@@ -6,20 +6,20 @@ Version 1/230825 of Fourdiopolis Definitions by Andrew Schultz begins here.
 
 volume scenarios
 
-a scenario is a kind of thing. a scenario has a table name called objectives. a scenario has a table name called comments. a scenario has a table name called almosts. a scenario has a truth state called won. a scenario has indexed text called lose-msg. a scenario has indexed text called win-msg.
+a scenario is a kind of thing. a scenario has a table name called objectives. a scenario has a table name called milestones. a scenario has a table name called nearmisses. a scenario has a truth state called won. a scenario has indexed text called lose-msg. a scenario has indexed text called win-msg.
 
-FRI is a scenario. objectives of FRI is table of friends. comments of FRI is table of friend yay. almosts of FRI is table of friend nearlies. lose-msg of FRI is "Alone in the big metropolis". win-msg of FRI is "Wow, there's friends out there".
+FRI is a scenario. objectives of FRI is table of fri finds. milestones of FRI is table of fri milestones. nearmisses of FRI is table of fri near misses. lose-msg of FRI is "Alone in the big metropolis". win-msg of FRI is "Wow, there's friends out there".
 
-EDU is a scenario. objectives of EDU is table of education. comments of EDU is table of education yay. almosts of EDU is table of education nearlies.
+EDU is a scenario. objectives of EDU is table of edu finds. milestones of EDU is table of edu milestones. nearmisses of EDU is table of edu near misses.
 
-SUP is a scenario. objectives of SUP is table of supplies. comments of SUP is table of sup yay. almosts of SUP is table of supplies nearlies.
+SUP is a scenario. objectives of SUP is table of sup finds. milestones of SUP is table of sup milestones. nearmisses of SUP is table of sup near misses.
 
-PEO is a scenario. objectives of PEO is table of marginalized people. comments of PEO is table of people yay. almosts of PEO is table of people nearlies.
+PEO is a scenario. objectives of PEO is table of peo finds. milestones of PEO is table of peo milestones. nearmisses of PEO is table of peo near misses.
 
-STU is a scenario. objectives of STU is table of just plain cool stuff. comments of STU is table of stuff yay. almosts of STU is table of cool stuff nearlies. lose-msg of STU is "[if score < 10]Still a way to go[else]Close, but...[end if]". win-msg of STU is "All over except the last round".
+STU is a scenario. objectives of STU is table of stu finds. milestones of STU is table of stu milestones. nearmisses of STU is table of stu near misses. lose-msg of STU is "[if score < 10]Still a way to go[else]Close, but...[end if]". win-msg of STU is "All over except the last round".
 
 
-LAS is a scenario. objectives of LAS is table of last names. comments of LAS is table of name yay. [almosts of LAS is nonexistent.] lose-msg of LAS is "Well, it was meant to be tough". win-msg of LAS is "Very impressive indeed".
+LAS is a scenario. objectives of LAS is table of las finds. milestones of LAS is table of las milestones.[nearmisses of LAS is table of las near misses.]lose-msg of LAS is "Well, it was meant to be tough". win-msg of LAS is "Very impressive indeed".
 
 scenario-list is a list of scenarios variable. scenario-list is { FRI, EDU, SUP, PEO, STU, LAS }.
 

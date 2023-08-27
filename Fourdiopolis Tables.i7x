@@ -6,7 +6,7 @@ volume main scenario tables
 
 chapter friends (scenario 1)
 
-table of friends
+table of fri finds
 tally (text)	cityloc	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
 "dennis"	"A3C"	8361	90	0	"skipper or jumper too"	"He begins telling you about his wonderful friend Jonathan and Jonathan's lovely future wife Elizabeth before getting serious and scared and asking if Christopher has been by yet. Eh, better than some creep describing a system for manipulating girls."	front door	0 [dennis hopper?]
 "eddie"	"B4D"	4793	3	0	"crazy friend"	"He stashes some absurdly low-priced appliances into a closet before running out."	front door	0
@@ -38,7 +38,7 @@ to say either-gender:
 		now female is true;
 	say "You're vaguely surprised the respondent is [if female is true]fe[end if]male, but it doesn't really matter either way, of course. 'I know where to be.' They run off"
 
-table of friend yay
+table of fri milestones
 count	comment
 1	"Well, you found someone. That's a good start."
 3	"You've got a bit of a crowd, but you know you can do more."
@@ -51,7 +51,7 @@ book middle tables
 
 chapter education (scenario 2)
 
-table of education
+table of edu finds
 tally (text)	cityloc	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
 "hijinks"	"B2B"	10392	233	0	"a full loop of political subversions"	"You learn tricks to make political rallies and flash mobs work with a minimum of arrests."	edutainment storefront	0
 "hikes"	"C32"	10398	2	0	"back to almost nature"	"You get a brief virtual reality sample of the unlivable wilds beyond the cities."	edutainment storefront	0
@@ -74,7 +74,7 @@ tally (text)	cityloc	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	
 "wise"	"C2B"	6317	0	0	"general smartitude"	"You learn not only generalities to make you feel clever but generalities to make you seem clever to others! Oh boy!"	edutainment storefront	0
 "wushu"	"114"	5958	5	0	"martial arts"	"You hear some blather about martial arts, not a sport, or some game that requires no mental commitment."	edutainment storefront	0
 
-table of education yay
+table of edu milestones
 count	comment
 1	"You feel smarter already!"
 3	"Even though you're only getting passing acquaintance with activism, it all seems simpler than actual school and the media led you to believe."
@@ -85,7 +85,7 @@ count	comment
 
 chapter supplies (scenario 3)
 
-table of supplies
+table of sup finds
 tally (text)	cityloc	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
 "desks"	"DA1"	8381	2	0	"boring office stuff"	"Well, we all need desks. Desks just aren't exciting. Maybe they can fold up, or have weird shapes, or even have cool drawers. But they're never exciting. At least they're ergonomic and space-efficient these days."	dusty warehouse	0
 "dishes"	"B5A"	8983	35	0	"something to eat on"	"Wow! All kinds of dishes! They're all biodegradable, too. They're a bit ugly, but you can't have everything. In a pinch, they can also be broken and thrown as weapons. Not very good weapons, but better than nothing."	beaten-up store	0
@@ -108,7 +108,7 @@ tally (text)	cityloc	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	
 "wines"	"B2B"	6306	2	0	"alcoholic beverages"	"Oh man! Not just the freeze-dried stuff, but the really bubbly stuff!"	beaten-up store	0
 "wishes"	"B40"	6321	35	0	"stuff to look forward to"	"You look down at your list. 'Yes,' you think to yourself. '[if score > 18]Celebrating with the people hidden inside[else]A few of these[end if] will be more fun to go through than this one.'"	surprisingly churchy looking place	0
 
-table of sup yay
+table of sup milestones
 count	comment
 1	"You're a bit surprised that you were able to requisition anything. You worried you were going to get arrested."
 3	"It's getting easier to ask with time. Of course, you aren't asking for YOU."
@@ -119,7 +119,7 @@ count	comment
 
 chapter people (scenario 4)
 
-table of marginalized people
+table of peo finds
 tally (text)	cityloc	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
 "denied"	"A4D"	8368	39	0	"folks rejected by society or health plans"	"There are always disgruntled people to bring to a cause."	hovel	0
 "disses"	"E3C"	8978	35	0	"comedy insult club"	"Many people here applaud you for getting them to join the fight to freely insult the powerful as well as the poor -- even if you might not be able to formulate an insult yourself."	neon	0
@@ -142,7 +142,7 @@ tally (text)	cityloc	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	
 "snide"	"B3C"	2877	3	0	"beyond confidence"	"These people aren't arrested for being snide but for being snide about the wrong things. No--no, they're being snide about the right things, right? You're pretty convinced by this. They're less obnoxious than government propaganda, and sometimes it's not enough to say 'It's not fair.'"	hovel	0
 "swiss"	"E1B"	3236	2	0	"people totally not neutral any more"	"Fourdiopolis officials have played the game of 'oh, even neutral people can see we're right...' but here are some neutral people who feel differently!"	hovel	0
 
-table of people yay
+table of peo milestones
 count	comment
 1	"Well, maybe you don't agree with these people, but they shouldn't be entirely repressed. And they're not the only ones!"
 3	"People opposed to the government were painted as useless hippies, but maybe not."
@@ -153,7 +153,7 @@ count	comment
 
 chapter stuff table (scenario 5)
 
-table of just plain cool stuff [toj]
+table of stu finds
 tally (text)	cityloc	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
 "dunks"	"BB2"	8612	2	0	"basketball show #1"	"Oh man! The old ten-foot rims are cheating a bit, but it's still fun to watch. You forget when dunking was outlawed on national television, or why, or when Basketball Drones overtook Basketball Jones."	gymnasium	0
 "dusk"	"CB2"	8623	0	0	"a beautiful sunset, or a close enough rendition"	"Oh wow! That's beautiful! You catch yourself thinking what range of RGB colors is in the sunset, before realizing you're missing the point."	climate-controlled building	0
@@ -176,7 +176,7 @@ tally (text)	cityloc	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	
 "whinnies"	"A6B"	6260	2334	0	"horsies"	"The horses look a bit sad, as if they'd like somewhere to run. But they nuzzle you and all that. What if there were places they could walk around more? Places everyone could still see them?"	fake barn	0
 "winks"	"DA0"	6313	2	0	"flirty place"	"Of course there are mating rituals, but there's a certain amount of rigor in them. You get looekd at funny if you break too many rules. But here, a wink needs no excuses. It's not just about romantic stuff, either."	cozy place with a neon sign	0
 
-table of stuff yay
+table of stu milestones
 count	comment
 1	"Yes, the world would be a better place with more places like this thriving."
 3	"You feel a bit greedy wanting to see more. I mean, there are commercials for super luxuries, but those--they make you feel bad. This leaves you feeling you could contribute in some way."
@@ -187,7 +187,7 @@ count	comment
 
 chapter final table
 
-table of last names [tol]
+table of las finds
 tally (text)	cityloc	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
 "dejesus"	"00B"	8451	299	0	"Spanish"	--	suspiciously ordinary door	0
 "deneke"	"A11"	8363	113	0	"German"	--	suspiciously ordinary door	0
@@ -226,7 +226,7 @@ tally (text)	cityloc	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	
 "whidden"	"14B"	6265	760	0	"almost too close"	--	suspiciously ordinary door	0
 "wisniewski"	"I3D"	6315	11057	118	"Polish"	"As you make your mark, you feel a shudder of Loathing at Wisniewski also being The Man."	suspiciously ordinary door	0
 
-table of name yay
+table of las milestones
 count	comment
 1	"Well, you are in for it, now. Even doing this once gives some risk."
 3	"You haven't been caught, yet. It's still nervy."
@@ -237,12 +237,12 @@ count	comment
 -2	"Perhaps one or two should be left, as an example to the others. Or perhaps not."
 0	"That is all. You have done well."
 
-volume nearlies
+volume near misses
 
 [ this is for if you get close, especially early on--mostly reserved for "you should try the plural." ]
 
-to check-nearlies:
-	repeat through almosts of cur-scen:
+to check-near-misses:
+	repeat through nearmisses of cur-scen:
 		if walk-short-1 is hash1 entry and walk-short-2 is hash2 entry and walk-short-3 is hash3 entry:
 			unless found-yet of mult entry:
 				now found entry is 1;
@@ -255,7 +255,7 @@ to decide whether found-yet of (x - indexed text):
 	decide no;
 
 this is the plural-almost rule:
-	repeat through almosts of cur-scen:
+	repeat through nearmisses of cur-scen:
 		if found entry is 1:
 			if found-yet of mult entry:
 				now found entry is 2;
@@ -265,11 +265,11 @@ this is the plural-almost rule:
 			break;
 	the rule succeeds;
 
-table of friend nearlies
+table of fri near misses
 tally	hash1	hash2	hash3	mult	found	missage
 "jesse"	12366	3	0	"jessie"	0	4
 
-table of education nearlies
+table of edu near misses
 tally	hash1	hash2	hash3	mult	found	missage
 "hijink"	10392	21	0	"hijinks"	0	1
 "hike"	10398	0	0	"hikes"	0	1
@@ -277,7 +277,7 @@ tally	hash1	hash2	hash3	mult	found	missage
 "sine"	3644	0	0	"sines"	0	1
 "sin"	331	0	0	"sins"	0	1
 
-table of supplies nearlies
+table of sup near misses
 tally	hash1	hash2	hash3	mult	found	missage
 "desk"	8381	0	0	"desks"	0	1
 "dish"	8983	0	0	"dishes"	0	2
@@ -290,7 +290,7 @@ tally	hash1	hash2	hash3	mult	found	missage
 "wine"	6306	0	0	"wines"	0	1
 "wish"	6321	0	0	"wishes"	0	2
 
-table of people nearlies
+table of peo near misses
 tally	hash1	hash2	hash3	mult	found	missage
 "dis"	816	0	0	"disses"	0	3
 "duke"	8704	0	0	"dukes"	0	1
@@ -300,7 +300,7 @@ tally	hash1	hash2	hash3	mult	found	missage
 "kid"	1304	0	0	"kids"	0	1
 "sheikh"	3550	117	0	"sheikhs"	0	1
 
-table of cool stuff nearlies
+table of stu near misses
 tally	hash1	hash2	hash3	mult	found	missage
 "dunk"	8612	0	0	"dunks"	0	1
 "hiss"	10309	0	0	"hisses"	0	2
@@ -397,14 +397,14 @@ tally (text)	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
 "whiskies"	6261	14313	0	--	"Wow! People seem to be having a rip-roaring time, here[whisky-wine]. You don't have time for such carousing at the moment, but it boosts your spirits."	--	0
 
 to say whisky-wine:
-	if your-table is table of supplies:
+	if cur-scen is sup:
 		choose row with tally of "wines" in your-table;
 		say ". [if found entry is 0]You figure there may be something a bit more restrained at the end of your list--a different way to imbibe[else]You already got some wines, but whiskies should probably best wait to celebrate a successful revolution[end if]"
 
 table of scenery 9 [tosc9]
 tally (text)	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
 "iseekkeen"	10926	14556	1	--	"[seek-track]."	--	-1
-"iundidedu"	11270	11413	5	--	"[worry-undo of table of education]."	--	-1
+"iundidedu"	11270	11413	5	--	"[worry-undo of table of edu finds]."	--	-1
 "jeskiddin"	12374	11448	1	--	"Someone walks by and notifies you this is a Level 17 restricted area. You quickly hide your to-do list, before they point and laugh that they got you GOOD, and the grocery store's THAT way."	--	0
 "seediness"	3064	10804	2	--	"This area doesn't feel too posh. You don't know why, but it doesn't."	--	0
 "skunkweed"	3928	13830	6	--	"It smells bad here, like it should be illegal."	--	0
@@ -413,8 +413,8 @@ tally (text)	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
 
 table of scenery 10 [tosc10]
 tally (text)	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
-"iundidjunk"	11270	11478	21	--	"[worry-undo of table of supplies]."	--	-1
-"iundidnews"	11270	11388	46	--	"[worry-undo of table of marginalized people]."	--	-1
+"iundidjunk"	11270	11478	21	--	"[worry-undo of table of sup finds]."	--	-1
+"iundidnews"	11270	11388	46	--	"[worry-undo of table of peo finds]."	--	-1
 "skinniness"	3961	2313	24	--	"You are momentarily bombarded with ads for diet plans."	--	0
 
 volume very random indeed
@@ -584,9 +584,9 @@ to say bnb:
 
 to say worry-undo of (tn - a table name):
 	let j be 2;
-	if tn is table of supplies:
+	if tn is table of sup finds:
 		now j is 3;
-	else if tn is table of marginalized people:
+	else if tn is table of peo finds:
 		now j is 4;
 	say "You feel a sudden fear your ";
 	if tn is your-table:

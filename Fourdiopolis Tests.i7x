@@ -191,7 +191,7 @@ carry out scfinding:
 	if x < 0:
 		now x is 0 - x;
 	say "Marking found scenery for [if number understood < 0]all but [end if][X] scenery rows.";
-	if your-table is not table of last names:
+	if cur-scen is not las:
 		say "This is maybe most effective when you are on the final round, but scenery will still reappear/disappear from Table of Scenery 4.";
 
 Fourdiopolis Tests ends here.

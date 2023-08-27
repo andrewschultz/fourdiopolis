@@ -60,7 +60,7 @@ to shift-scen (sc - a scenario):
 	now cur-scen is sc;
 	now hidden-inside is true;
 	now locom-chars is 1;
-	if your-table is table of friends:
+	if cur-scen is fri:
 		now locom-chars is 2;
 		now hidden-inside is false;
 	let cur-left be binary-solved;
@@ -163,7 +163,7 @@ carry out examining the task list:
 		if the remainder after dividing Q2 by 5 is 1:
 			say "[2da]";
 		if found entry is 1:
-			say "[bold type][if your-table is table of friends][tally entry in title case][else if your-table is table of last names][tally entry in upper case][else][tally entry][end if][roman type]";
+			say "[bold type][if cur-scen is fri][tally entry in title case][else if cur-scen is las][tally entry in upper case][else][tally entry][end if][roman type]";
 		else:
 			say "[descrip entry] @ [cityloc entry] ";
 			say "([farness of tally entry])";
@@ -346,14 +346,14 @@ to say no-jump-for-you:
 
 check going:
 	move-player-along;
-	if steps-so-far is 7 and your-table is table of friends and a random chance of 1 in 3 succeeds:
+	if steps-so-far is 7 and cur-scen is fri and a random chance of 1 in 3 succeeds:
 		say "You think and hope[one of][or], again, [stopping]that they wouldn't have you wandering THIS far to start.[paragraph break]";
 	if steps-so-far > 10:
 		say "You've been wandering for too long. You get tired, and you figure it's probably best to start over with a clean look on things. You push the button on your teleporter device[if posschars > 11], cancelling the rest of your planned journey[end if], and [if ew is 0 and ns is 0 and ud is 0]everything looks a bit different[else]back you go to the center[end if].[paragraph break]";
 		now ignore-remaining-dirs is true;
 		reset-game instead;
 	tally-and-place;
-	check-nearlies;
+	check-near-misses;
 
 to tally-and-place:
 	boost-num-tally;
@@ -416,7 +416,7 @@ after printing the locale description:
 	if around-hideout:
 		if hideout is not in outside-area:
 			move hideout to outside-area;
-			say "[one of]All right! You think you see it! The hideout where your [if your-table is not table of friends]latest jaunt[else]whole task[end if] started![or]The hideout, again. A bit easier to recognize this time.[stopping]";
+			say "[one of]All right! You think you see it! The hideout where your [if cur-scen is not fri]latest jaunt[else]whole task[end if] started![or]The hideout, again. A bit easier to recognize this time.[stopping]";
 			now hidden-inside is true;
 	repeat through your-table:
 		if found entry is 1:
@@ -429,7 +429,7 @@ to sweep-up (sc - a scenario):
 	repeat through objectives of sc:
 		if walk-short-1 is hash1 entry and walk-short-2 is hash2 entry and walk-short-3 is hash3 entry:
 			if sc is LAS:
-				say "You feel very cold. Something unknown but oppressive lies nearby, but you don't [if your-table is table of friends]nearly [else if your-table is table of just plain cool stuff]quite [end if]have the means or skill to see or deal with it, yet.";
+				say "You feel very cold. Something unknown but oppressive lies nearby, but you don't [if cur-scen is fri]nearly [else if cur-scen is stu]quite [end if]have the means or skill to see or deal with it, yet.";
 			else:
 				say "You feel like maybe you got a bit ahead of yourself, here, and you should remember this place for a later time.";
 			break;
@@ -473,10 +473,10 @@ to reset-game:
 		say "You remember hearing that anywhere worth getting to, you had to teleport to. And you didn't, this run.[line break]";
 	else:
 		now teleported is false;
-		if steps-so-far > 6 and your-table is table of friends:
+		if steps-so-far > 6 and cur-scen is fri:
 			say "You saw a lot of Fourdiopolis this time, but maybe your assigned tasks aren't [if steps-so-far is 7]quite [else if steps-so-far > 8]nearly [end if]as complex (yet) as having to walk THIS much.[paragraph break]"; [skipping 8 is intentional!]
 		if steps-so-far >= 8:
-			if your-table is not table of last names and score < 5:
+			if cur-scen is not las and score < 5:
 				say "Hmm. If you're having trouble finding things, you may wish to start with stuff that's near first, instead of what's first on your list.[paragraph break]";
 	now steps-so-far is 0;
 	say "[b]Back at Sector 000[r][line break]";
@@ -567,7 +567,7 @@ to say rand-yay:
 	say "[one of]especially clever about that one[or]like maybe you can see a missing location you couldn't figure before[or]confident, but not cocky[or]focused, sensible, and logical--but not TOO much[or]happy to know the city's full of secrets[or]like you'd like to tell someone about that, but you'd probably get in trouble[in random order]"
 
 to run-the-ending:
-	if your-table is table of friends:
+	if cur-scen is fri:
 		if score < 5:
 			say "'[if score is 0]None at all[else]Only [score in words][end if]? That simply won't do. We need someone who can do a bit more... well, have a nice life.' But you don't. A month later, though, you're arrested at 2 AM as an associate of the potential rebels. You wonder if they reported you, for doing so relatively little for them.";
 			now story-ended is true;
@@ -585,7 +585,7 @@ to run-the-ending:
 		write file of accomplishments from the table of accomplishments;
 		end-win-with-undo;
 		continue the action;
-	else if your-table is table of last names:
+	else if cur-scen is las:
 		if score is 0:
 			say "'Boo! Fink.' they chide you. But they know that with all the supplies ready, they don't need fearmongering anyway. Power to the people, well, hopefully.";
 		else if score  < 7:
@@ -593,18 +593,18 @@ to run-the-ending:
 		else if score < 18:
 			say "'A bit disappointing, but, well, they'll be exposed with time anyway. Maybe those who haven't gotten anything yet will be scared in their own way.'";
 		else if score < 23:
-			say "'A majority! [if score * 2 is number of rows in table of last names]Well, if we round up. [end if]Perhaps there is some hope that they can be scared to act before we have to. Hm, we might anyway. It'll be fun.'";
+			say "'A majority! [if score * 2 is last-scen-rows]Well, if we round up. [end if]Perhaps there is some hope that they can be scared to act before we have to. Hm, we might anyway. It'll be fun.'";
 		else if score < 29:
 			say "'Wow! We could hardly have hoped for more! Though--err, well, maybe you could've figured THEM, or...oh, never mind.'";
-		else if score < number of rows in table of last names:
+		else if score < last-scen-rows:
 			say "'Impressive indeed! We're glad you're not on THEIR side. We'd have gotten a lot more threats now than we already have.'";
 		else:
 			say "'All of them? You're almost scaring us. Don't worry. Almost.'";
-		if score * 2 >= number of rows in table of last names:
+		if score * 2 >= last-scen-rows:
 			say "[paragraph break]You ask if you can come along for the uprisings, but they assure you your technical skills are far too valuable. You feel sort of ripped off, until you realize that means all-you-can-eat from the supplies you requisitioned earlier.";
 		end-win-with-undo;
 		continue the action;
-	else if your-table is table of just plain cool stuff:
+	else if cur-scen is stu:
 		if score < 10:
 			say "'You know, the substance over style shtick can only be pulled off if you HAVE a certain amount of style. Hey, we don't like it either, but that's the real world. Well, maybe the facts will be good enough, if we yell loud enough.'";
 		else if score < 15:
@@ -636,13 +636,13 @@ to run-the-ending:
 		end the story saying "[if score > 9]Just[else]Find[end if] [15 - score in words] [if score > 0]more [end if]to open a new puzzle";
 		continue the action;
 	debug-say "Completed [your-table].";
-	if your-table is table of education:
+	if cur-scen is edu:
 		choose row 2 in table of accomplishments;
 		debug-say "Chose row 2.";
-	else if your-table is table of supplies:
+	else if cur-scen is sup:
 		choose row 3 in table of accomplishments;
 		debug-say "Chose row 3.";
-	else if your-table is table of marginalized people:
+	else if cur-scen is peo:
 		choose row 4 in table of accomplishments;
 		debug-say "Chose row 4.";
 	else:
@@ -661,9 +661,9 @@ to run-the-ending:
 	end-win-with-undo;
 
 to say spec-undo:
-	if your-table is table of marginalized people:
+	if cur-scen is peo:
 		say "DUDES";
-	else if your-table is table of supplies:
+	else if cur-scen is sup:
 		say "JUNK";
 	else:
 		say "EDU";
@@ -871,7 +871,7 @@ volume meta-verbs
 chapter unkindnessing
 
 to unkindness:
-	if your-table is table of last names:
+	if cur-scen is las:
 		say "You're already hunting last names.";
 		continue the action;
 	say "This will skip to the final toughest puzzle. Are you sure?";
@@ -1113,9 +1113,9 @@ carry out aing:
 	say "[2da][b]T[r] toggles silly random events that don't affect the game.";
 	say "[2da][b]Q[r] toggles quick mode when you run around Fourdiopolis (ignores random events until you arrive at your destination).";
 	say "[2da]Meta-commands (information on the game's development) include [b]ABOUT[r], [b]CREDITS[r] and [b]TECH[r].";
-	if your-table is not table of friends:
-		say "[2da][b]I DID I UNDID[r] will kick you back to [if your-table is table of last names]the cool stuff tasks[else if your-table is table of just plain cool stuff]the pod of three random task lists[else]finding friends[end if].";
-		if your-table is not table of last names:
+	if cur-scen is not fri:
+		say "[2da][b]I DID I UNDID[r] will kick you back to [if cur-scen is las]the cool stuff tasks[else if cur-scen is stu]the pod of three random task lists[else]finding friends[end if].";
+		if cur-scen is not las:
 			choose row 2 in table of accomplishments;
 			if solved entry is true:
 				say "[2da][b]I UNDID EDU[r] will un-do the education task set.";
@@ -1151,8 +1151,8 @@ carry out fing:
 chapter keenseeking
 
 to seekkeen:
-	if your-table is not table of friends:
-		say "You already found the revolution's friends, so this isn't the way to skip forward any more[if your-table is not table of last names] besides editing the save file, fourdiop, or fourdiop.glkdata, and setting variables to 1 (done) or 0 (not) as you want[end if].";
+	if cur-scen is not fri:
+		say "You already found the revolution's friends, so this isn't the way to skip forward any more[if cur-scen is not las] besides editing the save file, fourdiop, or fourdiop.glkdata, and setting variables to 1 (done) or 0 (not) as you want[end if].";
 		continue the action;
 	choose row 1 in table of accomplishments;
 	now solved entry is true;
@@ -1164,10 +1164,10 @@ chapter undiding
 
 to didundid:
 	let count be 0;
-	if your-table is table of friends:
+	if cur-scen is fri:
 		say "You're already at the first task set, finding friends, so you can't go back any farther.";
 		continue the action;
-	if your-table is table of just plain cool stuff: [reset to only having table of friends solved]
+	if cur-scen is stu: [reset to only having table of friends solved]
 		now count is 0;
 		repeat through table of accomplishments:
 			increment count;
@@ -1177,7 +1177,7 @@ to didundid:
 				now solved entry is false;
 		midtable-choose;
 		say "Now you are back to searching for [cur-midtable][scen-twaddle][extra-twiddle].";
-	else if your-table is table of last names:
+	else if cur-scen is las:
 		choose row 5 in table of accomplishments;
 		now solved entry is false;
 		shift-scen STU;
@@ -1211,7 +1211,7 @@ carry out undomiding:
 	choose row number understood in table of accomplishments;
 	if solved entry is false, say "The [table-by-num of number understood] task set is already unsolved[if already-here], and in fact, it's the one you're currently on[end if]." instead;
 	now solved entry is false;
-	if your-table is table of last names or your-table is table of just plain cool stuff:
+	if cur-scen is las or cur-scen is stu:
 		choose row 5 in table of accomplishments;
 		if solved entry is true:
 			now solved entry is false;
@@ -1226,7 +1226,7 @@ to say table-by-num of (num - a number):
 	say "[if num is 2]education[else if num is 3]supply finding[else]ally finding[end if]"
 
 to say cur-midtable:
-	say "[if your-table is table of education]education[else if your-table is table of supplies]supply finding[else]ally finding";
+	say "[if cur-scen is edu]education[else if cur-scen is sup]supply finding[else]ally finding";
 
 section domiding
 
@@ -1324,6 +1324,8 @@ when play begins (this is the set the status line rule):
 	repeat with Q running through scenery-tables:
 		increase allscenery by number of rows in Q;
 
+to decide which number is last-scen-rows: decide on number of rows in table of las finds
+
 when play begins (this is the set table defaults rule):
 	shift-scen FRI;
 	sort the table of silly randoms in random order;
@@ -1331,11 +1333,11 @@ when play begins (this is the set table defaults rule):
 		say "Fourdiopolis has some screen reader support. Do you wish to use it?";
 		if the player consents:
 			now screen-read is true;
-	repeat through table of name yay:
+	repeat through table of las milestones:
 		if there is no count entry:
-			now count entry is (1 + number of rows in table of last names) / 2;
+			now count entry is (1 + last-scen-rows) / 2;
 		else if count entry < 1:
-			increase count entry by number of rows in table of last names;
+			increase count entry by last-scen-rows;
 
 scrange is a list of numbers that varies.
 
@@ -1424,7 +1426,7 @@ to decide whether all-else-solved:
 	decide yes;
 
 to check-silly-comments:
-	repeat through comments of cur-scen:
+	repeat through milestones of cur-scen:
 		if count entry is score:
 			if there is no comment entry:
 				say "BUG there should be a comment entry!";
