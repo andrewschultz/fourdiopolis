@@ -74,7 +74,7 @@ to shift-scen (sc - a scenario):
 to reset-scenery (x - a number):
 	if x > 1 or x < 0:
 		say "You can only reset to 1 or 0.";
-	repeat with Q running through tablist:
+	repeat with Q running through scenery-tables:
 		repeat through Q:
 			if found entry is 0 or found entry is 1:
 				now found entry is x;
@@ -374,14 +374,14 @@ to tally-and-place:
 					if location of what-drops entry is not outside-area:
 						move what-drops entry to outside-area;
 						continue the action;
-		repeat through entry (steps-so-far - 2) in tablist:
+		repeat through cur-scenery-table:
 			if walk-short-1 is hash1 entry and walk-short-2 is hash2 entry and walk-short-3 is hash3 entry:
 				if there is a what-drops entry:
 					now found entry is 1;
 					move what-drops entry to outside-area;
 					continue the action;
 
-tablist is a list of table names that varies. tablist is {table of scenery 3, table of scenery 4, table of scenery 5, table of scenery 6, table of scenery 7, table of scenery 8, table of scenery 9, table of scenery 10 }
+scenery-tables is a list of table names that varies. scenery-tables is {table of scenery 3, table of scenery 4, table of scenery 5, table of scenery 6, table of scenery 7, table of scenery 8, table of scenery 9, table of scenery 10 }
 
 definition: a scenario (called SC) is ahead:
 	if SC is cur-scen, no;
@@ -392,25 +392,30 @@ definition: a scenario (called SC) is ahead:
 	yes;
 
 to decide whether around-hideout:
+	if walk-short-1 is 10799 and walk-short-2 is 69, yes;
+	if walk-short-1 is 10357 and walk-short-2 is 34, yes;
 	no;
+
+to decide which table name is cur-scenery-table:
+	decide on entry (steps-so-far - 2) in scenery-tables;
 
 after printing the locale description:
 	if steps-so-far > 2:
 		repeat with SC running through ahead scenarios:
 			sweep-up SC;
-		let mytab be entry (steps-so-far - 2) in tablist;
-		repeat through mytab:
-			if walk-short-1 is hash1 entry and walk-short-2 is hash2 entry and walk-short-3 is hash3 entry:
-				if found entry is not 1:
-					increment scenery-found;
-					unless there is a what-drops entry:
-						if debug-state is true:
-							say "DEBUG: Scenery debug check!";
-						say "[foundit entry][line break]";
-						if scenery-found is 0:
-							bracket-say "this wasn't critical to the game, but it's just something neat to find. There are [allscenery - 1] more to find, but they're meant to be obscure. Congratulations on finding one, though!";
-						if found entry is 0: [-1 for ISEEKKEEN/etc is a bit of a hack but yeah]
-							now found entry is 1;
+		if steps-so-far < 11:
+			repeat through cur-scenery-table:
+				if walk-short-1 is hash1 entry and walk-short-2 is hash2 entry and walk-short-3 is hash3 entry:
+					if found entry is not 1:
+						increment scenery-found;
+						unless there is a what-drops entry:
+							if debug-state is true:
+								say "DEBUG: Scenery debug check!";
+							say "[foundit entry][line break]";
+							if scenery-found is 0:
+								bracket-say "this wasn't critical to the game, but it's just something neat to find. There are [allscenery - 1] more to find, but they're meant to be obscure. Congratulations on finding one, though!";
+							if found entry is 0: [-1 for ISEEKKEEN/etc is a bit of a hack but yeah]
+								now found entry is 1;
 	if around-hideout:
 		if hideout is not in outside-area:
 			move hideout to outside-area;
@@ -673,7 +678,7 @@ book what to find
 
 to say seek-track:
 	let ln be a list of indexed text;
-	repeat with Q running through tablist:
+	repeat with Q running through scenery-tables:
 		repeat through Q:
 			if found entry is 0:
 				add "[tally entry in upper case]" to ln;
@@ -1316,7 +1321,7 @@ when play begins (this is the set the status line rule):
 	now ns is 0;
 	now ew is 0;
 	now ud is 0;
-	repeat with Q running through tablist:
+	repeat with Q running through scenery-tables:
 		increase allscenery by number of rows in Q;
 
 when play begins (this is the set table defaults rule):

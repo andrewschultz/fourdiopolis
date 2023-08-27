@@ -179,7 +179,7 @@ carry out scing:
 		now max-count is 0 - max-count;
 	if X < 0:
 		now toNum is 1;
-	repeat with Q running through tablist:
+	repeat with Q running through scenery-tables:
 		repeat through Q:
 			if there is a found entry and found entry is not -1:
 				now found entry is toNum;
