@@ -1,0 +1,1942 @@
+## file name: reg-4d-lone-hidden-inside.txt
+## test file for testing the various ends, successful or otherwise
+** game: /home/andrew/prt/debug-fourdiopolis.ulx
+** interpreter: /home/andrew/prt/glulxe -q
+
+* main
+
+#* _first
+>wf 0
+
+>inside
+>in
+None at all?
+!Good job
+>undo
+>r
+
+#testcase-finds-table-of-fri-finds-dennis
+#testcase-milestones-table-of-fri-milestones-1
+>dennis
+>c
+by one point
+After vowing to make it always sunny in Fourdiopolis, he begins telling you about his wonderful friend Jonathan and Jonathan's lovely future wife Elizabeth before getting serious and scared and asking if Christopher has been by yet. Eh, better than some creep describing a system for manipulating women.
+Well, you found someone. That's a good start.
+
+>inside
+>in
+"Only one? That simply won't do. We need someone who can do a bit more... well, have a nice life." But you don't. A month later, though, you're arrested at 2 AM as an associate of the potential rebels. You wonder if they reported you, for doing so relatively little for them.
+!Good job
+>undo
+>r
+
+#testcase-finds-table-of-fri-finds-eddie
+>eddie
+>c
+by one point
+He stashes some absurdly low-priced appliances into a closet before running out.
+
+>inside
+>in
+"Only two? That simply won't do. We need someone who can do a bit more... well, have a nice life." But you don't. A month later, though, you're arrested at 2 AM as an associate of the potential rebels. You wonder if they reported you, for doing so relatively little for them.
+!Good job
+>undo
+>r
+
+#testcase-finds-table-of-fri-finds-enid
+#testcase-milestones-table-of-fri-milestones-3
+>enid
+>c
+by one point
+Enid listens as she makes proofreading marks on a book with a bunch of kids running around on the cover.
+You've got a bit of a crowd, but you know you can do more.
+
+>inside
+>in
+"Only three? That simply won't do. We need someone who can do a bit more... well, have a nice life." But you don't. A month later, though, you're arrested at 2 AM as an associate of the potential rebels. You wonder if they reported you, for doing so relatively little for them.
+!Good job
+>undo
+>r
+
+#testcase-finds-table-of-fri-finds-heidi
+>heidi
+>c
+by one point
+Thankfully, you hear no yodeling as the door opens.
+
+>inside
+>in
+"Only four? That simply won't do. We need someone who can do a bit more... well, have a nice life." But you don't. A month later, though, you're arrested at 2 AM as an associate of the potential rebels. You wonder if they reported you, for doing so relatively little for them.
+!Good job
+>undo
+>r
+
+#testcase-finds-table-of-fri-finds-ike
+>ike
+>c
+by one point
+"I'm ready to take down the sprawling military-industrial complex," Ike says.
+
+>inside
+>in
+"Well, not too bad, but not quite good enough." You go on your way, and every month or so, you walk by where you thought the hideout was, but you can never quite find it.
+!Good job
+>undo
+>r
+
+#testcase-finds-table-of-fri-finds-ines
+#testcase-milestones-table-of-fri-milestones-6
+>ines
+>c
+by one point
+Ines almost seems to be expecting you. She 
+It's starting to make sense. The tougher ones should be a bit easier now, you hope.
+
+>inside
+>in
+"Well, not too bad, but not quite good enough." You go on your way, and every month or so, you walk by where you thought the hideout was, but you can never quite find it.
+!Good job
+Find nine more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-fri-finds-isis
+>isis
+>c
+by one point
+Isis walks over, removes her bangles and 
+
+>inside
+>in
+"Well, not too bad, but not quite good enough." You go on your way, and every month or so, you walk by where you thought the hideout was, but you can never quite find it.
+!Good job
+Find eight more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-fri-finds-jed
+>jed
+>c
+by one point
+Jed nods, then 
+
+>inside
+>in
+Find seven more to open a new puzzle ***
+!Good job
+>undo
+>r
+
+#testcase-finds-table-of-fri-finds-jenni
+>jenni
+>c
+by one point
+Jenni sighs. "No, this is 867-5349." She then looks up from her phone and 
+
+>inside
+>in
+Find six more to open a new puzzle ***
+"Well, not too bad, but not quite good enough." You go on your way, and every month or so, you walk by where you thought the hideout was, but you can never quite find it.
+>undo
+>r
+
+#testcase-finds-table-of-fri-finds-jessie
+#testcase-milestones-table-of-fri-milestones-10
+>jessie
+>c
+by one point
+You're vaguely surprised the respondent is
+male, but it doesn't really matter either way, of course. "I know where to be." They run off.
+Halfway there.
+
+>inside
+>in
+Just five more to open a new puzzle ***
+"Well, not too bad, but not quite good enough." You go on your way, and every month or so, you walk by where you thought the hideout was, but you can never quite find it.
+>undo
+>r
+
+#testcase-finds-table-of-fri-finds-jud
+>jud
+>c
+by one point
+Jud thuds his forehead at all Fourdiopolis's problems. Then, he 
+
+>inside
+>in
+Just four more to open a new puzzle ***
+"Well, not too bad, but not quite good enough." You go on your way, and every month or so, you walk by where you thought the hideout was, but you can never quite find it.
+>undo
+>r
+
+#testcase-finds-table-of-fri-finds-jude
+>jude
+>c
+by one point
+He says "Oh, I was trying to make a sad song better, but never mind."
+
+>inside
+>in
+Just three more to open a new puzzle ***
+"Well, not too bad, but not quite good enough." You go on your way, and every month or so, you walk by where you thought the hideout was, but you can never quite find it.
+>undo
+>r
+
+#testcase-finds-table-of-fri-finds-judi
+>judi
+>c
+by one point
+Judi says "Oh, why not?"
+She 
+
+>inside
+>in
+Just two more to open a new puzzle ***
+"Well, not too bad, but not quite good enough." You go on your way, and every month or so, you walk by where you thought the hideout was, but you can never quite find it.
+>undo
+>r
+
+#testcase-finds-table-of-fri-finds-june
+>june
+>c
+by one point
+June springs into action on hearing why you're here.
+
+>inside
+>in
+Just one more to open a new puzzle ***
+"Well, not too bad, but not quite good enough." You go on your way, and every month or so, you walk by where you thought the hideout was, but you can never quite find it.
+>undo
+>r
+
+#testcase-finds-table-of-fri-finds-ken
+#testcase-milestones-table-of-fri-milestones-15
+>ken
+>c
+by one point
+Ken crumples his latest puzzle (paper, so wasteful) then 
+You're probably doing well enough to return. Not perfect, but hey, if you worry about perfection, you won't get everything done.
+
+>inside
+>in
+"Good job! That's enough to be promoted to a general runner! There's...a few more task lists. We're short of people. Some get lost, and captured. Can you do a bit more?"
+[NOTE: You can RESTART and you'll have access to a new puzzle. There are five more--three chosen in random order, then a "final" one, then an extra-difficult one. You can also type I DID I UNDID to reset your accomplishments and try this again. Or, if you lose your save file, I SEEK KEEN will jump over finding the friends.
+But even if this was more than enough for you, getting through this list is an accomplishment. Go take some time to feel good about yourself. Fourdiopolis is not an easy game!]
+>undo
+>r
+
+#testcase-finds-table-of-fri-finds-kiki
+>kiki
+>c
+by one point
+She gives a bit too sugary speech on how you can do anything you can put your mind to, but it's better than the opposite.
+
+>inside
+>in
+"Good job! That's enough to be promoted to a general runner! There's...a few more task lists. We're short of people. Some get lost, and captured. Can you do a bit more?"
+[NOTE: You can RESTART and you'll have access to a new puzzle. There are five more--three chosen in random order, then a "final" one, then an extra-difficult one. You can also type I DID I UNDID to reset your accomplishments and try this again. Or, if you lose your save file, I SEEK KEEN will jump over finding the friends.
+But even if this was more than enough for you, getting through this list is an accomplishment. Go take some time to feel good about yourself. Fourdiopolis is not an easy game!]
+>undo
+>r
+
+#testcase-finds-table-of-fri-finds-nikki
+>nikki
+>c
+by one point
+"Quick, before Dr. Feelgood gets here." She 
+
+>inside
+>in
+"Good job! That's enough to be promoted to a general runner! There's...a few more task lists. We're short of people. Some get lost, and captured. Can you do a bit more?"
+[NOTE: You can RESTART and you'll have access to a new puzzle. There are five more--three chosen in random order, then a "final" one, then an extra-difficult one. You can also type I DID I UNDID to reset your accomplishments and try this again. Or, if you lose your save file, I SEEK KEEN will jump over finding the friends.
+But even if this was more than enough for you, getting through this list is an accomplishment. Go take some time to feel good about yourself. Fourdiopolis is not an easy game!]
+>undo
+>r
+
+#testcase-finds-table-of-fri-finds-sid
+>sid
+>c
+by one point
+"In, Sid? 'E IS!" he roars.
+
+>inside
+>in
+"Good job! That's even better than we hoped! There's...a few more task lists. We're short of people. Some get lost, and captured. Can you do a bit more?"
+[NOTE: You can RESTART and you'll have access to a new puzzle. There are five more--three chosen in random order, then a "final" one, then an extra-difficult one. You can also type I DID I UNDID to reset your accomplishments and try this again. Or, if you lose your save file, I SEEK KEEN will jump over finding the friends.
+But even if this was more than enough for you, getting through this list is an accomplishment. Go take some time to feel good about yourself. Fourdiopolis is not an easy game!]
+>undo
+>r
+
+#testcase-finds-table-of-fri-finds-susie
+#testcase-milestones-table-of-fri-milestones-19
+>susie
+>c
+by one point
+"No, they DON'T need a transmogrifier!" Susie booms to someone you can't see. "Not even one that works!"
+The last one's the toughest. You think.
+
+>inside
+>in
+"Good job! That's even better than we hoped! There's...a few more task lists. We're short of people. Some get lost, and captured. Can you do a bit more?"
+[NOTE: You can RESTART and you'll have access to a new puzzle. There are five more--three chosen in random order, then a "final" one, then an extra-difficult one. You can also type I DID I UNDID to reset your accomplishments and try this again. Or, if you lose your save file, I SEEK KEEN will jump over finding the friends.
+But even if this was more than enough for you, getting through this list is an accomplishment. Go take some time to feel good about yourself. Fourdiopolis is not an easy game!]
+>undo
+>r
+
+#testcase-finds-table-of-fri-finds-winnie
+>winnie
+>c
+by one point
+Talking with Winnie you feel nostalgia and remember some growing pains.
+
+>inside
+>in
+"Good job! That's perfect! There's...a few more task lists. We're short of people. Some get lost, and captured. Can you do a bit more?"
+[NOTE: You can RESTART and you'll have access to a new puzzle. There are five more--three chosen in random order, then a "final" one, then an extra-difficult one. You can also type I DID I UNDID to reset your accomplishments and try this again. Or, if you lose your save file, I SEEK KEEN will jump over finding the friends.
+But even if this was more than enough for you, getting through this list is an accomplishment. Go take some time to feel good about yourself. Fourdiopolis is not an easy game!]
+
+>restart
+
+#* _second
+#>wf 1
+>fo 2
+
+>inside
+>in
+Murmurs of dismay come back as people, including some of the friends you had a particularly tough time rescuing, are upset you weren't able to do anything.
+Harsh!
+Find fifteen to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-edu-finds-hijinks
+#testcase-milestones-table-of-edu-milestones-1
+>hijinks
+>c
+by one point
+You learn tricks to make political rallies and flash mobs work with a minimum of arrests.
+You feel smarter already!
+
+>inside
+>in
+A few people pat you on the back and say you at least brought people together, which is the most important thing. The compliments only go so far. You wish you could've done a bit more.
+Find fourteen more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-edu-finds-hikes
+>hikes
+>c
+by one point
+You get a brief virtual reality sample of the unlivable wilds beyond the cities.
+
+>inside
+>in
+A few people pat you on the back and say you at least brought people together, which is the most important thing. The compliments only go so far. You wish you could've done a bit more.
+Find thirteen more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-edu-finds-issues
+#testcase-milestones-table-of-edu-milestones-3
+>issues
+>c
+by one point
+You learn not only the important issues but the details--and even how to skewer people who go too far into details.
+Even though you're only getting passing acquaintance with activism, it all seems simpler than actual school and the media led you to believe.
+
+>inside
+>in
+A few people pat you on the back and say you at least brought people together, which is the most important thing. The compliments only go so far. You wish you could've done a bit more.
+Find twelve more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-edu-finds-keen
+>keen
+>c
+by one point
+You can never have too much motivation. Unless you spend so much time motivating yourself, you forget to do anything.
+
+>inside
+>in
+A few people pat you on the back and say you at least brought people together, which is the most important thing. The compliments only go so far. You wish you could've done a bit more.
+Find eleven more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-edu-finds-kind
+>kind
+>c
+by one point
+You learn not only how to be nice but how to fool people into thinking you're nice enough they better like you and if they're doubting that, they feel guilty. You'll only use the second in an emergency. You hope.
+
+>inside
+>in
+Ambivalent whispering all around. Pretty good, they guess. But people have to be at the top of their game to inspire true change. Well, you got friends together, which is the important thing.
+Find ten more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-edu-finds-kinesis
+#testcase-milestones-table-of-edu-milestones-6
+>kinesis
+>c
+by one point
+You learn how to sneak around authorities even if you're not naturally nimble.
+A few more cracks appear in what you learned when you were younger. You don't know everything, but a lot just makes sense.
+
+>inside
+>in
+Ambivalent whispering all around. Pretty good, they guess. But people have to be at the top of their game to inspire true change. Well, you got friends together, which is the important thing.
+Find nine more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-edu-finds-nein
+>nein
+>c
+by one point
+You learn useful things to say in different languages: yes, no, please, and Dude, Whatever.
+
+>inside
+>in
+Ambivalent whispering all around. Pretty good, they guess. But people have to be at the top of their game to inspire true change. Well, you got friends together, which is the important thing.
+Find eight more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-edu-finds-sensei
+>sensei
+>c
+by one point
+You put up with perhaps a bit more mumbo-jumbo terminology than you want, but the break from extreme capitalism, while heretical, is surprisingly soothing.
+
+>inside
+>in
+Ambivalent whispering all around. Pretty good, they guess. But people have to be at the top of their game to inspire true change. Well, you got friends together, which is the important thing.
+Find seven more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-edu-finds-sines
+>sines
+>c
+by one point
+You endure a very useful trigonometry lesson, you think. You remember which is sine and which is cosine, but now you've knocked out secant and cosecant.
+
+>inside
+>in
+Ambivalent whispering all around. Pretty good, they guess. But people have to be at the top of their game to inspire true change. Well, you got friends together, which is the important thing.
+Find six more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-edu-finds-sinews
+#testcase-milestones-table-of-edu-milestones-10
+>sinews
+>c
+by one point
+You get a quick work-course in physiology, necessary for protestors and operatives who need stamina.
+Suddenly all the Accelerated Learners feel like frauds, sort of. If only you'd had more life experience, you'd realized they were hot air. But maybe you wouldn't be able to get lost like this.
+
+>inside
+>in
+Someone important-looking says "Well, it'll do. Good job. But it wasn't a really ELITE run. Maybe find a few more things. Still, you deserve a break."
+Just five more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-edu-finds-sins
+>sins
+>c
+by one point
+You get a lecture on things you didn't even know were wrong with Fourdiopolis. It's short on charisma, but that's somewhere else.
+
+>inside
+>in
+Someone important-looking says "Well, it'll do. Good job. But it wasn't a really ELITE run. Maybe find a few more things. Still, you deserve a break."
+Just four more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-edu-finds-sinus
+>sinus
+>c
+by one point
+You ace the course on breathing techniques and get a 10% off coupon for snoring surgery. Wait, you know you missed that one question...are you being suckered, here? Surgery's expensive!
+
+>inside
+>in
+Someone important-looking says "Well, it'll do. Good job. But it wasn't a really ELITE run. Maybe find a few more things. Still, you deserve a break."
+Just three more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-edu-finds-skew
+>skew
+>c
+by one point
+You learn several ways to embarrass people into a corner even when you don't need to. Because if you don't first, they will.
+
+>inside
+>in
+Someone important-looking says "Well, it'll do. Good job. But it wasn't a really ELITE run. Maybe find a few more things. Still, you deserve a break."
+Just two more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-edu-finds-skies
+>skies
+>c
+by one point
+Ah! The sky! You don't get to see much of it. Only 1/19 of Fourdiopolis residents do. Well, less, because the people at the top have big sprawling mansions. Still, it's a source of inspiration.
+
+>inside
+>in
+Someone important-looking says "Well, it'll do. Good job. But it wasn't a really ELITE run. Maybe find a few more things. Still, you deserve a break."
+Just one more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-edu-finds-uhhuh
+#testcase-milestones-table-of-edu-milestones-15
+>uhhuh
+>c
+by one point
+You learn about tone of voice and gestures, and how different words that sound the same aren't.
+You reflect it's right that your abstract reasoning has led you to seeing so much cool stuff. Internet, schminternet. They'll probably be happy with what you found.
+
+>inside
+>in
+"Wow! You found fifteen things. Great work indeed! But hey! There's still a bit more. We're--well, even shorter of competent people like you to find stuff. There's just three other big twenty-item tasks left to do, but--it'll be about the same challenge as what you already found."
+[NOTE: if you wish to undo this specific task set, you can type I UNDID EDU. This will be in the A command, if you forget.]
+>undo
+>r
+
+#testcase-finds-table-of-edu-finds-undenied
+>undenied
+>c
+by one point
+You're stuck watching heroic dramatic clips from ancient sports like American football (too violent) and un-American football (too scoreless). They're more inspiring than you'd have guessed!
+
+>inside
+>in
+"Wow! You found sixteen things. Great work indeed! But hey! There's still a bit more. We're--well, even shorter of competent people like you to find stuff. There's just three other big twenty-item tasks left to do, but--it'll be about the same challenge as what you already found."
+[NOTE: if you wish to undo this specific task set, you can type I UNDID EDU. This will be in the A command, if you forget.]
+>undo
+>r
+
+#testcase-finds-table-of-edu-finds-whenwewin
+>whenwewin
+>c
+by one point
+You learn the optimum amount of planning in advance so you're actually confident, but not overconfident. You're confident you understand, but not too confident.
+
+>inside
+>in
+"Wow! You found seventeen things. Great work indeed! But hey! There's still a bit more. We're--well, even shorter of competent people like you to find stuff. There's just three other big twenty-item tasks left to do, but--it'll be about the same challenge as what you already found."
+[NOTE: if you wish to undo this specific task set, you can type I UNDID EDU. This will be in the A command, if you forget.]
+>undo
+>r
+
+#testcase-finds-table-of-edu-finds-whine
+>whine
+>c
+by one point
+You learn the best subtleties in voice inflection when working on, err, with individuals, small crowds, or large crowds. It seems so obvious now!
+
+>inside
+>in
+"Wow! You found eighteen things. Great work indeed! But hey! There's still a bit more. We're--well, even shorter of competent people like you to find stuff. There's just three other big twenty-item tasks left to do, but--it'll be about the same challenge as what you already found."
+[NOTE: if you wish to undo this specific task set, you can type I UNDID EDU. This will be in the A command, if you forget.]
+>undo
+>r
+
+#testcase-finds-table-of-edu-finds-wise
+#testcase-milestones-table-of-edu-milestones-19
+>wise
+>c
+by one point
+You learn not only generalities to make you feel clever but generalities to make you seem clever to others! Oh boy!
+Just one more!
+
+>inside
+>in
+"Wow! You found nineteen things. Great work indeed! But hey! There's still a bit more. We're--well, even shorter of competent people like you to find stuff. There's just three other big twenty-item tasks left to do, but--it'll be about the same challenge as what you already found."
+[NOTE: if you wish to undo this specific task set, you can type I UNDID EDU. This will be in the A command, if you forget.]
+>undo
+>r
+
+#testcase-finds-table-of-edu-finds-wushu
+>wushu
+>c
+by one point
+You hear some blather about martial arts, not a sport, or some game that requires no mental commitment.
+
+>inside
+>in
+"Wow! You found everything! But hey! There's still a bit more. We're--well, even shorter of competent people like you to find stuff. There's just three other big twenty-item tasks left to do, but--it'll be about the same challenge as what you already found."
+[NOTE: if you wish to undo this specific task set, you can type I UNDID EDU. This will be in the A command, if you forget.]
+
+>restart
+
+#* _third
+#>wf 3
+
+>fo 3
+
+#testcase-finds-table-of-sup-finds-wishes
+>wishes
+>c
+by one point
+You look down at your list. "Yes," you think to yourself. "A few of these will be more fun to go through than this one."
+
+>fo 3
+
+>inside
+>in
+Murmurs of dismay come back as people, including some of the friends you had a particularly tough time rescuing, are upset you weren't able to do anything despite your good work elsewhere. Harsh!
+Find fifteen to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-sup-finds-desks
+#testcase-milestones-table-of-sup-milestones-1
+>desks
+>c
+by one point
+Well, we all need desks. Desks just aren't exciting. Maybe they can fold up, or have weird shapes, or even have cool drawers. But they're never exciting. At least they're ergonomic and space-efficient these days.
+You're a bit surprised that you were able to requisition anything. You worried you were going to get arrested.
+
+>inside
+>in
+A few people pat you on the back and say you at least brought people together, which is the most important thing. The compliments only go so far. You wish you could've done a bit more despite your good work elsewhere.
+Find fourteen more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-sup-finds-dishes
+>dishes
+>c
+by one point
+Wow! All kinds of dishes! They're all biodegradable, too. They're a bit ugly, but you can't have everything. In a pinch, they can also be broken and thrown as weapons. Not very good weapons, but better than nothing.
+
+>inside
+>in
+A few people pat you on the back and say you at least brought people together, which is the most important thing. The compliments only go so far. You wish you could've done a bit more despite your good work elsewhere.
+Find thirteen more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-sup-finds-disused
+#testcase-milestones-table-of-sup-milestones-3
+>disused
+>c
+by one point
+Shadow groups can always use a good disused place. Until it gets too dis-dis-used.
+It's getting easier to ask with time. Of course, you aren't asking for YOU.
+
+>inside
+>in
+A few people pat you on the back and say you at least brought people together, which is the most important thing. The compliments only go so far. You wish you could've done a bit more despite your good work elsewhere.
+Find twelve more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-sup-finds-hens
+>hens
+>c
+by one point
+Well, organic farms are always good. You'll need lots of food. Eggs have always been good and cheap.
+
+>inside
+>in
+A few people pat you on the back and say you at least brought people together, which is the most important thing. The compliments only go so far. You wish you could've done a bit more despite your good work elsewhere.
+Find eleven more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-sup-finds-hides
+>hides
+>c
+by one point
+Actually, most weather is warmer than it was years ago, but humans' bodies adapted to be faster and leaner, so they need warm clothes well above freezing now.
+
+>inside
+>in
+Ambivalent whispering all around. Pretty good, they guess. But people have to be at the top of their game to inspire true change. Well, you got friends together, which is the important thing, and a bit more, besides. But it's not easy getting lost the right way.
+Find ten more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-sup-finds-juju
+#testcase-milestones-table-of-sup-milestones-6
+>juju
+>c
+by one point
+Juju may not be effective, but it brings people together, and it feels fun. Especially because you get to slap a drum around a bit, and stab a doll representing the Mayor-Overlord.
+The more people are willing to give supplies, the less popular you realize the government IS. Or, well, maybe these people can be fooled...
+
+>inside
+>in
+Ambivalent whispering all around. Pretty good, they guess. But people have to be at the top of their game to inspire true change. Well, you got friends together, which is the important thing, and a bit more, besides. But it's not easy getting lost the right way.
+Find nine more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-sup-finds-junk
+>junk
+>c
+by one point
+You find all kinds of cool junk here. Some was being saved for the right customer--someone who could make anything out of junk. Like people back at headquarters.
+
+>inside
+>in
+Ambivalent whispering all around. Pretty good, they guess. But people have to be at the top of their game to inspire true change. Well, you got friends together, which is the important thing, and a bit more, besides. But it's not easy getting lost the right way.
+Find eight more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-sup-finds-kiwis
+>kiwis
+>c
+by one point
+Oh, hey! It's the genetically modified kind where you don't have to pit the ends out! With edible stickers! Well, everything has edible stickers, but you're a sticker connoiseur.
+
+>inside
+>in
+Ambivalent whispering all around. Pretty good, they guess. But people have to be at the top of their game to inspire true change. Well, you got friends together, which is the important thing, and a bit more, besides. But it's not easy getting lost the right way.
+Find seven more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-sup-finds-nines
+>nines
+>c
+by one point
+Of course, none of the rebels would own any of this for themselves. But it's still fun to have the chance to wear stuff like this, once. You notice a tag: please shower immediately before and after wearing.
+
+>inside
+>in
+Ambivalent whispering all around. Pretty good, they guess. But people have to be at the top of their game to inspire true change. Well, you got friends together, which is the important thing, and a bit more, besides. But it's not easy getting lost the right way.
+Find six more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-sup-finds-nukes
+#testcase-milestones-table-of-sup-milestones-10
+>nukes
+>c
+by one point
+Fortunately, you can't just trip over a nuke and set it off. But unfortunately, every good subversive organization has to have one, even the nonviolent ones. Especially the nonviolents!
+You've always been made to feel guilty for accepting free stuff, and you never found yourself businesslike, but...just going through the motions, you feel less boxed-in about wanting more.
+
+>inside
+>in
+Someone important-looking says "Well, it'll do. Good job. But it wasn't a really ELITE run. Maybe find a few more things. Still, you deserve a break."
+Just five more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-sup-finds-sheds
+>sheds
+>c
+by one point
+A fellow named Arthur makes a purchase ahead of you and gets far too excited he has three now, so people can stop laughing at him.
+
+>inside
+>in
+Someone important-looking says "Well, it'll do. Good job. But it wasn't a really ELITE run. Maybe find a few more things. Still, you deserve a break."
+Just four more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-sup-finds-skein
+>skein
+>c
+by one point
+All types and colors of yarn here--synthetic, real, thick, thin.
+
+>inside
+>in
+Someone important-looking says "Well, it'll do. Good job. But it wasn't a really ELITE run. Maybe find a few more things. Still, you deserve a break."
+Just three more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-sup-finds-skunks
+>skunks
+>c
+by one point
+Organic chemists have still not found anything as offensive yet harmless as a skunk scent. Someone proved the near-impossibility of that back in 2150, but people still try.
+
+>inside
+>in
+Someone important-looking says "Well, it'll do. Good job. But it wasn't a really ELITE run. Maybe find a few more things. Still, you deserve a break."
+Just two more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-sup-finds-swine
+>swine
+>c
+by one point
+It doesn't smell too good in here, and you've never been able to reconcile that with just how good bacon smells. Or you remember bacon smells. That stuff's even better than bacon bits!
+
+>inside
+>in
+Someone important-looking says "Well, it'll do. Good job. But it wasn't a really ELITE run. Maybe find a few more things. Still, you deserve a break."
+Just one more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-sup-finds-undies
+#testcase-milestones-table-of-sup-milestones-15
+>undies
+>c
+by one point
+All sizes of underwear! All clean! The underwear is recycled from holey socks, and the holey underwear will be recycled back into socks. The circle of life!
+You're a bit worried the supplies won't be able to fit in the small hideout you remembered. Eh, well.
+
+>inside
+>in
+"Wow! You found fifteen things. Great work indeed! But hey! There's still a bit more. We're--well, even shorter of competent people like you to find stuff. There's just two other big twenty-item tasks left to do, but--it'll be about the same challenge as what you already found."
+[NOTE: if you wish to undo this specific task set, you can type I UNDID JUNK. This will be in the A command, if you forget.]
+Two down, now only one to go ***
+>undo
+>r
+
+#testcase-finds-table-of-sup-finds-unhewn
+>unhewn
+>c
+by one point
+You're not sure how the big dolmen or menhir or whatever i's going to be teleported back to headquarters--there's still a weight limit, though it's higher than it needs to be--or why it's here. But, you're in execution, not planning.
+
+>inside
+>in
+"Wow! You found sixteen things. Great work indeed! But hey! There's still a bit more. We're--well, even shorter of competent people like you to find stuff. There's just two other big twenty-item tasks left to do, but--it'll be about the same challenge as what you already found."
+[NOTE: if you wish to undo this specific task set, you can type I UNDID JUNK. This will be in the A command, if you forget.]
+Two down, now only one to go ***
+>undo
+>r
+
+#testcase-finds-table-of-sup-finds-unis
+>unis
+>c
+by one point
+Man! These uniforms look spiffy. You're a bit worried they'd kind of expose the revolution, but--they're reversible into plain and boring! Woo!
+
+>inside
+>in
+"Wow! You found seventeen things. Great work indeed! But hey! There's still a bit more. We're--well, even shorter of competent people like you to find stuff. There's just two other big twenty-item tasks left to do, but--it'll be about the same challenge as what you already found."
+[NOTE: if you wish to undo this specific task set, you can type I UNDID JUNK. This will be in the A command, if you forget.]
+Two down, now only one to go ***
+>undo
+>r
+
+#testcase-finds-table-of-sup-finds-win
+>win
+>c
+by one point
+"So! Ready to whip inflation now?" The--the guy seems serious. You look horrified. "Ah, good, just a test. If that didn't upset you, you might be one of the bad guys."
+
+>inside
+>in
+"Wow! You found eighteen things. Great work indeed! But hey! There's still a bit more. We're--well, even shorter of competent people like you to find stuff. There's just two other big twenty-item tasks left to do, but--it'll be about the same challenge as what you already found."
+[NOTE: if you wish to undo this specific task set, you can type I UNDID JUNK. This will be in the A command, if you forget.]
+>undo
+>r
+
+#testcase-finds-table-of-sup-finds-wines
+#testcase-milestones-table-of-sup-milestones-19
+>wines
+>c
+by one point
+Oh man! Not just the freeze-dried stuff, but the really bubbly stuff!
+You feel a twinge wondering if you can't find that last one. Perhaps it was important in ways you didn't realize. "If you found the others, why didn't you...?" and somehow "the last one's the toughest" won't quite wash with what you know.
+
+>inside
+>in
+"Wow! You found nineteen things. Great work indeed! But hey! There's still a bit more. We're--well, even shorter of competent people like you to find stuff. There's just two other big twenty-item tasks left to do, but--it'll be about the same challenge as what you already found."
+[NOTE: if you wish to undo this specific task set, you can type I UNDID JUNK. This will be in the A command, if you forget.]
+>undo
+>r
+
+#+testcase-finds-table-of-sup-finds-wishes
+>wishes
+>c
+by one point
+You look down at your list. "Yes," you think to yourself. "Celebrating with the people hidden inside will be more fun to go through than this one."
+
+>inside
+>in
+"Wow! You found everything! But hey! There's still a bit more. We're--well, even shorter of competent people like you to find stuff. There's just two other big twenty-item tasks left to do, but--it'll be about the same challenge as what you already found."
+[NOTE: if you wish to undo this specific task set, you can type I UNDID JUNK. This will be in the A command, if you forget.]
+Two down, now only one to go ***
+
+>restart
+
+#* _fourth
+#>wf 7
+>fo 4
+
+>inside
+>in
+Murmurs of dismay come back as people, including some of the friends you had a particularly tough time rescuing, are upset you weren't able to do anything despite your good work elsewhere. Harsh!
+>undo
+>r
+
+#testcase-finds-table-of-peo-finds-denied
+#testcase-milestones-table-of-peo-milestones-1
+>denied
+>c
+by one point
+There are always disgruntled people to bring to a cause.
+Well, maybe you don't agree with these people, but they shouldn't be entirely repressed. And they're not the only ones!
+
+>inside
+>in
+A few people pat you on the back and say you at least brought people together, which is the most important thing. The compliments only go so far. You wish you could've done a bit more despite your good work elsewhere.
+>undo
+>r
+
+#testcase-finds-table-of-peo-finds-disses
+>disses
+>c
+by one point
+Many people here applaud you for getting them to join the fight to freely insult the powerful as well as the poor -- even if you might not be able to formulate an insult yourself.
+
+>inside
+>in
+A few people pat you on the back and say you at least brought people together, which is the most important thing. The compliments only go so far. You wish you could've done a bit more despite your good work elsewhere.
+>undo
+>r
+
+#testcase-finds-table-of-peo-finds-djinn
+#testcase-milestones-table-of-peo-milestones-3
+>djinn
+>c
+by one point
+You--you don't really believe in magic. But still, that smoky looking bottle has got to help someone. You just hope whoever uses it is up on their wishing theory and doesn't get rooked.
+People opposed to the government were painted as useless hippies, but maybe not.
+
+>inside
+>in
+A few people pat you on the back and say you at least brought people together, which is the most important thing. The compliments only go so far. You wish you could've done a bit more despite your good work elsewhere.
+>undo
+>r
+
+#testcase-finds-table-of-peo-finds-dukes
+>dukes
+>c
+by one point
+Hoo-wee! You learn some good lessons about loving your oppressive neighbors, knowing it could be worse, but not fearing what could be worse. You aren't so big on owning an orange vehicle, or that flag on the side of it, though.
+
+>inside
+>in
+A few people pat you on the back and say you at least brought people together, which is the most important thing. The compliments only go so far. You wish you could've done a bit more despite your good work elsewhere.
+>undo
+>r
+
+#testcase-finds-table-of-peo-finds-hunks
+>hunks
+>c
+by one point
+If you're muscular and don't have a physical job and aren't in the army, Fourdiopolis frowns on that. Sure, it's not illegal...but...it's even worse if you keep your body AND mind in shape just for your own sake.
+
+>inside
+>in
+Ambivalent whispering all around. Pretty good, they guess. But people have to be at the top of their game to inspire true change. Well, you got friends together, which is the important thing, and a bit more, besides. But it's not easy getting lost the right way.
+Find ten more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-peo-finds-huns
+#testcase-milestones-table-of-peo-milestones-6
+>huns
+>c
+by one point
+You need some people who have, sadly, been pigeonholed for their ancestry. They know others have it worse, but still...
+You'd always been taught not to be around people too different from you--but you've liked the new people you meant. They've found you different and interesting too.
+
+>inside
+>in
+Ambivalent whispering all around. Pretty good, they guess. But people have to be at the top of their game to inspire true change. Well, you got friends together, which is the important thing, and a bit more, besides. But it's not easy getting lost the right way.
+Find nine more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-peo-finds-hussies
+>hussies
+>c
+by one point
+Oh, sure, men get boxed in for talking back. It just still seems to happen more frequently to women. And these women would like to change that.
+
+>inside
+>in
+Ambivalent whispering all around. Pretty good, they guess. But people have to be at the top of their game to inspire true change. Well, you got friends together, which is the important thing, and a bit more, besides. But it's not easy getting lost the right way.
+Find eight more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-peo-finds-indies
+>indies
+>c
+by one point
+You persuade the people here that their art will get more exposure with the Fourdiopolis power structure down. But don't worry, you won't become totally mainstream!
+
+>inside
+>in
+Ambivalent whispering all around. Pretty good, they guess. But people have to be at the top of their game to inspire true change. Well, you got friends together, which is the important thing, and a bit more, besides. But it's not easy getting lost the right way.
+Find seven more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-peo-finds-inked
+>inked
+>c
+by one point
+Tattoos are illegal now unless they're government-enforced. Okay, if you manage to hide them certain places...but some people have had enough.
+
+>inside
+>in
+Ambivalent whispering all around. Pretty good, they guess. But people have to be at the top of their game to inspire true change. Well, you got friends together, which is the important thing, and a bit more, besides. But it's not easy getting lost the right way.
+Find six more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-peo-finds-jedi
+#testcase-milestones-table-of-peo-milestones-10
+>jedi
+>c
+by one point
+You learn some cool mind tricks, like melding concentration and intuition, and some awesome classic movie trivia. It's sad that people can't enjoy their own favorite movies.
+Whether or not people have been physically different, they've been interesting to be around.
+
+>inside
+>in
+Someone important-looking says "Well, it'll do. Good job. But it wasn't a really ELITE run. Maybe find a few more things. Still, you deserve a break."
+Just five more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-peo-finds-jejune
+>jejune
+>c
+by one point
+You run into people who want to commit political pranks in support of being able to commit more political pranks. It's sure better than power for power's sake.
+
+>inside
+>in
+Someone important-looking says "Well, it'll do. Good job. But it wasn't a really ELITE run. Maybe find a few more things. Still, you deserve a break."
+Just four more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-peo-finds-jeune
+>jeune
+>c
+by one point
+Kids from another land talk about all the stuff they don't have to beg for. You almost feel guilty wanting it, too.
+
+>inside
+>in
+Someone important-looking says "Well, it'll do. Good job. But it wasn't a really ELITE run. Maybe find a few more things. Still, you deserve a break."
+Just three more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-peo-finds-junkies
+>junkies
+>c
+by one point
+Apparently there is a whole repository of places to get caffeine. All kinds of rainbow colored pop! And worse, un-decaffeinated tea in all flavors! Well, that certainly seems worth fighting for.
+
+>inside
+>in
+Someone important-looking says "Well, it'll do. Good job. But it wasn't a really ELITE run. Maybe find a few more things. Still, you deserve a break."
+Just two more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-peo-finds-kids
+>kids
+>c
+by one point
+Some kids aren't "practical" enough to accept the reality of life in Fourdiopolis. Their views are refreshing. They remind you of questions you had and thought you, or society, answered or dismissed. And if not all the questions are worth asking, there are a lot of really big ones.
+
+>inside
+>in
+Just one more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-peo-finds-kink
+#testcase-milestones-table-of-peo-milestones-15
+>kink
+>c
+by one point
+Oh dear! You're not sure what's going on here. You're not sure you want to look. But these people are pro-freedom, for sure. You gain a few recruits.
+You also think you've done enough--and the people you didn't ping, you'll get them later?
+
+>inside
+>in
+"Wow! You found fifteen things. Great work indeed! But hey! There's still a bit more. We're--well, even shorter of competent people like you to find stuff. There's just one other big twenty-item task left to do, but--it'll be about the same challenge as what you already found."
+[NOTE: if you wish to undo this specific task set, you can type I UNDID DUDES. This will be in the A command, if you forget.]
+From the randomized...to the random ***
+>undo
+>r
+
+#testcase-finds-table-of-peo-finds-ninnies
+>ninnies
+>c
+by one point
+Wow! You're impressed. Some people make a bad first impression because they don't seem as smart as they should...but they have spent more time becoming smart than looking smart. Wow!
+
+>inside
+>in
+"Wow! You found sixteen things. Great work indeed! But hey! There's still a bit more. We're--well, even shorter of competent people like you to find stuff. There's just one other big twenty-item task left to do, but--it'll be about the same challenge as what you already found."
+[NOTE: if you wish to undo this specific task set, you can type I UNDID DUDES. This will be in the A command, if you forget.]
+From the randomized...to the random ***
+>undo
+>r
+
+#testcase-finds-table-of-peo-finds-sheikhs
+>sheikhs
+>c
+by one point
+The geopolitical blah blah has people from foreign countries under the thumb of city-states like Fourdiopolis. They have power in their own country--but they're concerned emigrants to Fourdiopolis have been treated poorly.
+
+>inside
+>in
+"Wow! You found seventeen things. Great work indeed! But hey! There's still a bit more. We're--well, even shorter of competent people like you to find stuff. There's just one other big twenty-item task left to do, but--it'll be about the same challenge as what you already found."
+[NOTE: if you wish to undo this specific task set, you can type I UNDID DUDES. This will be in the A command, if you forget.]
+From the randomized...to the random ***
+>undo
+>r
+
+#testcase-finds-table-of-peo-finds-sike
+>sike
+>c
+by one point
+All annoying slang eventually becomes cool again. And besides, it might annoy the right people, done right. You learn a bit from them.
+
+>inside
+>in
+"Wow! You found eighteen things. Great work indeed! But hey! There's still a bit more. We're--well, even shorter of competent people like you to find stuff. There's just one other big twenty-item task left to do, but--it'll be about the same challenge as what you already found."
+[NOTE: if you wish to undo this specific task set, you can type I UNDID DUDES. This will be in the A command, if you forget.]
+From the randomized...to the random ***
+>undo
+>r
+
+#testcase-finds-table-of-peo-finds-snide
+#testcase-milestones-table-of-peo-milestones-19
+>snide
+>c
+by one point
+These people aren't arrested for being snide but for being snide about the wrong things. No--no, they're being snide about the right things, right? You're pretty convinced by this. They're less obnoxious than government propaganda, and sometimes when people are oppressed, they get a bit whiny, and can you blame them for failing to go beyond "It's not fair?" No. No, you cannot.
+You've come to realize that the government gives lip service to diversity but only at the price of messing everyone over equally. There's some philosophical fight over how much it helps until it hurts, and you always felt suspicious about their over-aggressive PR campaigns, but actually meeting people has opened your eyes a bit.
+
+>inside
+>in
+"Wow! You found nineteen things. Great work indeed! But hey! There's still a bit more. We're--well, even shorter of competent people like you to find stuff. There's just one other big twenty-item task left to do, but--it'll be about the same challenge as what you already found."
+[NOTE: if you wish to undo this specific task set, you can type I UNDID DUDES. This will be in the A command, if you forget.]
+From the randomized...to the random ***
+>undo
+>r
+
+#testcase-finds-table-of-peo-finds-swiss
+>swiss
+>c
+by one point
+Fourdiopolis officials have played the game of "oh, even neutral people can see we're right..." but here are some neutral people who feel differently!
+
+>inside
+>in
+"Wow! You found everything! But hey! There's still a bit more. We're--well, even shorter of competent people like you to find stuff. There's just one other big twenty-item task left to do, but--it'll be about the same challenge as what you already found."
+[NOTE: if you wish to undo this specific task set, you can type I UNDID DUDES. This will be in the A command, if you forget.]
+From the randomized...to the random ***
+
+>restart
+
+#* _fifth
+#>wf 15
+#>fo 5
+
+>inside
+>in
+Murmurs of dismay come back as people, including some of the friends you had a particularly tough time rescuing, are upset you weren't able to do anything despite your good work elsewhere. Harsh!
+>undo
+>r
+
+#testcase-finds-table-of-stu-finds-dunks
+#testcase-milestones-table-of-stu-milestones-1
+>dunks
+>c
+by one point
+Oh man! The old ten-foot rims are cheating a bit, but it's still fun to watch. You forget when dunking was outlawed on national television, or why, or when Basketball Drones overtook Basketball Jones.
+Yes, the world would be a better place with more places like this thriving.
+
+>inside
+>in
+A few people pat you on the back and say you at least brought people together, which is the most important thing. The compliments only go so far. You wish you could've done a bit more despite your good work elsewhere.
+Find fourteen more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-stu-finds-dusk
+>dusk
+>c
+by one point
+Oh wow! That's beautiful! You catch yourself thinking what range of RGB colors is in the sunset, before realizing you're missing the point.
+
+>inside
+>in
+A few people pat you on the back and say you at least brought people together, which is the most important thing. The compliments only go so far. You wish you could've done a bit more despite your good work elsewhere.
+Find thirteen more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-stu-finds-hisses
+#testcase-milestones-table-of-stu-milestones-3
+>hisses
+>c
+by one point
+Well, not all snakes are poisonous, though the ones outside of cities are. Still, it's neat to see. For free. I mean, there are zoos and private forest preserves, but it'd be neat to have this.
+You feel a bit greedy wanting to see more. I mean, there are commercials for super luxuries, but those--they make you feel bad. This leaves you feeling you could contribute in some way.
+
+>inside
+>in
+A few people pat you on the back and say you at least brought people together, which is the most important thing. The compliments only go so far. You wish you could've done a bit more despite your good work elsewhere.
+Find twelve more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-stu-finds-huskies
+>huskies
+>c
+by one point
+Pet ownership isn't really a thing any more. The planet is eating up resources fast enough!
+
+>inside
+>in
+A few people pat you on the back and say you at least brought people together, which is the most important thing. The compliments only go so far. You wish you could've done a bit more despite your good work elsewhere.
+Find eleven more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-stu-finds-husks
+>husks
+>c
+by one point
+So many recipes and things to do with corn are secret now. Or you are arrested if the government catches you without paying a recycling tax. You've seen a lot before, but it's good to see people doing so almost out in the open.
+
+>inside
+>in
+Ambivalent whispering all around. Pretty good, they guess. But people have to be at the top of their game to inspire true change. Well, you got friends together, which is the important thing, and a bit more, besides. But it's not easy getting lost the right way.
+Find ten more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-stu-finds-inn
+#testcase-milestones-table-of-stu-milestones-6
+>inn
+>c
+by one point
+There are plenty of cheap places to eat if you finish your food within five minutes, but you enjoy just sitting and...oops, other people are waiting. It's been a half-hour.
+You always felt like lumping things into Fun and Not Fun was too simple. Now you see there are different ways of fun.
+
+>inside
+>in
+Ambivalent whispering all around. Pretty good, they guess. But people have to be at the top of their game to inspire true change. Well, you got friends together, which is the important thing, and a bit more, besides. But it's not easy getting lost the right way.
+Find nine more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-stu-finds-kisses
+>kisses
+>c
+by one point
+You don't have time for this, but it's nice to see people not being charged for a cuddle or whatever.
+
+>inside
+>in
+Ambivalent whispering all around. Pretty good, they guess. But people have to be at the top of their game to inspire true change. Well, you got friends together, which is the important thing, and a bit more, besides. But it's not easy getting lost the right way.
+Find eight more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-stu-finds-newsdesk
+>newsdesk
+>c
+by one point
+It's fun to laugh at the old stuff. Even though, really, the new stuff is just the old stuff packaged up better. It's hard to remember, though, with how flashy it is.
+
+>inside
+>in
+Ambivalent whispering all around. Pretty good, they guess. But people have to be at the top of their game to inspire true change. Well, you got friends together, which is the important thing, and a bit more, besides. But it's not easy getting lost the right way.
+Find seven more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-stu-finds-sheesh
+>sheesh
+>c
+by one point
+Even nonsense has been formulated as optionally enjoyable these days. And it's hard to break from that formula, or break from the formula to break from the formula. You just let it all out here. And you feel you helped others do so, too, somehow.
+
+>inside
+>in
+Ambivalent whispering all around. Pretty good, they guess. But people have to be at the top of their game to inspire true change. Well, you got friends together, which is the important thing, and a bit more, besides. But it's not easy getting lost the right way.
+Find six more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-stu-finds-shininess
+#testcase-milestones-table-of-stu-milestones-10
+>shininess
+>c
+by one point
+Life is dingy, except for commercials. It's nice to see something shiny that doesn't make you feel indebted.
+The fun people you've met have been various degrees of exciting. And it's all good!
+
+>inside
+>in
+Someone important-looking says "Well, it'll do. Good job. But it wasn't a really ELITE run. Maybe find a few more things. Still, you deserve a break."
+Just five more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-stu-finds-skinks
+>skinks
+>c
+by one point
+Apparently there are going to be new species in the wild by 2400. You don't have that long, even with increased life expectancy. Fortunately, enough weird ones are still left.
+
+>inside
+>in
+Someone important-looking says "Well, it'll do. Good job. But it wasn't a really ELITE run. Maybe find a few more things. Still, you deserve a break."
+Just four more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-stu-finds-skis
+>skis
+>c
+by one point
+You spend fifteen minutes in a weird tumbling machine with little white flakes coming down on you. They'll be back in ten years, people say, once the anti-global warming measures come back. But some skeptics worry the temperature will keep dropping, and that's not good.
+
+>inside
+>in
+Someone important-looking says "Well, it'll do. Good job. But it wasn't a really ELITE run. Maybe find a few more things. Still, you deserve a break."
+Just three more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-stu-finds-sunk
+>sunk
+>c
+by one point
+Such splendor, despite a song playing in the background that makes you cringe.
+
+>inside
+>in
+Someone important-looking says "Well, it'll do. Good job. But it wasn't a really ELITE run. Maybe find a few more things. Still, you deserve a break."
+Just two more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-stu-finds-sunshine
+>sunshine
+>c
+by one point
+There are lucky places on the sides and edges of Fourdiopolis where you can get sun. Maybe you can sneak back to the center from a teleport, or teleport out to get there. But it's risky! Here, well, the miracles of optics let you get real sunlight without the UV rays.
+
+>inside
+>in
+Someone important-looking says "Well, it'll do. Good job. But it wasn't a really ELITE run. Maybe find a few more things. Still, you deserve a break."
+Just one more to open a new puzzle ***
+>undo
+>r
+
+#testcase-finds-table-of-stu-finds-swish
+#testcase-milestones-table-of-stu-milestones-15
+>swish
+>c
+by one point
+Here, unathletic people drain twenty three-pointers in a row, or a hundred free-throws, and laugh about how their favorite players can't to the same.
+You don't know if you can take any more fun. But you've definitely had enough to report back to the hideout.
+
+>inside
+>in
+"Wow! That's a lot of cool hidden stuff we need more of! That's what we stand for, and what we'll give to the people! Or at least try to! They'll love us! There's just one more thing--we can strike terror into the hearts of the shadow councilors that help run this city. Their names are closely protected--but we know the sectors they live in, and you're just the person to find their shadow campaign headquarters."
+Congratulations! You've unlocked a final FINAL puzzle. You will be prompted to see if you'd like to go for it on restart. It's got thirty-five things, not twenty, and it's meant to be difficult to search through.
+There's also a hidden command you can use at any time: type UNKINDNESS to get to the final bit.
+All over except the last round ***
+>undo
+>r
+
+#testcase-finds-table-of-stu-finds-unwind
+>unwind
+>c
+by one point
+Oh my goodness! A chair that leans back? And it's comfy and ergonomic? And just anyone can sit in it? And they don't have to do hard thinking work? Why? Just because? Well, okay...
+
+>inside
+>in
+"Wow! That's a lot of cool hidden stuff we need more of! That's what we stand for, and what we'll give to the people! Or at least try to! They'll love us! There's just one more thing--we can strike terror into the hearts of the shadow councilors that help run this city. Their names are closely protected--but we know the sectors they live in, and you're just the person to find their shadow campaign headquarters."
+Congratulations! You've unlocked a final FINAL puzzle. You will be prompted to see if you'd like to go for it on restart. It's got thirty-five things, not twenty, and it's meant to be difficult to search through.
+There's also a hidden command you can use at any time: type UNKINDNESS to get to the final bit.
+All over except the last round ***
+>undo
+>r
+
+#testcase-finds-table-of-stu-finds-weekend
+>weekend
+>c
+by one point
+You imagine having two whole days of getting paid without doing anything--per week! Not that you have two whole days, now. You only remember being fined for not taking vacation because maybe you were trying to guilt trip your employers. But it seems a bit less awful now.
+
+>inside
+>in
+"Wow! That's a lot of cool hidden stuff we need more of! That's what we stand for, and what we'll give to the people! Or at least try to! They'll love us! There's just one more thing--we can strike terror into the hearts of the shadow councilors that help run this city. Their names are closely protected--but we know the sectors they live in, and you're just the person to find their shadow campaign headquarters."
+Congratulations! You've unlocked a final FINAL puzzle. You will be prompted to see if you'd like to go for it on restart. It's got thirty-five things, not twenty, and it's meant to be difficult to search through.
+There's also a hidden command you can use at any time: type UNKINDNESS to get to the final bit.
+All over except the last round ***
+>undo
+>r
+
+#testcase-finds-table-of-stu-finds-whee
+>whee
+>c
+by one point
+Hyperspace technology allows roller coasters to fit in a very small space indeed.
+
+>inside
+>in
+"Wow! That's a lot of cool hidden stuff we need more of! That's what we stand for, and what we'll give to the people! Or at least try to! They'll love us! There's just one more thing--we can strike terror into the hearts of the shadow councilors that help run this city. Their names are closely protected--but we know the sectors they live in, and you're just the person to find their shadow campaign headquarters."
+Congratulations! You've unlocked a final FINAL puzzle. You will be prompted to see if you'd like to go for it on restart. It's got thirty-five things, not twenty, and it's meant to be difficult to search through.
+There's also a hidden command you can use at any time: type UNKINDNESS to get to the final bit.
+>undo
+>r
+
+#testcase-finds-table-of-stu-finds-whinnies
+#testcase-milestones-table-of-stu-milestones-19
+>whinnies
+>c
+by one point
+The horses look a bit sad, as if they'd like somewhere to run. But they nuzzle you and all that. What if there were places they could walk around more? Places everyone could still see them?
+One more fun thing! But might it be negative overall fun to search for it and get frustrated, or just say, I've had enough fun? Philosophy.
+
+>inside
+>in
+"Wow! That's a lot of cool hidden stuff we need more of! Too much, if that were possible! That's what we stand for, and what we'll give to the people! Or at least try to! They'll love us! There's just one more thing--we can strike terror into the hearts of the shadow councilors that help run this city. Their names are closely protected--but we know the sectors they live in, and you're just the person to find their shadow campaign headquarters."
+Congratulations! You've unlocked a final FINAL puzzle. You will be prompted to see if you'd like to go for it on restart. It's got thirty-five things, not twenty, and it's meant to be difficult to search through.
+There's also a hidden command you can use at any time: type UNKINDNESS to get to the final bit.
+All over except the last round ***
+>undo
+>r
+
+#testcase-finds-table-of-stu-finds-winks
+>winks
+>c
+by one point
+Of course there are mating rituals, but there's a certain amount of rigor in them. You get looekd at funny if you break too many rules. But here, a wink needs no excuses. It's not just about romantic stuff, either.
+
+>inside
+>in
+"Wow! That's a lot of cool hidden stuff we need more of! Too much, if that were possible! That's what we stand for, and what we'll give to the people! Or at least try to! They'll love us! There's just one more thing--we can strike terror into the hearts of the shadow councilors that help run this city. Their names are closely protected--but we know the sectors they live in, and you're just the person to find their shadow campaign headquarters."
+Congratulations! You've unlocked a final FINAL puzzle. You will be prompted to see if you'd like to go for it on restart. It's got thirty-five things, not twenty, and it's meant to be difficult to search through.
+There's also a hidden command you can use at any time: type UNKINDNESS to get to the final bit.
+All over except the last round ***
+
+>restart
+
+#* _sixth
+#>wf 31
+#>fo 6
+
+>inside
+>in
+"Boo! Fink." they chide you. But they know that with all the supplies ready, they don't need fearmongering anyway. Power to the people, well, hopefully.
+The revolution will start a bit later ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-dejesus
+#testcase-milestones-table-of-las-milestones-1
+>dejesus
+>c
+Whoah. You're not brave enough to enter. But you'll leave a message.
+You read through your guidelines on rabble-rousing literature and write up a short screed describing how Dejesus
+Well, you are in for it, now. Even doing this once gives some risk.
+
+>inside
+>in
+"Well, it's a start. These people are hard to get at. But... we have enough momentum anyway. We hope."
+The revolution will start a bit later ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-deneke
+>deneke
+>c
+Whoah. You're not brave enough to enter. But you'll leave a message.
+You read through your guidelines on rabble-rousing literature and write up a short screed describing how Deneke
+
+>inside
+>in
+"Well, it's a start. These people are hard to get at. But... we have enough momentum anyway. We hope."
+The revolution will start a bit later ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-dinh
+#testcase-milestones-table-of-las-milestones-3
+>dinh
+>c
+Whoah. You're not brave enough to enter. But you'll leave a message.
+You read through your guidelines on rabble-rousing literature and write up a short screed describing how Dinh
+You haven't been caught, yet. It's still nervy.
+
+>inside
+>in
+"Well, it's a start. These people are hard to get at. But... we have enough momentum anyway. We hope."
+The revolution will start a bit later ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-dinwiddie
+>dinwiddie
+>c
+Whoah. You're not brave enough to enter. But you'll leave a message.
+You read through your guidelines on rabble-rousing literature and write up a short screed describing how Dinwiddie
+
+>inside
+>in
+"Well, it's a start. These people are hard to get at. But... we have enough momentum anyway. We hope."
+The revolution will start a bit later ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-dudek
+>dudek
+>c
+Whoah. You're not brave enough to enter. But you'll leave a message.
+You read through your guidelines on rabble-rousing literature and write up a short screed describing how Dudek
+
+>inside
+>in
+"Well, it's a start. These people are hard to get at. But... we have enough momentum anyway. We hope."
+The revolution will start a bit later ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-eddins
+#testcase-milestones-table-of-las-milestones-6
+>eddins
+>c
+Whoah. You're not brave enough to enter. But you'll leave a message.
+You read through your guidelines on rabble-rousing literature and write up a short screed describing how Eddins
+You start to worry that rebelling is almost becoming boring. Then you re-examine the situation and decide you've established a baseline of behavior and raised your standard for excitement. Much better!
+
+>inside
+>in
+"Well, it's a start. These people are hard to get at. But... we have enough momentum anyway. We hope."
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-ennis
+>ennis
+>c
+Whoah. You're not brave enough to enter. But you'll leave a message.
+You read through your guidelines on rabble-rousing literature and write up a short screed describing how Ennis
+
+>inside
+>in
+"A bit disappointing, but, well, they'll be exposed with time anyway. Maybe those who haven't gotten anything yet will be scared in their own way."
+The revolution will start a bit later ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-eskew
+>eskew
+>c
+Whoah. You're not brave enough to enter. But you'll leave a message.
+You read through your guidelines on rabble-rousing literature and write up a short screed describing how Eskew
+
+>inside
+>in
+"A bit disappointing, but, well, they'll be exposed with time anyway. Maybe those who haven't gotten anything yet will be scared in their own way."
+The revolution will start a bit later ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-heineken
+>heineken
+>c
+You leave a note about how they're so bad at legislating, they might be worse sober.
+!rabble-rousing
+
+>inside
+>in
+"A bit disappointing, but, well, they'll be exposed with time anyway. Maybe those who haven't gotten anything yet will be scared in their own way."
+The revolution will start a bit later ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-henke
+#testcase-milestones-table-of-las-milestones-10
+>henke
+>c
+Whoah. You're not brave enough to enter. But you'll leave a message.
+You read through your guidelines on rabble-rousing literature and write up a short screed describing how Henke
+You look at the names you have left, and you wonder if focusing on (or not focusing on) ethnic names Says Something About You. Well, it says you're a third of the way there.
+
+>inside
+>in
+"A bit disappointing, but, well, they'll be exposed with time anyway. Maybe those who haven't gotten anything yet will be scared in their own way."
+The revolution will start a bit later ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-hess
+>hess
+>c
+"You'd better believe you made a heck of a mess," you write, among other things.
+!rabble-rousing
+
+>inside
+>in
+"A bit disappointing, but, well, they'll be exposed with time anyway. Maybe those who haven't gotten anything yet will be scared in their own way."
+The revolution will start a bit later ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-hines
+>hines
+>c
+Whoah. You're not brave enough to enter. But you'll leave a message.
+You read through your guidelines on rabble-rousing literature and write up a short screed describing how Hines
+
+>inside
+>in
+"A bit disappointing, but, well, they'll be exposed with time anyway. Maybe those who haven't gotten anything yet will be scared in their own way."
+The revolution will start a bit later ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-hsieh
+>hsieh
+>c
+Whoah. You're not brave enough to enter. But you'll leave a message.
+You read through your guidelines on rabble-rousing literature and write up a short screed describing how Hsieh
+
+>inside
+>in
+"A bit disappointing, but, well, they'll be exposed with time anyway. Maybe those who haven't gotten anything yet will be scared in their own way."
+The revolution will start a bit later ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-hsu
+>hsu
+>c
+Whoah. You're not brave enough to enter. But you'll leave a message.
+You read through your guidelines on rabble-rousing literature and write up a short screed describing how Hsu
+
+>inside
+>in
+"A bit disappointing, but, well, they'll be exposed with time anyway. Maybe those who haven't gotten anything yet will be scared in their own way."
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-huish
+>huish
+>c
+Whoah. You're not brave enough to enter. But you'll leave a message.
+You read through your guidelines on rabble-rousing literature and write up a short screed describing how Huish
+
+>inside
+>in
+"A bit disappointing, but, well, they'll be exposed with time anyway. Maybe those who haven't gotten anything yet will be scared in their own way."
+The revolution will start a bit later ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-hussein
+>hussein
+>c
+You get very good mileage indeed writing up a screed with ten different ways to say "at least you aren't as bad as..." You're worried how easy it is.
+!rabble-rousing
+
+>inside
+>in
+"A bit disappointing, but, well, they'll be exposed with time anyway. Maybe those who haven't gotten anything yet will be scared in their own way."
+The revolution will start a bit later ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-ishii
+>ishii
+>c
+With no idea how true it is, you mention that this politician is even more "I, I, I" than most.
+!rabble-rousing
+
+>inside
+>in
+"A bit disappointing, but, well, they'll be exposed with time anyway. Maybe those who haven't gotten anything yet will be scared in their own way."
+The revolution will start a bit later ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-jenkins
+>jenkins
+>c
+As you write up some absurd threat, you can't help but sign your name LEEROY, though you aren't silly enough to try to bust in.
+!rabble-rousing
+
+>inside
+>in
+"A majority! Well, if we round up. Perhaps there is some hope that they can be scared to act before we have to. Hm, we might anyway. It'll be fun."
+You have accelerated the revolution ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-jensen
+>jensen
+>c
+Whoah. You're not brave enough to enter. But you'll leave a message.
+You read through your guidelines on rabble-rousing literature and write up a short screed describing how Jensen
+
+>inside
+>in
+"A majority! Perhaps there is some hope that they can be scared to act before we have to. Hm, we might anyway. It'll be fun."
+You have accelerated the revolution ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-keese
+>keese
+>c
+Oh, wait, look. There's a weird pixelated bird on the door! As you make your mark, you reflect on the people keeping Fourdiopolis in the past under the guise of sticking with basics.
+!rabble-rousing
+
+>inside
+>in
+"A majority! Perhaps there is some hope that they can be scared to act before we have to. Hm, we might anyway. It'll be fun."
+You have accelerated the revolution ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-knudsen
+>knudsen
+>c
+Whoah. You're not brave enough to enter. But you'll leave a message.
+You read through your guidelines on rabble-rousing literature and write up a short screed describing how Knudsen
+
+>inside
+>in
+"A majority! Perhaps there is some hope that they can be scared to act before we have to. Hm, we might anyway. It'll be fun."
+You have accelerated the revolution ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-kuhn
+>kuhn
+>c
+Whoah. You're not brave enough to enter. But you'll leave a message.
+You read through your guidelines on rabble-rousing literature and write up a short screed describing how Kuhn
+
+>inside
+>in
+"A majority! Perhaps there is some hope that they can be scared to act before we have to. Hm, we might anyway. It'll be fun."
+You have accelerated the revolution ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-neeskens
+>neeskens
+>c
+You feel an urge to mock this person's athletic ability and deride them as constantly second-best.
+
+>inside
+>in
+"Wow! We could hardly have hoped for more! Though--err, well, maybe you could've figured THEM, or...oh, never mind."
+You have accelerated the revolution ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-nhek
+>nhek
+>c
+Whoah. You're not brave enough to enter. But you'll leave a message.
+You read through your guidelines on rabble-rousing literature and write up a short screed describing how Nhek
+
+>inside
+>in
+"Wow! We could hardly have hoped for more! Though--err, well, maybe you could've figured THEM, or...oh, never mind."
+You have accelerated the revolution ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-niesen
+>niesen
+>c
+Whoah. You're not brave enough to enter. But you'll leave a message.
+You read through your guidelines on rabble-rousing literature and write up a short screed describing how Niesen
+
+>inside
+>in
+"Wow! We could hardly have hoped for more! Though--err, well, maybe you could've figured THEM, or...oh, never mind."
+You have accelerated the revolution ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-nijinski
+>nijinski
+>c
+You write something about how this person is particularly good at dancing around issues, until they aren't. Booyah!
+!rabble-rousing
+
+>inside
+>in
+"Wow! We could hardly have hoped for more! Though--err, well, maybe you could've figured THEM, or...oh, never mind."
+You have accelerated the revolution ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-nweke
+#testcase-milestones-table-of-las-milestones-9
+>nweke
+>c
+You write something about how things fall apart in simple, powerful, no-nonsense language.
+!rabble-rousing
+Three-quarters. That is a lot. You have sent a lesson to enough...or have you?
+
+>inside
+>in
+"Wow! We could hardly have hoped for more! Though--err, well, maybe you could've figured THEM, or...oh, never mind."
+You have accelerated the revolution ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-sheen
+>sheen
+>c
+As much as you distrust politicians who talk about winning, the alternative is...worse? This guy was particularly outrageous, you remember now. Entertaining, but outrageous.
+!rabble-rousing
+
+>inside
+>in
+"Wow! We could hardly have hoped for more! Though--err, well, maybe you could've figured THEM, or...oh, never mind."
+You have accelerated the revolution ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-sisk
+>sisk
+>c
+Whoah. You're not brave enough to enter. But you'll leave a message.
+You read through your guidelines on rabble-rousing literature and write up a short screed describing how Sisk
+
+>inside
+>in
+"Impressive indeed! We're glad you're not on THEIR side. We'd have gotten a lot more threats now than we already have."
+You have accelerated the revolution ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-sundin
+>sundin
+>c
+Whoah. You're not brave enough to enter. But you'll leave a message.
+You read through your guidelines on rabble-rousing literature and write up a short screed describing how Sundin
+
+>inside
+>in
+"Impressive indeed! We're glad you're not on THEIR side. We'd have gotten a lot more threats now than we already have."
+You have accelerated the revolution ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-suskind
+>suskind
+>c
+Whoah. You're not brave enough to enter. But you'll leave a message.
+You read through your guidelines on rabble-rousing literature and write up a short screed describing how Suskind
+
+>inside
+>in
+"Impressive indeed! We're glad you're not on THEIR side. We'd have gotten a lot more threats now than we already have."
+You have accelerated the revolution ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-ueki
+>ueki
+>c
+Whoah. You're not brave enough to enter. But you'll leave a message.
+You read through your guidelines on rabble-rousing literature and write up a short screed describing how Ueki
+
+>inside
+>in
+"Impressive indeed! We're glad you're not on THEIR side. We'd have gotten a lot more threats now than we already have."
+You have accelerated the revolution ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-weeks
+>weeks
+>c
+Whoah. You're not brave enough to enter. But you'll leave a message.
+You read through your guidelines on rabble-rousing literature and write up a short screed describing how Weeks
+
+>inside
+>in
+"Impressive indeed! We're glad you're not on THEIR side. We'd have gotten a lot more threats now than we already have."
+You have accelerated the revolution ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-weiss
+#testcase-milestones-table-of-las-milestones-2
+>weiss
+>c
+Whoah. You're not brave enough to enter. But you'll leave a message.
+You read through your guidelines on rabble-rousing literature and write up a short screed describing how Weiss
+Perhaps one or two should be left, to make the others sweat it out and maybe reform. Or perhaps not.
+
+>inside
+>in
+"Impressive indeed! We're glad you're not on THEIR side. We'd have gotten a lot more threats now than we already have."
+You have accelerated the revolution ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-whidden
+>whidden
+>c
+Whoah. You're not brave enough to enter. But you'll leave a message.
+You read through your guidelines on rabble-rousing literature and write up a short screed describing how Whidden
+
+>inside
+>in
+"Impressive indeed! We're glad you're not on THEIR side. We'd have gotten a lot more threats now than we already have."
+You have accelerated the revolution ***
+>undo
+>r
+
+#testcase-finds-table-of-las-finds-wisniewski
+#testcase-milestones-table-of-las-milestones-0
+>wisniewski
+>c
+As you make your mark, you feel a shudder of Loathing at Wisniewski also being The Man.
+!rabble-rousing
+That is all. You have done well.
+
+>inside
+>in
+"All of them? We're almost scared you're a double agent, if you did that well. Don't worry. Almost."
+You have accelerated the revolution ***

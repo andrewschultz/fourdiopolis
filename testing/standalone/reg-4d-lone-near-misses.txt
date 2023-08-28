@@ -304,8 +304,6 @@ On your way back to the center, you wonder if you could've gone a bit farther to
 >r
 !On your way back to the center, you wonder if you could've gone a bit farther to find something. Or things. You felt like you were close.
 
-* unpassed
-
 >fo 3
 
 #testcase-near-misses-table-of-sup-near-misses-desk-desks
