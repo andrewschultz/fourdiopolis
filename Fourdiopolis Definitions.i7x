@@ -18,8 +18,7 @@ PEO is a scenario. scidx of PEO is 4. objectives of PEO is table of peo finds. m
 
 STU is a scenario. scidx of STU is 5. objectives of STU is table of stu finds. milestones of STU is table of stu milestones. nearmisses of STU is table of stu near misses. win-rule of STU is stu-win rule. lose-msg of STU is "[if score < 10]Still a way to go[else]Close, but...[end if]". win-msg of STU is "All over except the last round".
 
-
-LAS is a scenario. scidx of LAS is 6. objectives of LAS is table of las finds. milestones of LAS is table of las milestones.[nearmisses of LAS is table of las near misses.]lose-msg of LAS is "Well, it was meant to be tough". win-msg of LAS is "Very impressive indeed".
+LAS is a scenario. scidx of LAS is 6. objectives of LAS is table of las finds. milestones of LAS is table of las milestones.[nearmisses of LAS is table of las near misses.]win-rule of LAS is las-win rule. lose-msg of LAS is "The revolution will start a bit later". win-msg of LAS is "You have accelerated the revolution".
 
 scenario-list is a list of scenarios variable. scenario-list is { FRI, EDU, SUP, PEO, STU, LAS }.
 

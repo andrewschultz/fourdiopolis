@@ -8,7 +8,7 @@ chapter friends (scenario 1)
 
 table of fri finds
 tally (text)	cityloc	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
-"dennis"	"A3C"	8361	90	0	"skipper or jumper too"	"He begins telling you about his wonderful friend Jonathan and Jonathan's lovely future wife Elizabeth before getting serious and scared and asking if Christopher has been by yet. Eh, better than some creep describing a system for manipulating girls."	front door	0 [dennis hopper?]
+"dennis"	"A3C"	8361	90	0	"skipper or jumper too"	"After vowing to make it always sunny in Fourdiopolis, he begins telling you about his wonderful friend Jonathan and Jonathan's lovely future wife Elizabeth before getting serious and scared and asking if Christopher has been by yet. Eh, better than some creep describing a system for manipulating women."	front door	0 [dennis hopper?]
 "eddie"	"B4D"	4793	3	0	"crazy friend"	"He stashes some absurdly low-priced appliances into a closet before running out."	front door	0
 "enid"	"A3C"	4208	0	0	"friend of five"	"Enid listens as she makes proofreading marks on a book with a bunch of kids running around on the cover."	front door	0
 "heidi"	"B7C"	9774	8	0	"Alpine friend"	"Thankfully, you hear no yodeling as the door opens."	front door	0
@@ -100,7 +100,7 @@ tally (text)	cityloc	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	
 "sheds"	"031"	3548	2	0	"storage"	"A fellow named Arthur makes a purchase ahead of you and gets far too excited he has three now, so people can stop laughing at him."	abandoned shed	0
 "skein"	"D10"	3913	1	0	"more yarn than we'll ever need"	"All types and colors of yarn here--synthetic, real, thick, thin."	upscale store	0
 "skunks"	"ED5"	3928	112	0	"stink bomb raw materials"	"Organic chemists have still not found anything as offensive yet harmless as a skunk scent. Someone proved the near-impossibility of that back in 2150, but people still try."	fake barn	0
-"swine"	"B2B"	3235	3	0	"porcine stuff"	"It doesn't smell too good in here, and you've never been able to reconcile that with just how good bacon smells. Or you remember bacon smells. Which is even better than bacon bits!"	fake barn	0
+"swine"	"B2B"	3235	3	0	"porcine stuff"	"It doesn't smell too good in here, and you've never been able to reconcile that with just how good bacon smells. Or you remember bacon smells. That stuff's even better than bacon bits!"	fake barn	0
 "undies"	"B3B"	6850	35	0	"unseeable wearables"	"All sizes of underwear! All clean! The underwear is recycled from holey socks, and the holey underwear will be recycled back into socks. The circle of life!"	beaten-up store	0
 "unhewn"	"423"	6856	45	0	"rock to carve"	"You're not sure how the big dolmen or menhir or whatever i's going to be teleported back to headquarters--there's still a weight limit, though it's higher than it needs to be--or why it's here. But, you're in execution, not planning."	dusty warehouse	0
 "unis"	"B2A"	6866	0	0	"clothes to have pride in"	"Man! These uniforms look spiffy. You're a bit worried they'd kind of expose the revolution, but--they're reversible into plain and boring! Woo!"	dusty warehouse	0
@@ -133,13 +133,13 @@ tally (text)	cityloc	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	
 "jedi"	"01E"	12416	0	0	"star wars fans"	"You learn some cool mind tricks, like melding concentration and intuition, and some awesome classic movie trivia. It's sad that people can't enjoy their own favorite movies."	movie house	0
 "jejune"	"5BC"	12446	14	0	"political pranksters"	"You run into people who want to commit political pranks in support of being able to commit more political pranks. It's sure better than power for power's sake."	hovel	0
 "jeune"	"30A"	12398	3	0	"young idealistic foreigners"	"Kids from another land talk about all the stuff they don't have to beg for. You almost feel guilty wanting it, too."	tiny schoolhouse	0
-"junkies"	"BAA"	12605	1003	0	"people hooked on caffeine NOT from overpriced coffee"	"Apparently there is a whole repository of places to get caffeine. All kinds of rainbow colored pop! And worse, Well, that certainly seems worth fighting for."	hovel	0
+"junkies"	"BAA"	12605	1003	0	"people hooked on caffeine NOT from overpriced coffee"	"Apparently there is a whole repository of places to get caffeine. All kinds of rainbow colored pop! And worse, un-decaffeinated tea in all flavors! Well, that certainly seems worth fighting for."	hovel	0
 "kids"	"E0A"	14346	0	0	"useful idealists"	"Some kids aren't 'practical' enough to accept the reality of life in Fourdiopolis. Their views are refreshing. They remind you of questions you had and thought you, or society, answered or dismissed. And if not all the questions are worth asking, there are a lot of really big ones."	tiny schoolhouse	0
 "kink"	"EB2"	14299	0	0	"illicit pleasure joint"	"Oh dear! You're not sure what's going on here. You're not sure you want to look. But these people are pro-freedom, for sure. You gain a few recruits."	warehouse	0
 "ninnies"	"B5D"	2311	1003	0	"disparaged as stupid"	"Wow! You're impressed. Some people make a bad first impression because they don't seem as smart as they should...[italic type]but they have spent more time becoming smart than looking smart[r]. Wow!"	hovel	0
 "sheikhs"	"B54"	3550	1289	0	"foreign aid"	"The geopolitical blah blah has people from foreign countries under the thumb of city-states like Fourdiopolis. They have power in their own country--but they're concerned emigrants to Fourdiopolis have been treated poorly."	hovel	0
 "sike"	"E10"	3743	0	0	"purveyors of annoying slang"	"All annoying slang eventually becomes cool again. And besides, it might annoy the right people, done right. You learn a bit from them."	hovel	0
-"snide"	"B3C"	2877	3	0	"beyond confidence"	"These people aren't arrested for being snide but for being snide about the wrong things. No--no, they're being snide about the right things, right? You're pretty convinced by this. They're less obnoxious than government propaganda, and sometimes it's not enough to say 'It's not fair.'"	hovel	0
+"snide"	"B3C"	2877	3	0	"beyond confidence"	"These people aren't arrested for being snide but for being snide about the wrong things. No--no, they're being snide about the right things, right? You're pretty convinced by this. They're less obnoxious than government propaganda, and sometimes when people are oppressed, they get a bit whiny, and can you blame them for failing to go beyond 'It's not fair?' No. No, you cannot."	hovel	0
 "swiss"	"E1B"	3236	2	0	"people totally not neutral any more"	"Fourdiopolis officials have played the game of 'oh, even neutral people can see we're right...' but here are some neutral people who feel differently!"	hovel	0
 
 table of peo milestones
@@ -230,11 +230,11 @@ table of las milestones
 count	comment
 1	"Well, you are in for it, now. Even doing this once gives some risk."
 3	"You haven't been caught, yet. It's still nervy."
-6	"Rebelling is almost becoming boring."
+6	"You start to worry that rebelling is almost becoming boring. Then you re-examine the situation and decide you've established a baseline of behavior and raised your standard for excitement. Much better!"
 10	"You look at the names you have left, and you wonder if focusing on (or not focusing on) ethnic names Says Something About You. Well, it says you're a third of the way there."
 --	"Halfway there. You can't believe THAT person--why, they offered token resistance to THAT bill..."
 -9	"Three-quarters. That is a lot. You have sent a lesson to enough...or have you?"
--2	"Perhaps one or two should be left, as an example to the others. Or perhaps not."
+-2	"Perhaps one or two should be left, to make the others sweat it out and maybe reform. Or perhaps not."
 0	"That is all. You have done well."
 
 volume near misses

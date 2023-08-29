@@ -36,6 +36,8 @@ test 5w with "x/dunks/c/dusk/c/hisses/c/huskies/c/husks/c/inn/c/kisses/c/newsdes
 
 test 5wx with "x/dunks/cx/dusk/cx/hisses/cx/huskies/cx/husks/cx/inn/cx/kisses/cx/newsdesk/cx/sheesh/cx/shininess/cx/skinks/cx/skis/cx/sunk/cx/sunshine/cx/swish/cx/unwind/cx/weekend/cx/whee/cx/whinnies/cx/winks/cx/hidden/cx"
 
+test 6w with "dejesus/c/deneke/c/dinh/c/dinwiddie/c/dudek/c/eddins/c/ennis/c/eskew/c/heineken/c/henke/c/hess/c/hines/c/hsieh/c/hsu/c/huish/c/hussein/c/ishii/c/jenkins/c/jensen/c/keese/c/knudsen/c/kuhn/c/neeskens/c/nhek/c/niesen/c/nijinski/c/nweke/c/sheen/c/sisk/c/sundin/c/suskind/c/ueki/c/weeks/c/weiss/c/whidden/c/wisniewski/c/hidden/c"
+
 volume programmed-in tests, shortcuts, and so forth
 
 volume testing - not for release
