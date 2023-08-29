@@ -31,6 +31,8 @@ include Trivial Niceties by Andrew Schultz.
 
 include Old School Verb Total Carnage by Andrew Schultz.
 
+include Bold Final Question Rows by Andrew Schultz.
+
 include Basic Screen Effects by Emily Short.
 
 include Fourdiopolis Globals by Andrew Schultz.
@@ -1485,6 +1487,31 @@ check drinking: say "There are hydration stations all around Fourdiopolis. You'r
 
 volume i6 coding magic
 
+Include (-
+
+[ ASK_FINAL_QUESTION_R;
+	print "^";
+	(+ escape mode +) = false;
+	while ((+ escape mode +) == false) {
+		CarryOutActivity(DEALING_WITH_FINAL_QUESTION_ACT);
+		DivideParagraphPoint();
+	}
+];
+
+-) instead of "Ask The Final Question Rule" in "OrderOfPlay.i6t".
+
+The escape mode is a truth state that varies.
+
+this is the epilogue rule:
+	pick-next-quest;
+	reset-game;
+	resume the story;
+	now escape mode is true;
+
+Table of Final Question Options (continued)
+final question wording	only if victorious	topic	final response rule	final response activity
+"[b]CONTINUE[r] with the next quest"	true	"continue"	epilogue rule	--
+
 volume amusing the player
 
 rule for amusing a victorious player:
@@ -1493,7 +1520,7 @@ rule for amusing a victorious player:
 	repeat through table of silly jokes:
 		let hide-this be false;
 		if there is a need-solved entry:
-			unless need-solved entry is game-done:
+			unless won of need-solved entry is true:
 				now hide-this is true;
 				now hide-ever is true;
 		if hide-this is false:
@@ -1501,17 +1528,9 @@ rule for amusing a victorious player:
 	if hide-ever is true:
 		say "You still can solve more and unlock other amusing things to do.";
 
-to decide whether (n - a number) is game-done:
-	if n < 1, decide no;
-	if n is number of rows in table of accomplishments, decide yes;
-	if n > number of rows in table of accomplishments, decide yes;
-	choose row n in table of accomplishments;
-	if solved entry is true, decide yes;
-	decide no;
-
 table of silly jokes
 funny-try	need-solved
-"to DIE?"	1
+"to DIE?"	fri
 "waiting?"	--
 "XYZZY? And the follow-up(s)?"	--
 "sleeping?"	--
