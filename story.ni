@@ -560,6 +560,10 @@ check entering a quasi-entry:
 			do nothing instead;
 	if hideout is visible:
 		abide by the win-rule of cur-scen;
+		if cur-scen is not las:
+			choose row (scidx of cur-scen) in table of accomplishments;
+			now solved entry is true;
+			write file of accomplishments from the table of accomplishments;
 		end-win-with-undo;
 		the rule succeeds;
 	say "Oops, should've found something." instead;
@@ -578,13 +582,10 @@ this is the fri-win rule:
 	if score < 15:
 		say "'Well, not too bad, but not quite good enough.' You go on your way, and every month or so, you walk by where you thought the hideout was, but you can never quite find it.";
 		now story-ended is true;
-		end the story saying "Find [15 - score in words] more and open a new puzzle";
+		cue-more;
 		the rule succeeds;
 	say "'Good job! That's [if score < 18]enough to be promoted to a general runner[else if score is 20]perfect[else]even better than we hoped[end if]! There's...a few more task lists. We're short of people. Some get lost, and captured. Can you do a bit more?'";
 	bracket-say "You can RESTART and you'll have access to a new puzzle. There are five more--three chosen in random order, then a 'final' one, then an extra-difficult one. You can also type I DID I UNDID to reset your accomplishments and try this again. Or, if you lose your save file, I SEEK KEEN will jump over finding the friends.[paragraph break]But even if this was more than enough for you, getting through this list is an accomplishment. Go take some time to feel good about yourself. Fourdiopolis is not an easy game!";
-	choose row 1 in table of accomplishments;
-	now solved entry is true;
-	write file of accomplishments from the table of accomplishments;
 
 definition: a scenario (called sc) is finished:
 	if sc is las, no;
@@ -593,14 +594,11 @@ definition: a scenario (called sc) is finished:
 
 this is the mid-win rule:
 	abide by the gen-score-end-check rule;
-	choose row (scidx of cur-scen) in table of accomplishments;
-	now solved entry is true;
-	write file of accomplishments from the table of accomplishments;
 	let nfs be number of finished scenarios;
 	if nfs is 4:
 		say "You've gotten all the supplies the rebels need! Now, for the final challenge: find fun stuff that will make a revolution worthwhile. There's--well, we don't know much about having fun, but we're sure other people do.";
 	else:
-		say "'You did [if score is 20]a perfect job[else]such a good job. [score in words] of 20 is impressive[end if]! But hey! There's still a bit more. We're--well, even shorter of competent people like you to find stuff. There's just [4 - nfs in words] other big twenty-item task[if 4 - nfs > 1]s[end if] left to do, but--it'll be about the same challenge as what you already found.'";
+		say "'Wow! You found [if score is 20]everything[else][score in words] things. Great work indeed[end if]! But hey! There's still a bit more. We're--well, even shorter of competent people like you to find stuff. There's just [4 - nfs in words] other big twenty-item task[if 4 - nfs > 1]s[end if] left to do, but--it'll be about the same challenge as what you already found.'";
 	bracket-say "if you wish to undo this specific task set, you can type I UNDID [spec-undo]. This will be in the A command, if you forget.";
 
 this is the stu-win rule:
@@ -610,18 +608,15 @@ this is the stu-win rule:
 	else if score < 15:
 		say "'Hm, well, that'll make Fourdiopolis cool enough for now. Maybe we can like do the rest AFTER the revolution. Guess we have to be practical.'";
 	else:
-		say "'Wow! That's a lot of cool hidden stuff we need more of[if score > 18]! Too much, if that were possible[end if]! That's what we stand for, and what we'll give to the people! Or at least try to! They'll love us! There's just one more thing--we can strike terror into the hearts of the shadow councillors that help run this city. Their names are closely protected--but we know the sectors they live in, and you're just the person to find their shadow campaign headquarters.'";
-		say "Congratulations! You've unlocked a final FINAL puzzle. You will be prompted to see if you'd like to go for it on restart. It's thirty, not twenty, and it's meant to be difficult can search out.[paragraph break]There's also a hidden command you can use at any time: type UNKINDNESS to get to the final bit.";
-		choose row 5 in table of accomplishments;
-		now solved entry is true;
-		write file of accomplishments from the table of accomplishments;
+		say "'Wow! That's a lot of cool hidden stuff we need more of[if score > 18]! Too much, if that were possible[end if]! That's what we stand for, and what we'll give to the people! Or at least try to! They'll love us! There's just one more thing--we can strike terror into the hearts of the shadow councilors that help run this city. Their names are closely protected--but we know the sectors they live in, and you're just the person to find their shadow campaign headquarters.'";
+		say "Congratulations! You've unlocked a final FINAL puzzle. You will be prompted to see if you'd like to go for it on restart. It's got thirty-five things, not twenty, and it's meant to be difficult to search through.[paragraph break]There's also a hidden command you can use at any time: type UNKINDNESS to get to the final bit.";
 
 this is the las-win rule:
 	if score is 0:
 		say "'Boo! Fink.' they chide you. But they know that with all the supplies ready, they don't need fearmongering anyway. Power to the people, well, hopefully.";
 	else if score  < 7:
-		say "'Well, it's a start. These people are hard to get at. But...we have enough momentum anyway. We hope.'";
-	else if score < 18:
+		say "'Well, it's a start. These people are hard to get at. But... we have enough momentum anyway. We hope.'";
+	else if score < (last-scen-rows + 1) / 2:
 		say "'A bit disappointing, but, well, they'll be exposed with time anyway. Maybe those who haven't gotten anything yet will be scared in their own way.'";
 	else if score < 23:
 		say "'A majority! [if score * 2 is last-scen-rows]Well, if we round up. [end if]Perhaps there is some hope that they can be scared to act before we have to. Hm, we might anyway. It'll be fun.'";
@@ -630,11 +625,12 @@ this is the las-win rule:
 	else if score < last-scen-rows:
 		say "'Impressive indeed! We're glad you're not on THEIR side. We'd have gotten a lot more threats now than we already have.'";
 	else:
-		say "'All of them? You're almost scaring us. Don't worry. Almost.'";
+		say "'All of them? We're almost scared you're a double agent, if you did that well. Don't worry. Almost.'";
 	if score * 2 >= last-scen-rows:
 		say "[paragraph break]You ask if you can come along for the uprisings, but they assure you your technical skills are far too valuable. You feel sort of ripped off, until you realize that means all-you-can-eat from the supplies you requisitioned earlier.";
-		continue the action;
-	the rule succeeds;
+	choose row with final response rule of epilogue rule in table of final question options;
+	blank out the whole row;
+	[no "rule succeeds" since it's the end either way]
 
 this is the gen-score-end-check rule:
 	if score is 0:
@@ -642,13 +638,16 @@ this is the gen-score-end-check rule:
 	else if score < 5:
 		say "A few people pat you on the back and say you at least brought people together, which is the most important thing. The compliments only go so far. You wish you could've done a bit more[despite-good].";
 	else if score < 10:
-		say "'Ambivalent whispering all around. Pretty good, they guess. But people have to be at the top of their game to inspire true change. Well, you got friends together, which is the important thing[if binary-solved > 1], and a bit more, besides. But it's not easy getting lost the right way[end if].";
+		say "Ambivalent whispering all around. Pretty good, they guess. But people have to be at the top of their game to inspire true change. Well, you got friends together, which is the important thing[if binary-solved > 1], and a bit more, besides. But it's not easy getting lost the right way[end if].";
 	else if score < 15:
 		say "Someone important-looking says 'Well, it'll do. Good job. But it wasn't a really ELITE run. Maybe find a few more things. Still, you deserve a break.'";
 	if score < 15:
 		now story-ended is true;
-		end the story saying "[if score > 9]Just[else]Find[end if] [15 - score in words] [if score > 0]more [end if]to open a new puzzle";
+		cue-more;
 		the rule succeeds;
+
+to cue-more:
+	end the story saying "[if score > 9]Just[else]Find[end if] [15 - score in words] [if score > 0]more [end if]to open a new puzzle";
 
 to say spec-undo:
 	if cur-scen is peo:
@@ -693,12 +692,22 @@ to end-win-with-undo:
 	now story-ended is true;
 	end the story finally saying "[msg]";
 
+to decide whether won-this-scen:
+	if cur-scen is not las:
+		if score > 14, yes;
+		no;
+	if score < (last-scen-rows + 1) / 2, no;
+	yes;
+
 to say msg:
 	if walk-short-1 is 817: [ "die" ]
 		say "Hope you enjoyed the silly death";
 		continue the action;
 	if lose-msg of cur-scen is not empty:
-		say "[if score > 14][win-msg of cur-scen][else][lose-msg of cur-scen][end if]";
+		if won-this-scen:
+			say "[win-msg of cur-scen]";
+		else:
+			say "[lose-msg of cur-scen]";
 		continue the action;
 	let q be mids-solved;
 	if q is 3:
@@ -1346,9 +1355,10 @@ when play begins (this is the check accomplishments at start rule) :
 			now solved entry is false;
 		wfak;
 	port-solvable;
-	let total-solved be 0;
-	repeat with SC running through scenarios:
-		if won of SC is true, increment total-solved;
+	pick-next-quest;
+
+to pick-next-quest:
+	let total-solved be number of finished scenarios;
 	if binary-solved is 0:
 		give-intro;
 		if debug-state is true:
@@ -1357,24 +1367,13 @@ when play begins (this is the check accomplishments at start rule) :
 		the rule succeeds;
 	else if binary-solved is 31:
 		now locom-chars is 1;
-		if debug-state is true:
-			say "[bold type]DEBUG: You've got all 5 areas solved, so to get to the 6th, type FO 6 then TEST 6W. You'll need to test the yes/no question manually.[roman type][line break]";
-		say "Wow! Hey! You haven't been caught yet! There is only one thing left to do. You must find the shadow councillors--you only have their addresses--and place the mark of the rebellion on their doors. Do you dare risk the intellectual turmoil therein?";
-		if debug-state is false and the player consents:
-			shift-scen LAS;
-			say "Ok. You have [number of rows in your-table] to find.";
-		else:
-			shift-scen STU;
-			say "Ok. You will get to try the cool stuff again.";
-		the rule succeeds;
+		say "Wow! Hey! You haven't been caught yet! There is only one thing left to do. You must find the shadow councilors--you only have their addresses--and place the mark of the rebellion on their doors. That is what you must do, unless you want to erase the data file and try again from the start.";
+		shift-scen LAS;
 	else if binary-solved is 15:
 		if debug-state is true:
 			say "[bold type]DEBUG: test 5w to get through the final bit. Erase fourdiop.glkdata to clear everything, or use WF to change the data file.[roman type][line break]";
 		say "Well, you've covered the practical stuff. It's time for the impractical stuff which, if you think about it, is practical in its own way, because the government is only about helping citizens with strictly practical stuff. They spend a lot of money each year to prove it, too.";
-		if all-else-solved:
-			shift-scen STU;
-			if debug-state is true:
-				say "[bold type]DEBUG: test 5w to get through.[roman type][line break]";
+		shift-scen STU;
 	else:
 		if total-solved is 1:
 			say "You brought everyone together, but without supplies, you can't do much but have a therapy session. Someone hands you some pills to stave off teleporter sickness, and you are told to pick one of three pieces of paper in front of you...";
@@ -1386,6 +1385,7 @@ when play begins (this is the check accomplishments at start rule) :
 			say "You feel exhausted, but if you dig deep, you could find the energy for one more round. You're handed one last paper, told (for good luck) not to turn it over until you've left.";
 			wfak;
 		midtable-choose;
+	if debug-state is true, say "WARP TEST COMMAND: [b]test [scidx of cur-scen]w[r].";
 
 to give-intro: [this is for the very start before everything is solved]
 	say "Threediopolis was quite a structural and engineering experiment, but it's so last century. There are more people than ever in the world! They need to be packed in further! And Fourdiopolis allows 90% more population density per square feet of land! Land it hasn't sunk into yet!";
@@ -1448,8 +1448,6 @@ to midtable-choose:
 		choose row Q in table of accomplishments;
 		let X be solved entry;
 	shift-scen entry Q of scenario-list;
-	if debug-state is true:
-		say "[bold type]DEBUG: [Q]: [objectives of cur-scen]. test [Q]w to get through.[roman type][line break]";
 
 volume change default verbs
 
