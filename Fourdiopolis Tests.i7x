@@ -89,7 +89,6 @@ carry out wf0ing:
 understand "wf [number]" as wfing.
 
 carry out wfing:
-	if number understood is bad-save-val, say "That's not a valid number to write to the save file. 0, odd #s from 1 to 15 inclusive, and 31 work. Type -1 for full explanations." instead;
 	if number understood is -4:
 		let bin-num be binary-solved;
 		if bin-num < 1 or bin-num > 14 or bin-num is bad-save-val, say "You need to have friends solved and not all the middle tables." instead;
@@ -97,22 +96,16 @@ carry out wfing:
 		the rule succeeds;
 	if number understood is -3, say "Current table: [your-table]." instead;
 	if number understood is -2:
-		repeat through table of accomplishments:
-			say "[solved entry].";
+		repeat with SC running through scenario-list:
+			say "[sc] [won of sc].";
 		the rule succeeds;
 	if number understood is -1, say "0=clear all,31=solve all[line break]1=solve friends only. 2=solve education 4=solve supplies 8=solve marginalized.[paragraph break]Misc values: -1 gives use, -2 shows solved entries, -3 shows current table." instead;
-	say "[bold type]NOTE: this writes to the file. The previous number was [binary-solved], if you wish to undo things.[roman type][line break]";
+	if number understood is bad-save-val, say "That's not a valid number to write to the save file. 0, odd #s from 1 to 15 inclusive, and 31 work. Type -1 for full explanations." instead;
 	let num-to-div be number understood;
 	let count be 0;
-	repeat through table of accomplishments:
-		increment count;
-		if the remainder after dividing num-to-div by 2 is 1:
-			now solved entry is true;
-		else:
-			now solved entry is false;
-		say "Row [count] is [solved entry] now.";
+	repeat with mysc running through scenario-list:
+		now won of mysc is whether or not remainder after dividing num-to-div by 2 is 1;
 		now num-to-div is num-to-div / 2;
-	write file of accomplishments from the table of accomplishments;
 	if number understood is 0:
 		shift-scen FRI;
 	else if number understood is 15:
@@ -147,7 +140,7 @@ carry out cxing:
 
 chapter saing
 
-[ * this shows accomplishments e.g. which tables you've solved]
+[ * this lists the scenarios you've solved]
 
 saing is an action out of world.
 

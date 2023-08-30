@@ -592,9 +592,8 @@ to say worry-undo of (tn - a table name):
 	if tn is your-table:
 		say "current";
 	else:
-		choose row j in table of accomplishments;
-		say "[if solved entry is true]past[else]future[end if]";
-	say " wrangling may be all for nought and can be wiped out just like that, as if you're part of some big silly game you only understand on the surface";
+		say "[if won of entry j in scenario-list is true]past[else]future[end if]";
+	say " wrangling may be all for naught and can be wiped out just like that, as if you're part of some big silly game you only understand on the surface";
 
 Fourdiopolis Tables ends here.
 

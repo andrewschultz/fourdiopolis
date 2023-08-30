@@ -16,7 +16,8 @@ when play begins:
 
 chapter foing
 
-[ * this forces you to read table # (X). 1=friends 2=education 3=supplies 4=marginalized 5=fun 6=last names. Negative values clear the table of accomplishments. ]
+[ * this forces you into scenario # (X). 1=friends 2=education 3=supplies 4=marginalized 5=fun 6=last names. Negative values clear that scenario. I do not rigorously check here for impossible game states. ]
+
 foing is an action applying to one number.
 
 foxing is an action applying to nothing.
@@ -32,13 +33,7 @@ understand "fo [number]" as foing.
 
 carry out foing:
 	let whichtable be the number understood;
-	if number understood < -6 or number understood > 6, say "1-6 please. 1=friends 2=education 3=supplies 4=marginalized 5=fun 6=last names. Or negative, to clear the table." instead;
-	if number understood < 0:
-		now whichtable is 0 - number understood;
-		repeat through table of accomplishments:
-			now solved entry is true;
-	else:
-		now whichtable is number understood;
+	if number understood < 0 or number understood > 6, say "1-6 please. 1=friends 2=education 3=supplies 4=marginalized 5=fun 6=last names. Or negative, to clear the table." instead;
 	if number understood is 0:
 		say "Choosing friends.";
 		shift-scen FRI;
@@ -48,7 +43,7 @@ carry out foing:
 		shift-scen tmp;
 	repeat through your-table:
 		now found entry is 0;
-	say "Your new table is [your-table]. You may wish to X to see the list again. Also, all 'found' entries are cleared.";
+	say "All found entries cleared for [cur-scen].";
 	the rule succeeds;
 
 chapter fiing

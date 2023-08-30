@@ -51,7 +51,7 @@ include Fourdiopolis Beta Testing by Andrew Schultz.
 
 section includes - not for release
 
-include Fourdiopolis Tests by Andrew Schultz. [commenting this out saves 0x1000 z-machine space while debugging]
+[include Fourdiopolis Tests by Andrew Schultz.] [commenting this out saves 0x1000 z-machine space while debugging]
 
 chapter stubs
 
@@ -60,15 +60,13 @@ to decide which table name is your-table:
 
 to shift-scen (sc - a scenario):
 	now cur-scen is sc;
+	now won of cur-scen is false;
 	now hidden-inside is true;
 	now locom-chars is 1;
 	if cur-scen is fri:
 		now locom-chars is 2;
 		now hidden-inside is false;
 	let cur-left be binary-solved;
-	repeat with SC2 running through scenarios:
-		now won of SC2 is whether or not the remainder after dividing cur-left by 2 is 1;
-		now cur-left is cur-left / 2;
 	repeat through your-table:
 		now found entry is 0;
 	now score is 0;
@@ -89,9 +87,9 @@ to debug-say (x - text):
 to show-accomp:
 	if debug-state is false, continue the action;
 	let count be 0;
-	repeat through table of accomplishments:
+	repeat with mysc running through scenarios:
 		increment count;
-		say "[count]: [solved entry][line break]";
+		say "[mysc]: [won of mysc][line break]";
 	say "Current table: [your-table].";
 
 section number-counting stubs
@@ -104,12 +102,16 @@ to decide whether (n - a number) is bad-save-val:
 	if the remainder after dividing n by 2 is 0, yes;
 	no;
 
+to bin-solve-it (nu - a number):
+	repeat with SC running through scenarios:
+		now won of SC is whether or not the remainder after dividing nu by 2 is 1;
+		now nu is nu / 2;
+
 to decide which number is binary-solved:
 	let additive be 1;
 	let total-sum be 0;
-	repeat through table of accomplishments:
-		if solved entry is true:
-			increase total-sum by additive;
+	repeat with SC running through scenarios:
+		increase total-sum by (boolval of won of sc);
 		now additive is additive * 2;
 	decide on total-sum;
 
@@ -562,10 +564,6 @@ check entering a quasi-entry:
 			do nothing instead;
 	if hideout is visible:
 		abide by the win-rule of cur-scen;
-		if cur-scen is not las:
-			choose row (scidx of cur-scen) in table of accomplishments;
-			now solved entry is true;
-			write file of accomplishments from the table of accomplishments;
 		end-win-with-undo;
 		the rule succeeds;
 	say "Oops, should've found something." instead;
@@ -587,7 +585,7 @@ this is the fri-win rule:
 		cue-more;
 		the rule succeeds;
 	say "'Good job! That's [if score < 18]enough to be promoted to a general runner[else if score is 20]perfect[else]even better than we hoped[end if]! There's...a few more task lists. We're short of people. Some get lost, and captured. Can you do a bit more?'";
-	bracket-say "You can RESTART and you'll have access to a new puzzle. There are five more--three chosen in random order, then a 'final' one, then an extra-difficult one. You can also type I DID I UNDID to reset your accomplishments and try this again. Or, if you lose your save file, I SEEK KEEN will jump over finding the friends.[paragraph break]But even if this was more than enough for you, getting through this list is an accomplishment. Go take some time to feel good about yourself. Fourdiopolis is not an easy game!";
+	bracket-say "You can RESTART and you'll have access to a new puzzle. There are five more--three chosen in random order, then a 'final' one, then an extra-difficult one. You can also type I DID I UNDID to reset everything and start back here again. Or, if you lose your save file, I SEEK KEEN will jump over finding the friends.[paragraph break]But even if this was more than enough for you, getting through this list is an accomplishment. Go take some time to feel good about yourself. Fourdiopolis is not an easy game!";
 
 definition: a scenario (called sc) is finished:
 	if sc is las, no;
@@ -723,12 +721,7 @@ to say tc of (num - a number):
 	say "[z in title case]";
 
 to decide which number is mids-solved:
-	let retval be 0;
-	repeat with tr running from 2 to 4:
-		choose row tr in table of accomplishments;
-		if solved entry is true:
-			increment retval;
-	decide on retval.
+	decide on (boolval of won of EDU) + (boolval of won of PEO) + (boolval of won of SUP);
 
 rule for deciding whether to allow undo:
 	if story-ended is true or just-level-warped is true:
@@ -881,8 +874,9 @@ to unkindness:
 	else:
 		say "Ok. Back to normal.";
 		continue the action;
-	repeat through table of accomplishments:
-		now solved entry is true;
+	repeat with X running through scenarios:
+		now won of X is true;
+	now won of LAS is false;
 	shift-scen LAS;
 
 chapter xyzzying
@@ -1117,15 +1111,9 @@ carry out aing:
 	if cur-scen is not fri:
 		say "[2da][b]I DID I UNDID[r] will kick you back to [if cur-scen is las]the cool stuff tasks[else if cur-scen is stu]the pod of three random task lists[else]finding friends[end if].";
 		if cur-scen is not las:
-			choose row 2 in table of accomplishments;
-			if solved entry is true:
-				say "[2da][b]I UNDID EDU[r] will un-do the education task set.";
-			choose row 3 in table of accomplishments;
-			if solved entry is true:
-				say "[2da][b]I UNDID JUNK[r] will un-do the supplies task set.";
-			choose row 4 in table of accomplishments;
-			if solved entry is true:
-				say "[2da][b]I UNDID NEWS[r] will un-do the marginalized people task set.";
+			if EDU is not finished, say "[2da][b]I UNDID EDU[r] will un-do the education task set.";
+			if SUP is not finished, say "[2da][b]I UNDID JUNK[r] will un-do the supplies task set.";
+			if PEO is not finished, say "[2da][b]I UNDID NEWS[r] will un-do the marginalized people task set.";
 	if beta-state is true:
 		say "Beta-testing commands:[line break]";
 		say "[b]FO (1-6)[r] to force one list of things to do. 1 = friends, 2 = education, 3 = supplies, 4 = marginalized people, 5 = fun stuff, 6 = the bad guys. It's recommended you restart before doing this.";
@@ -1155,8 +1143,7 @@ to seekkeen:
 	if cur-scen is not fri:
 		say "You already found the revolution's friends, so this isn't the way to skip forward any more[if cur-scen is not las] besides editing the save file, fourdiop, or fourdiop.glkdata, and setting variables to 1 (done) or 0 (not) as you want[end if].";
 		continue the action;
-	choose row 1 in table of accomplishments;
-	now solved entry is true;
+	bin-solve-it 1;
 	midtable-choose;
 	say "You're now in the [cur-midtable] task set. You may undo, if you want.";
 	now just-level-warped is true;
@@ -1170,20 +1157,15 @@ to didundid:
 		continue the action;
 	if cur-scen is stu: [reset to only having table of friends solved]
 		now count is 0;
-		repeat through table of accomplishments:
-			increment count;
-			if count is 1:
-				now solved entry is true;
-			else:
-				now solved entry is false;
+		bin-solve-it 1;
 		midtable-choose;
 		say "Now you are back to searching for [cur-midtable][scen-twaddle][extra-twiddle].";
 	else if cur-scen is las:
-		choose row 5 in table of accomplishments;
-		now solved entry is false;
+		bin-solve-it 15;
 		shift-scen STU;
 		say "Now you're back to the last official task, the random cool stuff[scen-twaddle][extra-twiddle].";
 	else:
+		bin-solve-it 0;
 		shift-scen FRI;
 		say "Now you are back to searching for friends, with no tasks done[scen-twaddle].";
 	if steps-so-far > 0:
@@ -1209,15 +1191,17 @@ to decide whether already-here:
 carry out undomiding:
 	if number understood > 4 or number understood < 2, say "Oops, this should never happen, but there's a bug in the [b]I UNDID[r] code. Email me at [email] if you can, to let me know [number understood] got passed." instead;
 	if binary-solved is 0 or binary-solved is 1, say "You don't have any of the three middle scenarios solved, so trying to reset them won't do much[if already-here], especially since you're on the one you're trying to reset[end if]." instead;
-	choose row number understood in table of accomplishments;
-	if solved entry is false, say "The [table-by-num of number understood] task set is already unsolved[if already-here], and in fact, it's the one you're currently on[end if]." instead;
-	now solved entry is false;
+	let mysc be entry (number understood) in scenario-list;
+	unless mysc is finished, say "The [table-by-num of number understood] task set is already unsolved[if already-here], and in fact, it's the one you're currently on[end if]." instead;
+	now won of mysc is false;
 	if cur-scen is las or cur-scen is stu:
-		choose row 5 in table of accomplishments;
-		if solved entry is true:
-			now solved entry is false;
-		midtable-choose;
-		say "Unsolving the [cur-midtable] task set and making it the current one. If you didn't mean to do this, you can [b]RESTART[r] or type [b]I SEEK KEEN[r].";
+		now won of las is false;
+		now won of stu is false;
+		let idx be a random number between 2 and 4;
+		let mysc be entry idx in scenario-list;
+		now won of mysc is false;
+		shift-scen mysc;
+		say "Unsolving the [mysc] task set and making it the current one. If you didn't mean to do this, you can type [b]I SEEK KEEN[r] or [b]UNDO[r].";
 	else:
 		say "Reverting the [table-by-num of number understood] task set to unsolved.";
 	now just-level-warped is true;
@@ -1237,9 +1221,9 @@ carry out domiding:
 	if number understood > 4 or number understood < 2, say "Oops, this should never happen, but there's a bug in the I UNDID code. Email me at [email] if you can, to let me know [number understood] got passed." instead;
 	if binary-solved is 0, say "You need to get past the friends task-list to try this." instead;
 	if binary-solved is 15 or binary-solved is 31, say "You're already clear of the three middle scenarios." instead;
-	choose row number understood in table of accomplishments;
-	if solved entry is true, say "The [table-by-num of number understood] task set is already solved." instead;
-	now solved entry is true;
+	let mysc be entry number understood in scenario-list;
+	if mysc is finished, say "But that scenario is already solved." instead;
+	now won of mysc is true;
 	let said-yet be false;
 	if cur-scen is entry (number understood) of scenario-list:
 		now said-yet is true;
@@ -1342,22 +1326,7 @@ when play begins (this is the set table defaults rule):
 
 scrange is a list of numbers that varies.
 
-chapter saved accomplishments
-
-the file of accomplishments is called "fourdiop".
-
-when play begins (this is the check accomplishments at start rule) :
-	if file of accomplishments exists:
-		read file of accomplishments into table of accomplishments;
-	else:
-		write file of accomplishments from the table of accomplishments;
-	if binary-solved is bad-save-val:
-		say "Oops! Something happened, and the save file appears to be corrupted. I'm resetting everything, though if you know the semi-secret commands, you can get back to where you were.";
-		repeat through table of accomplishments:
-			now solved entry is false;
-		wfak;
-	port-solvable;
-	pick-next-quest;
+chapter picking the next quest
 
 to pick-next-quest:
 	let total-solved be number of finished scenarios;
@@ -1404,19 +1373,6 @@ to give-intro: [this is for the very start before everything is solved]
 	say "[bold type]NOTE: to see commands for Fourdiopolis, type VERBS or VERB, or V for short.[roman type][paragraph break]";
 	wfak;
 
-to port-solvable:
-	repeat with J running from 1 to 5:
-		choose row J in table of accomplishments;
-		now won of (entry J in scenario-list) is solved entry;
-
-to decide whether all-else-solved:
-	let Q be 2;
-	while Q < number of rows in table of accomplishments:
-		choose row Q in table of accomplishments;
-		if solved entry is false, decide no;
-		increment Q;
-	decide yes;
-
 to check-silly-comments:
 	repeat through milestones of cur-scen:
 		if count entry is score:
@@ -1428,28 +1384,19 @@ to check-silly-comments:
 		now locom-chars is 1;
 		say "[line break][if ever-fast is true]You've already been munging directions together into one word, and there's no reason to stop[else]Now that you've got the hang of things, you can just munge directions together. Like DUDES instead of D, U, D, E, S[end if].";
 
-table of accomplishments
-solved
-false
-false
-false
-false
-false
+definition: a scenario (called sc) is mid-to-solve:
+	if sc is FRI or sc is STU or sc is LAS, no;
+	if won of sc is true, no;
+	yes
+
+to decide which number is mid-solved:
+	decide on number of mid-to-solve scenarios;
 
 to midtable-choose:
-	if all-else-solved:
+	if mid-solved is 3:
 		shift-scen STU;
-		the rule succeeds;
-	let Q be a random number between 2 and 4;
-	let Q2 be a random number between 1 and 2;
-	let X be true;
-	while X is true:
-		increase Q by Q2;
-		if Q > 4:
-			now Q is Q - 3;
-		choose row Q in table of accomplishments;
-		let X be solved entry;
-	shift-scen entry Q of scenario-list;
+	else:
+		shift-scen (random mid-to-solve scenario);
 
 volume change default verbs
 
