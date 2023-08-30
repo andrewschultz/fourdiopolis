@@ -51,7 +51,7 @@ include Fourdiopolis Beta Testing by Andrew Schultz.
 
 section includes - not for release
 
-[include Fourdiopolis Tests by Andrew Schultz.] [commenting this out saves 0x1000 z-machine space while debugging]
+include Fourdiopolis Tests by Andrew Schultz. [commenting this out saves 0x1000 z-machine space while debugging]
 
 chapter stubs
 
@@ -86,9 +86,7 @@ to debug-say (x - text):
 
 to show-accomp:
 	if debug-state is false, continue the action;
-	let count be 0;
 	repeat with mysc running through scenarios:
-		increment count;
 		say "[mysc]: [won of mysc][line break]";
 	say "Current table: [your-table].";
 
@@ -874,8 +872,7 @@ to unkindness:
 	else:
 		say "Ok. Back to normal.";
 		continue the action;
-	repeat with X running through scenarios:
-		now won of X is true;
+	bin-solve-it 31;
 	now won of LAS is false;
 	shift-scen LAS;
 
@@ -1035,15 +1032,15 @@ understand the command "r" as something new.
 understand "r" as ring.
 
 carry out ring:
-	let ncy be steps-so-far;
-	if ncy is 0, say "You're already at the center, and you haven't wandered since the last time you took a transporter." instead;
+	let steps-so-far be steps-so-far;
+	if steps-so-far is 0, say "You're already at the center, and you haven't wandered since the last time you took a transporter." instead;
 	if score < 2:
-		if ncy is 1, say "You only just left the center. You're a little worried that if you use the transporters TOO frequently, you might get tracked somehow. Maybe with a bit more experience and confidence, you can sneak back quickly." instead;
-		if ncy is 2, say "Maybe explore another block before hitting the transporters--you're not quite experienced or confident enough to do so yet. Using the transporters too frequently raises red flags." instead;
-	if ncy > 10:
+		if steps-so-far is 1, say "You only just left the center. You're a little worried that if you use the transporters TOO frequently, you might get tracked somehow. Maybe with a bit more experience and confidence, you can sneak back quickly." instead;
+		if steps-so-far is 2, say "Maybe explore another block before hitting the transporters--you're not quite experienced or confident enough to do so yet. Using the transporters too frequently raises red flags." instead;
+	if steps-so-far > 10:
 		say "Wow. Enough walking. Back to the center. Funny how the zap back rejuvenates you.";
 	else:
-		say "[entry ncy in return-msgs][paragraph break]";
+		say "[entry steps-so-far in return-msgs][paragraph break]";
 	if number of visible quasi-entries > 0 and hideout is not in outside-area and ominous door is not in outside-area:
 		say "You sure? There's a place you might wish to check.";
 		if the player consents:
