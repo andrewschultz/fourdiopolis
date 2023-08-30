@@ -404,7 +404,7 @@ to say whisky-wine:
 table of scenery 9 [tosc9]
 tally (text)	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
 "iseekkeen"	10926	14556	1	--	"[seek-track]."	--	-1
-"iundidedu"	11270	11413	5	--	"[worry-undo of table of edu finds]."	--	-1
+"iundidedu"	11270	11413	5	--	"[worry-undo of EDU]."	--	-1
 "jeskiddin"	12374	11448	1	--	"Someone walks by and notifies you this is a Level 17 restricted area. You quickly hide your to-do list, before they point and laugh that they got you GOOD, and the grocery store's THAT way."	--	0
 "seediness"	3064	10804	2	--	"This area doesn't feel too posh. You don't know why, but it doesn't."	--	0
 "skunkweed"	3928	13830	6	--	"It smells bad here, like it should be illegal."	--	0
@@ -413,8 +413,8 @@ tally (text)	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
 
 table of scenery 10 [tosc10]
 tally (text)	hash1	hash2	hash3	descrip (text)	foundit (text)	what-drops	found
-"iundidjunk"	11270	11478	21	--	"[worry-undo of table of sup finds]."	--	-1
-"iundidnews"	11270	11388	46	--	"[worry-undo of table of peo finds]."	--	-1
+"iundidjunk"	11270	11478	21	--	"[worry-undo of SUP]."	--	-1
+"iundidnews"	11270	11388	46	--	"[worry-undo of PEO]."	--	-1
 "skinniness"	3961	2313	24	--	"You are momentarily bombarded with ads for diet plans."	--	0
 
 volume very random indeed
@@ -582,17 +582,12 @@ to say snee:
 to say bnb:
 	say "Two fellows in a park, sitting on a couch, commenting stupidly at music videos on an old-school television. What is society coming to? Hah, you said..."
 
-to say worry-undo of (tn - a table name):
-	let j be 2;
-	if tn is table of sup finds:
-		now j is 3;
-	else if tn is table of peo finds:
-		now j is 4;
+to say worry-undo of (sc - a scenario):
 	say "You feel a sudden fear your ";
-	if tn is your-table:
+	if sc is cur-scen:
 		say "current";
 	else:
-		say "[if won of entry j in scenario-list is true]past[else]future[end if]";
+		say "[if won of sc is true]past[else]future[end if]";
 	say " wrangling may be all for naught and can be wiped out just like that, as if you're part of some big silly game you only understand on the surface";
 
 Fourdiopolis Tables ends here.
